@@ -1,0 +1,1 @@
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->![default_tilemap_image.png](default_tilemap_image.png)
