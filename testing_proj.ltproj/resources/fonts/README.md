@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![bconvo.png](bconvo.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![bconvo.png](bconvo.png)
 ![chapter.png](chapter.png)
 ![class.png](class.png)
 ![convo.png](convo.png)

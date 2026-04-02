@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![loading_screen_sprites_0.png](loading_screen_sprites_0.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![loading_screen_sprites_0.png](loading_screen_sprites_0.png)
 ![loading_screen_sprites_1.png](loading_screen_sprites_1.png)
 ![loading_screen_sprites_10.png](loading_screen_sprites_10.png)
 ![loading_screen_sprites_100.png](loading_screen_sprites_100.png)

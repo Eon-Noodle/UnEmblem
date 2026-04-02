@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![autoassign.png](autoassign.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![autoassign.png](autoassign.png)
 ![back.png](back.png)
 ![brush.png](brush.png)
 ![clipboard.png](clipboard.png)

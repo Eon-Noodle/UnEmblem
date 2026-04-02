@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![BlackTemple.png](BlackTemple.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![BlackTemple.png](BlackTemple.png)
 ![Castle.png](Castle.png)
 ![Castle2.png](Castle2.png)
 ![Castle3.png](Castle3.png)

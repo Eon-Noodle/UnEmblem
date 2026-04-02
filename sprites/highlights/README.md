@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![boundary_blue.png](boundary_blue.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![boundary_blue.png](boundary_blue.png)
 ![boundary_green.png](boundary_green.png)
 ![boundary_purple.png](boundary_purple.png)
 ![boundary_red.png](boundary_red.png)

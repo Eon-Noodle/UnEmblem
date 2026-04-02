@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![demo.gif](demo.gif)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![demo.gif](demo.gif)
 ![Overworld1.png](Overworld1.png)
 ![Overworld2.png](Overworld2.png)
 ![Overworld3.png](Overworld3.png)

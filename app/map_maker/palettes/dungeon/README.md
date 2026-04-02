@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![column.png](column.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![column.png](column.png)
 ![floor1.png](floor1.png)
 ![floor1_shading.png](floor1_shading.png)
 ![floor2.png](floor2.png)

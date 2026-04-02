@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![ChestRegion.png](ChestRegion.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![ChestRegion.png](ChestRegion.png)
 ![ChestRegionEvent.png](ChestRegionEvent.png)
 ![DebugOption.png](DebugOption.png)
 ![DebugScreen.png](DebugScreen.png)

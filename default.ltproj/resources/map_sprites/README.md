@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Arch_Mogall-move.png](Arch_Mogall-move.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Arch_Mogall-move.png](Arch_Mogall-move.png)
 ![Arch_Mogall-stand.png](Arch_Mogall-stand.png)
 ![Archer-move.png](Archer-move.png)
 ![Archer-stand.png](Archer-stand.png)

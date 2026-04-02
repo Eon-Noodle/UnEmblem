@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Berserker.png](Berserker.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Berserker.png](Berserker.png)
 ![Generic_Portrait_Arch_Mogall.png](Generic_Portrait_Arch_Mogall.png)
 ![Generic_Portrait_Archer.png](Generic_Portrait_Archer.png)
 ![Generic_Portrait_Assassin.png](Generic_Portrait_Assassin.png)

@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![bridge_h.png](bridge_h.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![bridge_h.png](bridge_h.png)
 ![bridge_v.png](bridge_v.png)
 ![castle.png](castle.png)
 ![cliff.png](cliff.png)

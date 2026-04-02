@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![BlankEmblem.png](BlankEmblem.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![BlankEmblem.png](BlankEmblem.png)
 ![ContenderEmblem.png](ContenderEmblem.png)
 ![GangsterEmblem.png](GangsterEmblem.png)
 ![MonsterEmblem.png](MonsterEmblem.png)

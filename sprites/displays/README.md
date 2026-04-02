@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![arrow_advantage.png](arrow_advantage.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![arrow_advantage.png](arrow_advantage.png)
 ![assist_info_blue.png](assist_info_blue.png)
 ![assist_info_crit_blue.png](assist_info_crit_blue.png)
 ![assist_info_crit_purple.png](assist_info_crit_purple.png)

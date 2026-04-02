@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![AffinityEditor.png](AffinityEditor.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![AffinityEditor.png](AffinityEditor.png)
 ![constants-editor.png](constants-editor.png)
 ![DatabaseEditors.png](DatabaseEditors.png)
 ![Enemy3.png](Enemy3.png)

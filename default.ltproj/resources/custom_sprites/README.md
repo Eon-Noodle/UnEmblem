@@ -1,1 +1,2 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![logo.png](logo.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![logo.png](logo.png)

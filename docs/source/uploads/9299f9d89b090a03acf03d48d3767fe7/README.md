@@ -1,1 +1,2 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![skill.gif](skill.gif)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![skill.gif](skill.gif)

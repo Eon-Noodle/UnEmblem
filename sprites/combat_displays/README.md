@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![combat_gem_blue.png](combat_gem_blue.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![combat_gem_blue.png](combat_gem_blue.png)
 ![combat_gem_green.png](combat_gem_green.png)
 ![combat_gem_purple.png](combat_gem_purple.png)
 ![combat_gem_red.png](combat_gem_red.png)

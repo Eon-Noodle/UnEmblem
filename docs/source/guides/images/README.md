@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![anna_takeover.png](anna_takeover.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![anna_takeover.png](anna_takeover.png)
 ![anna_takeover_2.png](anna_takeover_2.png)
 ![ArenaAttributes.png](ArenaAttributes.png)
 ![ArenaCombat.png](ArenaCombat.png)

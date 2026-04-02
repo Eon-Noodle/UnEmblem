@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![BanditEmblem.png](BanditEmblem.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![BanditEmblem.png](BanditEmblem.png)
 ![BlankEmblem.png](BlankEmblem.png)
 ![ConfederacyEmblem.png](ConfederacyEmblem.png)
 ![EmpireEmblem.png](EmpireEmblem.png)

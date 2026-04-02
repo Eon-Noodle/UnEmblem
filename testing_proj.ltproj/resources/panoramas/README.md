@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Arena.png](Arena.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Arena.png](Arena.png)
 ![Bedroom.png](Bedroom.png)
 ![BlackBackground.png](BlackBackground.png)
 ![CastleRuins.png](CastleRuins.png)

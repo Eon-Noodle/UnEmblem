@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![turnbanner_enemy2_blue.png](turnbanner_enemy2_blue.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![turnbanner_enemy2_blue.png](turnbanner_enemy2_blue.png)
 ![turnbanner_enemy2_green.png](turnbanner_enemy2_green.png)
 ![turnbanner_enemy2_purple.png](turnbanner_enemy2_purple.png)
 ![turnbanner_enemy2_red.png](turnbanner_enemy2_red.png)

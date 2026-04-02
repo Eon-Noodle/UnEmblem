@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Affinity.png](Affinity.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Affinity.png](Affinity.png)
 ![Anima.png](Anima.png)
 ![Axe.png](Axe.png)
 ![Boosters.png](Boosters.png)

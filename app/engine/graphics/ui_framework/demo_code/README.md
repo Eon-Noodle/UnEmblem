@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![affinity_lightning.png](affinity_lightning.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![affinity_lightning.png](affinity_lightning.png)
 ![axe.png](axe.png)
 ![fort.png](fort.png)
 ![magvel_demo.png](magvel_demo.png)

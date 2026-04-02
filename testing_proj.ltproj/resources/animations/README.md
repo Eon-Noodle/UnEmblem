@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![AOE_Blizzard.png](AOE_Blizzard.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![AOE_Blizzard.png](AOE_Blizzard.png)
 ![AOE_Fireball.png](AOE_Fireball.png)
 ![AOE_Mend.png](AOE_Mend.png)
 ![AOE_Meteor.png](AOE_Meteor.png)

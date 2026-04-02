@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![CorrectBlinkOffset.png](CorrectBlinkOffset.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![CorrectBlinkOffset.png](CorrectBlinkOffset.png)
 ![Format.png](Format.png)
 ![FormatImported.png](FormatImported.png)
 ![FormatImportedInEditor.png](FormatImportedInEditor.png)
