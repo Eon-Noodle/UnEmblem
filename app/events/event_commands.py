@@ -3759,6 +3759,25 @@ Example: change_team_palette;player;map_sprite_green;GenericGreen;green
     optional_keywords = ['MapSpritePalette', 'CombatVariantPalette', 'CombatColor']
     keyword_types = ['Team', 'Palette', 'String', 'String']
 
+class MuteMusic(EventCommand):
+    nid = 'mute_music'
+    tag = Tags.MUSIC_SOUND
+
+    desc = \
+        """
+Set music volume to 0 for this game/save file. Disable editing music volume in Options > Config menu.
+        """
+
+class UnmuteMusic(EventCommand):
+    nid = 'unmute_music'
+    tag = Tags.MUSIC_SOUND
+
+    desc = \
+        """
+Undo what `mute_music` command did.
+        """
+
+
 def get_commands():
     return EventCommand.__subclasses__()
 

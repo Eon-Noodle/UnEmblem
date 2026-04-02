@@ -699,7 +699,7 @@ class Chapter(Validator):
         return valids
 
 class FogOfWarType(OptionValidator):
-    valid = ['gba', 'thracia', 'hybrid']
+    valid = ['gba', 'thracia', 'hybrid', 'fancy', 'fancy_thracia']
 
 class ShakeType(OptionValidator):
     valid = ['default', 'combat', 'kill', 'random', 'celeste']

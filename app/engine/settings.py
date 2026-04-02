@@ -61,7 +61,13 @@ class SettingsMenuState(State):
         self.controls_menu = settings_menu.Controls(None, control_options, 'menu_bg_base', control_icons)
         self.controls_menu.takes_input = False
 
-        config_options = [(c[0], c[1]) for c in config]
+        ignores = ['animation']
+        if game.game_vars.get('silent'):
+            ignores.append('music_volume')
+        if game.game_vars.get('no_objective'):
+            ignores.append('show_objective')
+
+        config_options = [(c[0], c[1]) for c in config if c[0] not in ignores]
         self.config_menu = settings_menu.Config(None, config_options, 'menu_bg_base', config_icons)
         self.config_menu.takes_input = False
 
@@ -204,7 +210,7 @@ class SettingsMenuState(State):
         game.state.change('transition_pop')
 
     def update_sound(self):
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'] if not game.game_vars.get('silent') else 0)
         get_sound_thread().set_sfx_volume(cf.SETTINGS['sound_volume'])
 
     def update(self):
@@ -236,8 +242,7 @@ class SettingsMenuState(State):
         elif self.state == 'top_menu_left':
             text = 'controls_desc'
         elif self.state == 'config':
-            idx = self.config_menu.get_current_index()
-            text = config[idx][0] + '_desc'
+            text = self.config_menu.get_current_option().name + '_desc'
         elif self.state == 'get_input':
             text = 'get_input_desc'
         else:

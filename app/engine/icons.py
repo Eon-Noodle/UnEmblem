@@ -241,6 +241,7 @@ def draw_growth(surf, stat_nid, unit, topright, compact=False):
         pass
     else:
         FONT['text-blue'].blit_right(str(value), surf, topright)
+        FONT['text-blue'].blit('%', surf, topright)
         if bonus > 0:
             FONT['small-green'].blit("+%d" % bonus, surf, topright)
         elif bonus < 0:

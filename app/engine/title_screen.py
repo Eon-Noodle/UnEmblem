@@ -29,6 +29,155 @@ from app.utilities import utils
 
 import logging
 
+def create_hint_surf():       
+    sprite = SPRITES.get('buttons')
+    sprites_rect = {
+        'SELECT':   (0,  66, 14, 13),
+        'BACK':     (0,  82, 14, 13),
+        'AUX':      (1, 133, 16,  9),
+        'INFO':     (1, 149, 16,  9),
+        'START':    (0, 165, 33,  9),
+        'MOVE':     (0, 196, 17, 17)
+    }
+    hints = ['Move', 'Select', 'Back']
+    font_name = 'text'
+    dimension = (text_funcs.get_max_width(font_name, hints) + 20,
+                 len(hints) * 16)
+    surf = engine.create_surface(dimension, transparent=True)
+
+    for idx, hint in enumerate(hints):
+        button = engine.subsurface(sprite, sprites_rect.get(hint.upper()))
+        engine.blit_center(surf, button, (8, 8 + idx*16))
+        FONT[font_name].blit(hint, surf, (18, idx*16))
+    return surf
+
+class Logo():
+    def __init__(self, texture: engine.Surface, center=(WINWIDTH//2, WINHEIGHT//2 - 20), speed=400, buffer_time=400):
+        self.texture = texture
+        self.speed = speed
+        self.center = center
+        self.init_time = engine.get_time() + buffer_time
+        self.draw_image = self.texture
+        self.state = 'intro'
+
+    def update(self):
+        self.draw_image = engine.create_surface((WINWIDTH, WINHEIGHT), transparent=True)
+        diff = max(engine.get_time() - self.init_time, 0)
+
+        if self.state == 'intro':
+            if diff > self.speed:
+                self.state = 'pulsating'
+                get_sound_thread().play_sfx('Thunder')
+                engine.blit_center(self.draw_image, self.texture, self.center)
+                return
+
+            x, y = self.center
+            width, height = self.texture.get_size()
+            upper = engine.subsurface(self.texture, (0, 0, width, height//2))
+            lower = engine.subsurface(self.texture, (0, height//2, width, height//2))
+            distance = max(1.0 - (diff / self.speed) ** 2, 0) * WINHEIGHT
+
+            self.draw_image.blit(upper, (x - width//2, y - distance - height//2))
+            self.draw_image.blit(lower, (x - width//2, y + distance))
+
+        elif self.state == 'pulsating':
+            if diff > self.speed + 400:
+                import math
+                scale = 1500
+                n = 13
+                t = diff / scale
+
+                mag = abs(sum([n/2**(k-1) * math.sin(n*k*(t+k)) for k in range(1, 4)])) / 80 + 1.0
+                im = engine.transform_scale(self.texture, utils.tmult(self.texture.get_size(), mag))
+            else:
+                im = self.texture
+
+            engine.blit_center(self.draw_image, im, self.center)
+
+    def draw(self, surf):
+        surf.blit(self.draw_image, (0,0))
+
+class KeymapGuideState(State):
+    name = "keymap_guide"
+    in_level = False
+    show_map = False
+
+    def _draw_keymap(self, surf):
+        from app.engine.game_menus.menu_components.generic_menu.simple_menu_wrapper import SimpleMenuUI
+
+        keymap = []
+        movement_keys = {}
+        correction_dict = {
+            'RETURN': 'ENTER'
+        }
+        sprite = SPRITES.get('buttons')
+        sprites_rect = {
+            'SELECT':   (0,  66, 14, 13),
+            'BACK':     (0,  82, 14, 13),
+            'AUX':      (1, 133, 16,  9),
+            'INFO':     (1, 149, 16,  9),
+            'START':    (0, 165, 33,  9),
+            'MOVE':     (0, 196, 17, 17)
+        }
+        for k, v in cf.SETTINGS.items():
+            tokens = k.split('_')
+            if tokens[0] != 'key':
+                continue
+
+            key = tokens[1]
+            button = engine.get_key_name(v).upper()
+            if key in ('UP', 'LEFT', 'DOWN', 'RIGHT'):
+                movement_keys[key] = button
+            else:
+                if rect := sprites_rect.get(key):
+                    engine.blit_center(surf, engine.subsurface(sprite, rect), (20, 34 + len(keymap)*8))
+                keymap += ['        <yellow>%s</>' % key.lower().capitalize(),
+                           'Press <blue>%s</>' % correction_dict.get(button, button)]
+
+        engine.blit_center(surf, engine.subsurface(sprite, sprites_rect.get('MOVE')), (20, 34 + len(keymap)*8))
+        keymap += ['        <yellow>Move</>',
+                   'Press <blue>%s</>' % ''.join(movement_keys[k] for k in ('UP', 'LEFT', 'DOWN', 'RIGHT'))]
+
+        table = SimpleMenuUI(keymap, title='CONTROL GUIDE', rows=6, cols=2, row_width=120, bg='')
+        table.draw(surf)
+
+    def _draw_tip(self, surf):
+        import random
+        from app.engine.graphics.text.text_renderer import render_text
+
+        count = RECORDS.get('loading_count')
+        if count is None:
+            count = 0
+            RECORDS.create('loading_count', count)
+        else:
+            count += 1
+            RECORDS.update('loading_count', count)
+
+        key = 'startup_msg_%d' % count
+        if key in DB.translations:
+            tip = text_funcs.translate(key)
+        else:
+            options = [v.text for k, v in DB.translations.items() if k.startswith('tip_msg')]
+            tip = 'Tip: %s' % random.choice(options) if options else ''
+
+        render_text(surf, ['text'], [tip], ['white'], (10, 132))
+
+    def start(self):
+        self.surf = engine.create_surface((WINWIDTH, WINHEIGHT), transparent=True)
+        self._draw_keymap(self.surf)
+        self._draw_tip(self.surf)
+
+    def take_input(self, event):
+        if event:
+            get_sound_thread().play_sfx('Select 1')
+            game.memory['next_state'] = 'title_start'
+            game.memory['transition_speed'] = 4
+            game.state.change('transition_to')
+
+    def draw(self, surf):
+        surf.blit(self.surf, (0,0))
+        return surf
+
 class TitleStartState(State):
     name = "title_start"
     in_level = False
@@ -46,17 +195,14 @@ class TitleStartState(State):
             self.press_start = None
 
         if logo:
-            num_frames = 1
-            speed = 64
-            height = utils.clamp(WINHEIGHT//2 - 40, logo.get_height()//2, WINHEIGHT//2)
-            self.logo = gui.Logo(logo, (WINWIDTH//2, height), num_frames, speed)
+            self.logo = Logo(logo)
         else:
             self.logo = None
 
         self.particles = None
         if DB.constants.value('title_particles'):
-            bounds = (-WINHEIGHT, WINWIDTH, WINHEIGHT, WINHEIGHT + 16)
-            self.particles = particles.MapParticleSystem('title', particles.Smoke, .075, bounds, (TILEX, TILEY))
+            bounds = (0, WINWIDTH - 64, 0, WINHEIGHT - 64)
+            self.particles = particles.MapParticleSystem('title', particles.PaintDrop, .001, bounds, (64, 64))
             self.particles.prefill()
         game.memory['title_particles'] = self.particles
         game.memory['transition_speed'] = 0.5
@@ -129,6 +275,7 @@ class TitleMainState(State):
 
     menu = None
     bg = None
+    hint_surf = None
 
     def start(self):
         save.check_save_slots()
@@ -161,6 +308,10 @@ class TitleMainState(State):
         return 'repeat'
 
     def begin(self):
+        if not cf.SETTINGS['display_hints']:
+            self.hint_surf = None
+        elif self.hint_surf is None:
+            self.hint_surf = create_hint_surf()
         self.fluid.reset_on_change_state()
 
     def take_input(self, event):
@@ -272,6 +423,8 @@ class TitleMainState(State):
             self.particles.draw(surf)
         if self.menu:
             self.menu.draw(surf, center=(self.position_x, WINHEIGHT//2), show_cursor=(self.state == 'normal'))
+        if self.hint_surf:
+            surf.blit(self.hint_surf, (5, WINHEIGHT - self.hint_surf.get_height() - 3))
 
         bb = image_mods.make_translucent(self.background, self.transition/100.)
         surf.blit(bb, (0, 0))
@@ -461,6 +614,7 @@ class TitleLoadState(State):
 
     menu = None
     bg = None
+    hint_surf = None
 
     def get_slots(self):
         return save.SAVE_SLOTS
@@ -481,6 +635,10 @@ class TitleLoadState(State):
         self.menu.move_to(most_recent)
 
     def begin(self):
+        if not cf.SETTINGS['display_hints']:
+            self.hint_surf = None
+        elif self.hint_surf is None:
+            self.hint_surf = create_hint_surf()
         self.fluid.reset_on_change_state()
 
     def take_input(self, event):
@@ -557,6 +715,8 @@ class TitleLoadState(State):
             self.particles.draw(surf)
         if self.menu:
             self.menu.draw(surf, center=(self.position_x, WINHEIGHT//2))
+        if self.hint_surf:
+            surf.blit(self.hint_surf, (5, WINHEIGHT - self.hint_surf.get_height() - 3))
         return surf
 
 class TitleRestartState(TitleLoadState):
@@ -903,8 +1063,8 @@ class TitleSaveState(State):
 
         self.particles = None
         if DB.constants.value('title_particles'):
-            bounds = (-WINHEIGHT, WINWIDTH, WINHEIGHT, WINHEIGHT + 16)
-            self.particles = particles.MapParticleSystem('title', particles.Smoke, .075, bounds, (TILEX, TILEY))
+            bounds = (0, WINWIDTH - 64, 0, WINHEIGHT - 64)
+            self.particles = particles.MapParticleSystem('title', particles.PaintDrop, .001, bounds, (64, 64))
             self.particles.prefill()
         game.memory['title_particles'] = self.particles
 

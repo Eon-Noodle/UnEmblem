@@ -1,0 +1,52 @@
+[
+    {
+        "nid": "UMA_Junior",
+        "name": "UMA Junior",
+        "desc": "Subordinates of UMA. Hostile against human.",
+        "icon_nid": "UMAEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Alien",
+        "name": "Alien",
+        "desc": "Extraterrestrial monsters inhabiting the vacuum space.",
+        "icon_nid": "MonsterEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Gangster",
+        "name": "Gangster",
+        "desc": "Grunts from a criminal organisation. Incredibly ruthless.",
+        "icon_nid": "GangsterEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Contender",
+        "name": "Contender",
+        "desc": "Participants of a martial art tournament.",
+        "icon_nid": "ContenderEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Union_Guard",
+        "name": "Union Guard",
+        "desc": "Combat division of the Union.",
+        "icon_nid": "BlankEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    }
+]

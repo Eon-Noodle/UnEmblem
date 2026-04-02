@@ -127,7 +127,7 @@ def create_new(window):
             standing_pix = QPixmap(fn)
             nid = str_utils.get_next_name(nid, [d.nid for d in RESOURCES.map_sprites])
             stand_full_path = fn
-            if standing_pix.width() == 192 and standing_pix.height() == 144:
+            if standing_pix.width() == 192 and standing_pix.height() >= 144:
                 lion_throne_mode = True
             elif 16 <= standing_pix.width() <= 64 and 48 <= standing_pix.height() <= 144 and standing_pix.height() % 3 == 0:  # Try for GBA mode
                 lion_throne_mode = False
@@ -150,7 +150,7 @@ def create_new(window):
             moving_pix = QPixmap(fn)
             move_full_path = fn
             if lion_throne_mode:
-                if moving_pix.width() == 192 and moving_pix.height() == 160:
+                if moving_pix.width() == 192 and moving_pix.height() >= 160:
                     pass
                 else:
                     QMessageBox.critical(window, "Error", "Moving Map Sprite is not correct size for Legacy import (192x160 px)")

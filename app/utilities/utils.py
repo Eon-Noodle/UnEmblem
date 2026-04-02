@@ -6,7 +6,7 @@ import itertools
 import math
 import sys
 from collections import Counter
-from operator import add, sub
+from operator import add, sub, mul
 from typing import Any, Collection, Iterable, List, Optional, Tuple
 
 from app.utilities.typing import Point, Pos
@@ -105,6 +105,9 @@ def tuple_add(a: Tuple[float, ...], *b: Tuple[float, ...]) -> Tuple[float, ...]:
     for next_tup in b:
         accum = tuple(map(add, accum, next_tup))
     return accum
+
+def tuple_mul(a: Tuple[float, ...], b: Tuple[float, ...]) -> Tuple[float, ...]:
+    return tuple(map(mul, a, b))
 
 def magnitude(a: Tuple[float, ...]) -> float:
     return math.sqrt(a[0] * a[0] + a[1] * a[1])

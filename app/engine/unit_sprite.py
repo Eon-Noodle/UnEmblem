@@ -67,32 +67,38 @@ class MapSprite():
         stand, move = self.convert_to_team_colors(map_sprite)
         engine.set_colorkey(stand, COLORKEY, rleaccel=True)
         engine.set_colorkey(move, COLORKEY, rleaccel=True)
-        passive_frames = [engine.subsurface(stand, (num*64, 0, 64, 48)) for num in range(3)]
+
+        height = stand.get_height() // 3
+        passive_frames = [engine.subsurface(stand, (num*64, 0, 64, height)) for num in range(3)]
         self.passive = SingleMapSprite.create_looping_sprite(passive_frames, ANIMATION_COUNTERS.passive_sprite_counter)
         if DB.constants.value('autogenerate_grey_map_sprites'):
-            gray_frames = [engine.subsurface(stand, (num*64, 0, 64, 48)) for num in range(3)]
+            gray_frames = [engine.subsurface(stand, (num*64, 0, 64, height)) for num in range(3)]
             self.gray = SingleMapSprite.create_looping_sprite(self.create_gray(gray_frames), ANIMATION_COUNTERS.passive_sprite_counter)
         else:
-            gray_frames = [engine.subsurface(stand, (num*64, 48, 64, 48)) for num in range(3)]
+            gray_frames = [engine.subsurface(stand, (num*64, height, 64, height)) for num in range(3)]
             self.gray = SingleMapSprite.create_looping_sprite(gray_frames, ANIMATION_COUNTERS.passive_sprite_counter)
 
-        down_frames = [engine.subsurface(move, (num*48, 0, 48, 40)) for num in range(4)]
-        self.down = SingleMapSprite.create_looping_sprite(down_frames, ANIMATION_COUNTERS.move_sprite_counter)
-        self.down_stand = SingleMapSprite.create_anim_sprite([self.down.get_stationary_frame()], [22])
-        left_frames = [engine.subsurface(move, (num*48, 40, 48, 40)) for num in range(4)]
-        self.left = SingleMapSprite.create_looping_sprite(left_frames, ANIMATION_COUNTERS.move_sprite_counter)
-        self.left_stand = SingleMapSprite.create_anim_sprite([self.left.get_stationary_frame()], [22])
-        right_frames = [engine.subsurface(move, (num*48, 80, 48, 40)) for num in range(4)]
-        self.right = SingleMapSprite.create_looping_sprite(right_frames, ANIMATION_COUNTERS.move_sprite_counter)
-        self.right_stand = SingleMapSprite.create_anim_sprite([self.right.get_stationary_frame()], [22])
-        up_frames = [engine.subsurface(move, (num*48, 120, 48, 40)) for num in range(4)]
-        self.up = SingleMapSprite.create_looping_sprite(up_frames, ANIMATION_COUNTERS.move_sprite_counter)
-        self.up_stand = SingleMapSprite.create_anim_sprite([self.up.get_stationary_frame()], [22])
-
-        active_frames = [engine.subsurface(stand, (num*64, 96, 64, 48)) for num in range(3)]
+        active_frames = [engine.subsurface(stand, (num*64, height*2, 64, height)) for num in range(3)]
         self.active = SingleMapSprite.create_looping_sprite(active_frames, ANIMATION_COUNTERS.active_sprite_counter)
         self.start_cast = SingleMapSprite.create_anim_sprite(active_frames, [22, 4, 22])
         self.end_cast = SingleMapSprite.create_anim_sprite([frame for frame in reversed(active_frames)], [22, 4, 22])
+
+        def _create_moving_sprites(row):
+            width = move.get_width() // 4
+            height = move.get_height() // 4
+            frames = []
+            for col in range(4):
+                frame = engine.create_surface((width, height+8), transparent=True)
+                frame.blit(engine.subsurface(move, (width*col, height*row, width, height)), (0, 0))
+                frames.append(frame)
+            loops = SingleMapSprite.create_looping_sprite(frames, ANIMATION_COUNTERS.move_sprite_counter)
+            stand = SingleMapSprite.create_anim_sprite([loops.get_stationary_frame()], [22])
+            return loops, stand
+
+        self.down, self.down_stand = _create_moving_sprites(0)
+        self.left, self.left_stand = _create_moving_sprites(1)
+        self.right, self.right_stand = _create_moving_sprites(2)
+        self.up, self.up_stand = _create_moving_sprites(3)
 
     def _get_team_palette(self):
         palette_nid = self.palette_override
@@ -650,7 +656,7 @@ class UnitSprite():
 
         # Each image has (self.image.get_width() - 32)//2 pixels on the
         # left and right of it, to handle any off tile spriting
-        topleft = left - max(0, (image.get_width() - 16)//2), top - 24
+        topleft = left - max(0, (image.get_width() - 16)//2), top - image.get_height() + 24
 
         if DB.constants.value('pairup') and self.unit.traveler:
             partner = game.get_unit(self.unit.traveler)

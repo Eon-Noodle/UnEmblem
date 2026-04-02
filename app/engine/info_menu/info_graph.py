@@ -10,7 +10,7 @@ from app.engine.dialog import DialogState
 from app.engine.graphics.text.text_renderer import render_text
 from app.utilities.enums import HAlignment
 
-info_states = ('personal_data', 'equipment', 'support_skills', 'notes')
+info_states = ('personal_data', 'equipment', 'skills', 'supports', 'notes')
 
 @dataclass
 class BoundingBox():
@@ -223,3 +223,10 @@ class InfoGraph():
                     else:
                         pos = (pos[0] + self.current_bb.help_box.get_width() - 16, pos[1] - 4)
                     render_text(surf, ['small-yellow'], ['%d/%d' % (self.current_bb._page + 1, len(self.current_bb._help_box))], [], pos, HAlignment.RIGHT)
+
+    def is_multiple_pages(self) -> bool:
+        if self.current_bb and \
+            self.current_bb.is_multiple() and \
+            len(self.current_bb._help_box) > 1:
+                return True
+        return False

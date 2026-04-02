@@ -397,6 +397,40 @@ class PurpleMote(Particle):
         sprite = image_mods.make_translucent_blend(self.sprite, alpha)
         engine.blit(surf, sprite, (self.x - offset_x, self.y - offset_y), None, engine.BLEND_RGB_ADD)
 
+class PaintDrop(Particle):
+    full_sprite = SPRITES.get('particle_paint_drop')
+    fade_rate = 0.01
+    y_speed = 4
+    size = (64, 64)
+
+    def reset(self, pos):
+        super().reset((pos[0] + self.size[0]//2, pos[1] - 96))
+        r_idx = random.randint(0, self.full_sprite.get_width() // self.size[0] + 1)
+        self.sprite = engine.subsurface(self.full_sprite, (r_idx * self.size[0], 0, *self.size))
+        self.target = pos
+        self.transparency = 0.0
+        self.state = 'drop'
+        return self
+
+    def update(self):
+        if self.state == 'drop':
+            self.y += self.y_speed
+            if self.y >= self.target[1]:
+                self.x -= self.size[0]//2
+                self.state = 'splat'
+
+        elif self.state == 'splat':
+            self.transparency += self.fade_rate
+            if self.transparency >= 1.0:
+                self.remove_me_flag = True
+
+    def draw(self, surf, offset_x=0, offset_y=0):
+        if self.state == 'drop':
+            sprite = engine.transform_scale(self.sprite, (2, 6))
+        elif self.state == 'splat':
+            sprite = image_mods.make_translucent(self.sprite, self.transparency)
+        surf.blit(sprite, (self.x - offset_x, self.y - offset_y))
+
 class EventTileParticle(Particle):
     sprite = SPRITES.get('particle_light_mote')
     x_speed = 0.16

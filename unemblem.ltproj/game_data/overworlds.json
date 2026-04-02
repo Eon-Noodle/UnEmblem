@@ -1,0 +1,11 @@
+[
+    {
+        "nid": "0",
+        "name": "Overworld 0",
+        "tilemap": null,
+        "music": null,
+        "overworld_nodes": [],
+        "map_paths": {},
+        "border_tile_width": 0
+    }
+]

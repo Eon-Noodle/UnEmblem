@@ -34,6 +34,8 @@ import logging
 class LoadingState(State):
     name = 'start_level_asset_loading'
     transparent = False
+    bg_surf = None
+    sprites = []
 
     # For A E S T H E T I C S
     duration = 1000  # How long to wait after we load in everything to actually move to the turn_change state
@@ -54,7 +56,7 @@ class LoadingState(State):
         # unload used assets
         # unload music
         get_sound_thread().flush()
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'] if not game.game_vars.get('silent') else 0)
         get_sound_thread().set_sfx_volume(cf.SETTINGS['sound_volume'])
 
         # load music used in the level
@@ -71,6 +73,17 @@ class LoadingState(State):
             loading_music_thread.start()
             self.loading_threads.append(loading_music_thread)
 
+        idx = 0
+        while True:
+            sprite_name = 'loading_screen_sprites_%d' % idx
+            if sprite_name not in SPRITES:
+                break
+            self.sprites.append(SPRITES.get(sprite_name))
+            idx += 1
+
+        self.bg_surf = SPRITES.get('bg_black').copy()
+        FONT['credit'].blit('loading...', self.bg_surf, (4, WINHEIGHT-20))
+
     def update(self):
         if not self.completed_time and not any([thread.is_alive() for thread in self.loading_threads]):
             self.completed_time = engine.get_time()
@@ -80,7 +93,10 @@ class LoadingState(State):
                 game.state.change('turn_change')
 
     def draw(self, surf):
-        surf.blit(SPRITES.get('bg_black'), (0, 0))
+        if self.bg_surf:
+            surf.blit(self.bg_surf, (0, 0))
+        if self.sprites:
+            engine.blit_center(surf, self.sprites[engine.get_time() // 10 % len(self.sprites)])
         return surf
 
     def end(self):

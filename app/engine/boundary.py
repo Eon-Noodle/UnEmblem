@@ -8,6 +8,8 @@ from app.engine.sprites import SPRITES
 from app.engine import engine, equations, image_mods, aura_funcs, line_of_sight, skill_system
 from app.engine.game_state import game
 
+from app.events.regions import RegionType
+
 from app.utilities import utils
 
 class BoundaryInterface():
@@ -357,6 +359,64 @@ class BoundaryInterface():
 
             im = engine.subsurface(self.fog_of_war_surf, cull_rect)
             surf.blit(im, (0, 0))
+        return surf
+
+    subtile = (TILEWIDTH // 4, TILEHEIGHT // 4)
+    vision_surfs = dict()
+
+    def create_vision_surf(self, vision_radius):
+        surf_size = utils.tmult(self.subtile, vision_radius * 2)
+        vision_surf = engine.create_surface(surf_size, transparent=True)
+        for x, y in utils.itergrid(surf_size[0], surf_size[1]):
+            distance = int(utils.distance(tuple(map(lambda a, b: a // b + 0.5, (x,y), self.subtile)), ([vision_radius] * 2)))
+            if distance <= vision_radius:
+                r = distance/vision_radius
+                alpha = (r**2 * (r*2 - 3) + 1) * 255
+                vision_surf.set_at((x, y), (0, 0, 0, alpha))
+        return vision_surf
+
+    def add_light_gradient(self, surf, rng, pos, flicker=False):
+        radius = rng * 4 + 6
+        if flicker and (engine.get_time() // 800) % 2:
+            radius += 1
+        if self.vision_surfs.get(radius) is None:
+            self.vision_surfs[radius] = self.create_vision_surf(radius)
+        vision_surf = self.vision_surfs.get(radius)
+        surf.blit(vision_surf,
+                  utils.tuple_sub(pos, utils.tmult(self.subtile, radius)),
+                  special_flags=engine.BLEND_RGBA_SUB)
+        return surf
+
+    def draw_fancy_fog_of_war(self, surf, thracia_mode, full_size, cull_rect):
+        fog_of_war_surf = engine.create_surface(full_size, transparent=True)
+        fog_of_war_surf.fill((0, 0, 0, 255 if thracia_mode else 200))
+
+        fog_of_war_radius = game.get_current_fog_info().default_radius
+
+        for unit in game.get_player_units():
+            self.add_light_gradient(fog_of_war_surf,
+                                    fog_of_war_radius,
+                                    utils.tuple_mul(utils.tuple_add(unit.sprite.position, (0.5, 0.5)), (TILEWIDTH, TILEHEIGHT)))
+
+        from app.engine import config as cf
+        if cf.SETTINGS["mouse"]:
+            from app.engine.input_manager import get_input_manager
+            pos = get_input_manager().get_real_mouse_position()
+            if pos:
+                self.add_light_gradient(fog_of_war_surf,
+                                        fog_of_war_radius,
+                                        utils.tuple_add(pos, cull_rect[:2]))
+
+        for region in game.level.regions:
+            if region.region_type == RegionType.VISION:
+                vision_radius = int(region.sub_nid) if region.sub_nid else 1
+                self.add_light_gradient(fog_of_war_surf,
+                                        vision_radius,
+                                        utils.tuple_mul(utils.tuple_add(region.position, (0.5, 0.5)), (TILEWIDTH, TILEHEIGHT)),
+                                        flicker=True)
+
+        im = engine.subsurface(fog_of_war_surf, cull_rect)
+        surf.blit(im, (0, 0))
         return surf
 
     def print_grid(self, mode):

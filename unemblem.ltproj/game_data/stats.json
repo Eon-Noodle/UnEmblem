@@ -1,0 +1,92 @@
+[
+    {
+        "nid": "HP",
+        "name": "HP",
+        "maximum": 60,
+        "desc": "Hit points. The unit is out of the game if this reaches 0.",
+        "position": "hidden",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "STR",
+        "name": "Str",
+        "maximum": 30,
+        "desc": "Strength. This affects damage the unit deals with physical attacks.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "MAG",
+        "name": "Mys",
+        "maximum": 30,
+        "desc": "Mysticism. This affects non-physical attacks damage and medical pods effectiveness.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "SKL",
+        "name": "Dex",
+        "maximum": 30,
+        "desc": "Dexterity. A higher number improves accuracy and frequency of critical hits.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "SPD",
+        "name": "Spd",
+        "maximum": 30,
+        "desc": "Speed. This affects both evasion and attack speed.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "LCK",
+        "name": "Luck",
+        "maximum": 30,
+        "desc": "Luck. Has various effects.\nLowers risk of enemy critical hits.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "DEF",
+        "name": "Def",
+        "maximum": 30,
+        "desc": "Defense. Reduces damage\nfrom physical attacks.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "RES",
+        "name": "Res",
+        "maximum": 30,
+        "desc": "Resistance. Reduces damage from non-physical attacks.",
+        "position": "left",
+        "growth_colors": true,
+        "hidden_stat": false
+    },
+    {
+        "nid": "MOV",
+        "name": "Move",
+        "maximum": 30,
+        "desc": "Movement. The normal distance\nthe unit can cross in 1 turn.",
+        "position": "right",
+        "growth_colors": false,
+        "hidden_stat": false
+    },
+    {
+        "nid": "CON",
+        "name": "Con",
+        "maximum": 25,
+        "desc": "Constitution. Affects how well the unit can wield heavier weapons.",
+        "position": "right",
+        "growth_colors": false,
+        "hidden_stat": false
+    }
+]

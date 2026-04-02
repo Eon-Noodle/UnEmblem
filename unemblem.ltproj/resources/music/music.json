@@ -1,0 +1,452 @@
+[
+    [
+        "Love Call",
+        false,
+        false,
+        1
+    ],
+    [
+        "OverWorld Orchestra",
+        false,
+        false,
+        0
+    ],
+    [
+        "8bitRPG Battle",
+        true,
+        false,
+        0
+    ],
+    [
+        "Atmosphere Dark",
+        false,
+        false,
+        0
+    ],
+    [
+        "Toys Factory",
+        false,
+        false,
+        0
+    ],
+    [
+        "Dream and Reality",
+        false,
+        false,
+        0
+    ],
+    [
+        "Forgotten Past",
+        false,
+        false,
+        0
+    ],
+    [
+        "Fight",
+        false,
+        false,
+        0
+    ],
+    [
+        "Thunderclap",
+        false,
+        false,
+        0
+    ],
+    [
+        "OverWorld Remastered",
+        false,
+        false,
+        0
+    ],
+    [
+        "Suspense3",
+        false,
+        false,
+        0
+    ],
+    [
+        "Battle with a Serene Man",
+        false,
+        false,
+        41
+    ],
+    [
+        "Battle with the Final Boss",
+        false,
+        false,
+        64
+    ],
+    [
+        "Beautiful Battle",
+        false,
+        false,
+        30
+    ],
+    [
+        "Brief Recess",
+        false,
+        false,
+        14
+    ],
+    [
+        "Mission",
+        false,
+        false,
+        19
+    ],
+    [
+        "Scheme",
+        false,
+        false,
+        23
+    ],
+    [
+        "Seesaw Battle",
+        false,
+        false,
+        22
+    ],
+    [
+        "Sense of Urgency",
+        false,
+        false,
+        24
+    ],
+    [
+        "Small Epilogue",
+        false,
+        false,
+        20
+    ],
+    [
+        "UNDER",
+        false,
+        false,
+        31
+    ],
+    [
+        "UNION",
+        false,
+        false,
+        26
+    ],
+    [
+        "Warm Memories",
+        false,
+        false,
+        21
+    ],
+    [
+        "Each Person's Tragedy",
+        false,
+        false,
+        25
+    ],
+    [
+        "Series of Unluck",
+        false,
+        false,
+        13
+    ],
+    [
+        "Kindness",
+        false,
+        false,
+        28
+    ],
+    [
+        "Disadvantage",
+        false,
+        false,
+        29
+    ],
+    [
+        "May It Reaches You",
+        false,
+        false,
+        18
+    ],
+    [
+        "Battle",
+        false,
+        false,
+        15
+    ],
+    [
+        "Divine Conqueror",
+        false,
+        false,
+        16
+    ],
+    [
+        "Justice",
+        false,
+        false,
+        17
+    ],
+    [
+        "Intensifying Battle",
+        false,
+        false,
+        27
+    ],
+    [
+        "Mystery",
+        false,
+        false,
+        12
+    ],
+    [
+        "Enjoy",
+        false,
+        false,
+        5
+    ],
+    [
+        "Main Theme",
+        false,
+        false,
+        2
+    ],
+    [
+        "Quest",
+        false,
+        false,
+        9
+    ],
+    [
+        "Peaceful Everyday Life",
+        false,
+        false,
+        6
+    ],
+    [
+        "Scaredy People",
+        false,
+        false,
+        7
+    ],
+    [
+        "Nonchalant",
+        false,
+        false,
+        8
+    ],
+    [
+        "Thoughts for a Loved One",
+        false,
+        false,
+        10
+    ],
+    [
+        "Dignity of the Strong",
+        false,
+        false,
+        11
+    ],
+    [
+        "Happy Days",
+        false,
+        false,
+        4
+    ],
+    [
+        "Beautiful Scenery",
+        false,
+        false,
+        3
+    ],
+    [
+        "Activate",
+        false,
+        false,
+        54
+    ],
+    [
+        "Battle Against Betrayal",
+        false,
+        false,
+        60
+    ],
+    [
+        "Betrayal Plan",
+        false,
+        false,
+        55
+    ],
+    [
+        "Lament of the Distant Past",
+        false,
+        false,
+        61
+    ],
+    [
+        "Revolution",
+        false,
+        false,
+        59
+    ],
+    [
+        "Tenacity",
+        false,
+        false,
+        65
+    ],
+    [
+        "UMA",
+        false,
+        false,
+        56
+    ],
+    [
+        "Looping World",
+        false,
+        false,
+        58
+    ],
+    [
+        "How to Use Unluck",
+        false,
+        false,
+        53
+    ],
+    [
+        "Solitary Existence",
+        false,
+        false,
+        52
+    ],
+    [
+        "Outer Space",
+        false,
+        false,
+        48
+    ],
+    [
+        "Melody of Sadness",
+        false,
+        false,
+        57
+    ],
+    [
+        "Memory of Tragedy",
+        false,
+        false,
+        62
+    ],
+    [
+        "Enemy Attack",
+        false,
+        false,
+        50
+    ],
+    [
+        "Journey",
+        false,
+        false,
+        51
+    ],
+    [
+        "The Absolute Awesomeness of Existence",
+        false,
+        false,
+        63
+    ],
+    [
+        "Growing Tension",
+        false,
+        false,
+        49
+    ],
+    [
+        "Start of Action",
+        false,
+        false,
+        46
+    ],
+    [
+        "Impending Unluck",
+        false,
+        false,
+        47
+    ],
+    [
+        "Cold Farewell (effect)",
+        false,
+        false,
+        44
+    ],
+    [
+        "Cool",
+        false,
+        false,
+        38
+    ],
+    [
+        "Destruction and Rebirth",
+        false,
+        false,
+        42
+    ],
+    [
+        "Good Memories",
+        false,
+        false,
+        40
+    ],
+    [
+        "Looking Confused",
+        false,
+        false,
+        37
+    ],
+    [
+        "Savage Man",
+        false,
+        false,
+        34
+    ],
+    [
+        "Teasing",
+        false,
+        false,
+        35
+    ],
+    [
+        "Awawawa",
+        false,
+        false,
+        39
+    ],
+    [
+        "Lonely",
+        false,
+        false,
+        43
+    ],
+    [
+        "Wilderness",
+        false,
+        false,
+        45
+    ],
+    [
+        "Cheerful",
+        false,
+        false,
+        36
+    ],
+    [
+        "Determination",
+        false,
+        false,
+        32
+    ],
+    [
+        "Cold Farewell (normal)",
+        false,
+        false,
+        33
+    ]
+]

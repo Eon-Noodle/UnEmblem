@@ -1,0 +1,6127 @@
+[
+    {
+        "nid": "Citizen",
+        "name": "Citizen",
+        "desc": "Ordinary non-combatant.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 10,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 5,
+            "MOV": 5,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                0,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                0,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                0,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Citizen",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Brawler",
+        "name": "Brawler",
+        "desc": "Ruffians with great strength but poor defense.",
+        "tier": 1,
+        "movement_group": "Trudger",
+        "promotes_from": null,
+        "turns_into": [
+            "Pugilist",
+            "Grand_Master"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 20,
+            "STR": 5,
+            "SKL": 2,
+            "SPD": 4,
+            "LCK": 0,
+            "DEF": 2,
+            "CON": 11,
+            "MOV": 5,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 85,
+            "STR": 55,
+            "SKL": 35,
+            "SPD": 30,
+            "LCK": 15,
+            "DEF": 15,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 15,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                true,
+                31,
+                181
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                true,
+                31,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Brigand_Unarmed",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Boxer",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Martial_Artist",
+        "name": "Mrtl. Artist",
+        "desc": "Practitioners of martial arts with a balanced set of skills.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [
+            "Grand_Master",
+            "Warlord"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 4,
+            "SKL": 8,
+            "SPD": 8,
+            "LCK": 0,
+            "DEF": 4,
+            "CON": 9,
+            "MOV": 5,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 40,
+            "SKL": 40,
+            "SPD": 32,
+            "LCK": 30,
+            "DEF": 18,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 17
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                181
+            ],
+            "Brute": [
+                true,
+                1,
+                181
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                62,
+                251
+            ],
+            "Staff": [
+                true,
+                31,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Lancer",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Lancer",
+        "combat_anim_nid": "Cavalier",
+        "fields": []
+    },
+    {
+        "nid": "Defender",
+        "name": "Defender",
+        "desc": "Heavily armored knights. Superior defense outweighs their poor movement and speed.",
+        "tier": 1,
+        "movement_group": "Armour",
+        "promotes_from": null,
+        "turns_into": [
+            "Warlord",
+            "Bastion"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 17,
+            "STR": 5,
+            "SKL": 3,
+            "SPD": 1,
+            "LCK": 0,
+            "DEF": 9,
+            "CON": 13,
+            "MOV": 4,
+            "RES": 1,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 40,
+            "SKL": 30,
+            "SPD": 15,
+            "LCK": 25,
+            "DEF": 28,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 10
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                181
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                31,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Knight",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Knight",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Duelist",
+        "name": "Duelist",
+        "desc": "Swordfighters with superior speed and skill.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [
+            "Swordmaster",
+            "Assassin"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 4,
+            "SKL": 9,
+            "SPD": 10,
+            "LCK": 0,
+            "DEF": 2,
+            "CON": 8,
+            "MOV": 5,
+            "RES": 1,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 35,
+            "SKL": 40,
+            "SPD": 40,
+            "LCK": 30,
+            "DEF": 15,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 20
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                31,
+                181
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Myrmidon",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Myrmidon",
+        "combat_anim_nid": "Myrmidon",
+        "fields": []
+    },
+    {
+        "nid": "Looter",
+        "name": "Looter",
+        "desc": "Experts in stealth and subterfuge. Possess weak attacks but many other skills.",
+        "tier": 1,
+        "movement_group": "Light Foot",
+        "promotes_from": null,
+        "turns_into": [
+            "Assassin",
+            "Vigilante"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 3,
+            "SKL": 1,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 0,
+            "CON": 6,
+            "MOV": 6,
+            "MAG": 3
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 5,
+            "SKL": 45,
+            "SPD": 40,
+            "LCK": 40,
+            "DEF": 5,
+            "RES": 20,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 5
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 20,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [
+            [
+                1,
+                "Steal"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                1,
+                121
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Thief",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Thief",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Militia",
+        "name": "Militia",
+        "desc": "Maskmen with reliable aims. Can attack from a distance.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [
+            "Vigilante",
+            "Mercenary"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 4,
+            "SKL": 3,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 3,
+            "MOV": 5,
+            "CON": 7,
+            "RES": 0,
+            "MAG": 1
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 35,
+            "SKL": 40,
+            "SPD": 32,
+            "LCK": 35,
+            "DEF": 15,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 35
+        },
+        "growth_bonus": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                31,
+                181
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Deserter",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Soldier_Flintlock",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Tinkerer",
+        "name": "Tinkerer",
+        "desc": "Scholars of machinery. Utilise their genius to make up for feeble physique.",
+        "tier": 1,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [
+            "Precisione",
+            "Galvan"
+        ],
+        "tags": [
+            "Flying"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "SKL": 2,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 3,
+            "MOV": 6,
+            "CON": 6,
+            "STR": 0,
+            "MAG": 1
+        },
+        "growths": {
+            "HP": 55,
+            "STR": 20,
+            "SKL": 40,
+            "SPD": 35,
+            "LCK": 20,
+            "DEF": 5,
+            "RES": 30,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 55
+        },
+        "growth_bonus": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                true,
+                31,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                181
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Tinkerer",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Caregiver",
+        "name": "Caregiver",
+        "desc": "Non-combatants who use medical pods to aid allies.",
+        "tier": 1,
+        "movement_group": "Wanderer",
+        "promotes_from": null,
+        "turns_into": [
+            "Galvan",
+            "Reveille"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 0,
+            "SKL": 2,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 1,
+            "RES": 6,
+            "CON": 5,
+            "MOV": 5,
+            "MAG": 1
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 0,
+            "SKL": 35,
+            "SPD": 32,
+            "LCK": 45,
+            "DEF": 8,
+            "RES": 50,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 30
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 20,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                true,
+                31,
+                181
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                true,
+                31,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                true,
+                31,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Caregiver_Chikara",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Monk",
+        "name": "Monk",
+        "desc": "Protectors of the mystic arts. Powerful, but very slow.",
+        "tier": 1,
+        "movement_group": "Wanderer",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 1,
+            "SKL": 1,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 5,
+            "CON": 6,
+            "MOV": 6,
+            "MAG": 1
+        },
+        "growths": {
+            "HP": 60,
+            "STR": 35,
+            "SKL": 32,
+            "SPD": 30,
+            "LCK": 20,
+            "DEF": 15,
+            "RES": 30,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 50
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 20,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                181
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                true,
+                31,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                true,
+                31,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Monk",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Pugilist",
+        "name": "Pugilist",
+        "desc": "Relentless fighters who traverse well through rocky terrains and often deal critical hits.",
+        "tier": 2,
+        "movement_group": "Trudger",
+        "promotes_from": "Brawler",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 24,
+            "STR": 7,
+            "SKL": 6,
+            "SPD": 7,
+            "LCK": 0,
+            "DEF": 7,
+            "CON": 14,
+            "MOV": 6,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 50,
+            "SKL": 35,
+            "SPD": 25,
+            "LCK": 15,
+            "DEF": 10,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 13,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 1,
+            "SKL": 1,
+            "SPD": 1,
+            "LCK": 0,
+            "DEF": 2,
+            "CON": -97,
+            "MOV": -97,
+            "RES": 2,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 30,
+            "SKL": 29,
+            "SPD": 28,
+            "LCK": 30,
+            "DEF": 23,
+            "CON": 25,
+            "MOV": 15,
+            "RES": 21,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                true,
+                40,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                62,
+                251
+            ],
+            "Staff": [
+                true,
+                31,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Berserker_Unarmed",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Berserker",
+        "combat_anim_nid": "Cavalier",
+        "fields": []
+    },
+    {
+        "nid": "Grand_Master",
+        "name": "Grand Master",
+        "desc": "Seasoned martial masters with remarkable skills.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Martial_Artist",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 22,
+            "STR": 6,
+            "SKL": 9,
+            "SPD": 10,
+            "LCK": 0,
+            "DEF": 8,
+            "CON": 11,
+            "MOV": 6,
+            "RES": 2,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 25,
+            "DEF": 20,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 15
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 1,
+            "SKL": 2,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 2,
+            "CON": -97,
+            "MOV": -97,
+            "RES": 2,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 25,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 25,
+            "CON": 25,
+            "MOV": 15,
+            "RES": 22,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                40,
+                251
+            ],
+            "Brute": [
+                true,
+                40,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                62,
+                251
+            ],
+            "Staff": [
+                true,
+                31,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Fighter_Lance",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Swordmaster_FE10",
+        "combat_anim_nid": "Cavalier",
+        "fields": []
+    },
+    {
+        "nid": "Grand_Master_1",
+        "name": "Grand Master",
+        "desc": "Seasoned martial masters with remarkable skills.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Martial_Artist",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 22,
+            "STR": 6,
+            "SKL": 9,
+            "SPD": 10,
+            "LCK": 0,
+            "DEF": 8,
+            "CON": 11,
+            "MOV": 6,
+            "RES": 2,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 25,
+            "DEF": 20,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 15
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 1,
+            "SKL": 2,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 2,
+            "CON": -97,
+            "MOV": -97,
+            "RES": 2,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 25,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 25,
+            "CON": 25,
+            "MOV": 15,
+            "RES": 22,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                40,
+                251
+            ],
+            "Brute": [
+                true,
+                40,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                62,
+                251
+            ],
+            "Staff": [
+                true,
+                31,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Fighter_Lance",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Lancer",
+        "combat_anim_nid": "Cavalier",
+        "fields": []
+    },
+    {
+        "nid": "Warlord",
+        "name": "Warlord",
+        "desc": "Armoured barbarians who mastered all melee weapons.",
+        "tier": 2,
+        "movement_group": "Armour",
+        "promotes_from": "Martial_Artist",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 8,
+            "SKL": 4,
+            "SPD": 6,
+            "LCK": 0,
+            "DEF": 11,
+            "RES": 3,
+            "MAG": 1,
+            "MOV": 6,
+            "CON": 13
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 30,
+            "MAG": 5,
+            "SKL": 20,
+            "SPD": 15,
+            "LCK": 20,
+            "DEF": 21,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 2,
+            "MAG": 0,
+            "SKL": 1,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 1,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 28,
+            "MAG": 20,
+            "SKL": 24,
+            "SPD": 24,
+            "LCK": 30,
+            "DEF": 29,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                31,
+                null
+            ],
+            "Spear": [
+                true,
+                0,
+                null
+            ],
+            "Brute": [
+                true,
+                40,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Sergeant",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Sergeant",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Bastion",
+        "name": "Bastion",
+        "desc": "Lordly knights in heavy armours who boast tremendous strength and defense.",
+        "tier": 2,
+        "movement_group": "Armour",
+        "promotes_from": "Defender",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 8,
+            "SKL": 4,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 13,
+            "RES": 5,
+            "MAG": 0,
+            "MOV": 5,
+            "CON": 15
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 30,
+            "MAG": 5,
+            "SKL": 20,
+            "SPD": 10,
+            "LCK": 20,
+            "DEF": 23,
+            "RES": 25,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 2,
+            "MAG": 0,
+            "SKL": 2,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 29,
+            "MAG": 20,
+            "SKL": 27,
+            "SPD": 24,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                true,
+                40,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "General_Shield",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "General",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Swordmaster",
+        "name": "Swordmaster",
+        "desc": "Masters in the way of the sword who strikes with critical hits.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Duelist",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 6,
+            "SKL": 11,
+            "SPD": 10,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 2,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 9
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 25,
+            "MAG": 15,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 25,
+            "DEF": 15,
+            "RES": 22,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 5,
+            "STR": 2,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 1,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 24,
+            "MAG": 22,
+            "SKL": 29,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 22,
+            "RES": 23,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                40,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Swordmaster",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Samurai",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Assassin",
+        "name": "Assassin",
+        "desc": "Stealthy killers who possess ability to kill with a single strike.",
+        "tier": 2,
+        "movement_group": "Light Foot",
+        "promotes_from": "Looter",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 3,
+            "SKL": 1,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 0,
+            "MAG": 0,
+            "MOV": 6,
+            "CON": 8
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 5,
+            "MAG": 0,
+            "SKL": 45,
+            "SPD": 40,
+            "LCK": 40,
+            "DEF": 5,
+            "RES": 15,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 1,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 2,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 20,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [
+            [
+                1,
+                "Lethality"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Assassin",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Assassin",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Vigilante",
+        "name": "Vigilante",
+        "desc": "Shadow agents with excellent speed and dexterity.",
+        "tier": 2,
+        "movement_group": "Light Foot",
+        "promotes_from": "Looter",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 4,
+            "SKL": 1,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 0,
+            "MAG": 0,
+            "MOV": 6,
+            "CON": 8
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 20,
+            "MAG": 5,
+            "SKL": 45,
+            "SPD": 35,
+            "LCK": 40,
+            "DEF": 10,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 2,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 1,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 22,
+            "MAG": 20,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                31,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                31,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Cowboy",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Cowboy",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Mercenary",
+        "name": "Mercenary",
+        "desc": "War veterans who possess unparalleled accuracy with their firearms.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Militia",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 7,
+            "SKL": 6,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 2,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 8
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 30,
+            "MAG": 15,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 15,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 2,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 1,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 25,
+            "MAG": 24,
+            "SKL": 30,
+            "SPD": 28,
+            "LCK": 30,
+            "DEF": 25,
+            "RES": 23,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                40,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Soldier_Echoes",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Precisione",
+        "name": "Precisione",
+        "desc": "Advanced craftmen known for their efficient combating.",
+        "tier": 2,
+        "movement_group": "Flier",
+        "promotes_from": "Tinkerer",
+        "turns_into": [],
+        "tags": [
+            "Flying"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 20,
+            "STR": 0,
+            "SKL": 4,
+            "SPD": 4,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 5,
+            "MAG": 5,
+            "MOV": 7,
+            "CON": 7
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 0,
+            "MAG": 45,
+            "SKL": 30,
+            "SPD": 25,
+            "LCK": 15,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 0,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 28,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 21,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                true,
+                40,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Angel",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Precisione_1",
+        "name": "Precisione",
+        "desc": "Advanced craftmen known for their efficient combating.",
+        "tier": 2,
+        "movement_group": "Flier",
+        "promotes_from": "Tinkerer",
+        "turns_into": [],
+        "tags": [
+            "Flying"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 20,
+            "STR": 0,
+            "SKL": 4,
+            "SPD": 4,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 5,
+            "MAG": 5,
+            "MOV": 7,
+            "CON": 7
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 0,
+            "MAG": 45,
+            "SKL": 30,
+            "SPD": 25,
+            "LCK": 15,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 0,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 28,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 21,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                true,
+                40,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Tinkerer",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Galvan",
+        "name": "Galvan",
+        "desc": "Intellectual giants who wield both techno weapons and medical pods.",
+        "tier": 2,
+        "movement_group": "Flier",
+        "promotes_from": "Tinkerer",
+        "turns_into": [],
+        "tags": [
+            "Flying"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 0,
+            "SKL": 4,
+            "SPD": 4,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 8,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 7
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 5,
+            "MAG": 35,
+            "SKL": 25,
+            "SPD": 22,
+            "LCK": 40,
+            "DEF": 8,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 0,
+            "MAG": 2,
+            "SKL": 1,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 2,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 25,
+            "SKL": 26,
+            "SPD": 24,
+            "LCK": 30,
+            "DEF": 22,
+            "RES": 30,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                true,
+                40,
+                null
+            ],
+            "Techno": [
+                true,
+                40,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Tinkerer",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Reveille",
+        "name": "Reveille",
+        "desc": "Military musicians whose melodies inspire allies. Cannot use weapons.",
+        "tier": 2,
+        "movement_group": "Wanderer",
+        "promotes_from": "Caregiver",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 19,
+            "STR": 0,
+            "SKL": 3,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 4,
+            "RES": 8,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 6
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 10,
+            "MAG": 35,
+            "SKL": 25,
+            "SPD": 45,
+            "LCK": 40,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 0,
+            "MAG": 2,
+            "SKL": 1,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 25,
+            "SKL": 24,
+            "SPD": 25,
+            "LCK": 30,
+            "DEF": 24,
+            "RES": 28,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                true,
+                40,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Supplier",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Slime",
+        "name": "Slime",
+        "desc": "Basic monsters of gelatinous mass. Hostile, but slow.",
+        "tier": 1,
+        "movement_group": "Mariner",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 24,
+            "STR": 2,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 6,
+            "MOV": 5,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 95,
+            "STR": 50,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 10,
+            "DEF": 10,
+            "RES": 13,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 10
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 25,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                true,
+                151,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                null
+            ],
+            "Gun": [
+                false,
+                0,
+                null
+            ],
+            "Magic": [
+                true,
+                151,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Oozium",
+        "combat_anim_nid": "Bishop",
+        "fields": []
+    },
+    {
+        "nid": "Sludge",
+        "name": "Sludge",
+        "desc": "Gigantic mass of oozes. Highly toxic, but can be great for training.",
+        "tier": 2,
+        "movement_group": "Mariner",
+        "promotes_from": "Slime",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 35,
+            "STR": 3,
+            "SKL": 0,
+            "SPD": 1,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 6,
+            "MOV": 5,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 85,
+            "STR": 40,
+            "SKL": 25,
+            "SPD": 17,
+            "LCK": 50,
+            "DEF": 10,
+            "RES": 13,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 10
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 25,
+            "SKL": 22,
+            "SPD": 21,
+            "LCK": 30,
+            "DEF": 24,
+            "RES": 22,
+            "CON": 25,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                true,
+                151,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                null
+            ],
+            "Gun": [
+                false,
+                0,
+                null
+            ],
+            "Magic": [
+                true,
+                151,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Oozium",
+        "combat_anim_nid": "Bishop",
+        "fields": []
+    },
+    {
+        "nid": "Banshee",
+        "name": "Banshee",
+        "desc": "",
+        "tier": 2,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 19,
+            "STR": 0,
+            "SKL": 3,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 4,
+            "RES": 8,
+            "MAG": 4,
+            "MOV": 8,
+            "CON": 6
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 10,
+            "MAG": 35,
+            "SKL": 25,
+            "SPD": 45,
+            "LCK": 40,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 0,
+            "MAG": 2,
+            "SKL": 1,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 25,
+            "SKL": 24,
+            "SPD": 25,
+            "LCK": 30,
+            "DEF": 24,
+            "RES": 28,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                true,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Banshee",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Lamia",
+        "name": "Lamia",
+        "desc": "Serpentine beauties who enthrall men with their songs.",
+        "tier": 2,
+        "movement_group": "Mariner",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 19,
+            "STR": 0,
+            "SKL": 3,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 4,
+            "RES": 8,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 6
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 10,
+            "MAG": 35,
+            "SKL": 25,
+            "SPD": 45,
+            "LCK": 40,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 0,
+            "MAG": 2,
+            "SKL": 1,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 25,
+            "SKL": 24,
+            "SPD": 25,
+            "LCK": 30,
+            "DEF": 24,
+            "RES": 28,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                true,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Lamia",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Hero",
+        "name": "Hero",
+        "desc": "The finest of all warriors. Experts in all fields of combat.",
+        "tier": 2,
+        "movement_group": "Armour",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 8,
+            "SKL": 4,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 13,
+            "RES": 5,
+            "MAG": 0,
+            "MOV": 5,
+            "CON": 15
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 30,
+            "MAG": 5,
+            "SKL": 20,
+            "SPD": 10,
+            "LCK": 20,
+            "DEF": 23,
+            "RES": 25,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 2,
+            "MAG": 0,
+            "SKL": 2,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97
+        },
+        "max_stats": {
+            "HP": 80,
+            "STR": 29,
+            "MAG": 20,
+            "SKL": 27,
+            "SPD": 24,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Hero",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Conqueror",
+        "name": "Conqueror",
+        "desc": "Mythical warrior whose name appears even in the oldest of legends.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Citizen",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 6,
+            "SKL": 6,
+            "SPD": 7,
+            "LCK": 0,
+            "DEF": 6,
+            "RES": 0,
+            "CON": 8,
+            "MOV": 5,
+            "MAG": 3
+        },
+        "growths": {
+            "HP": 90,
+            "STR": 45,
+            "SKL": 40,
+            "SPD": 45,
+            "LCK": 40,
+            "DEF": 15,
+            "RES": 15,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 22
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 20,
+            "MOV": 15,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                31,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                true,
+                1,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                31,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                true,
+                1,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Conqueror",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Leader",
+        "name": "Leader",
+        "desc": "Leader of the Union. First seat on the Roundtable.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [
+            "Lord"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 4,
+            "SKL": 8,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 3,
+            "CON": 5,
+            "MOV": 5,
+            "RES": 0,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 90,
+            "STR": 45,
+            "SKL": 40,
+            "SPD": 45,
+            "LCK": 40,
+            "DEF": 15,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 22
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                true,
+                1,
+                181
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                true,
+                1,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Leader",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Convoyer",
+        "name": "Convoyer",
+        "desc": "Keepers of goods and items. Lack movement and combat skills.",
+        "tier": 1,
+        "movement_group": "Armour",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [
+            "Convoy",
+            "AdjConvoy"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 15,
+            "STR": 0,
+            "SKL": 3,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 3,
+            "CON": 25,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 10,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 10,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 25,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20
+        },
+        "learned_skills": [
+            [
+                1,
+                "Convoyer"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                181
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                31,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Transporter",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "God",
+        "name": "God",
+        "desc": "The Almighty One. He who validates this world.",
+        "tier": 1,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 1,
+        "bases": {
+            "HP": 120,
+            "STR": 17,
+            "MAG": 15,
+            "SKL": 25,
+            "SPD": 15,
+            "LCK": 24,
+            "DEF": 20,
+            "RES": 30,
+            "MOV": 8,
+            "CON": 999
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 128,
+            "STR": 30,
+            "MAG": 20,
+            "SKL": 28,
+            "SPD": 25,
+            "LCK": 30,
+            "DEF": 27,
+            "RES": 30,
+            "MOV": 15,
+            "CON": 999
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Sun",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Artifact",
+        "name": "Artifact",
+        "desc": "",
+        "tier": 1,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CON": 25,
+            "MOV": 15,
+            "MAG": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                null
+            ],
+            "Gun": [
+                false,
+                0,
+                null
+            ],
+            "Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Book",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Pin",
+        "name": "Pin",
+        "desc": "",
+        "tier": 1,
+        "movement_group": "Light Foot",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CON": 25,
+            "MOV": 15,
+            "MAG": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                null
+            ],
+            "Gun": [
+                false,
+                0,
+                null
+            ],
+            "Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Pin",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Plane",
+        "name": "Plane",
+        "desc": "",
+        "tier": 1,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CON": 25,
+            "MOV": 15,
+            "MAG": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                null
+            ],
+            "Gun": [
+                false,
+                0,
+                null
+            ],
+            "Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Helicopter",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Citizen_Nico",
+        "name": "Citizen",
+        "desc": "Ordinary non-combatant.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Citizen",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 10,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 5,
+            "MOV": 6,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 21,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 25,
+            "MAG": 28
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                0,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                0,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                0,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Citizen",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Wall25",
+        "name": "Wall",
+        "desc": "",
+        "tier": 1,
+        "movement_group": "Light Foot",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [
+            "Tile"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 25,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 40,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 30,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 40,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CON": 30,
+            "MOV": 30,
+            "MAG": 30
+        },
+        "learned_skills": [
+            [
+                1,
+                "NoAvoid"
+            ],
+            [
+                1,
+                "Void_Curse"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": null,
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Snag20",
+        "name": "Snag",
+        "desc": "",
+        "tier": 1,
+        "movement_group": "Light Foot",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [
+            "Tile"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 20,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 40,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "max_stats": {
+            "HP": 30,
+            "STR": 30,
+            "SKL": 30,
+            "SPD": 40,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CON": 30,
+            "MOV": 30,
+            "MAG": 30
+        },
+        "learned_skills": [
+            [
+                1,
+                "NoAvoid"
+            ],
+            [
+                1,
+                "Void_Curse"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": null,
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

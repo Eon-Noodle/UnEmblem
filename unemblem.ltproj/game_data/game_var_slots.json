@@ -1,0 +1,166 @@
+[
+    {
+        "nid": "_random_seed",
+        "desc": "Seed used by engine for RNG. Generated automatically at new game."
+    },
+    {
+        "nid": "_next_level_nid",
+        "desc": "Internal to engine. Do not modify using game_var."
+    },
+    {
+        "nid": "_goto_level",
+        "desc": "Can be set to the nid of your desired next level."
+    },
+    {
+        "nid": "_go_to_overworld_nid",
+        "desc": "Can be set to the nid of the overworld to go to next."
+    },
+    {
+        "nid": "_current_turnwheel_use",
+        "desc": "# of turnwheel uses left in level. Automatically sets to max upon winning level."
+    },
+    {
+        "nid": "_max_turnwheel_uses",
+        "desc": "Maximum number of turnwheel uses/level. Defaults to -1 (infinite)."
+    },
+    {
+        "nid": "_convoy",
+        "desc": "Player has access to convoy when set to True. (Default False)"
+    },
+    {
+        "nid": "_turnwheel",
+        "desc": "Player has access to turnwheel when set to True. (Default False)"
+    },
+    {
+        "nid": "_supports",
+        "desc": "Player can access support mechanics when True. (Default False)"
+    },
+    {
+        "nid": "_fatigue",
+        "desc": "0=off, 1=fatigued units can't be deployed, 2=fatigue/rested status, 3=your custom implementation"
+    },
+    {
+        "nid": "_prep_market",
+        "desc": "Player can access market from prep screen when True. (Default False)"
+    },
+    {
+        "nid": "_prep_music",
+        "desc": "Tracks NID of music in preps. Does not need to be set manually."
+    },
+    {
+        "nid": "_bexp_music",
+        "desc": "Tracks NID of music in bexp menu. Does not need to be set manually."
+    },
+    {
+        "nid": "_base_market",
+        "desc": "Player can access market from base screen when True. (Default False)"
+    },
+    {
+        "nid": "_base_bg_name",
+        "desc": "Tracks NID of background in base. Does not need to be set manually."
+    },
+    {
+        "nid": "_base_music",
+        "desc": "Tracks NID of music in base. Does not need to be set manually."
+    },
+    {
+        "nid": "_phase_music_fade_ms",
+        "desc": "Number of milliseconds phase music takes to fade in. Default 400."
+    },
+    {
+        "nid": "_last_choice",
+        "desc": "Holds the most recent choice made by the player using choice event."
+    },
+    {
+        "nid": "space_gap",
+        "desc": null
+    },
+    {
+        "nid": "avail_quest",
+        "desc": "List of all possible quests to be done"
+    },
+    {
+        "nid": "avail_penalty",
+        "desc": "List of all possible penalties"
+    },
+    {
+        "nid": "avail_reward",
+        "desc": "List of all possible artifacts"
+    },
+    {
+        "nid": "avail_loc",
+        "desc": "List of all possible artifact spots"
+    },
+    {
+        "nid": "quest_name",
+        "desc": "List of currently active quests"
+    },
+    {
+        "nid": "quest_goal",
+        "desc": "Objectives of each quest ('Capture' or 'Neutralization')"
+    },
+    {
+        "nid": "quest_done",
+        "desc": "Has the quest been attempted? (boolean)"
+    },
+    {
+        "nid": "quest_limit",
+        "desc": "Number of participations for each quest (int)"
+    },
+    {
+        "nid": "quest_reward",
+        "desc": "Reward upon quest completion (str)"
+    },
+    {
+        "nid": "quest_success",
+        "desc": "Has the quest been completed? (boolean)"
+    },
+    {
+        "nid": "quest_penalty",
+        "desc": "Penalty for current quest set (str)"
+    },
+    {
+        "nid": "curr_quest",
+        "desc": "Current quest that is being attempted this level (int)"
+    },
+    {
+        "nid": "curr_reward",
+        "desc": "List of currently active Negator/UMA rewards"
+    },
+    {
+        "nid": "curr_artifact",
+        "desc": "Dict of currently active Artifact rewards ('name of loc' = [list of artifacts])"
+    },
+    {
+        "nid": "dict_loc",
+        "desc": "Dict of location for each quest"
+    },
+    {
+        "nid": "dict_unit",
+        "desc": "Dict of name of primary negator for each negation"
+    },
+    {
+        "nid": "pos_map",
+        "desc": "Position of MapEntity unit on Overworld map"
+    },
+    {
+        "nid": "pos_apoccy",
+        "desc": "Position of Apoccy on Roundtable map"
+    },
+    {
+        "nid": "pos_roundtable",
+        "desc": "Position of Roundtable seats around Apoccy"
+    },
+    {
+        "nid": "roundtable_seat",
+        "desc": "Current number of Roundtable seats"
+    },
+    {
+        "nid": "tally_penalty",
+        "desc": "Index number of current quest set"
+    },
+    {
+        "nid": "version",
+        "desc": "Serialisation version, for backwards compatibility"
+    }
+]

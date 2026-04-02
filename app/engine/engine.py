@@ -350,3 +350,6 @@ def write_system_msg(surf, msg: str):
         y += SYSTEM_FONT_SIZE
         x = 0
     return surf
+
+def apply_grayscale(surf):
+    pygame.transform.grayscale(surf, surf)

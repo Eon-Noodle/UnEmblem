@@ -1704,8 +1704,8 @@ class BaseSoundRoomState(State):
             music = self.music_names[current_music_index]
             song_prefab = RESOURCES.music.get(music)
 
-            if self.playing and song_prefab.battle_full_path and \
-                    get_sound_thread().get_current_song().nid == music:
+            if (song_obj := get_sound_thread().get_current_song()) and \
+                    song_obj.nid == music and song_obj.battle:
                 get_sound_thread().battle_fade_in(music)
             else:
                 get_sound_thread().play_sfx('Error')

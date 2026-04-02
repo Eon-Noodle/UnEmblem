@@ -7,7 +7,7 @@ import app.engine.config as cf
 from app.constants import TILEX, TILEY, WINHEIGHT, WINWIDTH
 from app.data.database.database import DB
 from app.data.database.difficulty_modes import RNGOption
-from app.engine import (base_surf, combat_calcs, engine, equations, evaluate,
+from app.engine import (banner, base_surf, combat_calcs, engine, equations, evaluate,
                         icons, image_mods, item_funcs, item_system,
                         skill_system, text_funcs)
 from app.engine.fonts import FONT
@@ -38,6 +38,7 @@ class UIView():
         self.attack_info_disp = None
         self.spell_info_disp = None
         self.initiative_info_disp = None
+        self.roam_info_pennant: banner.Pennant = None
 
         self.cursor_right: bool = False
 
@@ -107,7 +108,9 @@ class UIView():
             self.unit_info_offset = max(0, self.unit_info_offset)
 
         # Objective info handling
-        if game.state.current() in self.legal_states and cf.SETTINGS['show_objective']:
+        if game.state.current() in self.legal_states and \
+                cf.SETTINGS['show_objective'] and \
+                not game.game_vars.get('no_objective'):
             self.obj_info_disp = self.create_obj_info()
             self.obj_info_offset -= 10
             self.obj_info_offset = max(0, self.obj_info_offset)
@@ -207,6 +210,28 @@ class UIView():
             else:
                 surf.blit(self.initiative_info_disp, (0, 0))
 
+        if cf.SETTINGS.get('display_hints'):
+            if game.state.current() in self.legal_states:
+                hint_info_disp = self.create_hint_info()
+                right = self.cursor_right
+                if self.tile_transition_state == 'out':
+                    right = not right
+
+                xpos = 5
+                if cf.SETTINGS.get('show_terrain'):
+                    xpos += self.tile_info_disp.get_width()
+                if not right:
+                    xpos = WINWIDTH - hint_info_disp.get_width() - xpos
+                ypos = WINHEIGHT - hint_info_disp.get_height() - 3
+                surf.blit(hint_info_disp, (xpos, ypos))
+
+            elif game.state.current() == 'free_roam':
+                if not self.roam_info_pennant:
+                    self.roam_info_pennant = self.create_roam_hint_info()
+                if roam_unit := game.state.current_state().roam_unit:
+                    cursor_pos = roam_unit.sprite.get_roam_position()[1]
+                    self.roam_info_pennant.draw(surf, cursor_pos >= TILEY // 2 + game.camera.get_y())
+
         return surf
 
     def create_initiative_info(self):
@@ -237,9 +262,8 @@ class UIView():
 
     def create_unit_info(self, unit):
         font = FONT['info-grey']
-        dimensions = (112, 40)
-        width, height = dimensions
         surf = SPRITES.get('unit_info_bg').copy()
+        width, height = surf.get_size()
         top, left = 4, 6
         if not unit.portrait_nid and unit.faction:
             icons.draw_faction(surf, DB.factions.get(unit.faction), (left + 1, top + 4))
@@ -251,20 +275,20 @@ class UIView():
         if not unit.name:
             short_name = DB.classes.get(unit.klass).name
             name = short_name + ' ' + str(unit.level)
-        pos = (left + width//2 + 6 - font.width(name)//2, top + 4)
+        pos = (left + width//2 + 8 - font.width(name)//2, top + 20)
         font.blit(name, surf, pos)
 
         # Health text
-        surf.blit(SPRITES.get('unit_info_hp'), (left + 34, top + height - 20))
-        surf.blit(SPRITES.get('unit_info_slash'), (left + 66, top + height - 19))
+        surf.blit(SPRITES.get('unit_info_hp'), (left + 1, top + 37))
+        surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 38))
         current_hp = unit.get_hp()
         max_hp = equations.parser.hitpoints(unit)
-        font.blit_right(str(current_hp), surf, (left + 66, top + 16))
-        font.blit_right(str(max_hp), surf, (left + 90, top + 16))
+        font.blit_right(str(current_hp) if current_hp < 100 else '??', surf, (left + 33, top + 33))
+        font.blit_right(str(max_hp) if max_hp < 100 else '??', surf, (left + 57, top + 33))
 
         # Health BG
         bg_surf = SPRITES.get('health_bar2_bg')
-        surf.blit(bg_surf, (left + 36, top + height - 10))
+        surf.blit(bg_surf, (left + 57, top + 39))
 
         # Health Bar
         hp_ratio = utils.clamp(current_hp / float(max_hp), 0, 1)
@@ -272,14 +296,16 @@ class UIView():
             hp_surf = SPRITES.get('health_bar2')
             idx = int(hp_ratio * hp_surf.get_width())
             hp_surf = engine.subsurface(hp_surf, (0, 0, idx, 2))
-            surf.blit(hp_surf, (left + 37, top + height - 9))
+            surf.blit(hp_surf, (left + 58, top + 40))
 
         # Weapon Icon
-        weapon = unit.get_weapon()
-        icon = icons.get_icon(weapon)
-        if icon:
-            pos = (left + width - 20, top + height//2 - 8)
-            surf.blit(icon, pos)
+        for idx, item in enumerate(unit.nonaccessories[:5]):
+            pos = (left + idx * 16 + 33, top + 4)
+            if item is unit.get_weapon():
+                surf.blit(SPRITES.get('info_equipment_highlight'), utils.tuple_add(pos, (0, 10)))
+            surf.blit(icons.get_icon(item), pos)
+            if item.droppable:
+                surf.blit(SPRITES.get('info_droppable'), utils.tuple_add(pos, (0, 1)))
         return surf
 
     def create_tile_info(self, coord):
@@ -312,10 +338,13 @@ class UIView():
             render_text(bg_surf, ['small'], [str(tile_avoid)], [None], (bg_surf.get_width() - 4, 25), HAlignment.RIGHT)
 
         name = terrain.name
-        width = text_width('text', name)
-        height = FONT['text'].height
+        font = 'text'
+        if text_width(font, name) >= bg_surf.get_width():
+            font = 'narrow'
+        width = text_width(font, name)
+        height = FONT[font].height
         pos = (bg_surf.get_width()//2 - width//2, 22 - height)
-        render_text(bg_surf, ['text'], [name], [None], pos)
+        render_text(bg_surf, [font], [name], [None], pos)
         return bg_surf
 
     def create_obj_info(self):
@@ -343,6 +372,60 @@ class UIView():
             render_text(surf, ['text'], [line], [None], pos)
 
         return surf
+
+    def create_hint_info(self):
+        sprite = SPRITES.get('buttons')
+        sprites_rect = {
+            'SELECT':   (0,  66, 14, 13),
+            'BACK':     (0,  82, 14, 13),
+            'AUX':      (1, 133, 16,  9),
+            'INFO':     (1, 149, 16,  9),
+            'START':    (0, 165, 33,  9),
+            'MOVE':     (0, 196, 17, 17)
+        }
+        hints = [{
+            'SELECT':   'Open Menu',
+            'INFO':     'Show Danger'
+        }, {
+            'SELECT':   'Select',
+            'INFO':     'Unit Info'
+        }, {
+            'INFO':     'Unit Info'
+        }, {
+            'SELECT':   'Show Range',
+            'INFO':     'Unit Info'
+        }]
+
+        hover = game.cursor.get_hover()
+        if hover is None:
+            hint_idx = 0
+        elif hover.team == 'player':
+            if skill_system.can_select(hover):
+                hint_idx = 1
+            else:
+                hint_idx = 2
+        else:
+            hint_idx = 3
+
+        font_name = 'narrow'
+        dimension = (text_funcs.get_max_width(font_name, [hint for hint_dict in hints for hint in hint_dict.values()]) + 20,
+                     len(hints[hint_idx]) * 16)
+        surf = engine.create_surface(dimension, transparent=True)
+
+        for idx, (k, v) in enumerate(hints[hint_idx].items()):
+            button = engine.subsurface(sprite, sprites_rect.get(k))
+            engine.blit_center(surf, button, (8, 8 + idx*16))
+            FONT[font_name].blit(v, surf, (18, idx*16))
+        return surf
+    
+    def create_roam_hint_info(self):
+        hints = {
+            'SELECT':   'Interact',
+            'BACK':     '[HOLD] Sprint',
+            'AUX':      'Open Menu',
+            'INFO':     'Unit Info'
+        }
+        return banner.Pennant('        '.join('<icon>key_%s</> %s' % (k, v) for k, v in hints.items()))
 
     def prepare_attack_info(self):
         self.attack_info_disp = None
@@ -498,8 +581,8 @@ class UIView():
             e_hit = '--'
             e_crit = '--'
 
-        stat = [attacker.get_hp()]
-        e_stat = [defender.get_hp()]
+        stat = [attacker.get_hp() if attacker.get_hp() < 100 else '??']
+        e_stat = [defender.get_hp() if defender.get_hp() < 100 else '??']
 
         if grandmaster:
             stat.append(int(mt * float(utils.clamp(hit, 0, 100)) / 100))

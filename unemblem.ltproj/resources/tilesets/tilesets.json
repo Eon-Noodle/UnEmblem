@@ -1,0 +1,94 @@
+[
+    {
+        "nid": "SacredStonesBase",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "Stronghold",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "OverworldMap",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "RoundtableTileset",
+        "terrain_grid": {},
+        "autotiles": {
+            "0,9": 0,
+            "0,10": 1,
+            "1,9": 2,
+            "1,10": 3,
+            "2,8": 4,
+            "2,9": 5,
+            "2,10": 6,
+            "3,8": 7,
+            "3,9": 8,
+            "3,10": 9,
+            "3,11": 10,
+            "4,7": 11,
+            "4,8": 12,
+            "4,9": 13,
+            "4,10": 14,
+            "5,9": 15
+        }
+    },
+    {
+        "nid": "FF6",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "LaboratoryTileset",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "CastleBookshelves",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "FinalStronghold",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "ForgeTileset",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "lol",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "WesternNilesLava",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "DozmaryPool",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "1. FE8 - Fields - Remaster - Super Fields - Tileset",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "field_generated_0",
+        "terrain_grid": {},
+        "autotiles": {}
+    },
+    {
+        "nid": "testing",
+        "terrain_grid": {},
+        "autotiles": {}
+    }
+]

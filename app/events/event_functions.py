@@ -431,6 +431,7 @@ def unpause(self: Event, nid=None, flags=None):
         pass
     else:
         self.state = 'dialog'
+    self.draw_hint = False
 
 def transition(self: Event, direction=None, speed=None, color3=None, panorama=None, flags=None):
     flags = flags or set()
@@ -711,6 +712,10 @@ def set_fog_of_war(self: Event, fog_of_war_type: str, radius: int, ai_radius: Op
         fowt = FogOfWarType.THRACIA
     elif fowt == 'hybrid':
         fowt = FogOfWarType.HYBRID
+    elif fowt == 'fancy':
+        fowt = FogOfWarType.FANCY
+    elif fowt == 'fancy_thracia':
+        fowt = FogOfWarType.FANCY_THRACIA
     else:
         fowt = FogOfWarType.GBA_DEPRECATED
     action.do(action.SetLevelVar('_fog_of_war_type', fowt))
@@ -4028,6 +4033,14 @@ def change_team_palette(self: Event, team, map_sprite_palette = None, combat_var
         return
 
     action.do(action.ChangeTeamPalette(team, (map_sprite_palette, combat_variant_palette, combat_color)))
+
+def mute_music(self: Event, flags=None):
+    action.do(action.MuteMusic())
+    action.do(action.SetGameVar('silent', True))
+
+def unmute_music(self: Event, flags=None):
+    action.do(action.SetGameVar('silent', False))
+    action.do(action.UnmuteMusic())
 
 def dump_vars(self: Event, flags:Optional[set[str]]=None):
     def is_json_serializable(obj: Any) -> bool:

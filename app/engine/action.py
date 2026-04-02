@@ -26,6 +26,7 @@ from app.engine import engine
 from app.utilities import utils, static_random
 from app.utilities.typing import Pos
 from app.engine.source_type import SourceType
+from app.engine.sound import get_sound_thread
 
 def alters_game_state(func: Callable[..., Any]) -> Callable[..., None]:
     @functools.wraps(func)
@@ -3756,6 +3757,18 @@ class ChangeTeamPalette(Action):
 
         for unit in game.get_team_units(self.team):
             unit.sprite.load_sprites()
+
+class MuteMusic(Action):
+    def do(self):
+        get_sound_thread().set_music_volume(0)
+    def reverse(self):
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
+
+class UnmuteMusic(Action):
+    def do(self):
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
+    def reverse(self):
+        get_sound_thread().set_music_volume(0)
 
 
 # === Master Functions for adding to the action log ===

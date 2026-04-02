@@ -134,6 +134,8 @@ class Event():
 
         self.logger = logging.getLogger()
 
+        self.draw_hint: bool = False
+
     @property
     def unit1(self):
         return self.unit
@@ -219,6 +221,7 @@ class Event():
                         if self.text_boxes[-1].is_complete():
                             self.text_boxes.pop()
                     elif self.text_boxes[-1].is_paused():
+                        self.draw_hint = True
                         self.state = 'processing'
                 else:
                     self.state = 'processing'

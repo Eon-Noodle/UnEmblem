@@ -1,0 +1,230 @@
+[
+    {
+        "nid": "Andy",
+        "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            24,
+            48
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Fuuko",
+        "blinking_offset": [
+            24,
+            39
+        ],
+        "smiling_offset": [
+            24,
+            55
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Shen",
+        "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            24,
+            48
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Mui",
+        "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            24,
+            48
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Gina",
+        "blinking_offset": [
+            32,
+            46
+        ],
+        "smiling_offset": [
+            32,
+            62
+        ],
+        "info_offset": 8
+    },
+    {
+        "nid": "Phil",
+        "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Sean",
+        "blinking_offset": [
+            21,
+            28
+        ],
+        "smiling_offset": [
+            21,
+            44
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Chikara",
+        "blinking_offset": [
+            24,
+            34
+        ],
+        "smiling_offset": [
+            24,
+            50
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Isshin",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": 7
+    },
+    {
+        "nid": "Nico",
+        "blinking_offset": [
+            12,
+            30
+        ],
+        "smiling_offset": [
+            12,
+            46
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Juiz",
+        "blinking_offset": [
+            18,
+            32
+        ],
+        "smiling_offset": [
+            18,
+            48
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Rip",
+        "blinking_offset": [
+            32,
+            32
+        ],
+        "smiling_offset": [
+            32,
+            48
+        ],
+        "info_offset": 4
+    },
+    {
+        "nid": "Enjin",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            24,
+            48
+        ],
+        "info_offset": 8
+    },
+    {
+        "nid": "Apoccy",
+        "blinking_offset": [
+            0,
+            56
+        ],
+        "smiling_offset": [
+            0,
+            56
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Sun",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": 4
+    },
+    {
+        "nid": "Justice",
+        "blinking_offset": [
+            24,
+            16
+        ],
+        "smiling_offset": [
+            32,
+            32
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Melody",
+        "blinking_offset": [
+            24,
+            24
+        ],
+        "smiling_offset": [
+            24,
+            40
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Tutorial",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Colour",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": 0
+    }
+]

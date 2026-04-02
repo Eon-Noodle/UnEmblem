@@ -169,7 +169,8 @@ class StateMachine():
              'dialog_log': dialog_log.DialogLogState,
              'party_transfer': party_transfer.PartyTransferState,
              'party_transfer_confirm': party_transfer.PartyTransferConfirmState,
-             'credit': credit_state.CreditState
+             'credit': credit_state.CreditState,
+             'keymap_guide': title_screen.KeymapGuideState
              }
 
         if starting_states:

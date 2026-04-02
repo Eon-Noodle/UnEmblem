@@ -79,6 +79,8 @@ def check_position(unit: UnitObject, new_position: Tuple[int, int],
         other_team = game.board.get_team(new_position)
         if not other_team or unit.team in DB.teams.get_allies(other_team):
             return True # Allies, this is fine
+        elif skill_system.enemy_pass_through(game.board.get_unit(new_position)):
+            return True # Enemy pass-through, also fine
         else:  # Enemies
             return False
 

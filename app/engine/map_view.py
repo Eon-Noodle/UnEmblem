@@ -5,6 +5,7 @@ from app.events.regions import RegionType
 
 from app.engine import config as cf
 from app.engine import engine
+from app.engine.fog_of_war import FogOfWarType
 from app.engine.fonts import FONT
 from app.engine.game_state import game
 
@@ -31,10 +32,12 @@ class MapView():
         surf = surf.convert_alpha()
 
         # Draw units
-        draw_units = [unit for unit in game.units if unit.sprite.position]
+        draw_units = [unit for unit in game.units if unit.sprite.position and game.board.in_vision(unit.sprite.get_round_fake_pos() or unit.position)]
         draw_units = sorted(draw_units, key=lambda unit: unit.sprite.position[1])
         for unit in draw_units:
             unit.sprite.draw(surf, (0, 0))
+
+        surf = game.boundary.draw_fog_of_war(surf, cull_rect, cull_rect)
 
         if game.tilemap.foreground_layers():
             foreground_image = game.tilemap.get_foreground_image(cull_rect)
@@ -70,7 +73,9 @@ class MapView():
         culled_units = [unit for unit in pos_units if unit.sprite.draw_anyway() or
                         (cull_rect[0] - TILEWIDTH*2 < unit.sprite.position[0] * TILEWIDTH < cull_rect[0] + cull_rect[2] + TILEWIDTH*2 and
                          cull_rect[1] - TILEHEIGHT*2 < unit.sprite.position[1] * TILEHEIGHT < cull_rect[1] + cull_rect[3] + TILEHEIGHT*2)]
-        culled_units = [unit for unit in culled_units if game.board.in_vision(unit.sprite.get_round_fake_pos() or unit.position)]
+        fog_info = game.get_current_fog_info()
+        if fog_info.is_active and fog_info.mode != FogOfWarType.FANCY_THRACIA:
+            culled_units = [unit for unit in culled_units if game.board.in_vision(unit.sprite.get_round_fake_pos() or unit.position)]
         draw_units = sorted(culled_units, key=lambda unit: unit.sprite.position[1])
 
         topleft = cull_rect[0], cull_rect[1]
@@ -139,7 +144,10 @@ class MapView():
 
         surf = game.boundary.draw_auras(surf, full_size, cull_rect)
         surf = game.boundary.draw(surf, full_size, cull_rect)
-        surf = game.boundary.draw_fog_of_war(surf, full_size, cull_rect)
+
+        fog_info = game.get_current_fog_info()
+        if fog_info.mode not in (FogOfWarType.FANCY, FogOfWarType.FANCY_THRACIA):
+            surf = game.boundary.draw_fog_of_war(surf, full_size, cull_rect)
         surf = game.highlight.draw(surf, cull_rect)
 
         self.draw_grid(surf, cull_rect)
@@ -166,6 +174,9 @@ class MapView():
         if game.tilemap.foreground_layers():
             foreground_image = game.tilemap.get_foreground_image(cull_rect)
             surf.blit(foreground_image, (0, 0))
+
+        if fog_info.is_active and fog_info.mode in (FogOfWarType.FANCY, FogOfWarType.FANCY_THRACIA) :
+            surf = game.boundary.draw_fancy_fog_of_war(surf, fog_info.mode == FogOfWarType.FANCY_THRACIA, full_size, cull_rect)
 
         # Handle time region text
         self.time_region_text(surf, cull_rect)

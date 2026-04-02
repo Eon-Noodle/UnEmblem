@@ -183,6 +183,9 @@ def run(game):
 
         get_sound_thread().update(raw_events)
 
+        if game.game_vars.get("grayscale"):
+            engine.apply_grayscale(surf)
+
         engine.push_display(surf, engine.get_screensize(), engine.DISPLAYSURF)
 
         save_screenshot(raw_events, surf)

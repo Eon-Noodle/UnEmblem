@@ -168,6 +168,9 @@ class SingleCharacterOption(BasicOption):
         return 8
 
 class TitleOption():
+    hover = False
+    last_time = 0
+
     def __init__(self, idx, text, option_bg_name):
         self.idx = idx
         self.text = text
@@ -198,6 +201,7 @@ class TitleOption():
         text_size = font.size(text)
         position = (x - text_size[0]//2, y - text_size[1]//2)
 
+        '''
         # Handle outline
         t = math.sin(math.radians((engine.get_time()//10) % 180))
         color_transition = image_mods.blend_colors((192, 248, 248), (56, 48, 40), t)
@@ -209,17 +213,39 @@ class TitleOption():
         outline_surf = image_mods.change_color(outline_surf, color_transition)
 
         surf.blit(outline_surf, (position[0] - 1, position[1] - 1))
+        '''
         render_text(surf, [self.font], [text], [self.color], position)
 
     def draw(self, surf, x, y):
-        left = x - self.width()//2
-        surf.blit(SPRITES.get(self.option_bg_name), (left, y))
-
-        self.draw_text(surf, left + self.width()//2, y + self.height()//2 + 1)
+        self._draw(surf, x, y, False)
 
     def draw_highlight(self, surf, x, y):
+        self._draw(surf, x, y, True)
+
+    def _draw(self, surf, x, y, highlight:bool = False):
         left = x - self.width()//2
-        surf.blit(SPRITES.get(self.option_bg_name + '_highlight'), (left, y))
+
+        base_surf = SPRITES.get(self.option_bg_name)
+        highlight_surf = SPRITES.get(self.option_bg_name + '_highlight')
+
+        if highlight:
+            main_surf = highlight_surf
+            sub_surf = base_surf
+        else:
+            main_surf = base_surf
+            sub_surf = highlight_surf
+
+        surf.blit(main_surf, (left, y))
+
+        if self.hover != highlight:
+            self.hover = highlight
+            self.last_time = engine.get_time()
+
+        diff = (engine.get_time() - self.last_time) / 200
+        if diff < 1:
+            index_pixel = int(diff * self.width())
+            length = self.width() - index_pixel
+            surf.blit(engine.subsurface(sub_surf, (index_pixel, 0, length, self.height())), (left + index_pixel, y))
 
         self.draw_text(surf, left + self.width()//2, y + self.height()//2 + 1)
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
 from app.data.database.database import DB
-from app.engine import line_of_sight
+from app.engine import line_of_sight, skill_system
 from app.engine.pathfinding.node import Node
 from app.engine.game_state import game
 from app.engine.fog_of_war import FogOfWarType
@@ -153,7 +153,7 @@ class GameBoard(object):
 
     def can_move_through(self, team: NID, pos: Pos) -> bool:
         unit_team = self.get_team(pos)
-        if not unit_team or team in DB.teams.get_allies(unit_team):
+        if not unit_team or team in DB.teams.get_allies(unit_team) or skill_system.enemy_pass_through(self.get_unit(pos)):
             return True
         if team == 'player' or DB.constants.value('ai_fog_of_war'):
             if not self.in_vision(pos, team):
@@ -162,7 +162,7 @@ class GameBoard(object):
 
     def can_move_through_ally_block(self, team: NID, pos: Pos) -> bool:
         unit_team = self.get_team(pos)
-        if not unit_team:
+        if not unit_team or skill_system.enemy_pass_through(self.get_unit(pos)):
             return True
         if team == 'player' or DB.constants.value('ai_fog_of_war'):
             if not self.in_vision(pos, team):
@@ -170,6 +170,30 @@ class GameBoard(object):
         return False
 
     # === Fog of War ===
+    def find_euclidean_spheres(self, rng, x, y):
+        if not rng:
+            return set()
+        points = set()
+        r = max(rng) + 0.5
+        for dx in rng:
+            if dx == 0:
+                for dy in rng:
+                    if dy == 0:
+                        points.add((x, y))
+                    else:
+                        points.update({(x, y + dy),
+                                       (x, y - dy)})
+                continue
+            points.update({(x + dx, y),
+                           (x - dx, y)})
+            max_dy = int((r*r - dx*dx)**0.5)
+            for dy in range(1, max_dy+1):
+                points.update({(x + dx, y + dy),
+                               (x + dx, y - dy),
+                               (x - dx, y + dy),
+                               (x - dx, y - dy)})
+        return points
+
     def update_fow(self, pos: Optional[Pos], unit: UnitObject, sight_range: int):
         """Modifies the state of the fog of war game board to reflect the unit moving to the pos"""
         grid: Grid[List[UnitObject]] = self.fog_of_war_grids[unit.team]
@@ -180,7 +204,12 @@ class GameBoard(object):
         # Add new vision
         if pos:
             self.fow_vantage_point[unit.nid] = pos
-            positions = game.target_system.find_manhattan_spheres(range(sight_range + 1), *pos)
+
+            find_spheres = game.target_system.find_manhattan_spheres
+            if game.get_current_fog_info().mode in (FogOfWarType.FANCY, FogOfWarType.FANCY_THRACIA):
+                find_spheres = self.find_euclidean_spheres
+            positions = find_spheres(range(sight_range + 1), *pos)
+
             positions = {pos for pos in positions if 0 <= pos[0] < self.width and 0 <= pos[1] < self.height}
             for position in positions:
                 grid.get(position).add(unit.nid)
@@ -221,8 +250,13 @@ class GameBoard(object):
             self.fog_region_set.add(region.nid)
             fog_range = int(region.sub_nid) if region.sub_nid else 0
             positions = set()
+
+            find_spheres = game.target_system.find_manhattan_spheres
+            if game.get_current_fog_info().mode in (FogOfWarType.FANCY, FogOfWarType.FANCY_THRACIA):
+                find_spheres = self.find_euclidean_spheres
+
             for pos in region.get_all_positions():
-                positions |= game.target_system.find_manhattan_spheres(range(fog_range + 1), pos[0], pos[1])
+                positions |= find_spheres(range(fog_range + 1), pos[0], pos[1])
             positions = {pos for pos in positions if 0 <= pos[0] < self.width and 0 <= pos[1] < self.height}
             for position in positions:
                 self.fog_regions.get(position).add(region.nid)
@@ -236,8 +270,13 @@ class GameBoard(object):
         if region.position:
             vision_range = int(region.sub_nid) if region.sub_nid else 0
             positions = set()
+
+            find_spheres = game.target_system.find_manhattan_spheres
+            if game.get_current_fog_info().mode in (FogOfWarType.FANCY, FogOfWarType.FANCY_THRACIA):
+                find_spheres = self.find_euclidean_spheres
+
             for pos in region.get_all_positions():
-                positions |= game.target_system.find_manhattan_spheres(range(vision_range + 1), pos[0], pos[1])
+                positions |= find_spheres(range(vision_range + 1), pos[0], pos[1])
             positions = {pos for pos in positions if 0 <= pos[0] < self.width and 0 <= pos[1] < self.height}
             for position in positions:
                 self.vision_regions.get(position).add(region.nid)
