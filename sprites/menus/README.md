@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![chapter_select_blue.png](chapter_select_blue.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![chapter_select_blue.png](chapter_select_blue.png)
 ![chapter_select_blue_flicker.png](chapter_select_blue_flicker.png)
 ![chapter_select_blue_highlight.png](chapter_select_blue_highlight.png)
 ![chapter_select_green.png](chapter_select_green.png)

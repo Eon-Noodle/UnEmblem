@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![assist_info_crit_left_blue.png](assist_info_crit_left_blue.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![assist_info_crit_left_blue.png](assist_info_crit_left_blue.png)
 ![assist_info_crit_left_green.png](assist_info_crit_left_green.png)
 ![assist_info_crit_left_purple.png](assist_info_crit_left_purple.png)
 ![assist_info_crit_left_red.png](assist_info_crit_left_red.png)

@@ -21,7 +21,7 @@ def is_auto_generated_gallery(readme_path):
 def generate_folder_readme(folder_path, images):
     readme_path = Path(folder_path) / "README.md"
     
-    content = GALLERY_MARKER + \
+    content = GALLERY_MARKER + '\n' + \
                 '\n'.join('![%s](%s)' % (img_path.name, img_path.relative_to(folder_path)) \
                             for img_path in images)  
     readme_path.write_text(content, encoding='utf-8')

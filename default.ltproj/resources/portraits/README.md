@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Amelia.png](Amelia.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Amelia.png](Amelia.png)
 ![Artur.png](Artur.png)
 ![Bandit1.png](Bandit1.png)
 ![Bazba.png](Bazba.png)

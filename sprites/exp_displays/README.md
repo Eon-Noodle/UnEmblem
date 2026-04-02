@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![expbar.png](expbar.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![expbar.png](expbar.png)
 ![level_down_arrow.png](level_down_arrow.png)
 ![level_down_numbers.png](level_down_numbers.png)
 ![level_screen.png](level_screen.png)

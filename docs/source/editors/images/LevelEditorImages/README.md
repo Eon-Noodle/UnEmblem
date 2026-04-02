@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![AIGroups.png](AIGroups.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![AIGroups.png](AIGroups.png)
 ![ItLies.png](ItLies.png)
 ![Location.png](Location.png)
 ![PropertiesComma0.png](PropertiesComma0.png)

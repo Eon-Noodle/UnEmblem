@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![capture_art.png](capture_art.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![capture_art.png](capture_art.png)
 ![capture_skill.png](capture_skill.png)
 ![CreatingCapture1.png](CreatingCapture1.png)
 ![CreatingCapture2.png](CreatingCapture2.png)

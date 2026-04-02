@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![cursor_minimap_marker.png](cursor_minimap_marker.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![cursor_minimap_marker.png](cursor_minimap_marker.png)
 ![MagvelMinimap.png](MagvelMinimap.png)
 ![objective_flag.png](objective_flag.png)
 ![overworld_routes.png](overworld_routes.png)

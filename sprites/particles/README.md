@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![particle_bg_fire.png](particle_bg_fire.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![particle_bg_fire.png](particle_bg_fire.png)
 ![particle_bg_night.png](particle_bg_night.png)
 ![particle_bg_sunset.png](particle_bg_sunset.png)
 ![particle_dark_mote.png](particle_dark_mote.png)

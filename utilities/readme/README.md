@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![activated_skill.gif](activated_skill.gif)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![activated_skill.gif](activated_skill.gif)
 ![aoe.gif](aoe.gif)
 ![aura.png](aura.png)
 ![base.png](base.png)

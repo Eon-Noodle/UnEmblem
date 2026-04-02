@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![ChangedLogo.png](ChangedLogo.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![ChangedLogo.png](ChangedLogo.png)
 ![CustomSpritesFileExplorer.png](CustomSpritesFileExplorer.png)
 ![Finished.png](Finished.png)
 ![logo.png](logo.png)

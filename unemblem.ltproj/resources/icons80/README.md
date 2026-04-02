@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Assassin.png](Assassin.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Assassin.png](Assassin.png)
 ![Berserker_Unarmed.png](Berserker_Unarmed.png)
 ![Brigand_Unarmed.png](Brigand_Unarmed.png)
 ![Cowboy.png](Cowboy.png)

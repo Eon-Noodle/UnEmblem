@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![bg_black_tile.png](bg_black_tile.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![bg_black_tile.png](bg_black_tile.png)
 ![bg_fow_tile.png](bg_fow_tile.png)
 ![boss_icon.png](boss_icon.png)
 ![buttons.png](buttons.png)

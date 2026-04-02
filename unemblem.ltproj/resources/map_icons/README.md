@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![castle.png](castle.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![castle.png](castle.png)
 ![cathedral.png](cathedral.png)
 ![citadel.png](citadel.png)
 ![forest_temple.png](forest_temple.png)

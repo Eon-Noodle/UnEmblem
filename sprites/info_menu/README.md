@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![aid_icons.png](aid_icons.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![aid_icons.png](aid_icons.png)
 ![battle_info.png](battle_info.png)
 ![equipment_highlight.png](equipment_highlight.png)
 ![equipment_logo.png](equipment_logo.png)

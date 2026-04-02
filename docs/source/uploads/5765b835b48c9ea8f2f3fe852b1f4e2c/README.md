@@ -1,1 +1,2 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![image.png](image.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![image.png](image.png)

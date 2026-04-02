@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Arena-Melee.png](Arena-Melee.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Arena-Melee.png](Arena-Melee.png)
 ![Arena-Ranged.png](Arena-Ranged.png)
 ![Armory-Melee.png](Armory-Melee.png)
 ![Armory-Ranged.png](Armory-Ranged.png)

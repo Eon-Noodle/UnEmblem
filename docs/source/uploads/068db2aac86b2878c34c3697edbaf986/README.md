@@ -1,1 +1,2 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![skillalert.png](skillalert.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![skillalert.png](skillalert.png)

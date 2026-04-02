@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![autotile-example.gif](autotile-example.gif)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![autotile-example.gif](autotile-example.gif)
 ![autotile-template-example.png](autotile-template-example.png)
 ![autotile-tilemap-editor.png](autotile-tilemap-editor.png)
 ![example-autotile-match-small.png](example-autotile-match-small.png)

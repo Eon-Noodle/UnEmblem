@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![damage_numbers_cyan.png](damage_numbers_cyan.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![damage_numbers_cyan.png](damage_numbers_cyan.png)
 ![damage_numbers_red.png](damage_numbers_red.png)
 ![damage_numbers_red2.png](damage_numbers_red2.png)
 ![damage_numbers_small_cyan.png](damage_numbers_small_cyan.png)

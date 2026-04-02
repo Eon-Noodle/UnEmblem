@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![Arch_Mogall-MagicDark.png](Arch_Mogall-MagicDark.png)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![Arch_Mogall-MagicDark.png](Arch_Mogall-MagicDark.png)
 ![Arch_Mogall-Unarmed.png](Arch_Mogall-Unarmed.png)
 ![Archer-RangedBow.png](Archer-RangedBow.png)
 ![Archer-Unarmed.png](Archer-Unarmed.png)

@@ -1,4 +1,5 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->![contributing_1.jpg](contributing_1.jpg)
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![contributing_1.jpg](contributing_1.jpg)
 ![contributing_10.jpg](contributing_10.jpg)
 ![contributing_11.jpg](contributing_11.jpg)
 ![contributing_2.jpg](contributing_2.jpg)
