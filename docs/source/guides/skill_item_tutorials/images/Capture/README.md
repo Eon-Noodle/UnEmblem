@@ -1,0 +1,8 @@
+<!-- AUTO-GENERATED-IMAGE-GALLERY -->![capture_art.png](capture_art.png)
+![capture_skill.png](capture_skill.png)
+![CreatingCapture1.png](CreatingCapture1.png)
+![CreatingCapture2.png](CreatingCapture2.png)
+![CreatingCapture3.png](CreatingCapture3.png)
+![CreatingCapture4.png](CreatingCapture4.png)
+![CreatingCapture5.png](CreatingCapture5.png)
+![kill_event.png](kill_event.png)
