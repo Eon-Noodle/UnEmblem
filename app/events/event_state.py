@@ -3,7 +3,11 @@ import logging
 from app.data.database.database import DB
 from app.engine.game_state import game
 from app.engine.state import State
-from app.engine import action
+from app.engine import action, engine
+from app.engine import config as cf
+from app.engine.sprites import SPRITES
+from app.engine.graphics.text.text_renderer import text_width, render_text
+from app.constants import WINWIDTH
 from app.events import triggers
 
 
@@ -12,6 +16,7 @@ class EventState(State):
     transparent = True
     event = None
     is_handling_end_event = False
+    hint_surf = None
 
     def begin(self):
         logging.debug("Begin Event State")
@@ -55,6 +60,10 @@ class EventState(State):
     def draw(self, surf):
         if self.event:
             self.event.draw(surf)
+            if (self.event.draw_hint or self.event.state == 'dialog') and cf.SETTINGS['display_hints']:
+                if not self.hint_surf:
+                    self.hint_surf = self.create_hint_surf()
+                surf.blit(self.hint_surf, (0, 0))
         return surf
 
     def level_end(self):
@@ -185,3 +194,36 @@ class EventState(State):
             game.state.back()
 
         return 'repeat'
+
+    def create_hint_surf(self):
+        bg_surf = SPRITES.get('pennant_bg')
+        sprite = SPRITES.get('buttons')
+        sprites_rect = {
+            'SELECT':   (0,  66, 14, 13),
+            'BACK':     (0,  82, 14, 13),
+            'AUX':      (1, 133, 16,  9),
+            'INFO':     (1, 149, 16,  9),
+            'START':    (0, 165, 33,  9),
+            'MOVE':     (0, 196, 17, 17)
+        }
+        hints = {
+            'SELECT':   'Continue',
+            'BACK':     'Skip',
+            'START':    'Super Skip',
+            'INFO':     'View Log'
+        }
+
+        font = 'narrow'
+        x_pos = 4
+        height = 17
+        bg_surf = engine.flip_vert(bg_surf)
+        padding = (WINWIDTH - sum(map(lambda pair: sprites_rect.get(pair[0])[2] + 2 + text_width(font, pair[1]), hints.items())) - 8) // (len(hints)-1)
+        for k, v in hints.items():
+            rect = sprites_rect.get(k)
+            button = engine.subsurface(sprite, rect)
+            bg_surf.blit(button, (x_pos, (height - rect[3]) // 2))
+            x_pos += rect[2] + 2
+            render_text(bg_surf, [font], [v], ['white'], (x_pos, 0))
+            x_pos += text_width(font, v) + padding
+        return bg_surf
+

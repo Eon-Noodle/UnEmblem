@@ -8,7 +8,7 @@ from app.constants import TILEHEIGHT, WINHEIGHT
 from app.engine import engine, help_menu, menus
 from app.engine.info_menu.multi_desc import draw_page_number
 
-info_states = ('personal_data', 'equipment', 'support_skills', 'notes')
+info_states = ('personal_data', 'equipment', 'skills', 'supports', 'notes')
 
 @dataclass
 class BoundingBox():
@@ -223,3 +223,10 @@ class InfoGraph():
             # As on the GBA, the help box let go of shrinks away
             pos = (max(0, self.last_bb.aabb[0] - 32), self.last_bb.aabb[1] + 13)
             self.last_bb.help_box.draw(surf, pos)
+
+    def is_multiple_pages(self) -> bool:
+        if self.current_bb and \
+            self.current_bb.is_multiple() and \
+            len(self.current_bb._help_box) > 1:
+                return True
+        return False

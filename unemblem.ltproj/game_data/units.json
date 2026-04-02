@@ -1,0 +1,3732 @@
+[
+    {
+        "nid": "Nothing",
+        "name": "Nothing",
+        "desc": "",
+        "variant": null,
+        "level": 1,
+        "klass": "Citizen",
+        "tags": [],
+        "bases": {
+            "LCK": 0,
+            "STR": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "CON": 0,
+            "MOV": 0,
+            "DEF": 0,
+            "RES": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "LCK": 0,
+            "STR": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "CON": 0,
+            "MOV": 0,
+            "DEF": 0,
+            "RES": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "LCK": 0,
+            "STR": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "CON": 0,
+            "MOV": 0,
+            "DEF": 0,
+            "RES": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [],
+        "unit_notes": [
+            [
+                "hi",
+                "lol"
+            ]
+        ],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Andy",
+        "name": "Andy",
+        "desc": "<violet>Negator of Death</>. An immortal mercenary, he wishes to grow old and die.",
+        "variant": "",
+        "level": 1,
+        "klass": "Conqueror",
+        "tags": [],
+        "bases": {
+            "HP": 32,
+            "STR": 9,
+            "SKL": 14,
+            "SPD": 11,
+            "LCK": 10,
+            "DEF": 9,
+            "RES": 8,
+            "CON": 11,
+            "MOV": 6,
+            "MAG": 6
+        },
+        "growths": {
+            "HP": 60,
+            "STR": 25,
+            "SKL": 20,
+            "SPD": 25,
+            "LCK": 20,
+            "DEF": 15,
+            "RES": 20,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 25
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Silver_Sword",
+                false
+            ],
+            [
+                "Steel_Musket",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Undead"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                181,
+                251
+            ],
+            "Lance": [
+                true,
+                31,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                1,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                181,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Andy",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Fuuko",
+        "name": "Fuuko",
+        "desc": "<violet>Negator of Luck</>. A bit of a crybaby, but she holds great conviction towards her dream.",
+        "variant": "",
+        "level": 1,
+        "klass": "Leader",
+        "tags": [
+            "Lord"
+        ],
+        "bases": {
+            "HP": 16,
+            "STR": 5,
+            "SKL": 8,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 3,
+            "CON": 5,
+            "MOV": 5,
+            "RES": 1,
+            "MAG": 3
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 55,
+            "SKL": 50,
+            "SPD": 55,
+            "LCK": 45,
+            "DEF": 20,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 25,
+            "MAG": 50
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Aegis",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unluck"
+            ],
+            [
+                1,
+                "Pass"
+            ]
+        ],
+        "unit_notes": [
+            [
+                "Height",
+                "Barely 155cm"
+            ],
+            [
+                "Weight",
+                "Doesn't want to say"
+            ],
+            [
+                "Hobbies",
+                "Shojo manga,Video games"
+            ],
+            [
+                "Fav. Dish",
+                "Sushi with no wasabi"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                1,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                1,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Fuuko",
+        "affinity": "Fire",
+        "fields": []
+    },
+    {
+        "nid": "Shen",
+        "name": "Shen",
+        "desc": "<violet>Negator of Truth</>. He seeks out strong sparring partners.",
+        "variant": "_Shen",
+        "level": 1,
+        "klass": "Martial_Artist",
+        "tags": [
+            "Wink"
+        ],
+        "bases": {
+            "HP": 20,
+            "STR": 6,
+            "SKL": 6,
+            "SPD": 7,
+            "LCK": 2,
+            "DEF": 5,
+            "RES": 1,
+            "CON": 9,
+            "MOV": 5,
+            "MAG": 4
+        },
+        "growths": {
+            "HP": 85,
+            "STR": 45,
+            "SKL": 50,
+            "SPD": 45,
+            "LCK": 35,
+            "DEF": 25,
+            "RES": 25,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 45
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Iron_Spear",
+                false
+            ],
+            [
+                "Iron_Gauntlet",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Untruth"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                102,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                31,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                1,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Shen",
+        "affinity": "Ice",
+        "fields": []
+    },
+    {
+        "nid": "Mui",
+        "name": "Mui",
+        "desc": "A martial art prodigy. She fights with discipline and honour.",
+        "variant": "_Mui",
+        "level": 1,
+        "klass": "Martial_Artist",
+        "tags": [],
+        "bases": {
+            "HP": 19,
+            "STR": 8,
+            "SKL": 4,
+            "SPD": 6,
+            "LCK": 4,
+            "DEF": 6,
+            "RES": 2,
+            "CON": 7,
+            "MOV": 5,
+            "MAG": 3
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 60,
+            "SKL": 40,
+            "SPD": 40,
+            "LCK": 35,
+            "DEF": 25,
+            "RES": 20,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 25
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Fan",
+                false
+            ],
+            [
+                "Iron_Spear",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                72,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                1,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                31,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                1,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Mui",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Gina",
+        "name": "Gina",
+        "desc": "<violet>Negator of Change</>. A passionate gyaru, she is steadfast.",
+        "variant": "_Gina",
+        "level": 3,
+        "klass": "Duelist",
+        "tags": [],
+        "bases": {
+            "HP": 21,
+            "STR": 6,
+            "SKL": 11,
+            "SPD": 11,
+            "LCK": 5,
+            "DEF": 5,
+            "RES": 0,
+            "CON": 5,
+            "MOV": 5,
+            "MAG": 4
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 35,
+            "SKL": 55,
+            "SPD": 70,
+            "LCK": 45,
+            "DEF": 15,
+            "RES": 25,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 20
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Killing_Edge",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unchange"
+            ],
+            [
+                1,
+                "Seafarer"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                71,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Gina",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Sean",
+        "name": "Sean",
+        "desc": "<violet>Negator of Sight</>. Had bad upbringings, but he is very sincere and loyal.",
+        "variant": "_Sean",
+        "level": 2,
+        "klass": "Looter",
+        "tags": [],
+        "bases": {
+            "HP": 18,
+            "STR": 4,
+            "SKL": 4,
+            "SPD": 10,
+            "LCK": 8,
+            "DEF": 3,
+            "RES": 1,
+            "CON": 7,
+            "MOV": 6,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 40,
+            "SKL": 40,
+            "SPD": 65,
+            "LCK": 45,
+            "DEF": 25,
+            "RES": 20,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 20
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Iron_Sword",
+                false
+            ],
+            [
+                "Lockpick",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unseen"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                1,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                true,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                true,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Sean",
+        "affinity": "Anima",
+        "fields": []
+    },
+    {
+        "nid": "Chikara",
+        "name": "Chikara",
+        "desc": "<violet>Negator of Move</>. Have trouble steeling himself, can be brave when needed.",
+        "variant": "",
+        "level": 1,
+        "klass": "Caregiver",
+        "tags": [],
+        "bases": {
+            "HP": 18,
+            "STR": 2,
+            "SKL": 4,
+            "SPD": 8,
+            "LCK": 6,
+            "DEF": 2,
+            "RES": 6,
+            "CON": 4,
+            "MOV": 5,
+            "MAG": 2
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 15,
+            "SKL": 25,
+            "SPD": 40,
+            "LCK": 60,
+            "DEF": 15,
+            "RES": 55,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 60
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Medical_Pod",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unmove"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                true,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                true,
+                31,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                true,
+                31,
+                251
+            ],
+            "Medipod": [
+                true,
+                31,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Chikara",
+        "affinity": "Ice",
+        "fields": []
+    },
+    {
+        "nid": "Phil",
+        "name": "Phil",
+        "desc": "<violet>Negator of Feeling</>. Lack of emotions, but still driven to save others.",
+        "variant": "_Phil",
+        "level": 1,
+        "klass": "Tinkerer",
+        "tags": [],
+        "bases": {
+            "HP": 17,
+            "STR": 0,
+            "SKL": 6,
+            "SPD": 7,
+            "LCK": 8,
+            "DEF": 3,
+            "RES": 5,
+            "CON": 3,
+            "MOV": 7,
+            "MAG": 6
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 0,
+            "SKL": 30,
+            "SPD": 45,
+            "LCK": 45,
+            "DEF": 15,
+            "RES": 40,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 65
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Laser_Core",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unfeel"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                true,
+                71,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                1,
+                251
+            ],
+            "Magic": [
+                true,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                true,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Phil",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Isshin",
+        "name": "Isshin",
+        "desc": "A mysterious blacksmith hidden behind a scary mask.",
+        "variant": "",
+        "level": 4,
+        "klass": "Convoyer",
+        "tags": [],
+        "bases": {
+            "HP": 18,
+            "STR": 0,
+            "SKL": 4,
+            "SPD": 5,
+            "LCK": 12,
+            "DEF": 5,
+            "CON": 25,
+            "MOV": 0,
+            "RES": 2,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 120,
+            "STR": 0,
+            "SKL": 90,
+            "SPD": 90,
+            "LCK": 100,
+            "DEF": 30,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 15,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [
+            [
+                1,
+                "Unsecret"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                71,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Isshin",
+        "affinity": "Wind",
+        "fields": []
+    },
+    {
+        "nid": "Haruka",
+        "name": "Haruka",
+        "desc": "<violet>Negator of Breaking</>. She is shy yet dependable.",
+        "variant": "",
+        "level": 4,
+        "klass": "Defender",
+        "tags": [
+            "Convoy",
+            "AdjConvoy"
+        ],
+        "bases": {
+            "HP": 18,
+            "STR": 9,
+            "SKL": 6,
+            "SPD": 3,
+            "LCK": 3,
+            "DEF": 5,
+            "CON": 25,
+            "MOV": 0,
+            "RES": 2,
+            "MAG": 5
+        },
+        "growths": {
+            "HP": 90,
+            "STR": 45,
+            "SKL": 35,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 55,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 20
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [
+            [
+                1,
+                "Unbreakable"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                71,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Isshin",
+        "affinity": "Wind",
+        "fields": []
+    },
+    {
+        "nid": "Nico",
+        "name": "Nico",
+        "desc": "Head engineer of the Union. He trusts only scientific facts, and can be a bit cynical.",
+        "variant": "",
+        "level": 1,
+        "klass": "Citizen_Nico",
+        "tags": [],
+        "bases": {
+            "HP": 33,
+            "STR": 8,
+            "SKL": 21,
+            "SPD": 17,
+            "LCK": 14,
+            "DEF": 11,
+            "RES": 16,
+            "MOV": 6,
+            "CON": 8,
+            "MAG": 18
+        },
+        "growths": {
+            "HP": 0,
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "HP": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "STR": 0,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Book_Revelations",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "Nico",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Enjin",
+        "name": "Enjin",
+        "desc": "<violet>Negator of Burn</>. He only gets wet from ramen, baby!",
+        "variant": "",
+        "level": 8,
+        "klass": "Brawler",
+        "tags": [],
+        "bases": {
+            "HP": 34,
+            "STR": 12,
+            "SKL": 8,
+            "SPD": 8,
+            "LCK": 3,
+            "DEF": 6,
+            "RES": 1,
+            "CON": 14,
+            "MOV": 5,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 65,
+            "SKL": 40,
+            "SPD": 20,
+            "LCK": 40,
+            "DEF": 25,
+            "RES": 15,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Iron_Gauntlet",
+                false
+            ],
+            [
+                "Rocket_Punch",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unburn"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                true,
+                71,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                true,
+                71,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Enjin",
+        "affinity": "Wind",
+        "fields": []
+    },
+    {
+        "nid": "Kurusu",
+        "name": "Kurusu",
+        "desc": "<violet>Negator of Chastity</>. She becomes the top idol with her enormous hard works.",
+        "variant": "",
+        "level": 3,
+        "klass": "Caregiver",
+        "tags": [],
+        "bases": {
+            "HP": 20,
+            "STR": 6,
+            "SKL": 6,
+            "SPD": 9,
+            "LCK": 1,
+            "DEF": 2,
+            "RES": 5,
+            "CON": 9,
+            "MOV": 5,
+            "MAG": 4
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 50,
+            "SKL": 50,
+            "SPD": 40,
+            "LCK": 20,
+            "DEF": 25,
+            "RES": 25,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 40
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Medical_Pod",
+                false
+            ],
+            [
+                "Panpanda",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unchaste"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                true,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                true,
+                71,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                true,
+                71,
+                251
+            ],
+            "Medipod": [
+                true,
+                71,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "",
+        "affinity": "Wind",
+        "fields": []
+    },
+    {
+        "nid": "Rip",
+        "name": "Rip",
+        "desc": "<violet>Negator of Repair</>. Playful and methodical.",
+        "variant": "_Rip",
+        "level": 1,
+        "klass": "Assassin",
+        "tags": [],
+        "bases": {
+            "MOV": 6,
+            "CON": 8,
+            "HP": 26,
+            "STR": 17,
+            "SKL": 20,
+            "SPD": 19,
+            "LCK": 7,
+            "DEF": 11,
+            "RES": 7,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 15,
+            "SKL": 40,
+            "SPD": 35,
+            "LCK": 20,
+            "DEF": 30,
+            "RES": 30,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "DEF": 0,
+            "MOV": 0,
+            "STR": 0,
+            "SKL": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CON": 0,
+            "RES": 0,
+            "SPD": 0,
+            "LCK": 0
+        },
+        "starting_items": [],
+        "learned_skills": [
+            [
+                1,
+                "Unrepair"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Sword": [
+                false,
+                181,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Rip",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Apoccy",
+        "name": "Apocalypse",
+        "desc": "",
+        "variant": "",
+        "level": 1,
+        "klass": "Artifact",
+        "tags": [
+            "Flying"
+        ],
+        "bases": {
+            "HP": 1,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "HP": 0,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "Apoccy",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Tutorial",
+        "name": "Tutorial",
+        "desc": "For normal units, their descriptions are written here. Not for me! Press <blue>{eval:engine.get_key_name(cf.SETTINGS['key_BACK']).upper()}</> to go back.",
+        "variant": "_Tutorial",
+        "level": 1,
+        "klass": "Sludge",
+        "tags": [
+            "Boss",
+            "UMA"
+        ],
+        "bases": {
+            "HP": 52,
+            "STR": 23,
+            "SPD": 15,
+            "SKL": 21,
+            "DEF": 24,
+            "LCK": 22,
+            "RES": 9,
+            "CON": 25,
+            "MOV": 6,
+            "MAG": 12
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Pound",
+                false
+            ],
+            [
+                "Dissolving_Fume",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Plot_Armour"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Magic": [
+                false,
+                151,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                151,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Tutorial",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Sun",
+        "name": "Sun",
+        "desc": "Creator of the UMAs, Rules, and this World.",
+        "variant": "",
+        "level": 1,
+        "klass": "God",
+        "tags": [
+            "Boss"
+        ],
+        "bases": {
+            "HP": 120,
+            "MOV": 3,
+            "RES": 30,
+            "LCK": 24,
+            "STR": 17,
+            "CON": 999,
+            "SPD": 15,
+            "MAG": 15,
+            "SKL": 25,
+            "DEF": 20
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Solar_Flare",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Cruel_Sun"
+            ],
+            [
+                1,
+                "Titanic"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "Sun",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Colour",
+        "name": "Colour",
+        "desc": "<violet>Embodiment of Colour</>.",
+        "variant": "_Colour",
+        "level": 20,
+        "klass": "Banshee",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 56,
+            "SKL": 29,
+            "RES": 29,
+            "CON": 10,
+            "DEF": 14,
+            "STR": 12,
+            "SPD": 18,
+            "LCK": 6,
+            "MOV": 6,
+            "MAG": 23
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Baleful_Brush",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Colour",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Melody",
+        "name": "Melody",
+        "desc": "<violet>Embodiment of Melody</>.",
+        "variant": "_Melody",
+        "level": 20,
+        "klass": "Lamia",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 48,
+            "STR": 15,
+            "MAG": 24,
+            "SKL": 22,
+            "SPD": 22,
+            "DEF": 16,
+            "RES": 25,
+            "LCK": 12,
+            "MOV": 6,
+            "CON": 7
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Perish_Lullaby",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Melody",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Justice",
+        "name": "Justice",
+        "desc": "<violet>Embodiment of Justice</> and the fifth Master Rule.",
+        "variant": "_Justice",
+        "level": 20,
+        "klass": "Hero",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 62,
+            "STR": 23,
+            "SKL": 18,
+            "SPD": 15,
+            "LCK": 2,
+            "DEF": 29,
+            "RES": 15,
+            "CON": 15,
+            "MAG": 17,
+            "MOV": 6
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Brave_Sword",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Justice",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Shen_100",
+        "name": "Shen",
+        "desc": "<violet>Negator of Truth</>. He seeks out strong sparring partners.",
+        "variant": "_Shen",
+        "level": 20,
+        "klass": "Grand_Master_1",
+        "tags": [
+            "Wink"
+        ],
+        "bases": {
+            "HP": 48,
+            "STR": 20,
+            "SKL": 22,
+            "SPD": 22,
+            "LCK": 12,
+            "DEF": 14,
+            "RES": 10,
+            "CON": 11,
+            "MOV": 6,
+            "MAG": 17
+        },
+        "growths": {
+            "HP": 85,
+            "STR": 45,
+            "SKL": 50,
+            "SPD": 45,
+            "LCK": 35,
+            "DEF": 25,
+            "RES": 25,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 45
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Lance",
+                false
+            ],
+            [
+                "Basho_Glove",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Untruth"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                102,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                31,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                181,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                251,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Shen",
+        "affinity": "Ice",
+        "fields": []
+    },
+    {
+        "nid": "Mui_100",
+        "name": "Mui",
+        "desc": "A martial art prodigy. She fights with discipline and honour.",
+        "variant": "_Mui",
+        "level": 20,
+        "klass": "Grand_Master_1",
+        "tags": [],
+        "bases": {
+            "HP": 45,
+            "STR": 25,
+            "SKL": 17,
+            "SPD": 19,
+            "LCK": 14,
+            "DEF": 15,
+            "RES": 10,
+            "CON": 9,
+            "MOV": 6,
+            "MAG": 10
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 60,
+            "SKL": 40,
+            "SPD": 40,
+            "LCK": 35,
+            "DEF": 25,
+            "RES": 20,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 25
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Glove",
+                false
+            ],
+            [
+                "Basho_Lance",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                251
+            ],
+            "Lance": [
+                true,
+                72,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                1,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                251,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                181,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Mui",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Phil_100",
+        "name": "Phil",
+        "desc": "<violet>Negator of Feeling</>. Lack of emotions, but still driven to save others.",
+        "variant": "_Phil",
+        "level": 20,
+        "klass": "Precisione_1",
+        "tags": [],
+        "bases": {
+            "HP": 34,
+            "STR": 0,
+            "SKL": 14,
+            "SPD": 20,
+            "LCK": 21,
+            "DEF": 10,
+            "RES": 19,
+            "CON": 4,
+            "MOV": 8,
+            "MAG": 25
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 0,
+            "SKL": 30,
+            "SPD": 45,
+            "LCK": 45,
+            "DEF": 15,
+            "RES": 40,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 65
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Core",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unfeel"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                true,
+                71,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                251,
+                251
+            ],
+            "Magic": [
+                true,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                true,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Phil",
+        "affinity": "Thunder",
+        "fields": []
+    },
+    {
+        "nid": "Juiz_100",
+        "name": "Juiz",
+        "desc": "<violet>Negator of Justice</>. Founder of the Union. Former first seat on the Roundtable.",
+        "variant": "_Juiz",
+        "level": 20,
+        "klass": "Swordmaster",
+        "tags": [],
+        "bases": {
+            "HP": 51,
+            "STR": 23,
+            "SKL": 26,
+            "SPD": 30,
+            "MAG": 22,
+            "LCK": 25,
+            "DEF": 20,
+            "RES": 22,
+            "MOV": 6,
+            "CON": 9
+        },
+        "growths": {
+            "DEF": 0,
+            "MOV": 0,
+            "STR": 0,
+            "SKL": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CON": 0,
+            "RES": 0,
+            "SPD": 0,
+            "LCK": 0
+        },
+        "stat_cap_modifiers": {
+            "DEF": 0,
+            "MOV": 0,
+            "STR": 0,
+            "SKL": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CON": 0,
+            "RES": 0,
+            "SPD": 0,
+            "LCK": 0
+        },
+        "starting_items": [
+            [
+                "Rebellion",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unjustice"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Juiz",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Enjin_100",
+        "name": "Enjin",
+        "desc": "<violet>Negator of Burn</>. He only gets wet from ramen, baby!",
+        "variant": "",
+        "level": 20,
+        "klass": "Pugilist",
+        "tags": [],
+        "bases": {
+            "HP": 55,
+            "STR": 27,
+            "SKL": 17,
+            "SPD": 13,
+            "LCK": 11,
+            "DEF": 13,
+            "RES": 6,
+            "CON": 17,
+            "MOV": 6,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 65,
+            "SKL": 40,
+            "SPD": 20,
+            "LCK": 40,
+            "DEF": 25,
+            "RES": 15,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SPD": 0,
+            "SKL": 0,
+            "STR": 0,
+            "RES": 0,
+            "MOV": 0,
+            "LCK": 0,
+            "CON": 0,
+            "DEF": 0,
+            "HP": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Glove",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unburn"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                true,
+                71,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                true,
+                251,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Enjin",
+        "affinity": "Wind",
+        "fields": []
+    },
+    {
+        "nid": "Rip_100",
+        "name": "Rip",
+        "desc": "<violet>Negator of Repair</>. Playful and methodical.",
+        "variant": "_Rip",
+        "level": 20,
+        "klass": "Assassin",
+        "tags": [],
+        "bases": {
+            "MOV": 6,
+            "CON": 8,
+            "HP": 32,
+            "STR": 18,
+            "SKL": 24,
+            "SPD": 22,
+            "LCK": 9,
+            "DEF": 14,
+            "RES": 10,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 15,
+            "SKL": 40,
+            "SPD": 35,
+            "LCK": 20,
+            "DEF": 30,
+            "RES": 30,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "DEF": 0,
+            "MOV": 0,
+            "STR": 0,
+            "SKL": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CON": 0,
+            "RES": 0,
+            "SPD": 0,
+            "LCK": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Sword",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unrepair"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Sword": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Rip",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Colour_100",
+        "name": "Colour",
+        "desc": "<violet>Embodiment of Colour</>.",
+        "variant": "_Colour",
+        "level": 20,
+        "klass": "Banshee",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 56,
+            "SKL": 24,
+            "RES": 24,
+            "CON": 10,
+            "DEF": 9,
+            "STR": 7,
+            "SPD": 13,
+            "LCK": 6,
+            "MOV": 6,
+            "MAG": 18
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Baleful_Brush",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Colour",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Melody_100",
+        "name": "Melody",
+        "desc": "<violet>Embodiment of Melody</>.",
+        "variant": "_Melody",
+        "level": 20,
+        "klass": "Lamia",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 48,
+            "STR": 10,
+            "MAG": 19,
+            "SKL": 17,
+            "SPD": 17,
+            "DEF": 11,
+            "RES": 20,
+            "LCK": 12,
+            "MOV": 6,
+            "CON": 7
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Perish_Lullaby",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Melody",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Justice_100",
+        "name": "Justice",
+        "desc": "<violet>Embodiment of Justice</> and the fifth Master Rule.",
+        "variant": "_Justice",
+        "level": 20,
+        "klass": "Hero",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 62,
+            "STR": 18,
+            "SKL": 13,
+            "SPD": 10,
+            "LCK": 2,
+            "DEF": 24,
+            "RES": 10,
+            "CON": 15,
+            "MAG": 12,
+            "MOV": 6
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Brave_Sword",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Justice",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "MapEntity",
+        "name": "Map Entity",
+        "desc": "",
+        "variant": "",
+        "level": 1,
+        "klass": "Plane",
+        "tags": [],
+        "bases": {
+            "HP": 0,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 99,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "HP": 0,
+            "STR": 0,
+            "LCK": 0,
+            "SKL": 0,
+            "RES": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "SPD": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "MapMarker",
+        "name": "Map Marker",
+        "desc": "",
+        "variant": null,
+        "level": 1,
+        "klass": "Pin",
+        "tags": [],
+        "bases": {
+            "SKL": 0,
+            "STR": 0,
+            "HP": 0,
+            "RES": 0,
+            "LCK": 0,
+            "SPD": 0,
+            "MOV": 0,
+            "CON": 0,
+            "DEF": 0,
+            "MAG": 0
+        },
+        "growths": {
+            "SKL": 0,
+            "STR": 0,
+            "HP": 0,
+            "RES": 0,
+            "LCK": 0,
+            "SPD": 0,
+            "MOV": 0,
+            "CON": 0,
+            "DEF": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "STR": 0,
+            "HP": 0,
+            "RES": 0,
+            "LCK": 0,
+            "SPD": 0,
+            "MOV": 0,
+            "CON": 0,
+            "DEF": 0,
+            "MAG": 0
+        },
+        "starting_items": [],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "",
+        "affinity": "None",
+        "fields": []
+    }
+]

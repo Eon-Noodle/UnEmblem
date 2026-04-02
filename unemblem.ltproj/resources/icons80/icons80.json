@@ -1,0 +1,66 @@
+[
+    {
+        "nid": "Berserker",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Generic_Portrait_Citizen",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Generic_Portrait_Knight",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Generic_Portrait_Myrmidon",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Generic_Portrait_Swordmaster",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Generic_Portrait_Thief",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Brigand_Unarmed",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Deserter",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Lancer",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Assassin",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Dread_Fighter",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Fighter_Lance",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Cowboy",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "General_Shield",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Sergeant",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Berserker_Unarmed",
+        "subicon_dict": {}
+    }
+]

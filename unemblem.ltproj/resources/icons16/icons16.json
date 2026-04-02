@@ -1,0 +1,156 @@
+[
+    {
+        "nid": "Affinity",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Anima",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Axe",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Boosters",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Bow",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Consumable",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Dark",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Lance",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Light",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Neutral",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Staff",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Sword",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Ring",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Valuable",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "wexp_icons",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "wexp_icons_2",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Knuckle",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Firearm",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Techno",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Medipod",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Artifact",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Consumable_2",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "skill_icons",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Skills_actions",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Skills_attributes",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Skills_rallies",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Skills_stats",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Skills_specials",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Affinity_2",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Movement",
+        "subicon_dict": {
+            "Flier": [
+                0,
+                6
+            ]
+        }
+    },
+    {
+        "nid": "Enemies_Only",
+        "subicon_dict": {}
+    },
+    {
+        "nid": "Button",
+        "subicon_dict": {
+            "key_MOVE": [
+                0,
+                0
+            ],
+            "key_SELECT": [
+                0,
+                1
+            ],
+            "key_BACK": [
+                0,
+                2
+            ],
+            "key_AUX": [
+                0,
+                3
+            ],
+            "key_INFO": [
+                0,
+                4
+            ]
+        }
+    }
+]

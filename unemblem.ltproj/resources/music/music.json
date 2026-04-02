@@ -1,0 +1,527 @@
+[
+    [
+        "Love Call",
+        false,
+        false,
+        1,
+        "Love Call"
+    ],
+    [
+        "OverWorld Orchestra",
+        false,
+        false,
+        0,
+        "OverWorld Orchestra"
+    ],
+    [
+        "8bitRPG Battle",
+        true,
+        false,
+        0,
+        "8bitRPG Battle"
+    ],
+    [
+        "Atmosphere Dark",
+        false,
+        false,
+        0,
+        "Atmosphere Dark"
+    ],
+    [
+        "Toys Factory",
+        false,
+        false,
+        0,
+        "Toys Factory"
+    ],
+    [
+        "Dream and Reality",
+        false,
+        false,
+        0,
+        "Dream and Reality"
+    ],
+    [
+        "Forgotten Past",
+        false,
+        false,
+        0,
+        "Forgotten Past"
+    ],
+    [
+        "Fight",
+        false,
+        false,
+        0,
+        "Fight"
+    ],
+    [
+        "Thunderclap",
+        false,
+        false,
+        0,
+        "Thunderclap"
+    ],
+    [
+        "OverWorld Remastered",
+        false,
+        false,
+        0,
+        "OverWorld Remastered"
+    ],
+    [
+        "Suspense3",
+        false,
+        false,
+        0,
+        "Suspense3"
+    ],
+    [
+        "Battle with a Serene Man",
+        false,
+        false,
+        41,
+        "Battle with a Serene Man"
+    ],
+    [
+        "Battle with the Final Boss",
+        false,
+        false,
+        64,
+        "Battle with the Final Boss"
+    ],
+    [
+        "Beautiful Battle",
+        false,
+        false,
+        30,
+        "Beautiful Battle"
+    ],
+    [
+        "Brief Recess",
+        false,
+        false,
+        14,
+        "Brief Recess"
+    ],
+    [
+        "Mission",
+        false,
+        false,
+        19,
+        "Mission"
+    ],
+    [
+        "Scheme",
+        false,
+        false,
+        23,
+        "Scheme"
+    ],
+    [
+        "Seesaw Battle",
+        false,
+        false,
+        22,
+        "Seesaw Battle"
+    ],
+    [
+        "Sense of Urgency",
+        false,
+        false,
+        24,
+        "Sense of Urgency"
+    ],
+    [
+        "Small Epilogue",
+        false,
+        false,
+        20,
+        "Small Epilogue"
+    ],
+    [
+        "UNDER",
+        false,
+        false,
+        31,
+        "UNDER"
+    ],
+    [
+        "UNION",
+        false,
+        false,
+        26,
+        "UNION"
+    ],
+    [
+        "Warm Memories",
+        false,
+        false,
+        21,
+        "Warm Memories"
+    ],
+    [
+        "Each Person's Tragedy",
+        false,
+        false,
+        25,
+        "Each Person's Tragedy"
+    ],
+    [
+        "Series of Unluck",
+        false,
+        false,
+        13,
+        "Series of Unluck"
+    ],
+    [
+        "Kindness",
+        false,
+        false,
+        28,
+        "Kindness"
+    ],
+    [
+        "Disadvantage",
+        false,
+        false,
+        29,
+        "Disadvantage"
+    ],
+    [
+        "May It Reaches You",
+        false,
+        false,
+        18,
+        "May It Reaches You"
+    ],
+    [
+        "Battle",
+        false,
+        false,
+        15,
+        "Battle"
+    ],
+    [
+        "Divine Conqueror",
+        false,
+        false,
+        16,
+        "Divine Conqueror"
+    ],
+    [
+        "Justice",
+        false,
+        false,
+        17,
+        "Justice"
+    ],
+    [
+        "Intensifying Battle",
+        false,
+        false,
+        27,
+        "Intensifying Battle"
+    ],
+    [
+        "Mystery",
+        false,
+        false,
+        12,
+        "Mystery"
+    ],
+    [
+        "Enjoy",
+        false,
+        false,
+        5,
+        "Enjoy"
+    ],
+    [
+        "Main Theme",
+        false,
+        false,
+        2,
+        "Main Theme"
+    ],
+    [
+        "Quest",
+        false,
+        false,
+        9,
+        "Quest"
+    ],
+    [
+        "Peaceful Everyday Life",
+        false,
+        false,
+        6,
+        "Peaceful Everyday Life"
+    ],
+    [
+        "Scaredy People",
+        false,
+        false,
+        7,
+        "Scaredy People"
+    ],
+    [
+        "Nonchalant",
+        false,
+        false,
+        8,
+        "Nonchalant"
+    ],
+    [
+        "Thoughts for a Loved One",
+        false,
+        false,
+        10,
+        "Thoughts for a Loved One"
+    ],
+    [
+        "Dignity of the Strong",
+        false,
+        false,
+        11,
+        "Dignity of the Strong"
+    ],
+    [
+        "Happy Days",
+        false,
+        false,
+        4,
+        "Happy Days"
+    ],
+    [
+        "Beautiful Scenery",
+        false,
+        false,
+        3,
+        "Beautiful Scenery"
+    ],
+    [
+        "Activate",
+        false,
+        false,
+        54,
+        "Activate"
+    ],
+    [
+        "Battle Against Betrayal",
+        false,
+        false,
+        60,
+        "Battle Against Betrayal"
+    ],
+    [
+        "Betrayal Plan",
+        false,
+        false,
+        55,
+        "Betrayal Plan"
+    ],
+    [
+        "Lament of the Distant Past",
+        false,
+        false,
+        61,
+        "Lament of the Distant Past"
+    ],
+    [
+        "Revolution",
+        false,
+        false,
+        59,
+        "Revolution"
+    ],
+    [
+        "Tenacity",
+        false,
+        false,
+        65,
+        "Tenacity"
+    ],
+    [
+        "UMA",
+        false,
+        false,
+        56,
+        "UMA"
+    ],
+    [
+        "Looping World",
+        false,
+        false,
+        58,
+        "Looping World"
+    ],
+    [
+        "How to Use Unluck",
+        false,
+        false,
+        53,
+        "How to Use Unluck"
+    ],
+    [
+        "Solitary Existence",
+        false,
+        false,
+        52,
+        "Solitary Existence"
+    ],
+    [
+        "Outer Space",
+        false,
+        false,
+        48,
+        "Outer Space"
+    ],
+    [
+        "Melody of Sadness",
+        false,
+        false,
+        57,
+        "Melody of Sadness"
+    ],
+    [
+        "Memory of Tragedy",
+        false,
+        false,
+        62,
+        "Memory of Tragedy"
+    ],
+    [
+        "Enemy Attack",
+        false,
+        false,
+        50,
+        "Enemy Attack"
+    ],
+    [
+        "Journey",
+        false,
+        false,
+        51,
+        "Journey"
+    ],
+    [
+        "The Absolute Awesomeness of Existence",
+        false,
+        false,
+        63,
+        "The Absolute Awesomeness of Existence"
+    ],
+    [
+        "Growing Tension",
+        false,
+        false,
+        49,
+        "Growing Tension"
+    ],
+    [
+        "Start of Action",
+        false,
+        false,
+        46,
+        "Start of Action"
+    ],
+    [
+        "Impending Unluck",
+        false,
+        false,
+        47,
+        "Impending Unluck"
+    ],
+    [
+        "Cold Farewell (effect)",
+        false,
+        false,
+        44,
+        "Cold Farewell (effect)"
+    ],
+    [
+        "Cool",
+        false,
+        false,
+        38,
+        "Cool"
+    ],
+    [
+        "Destruction and Rebirth",
+        false,
+        false,
+        42,
+        "Destruction and Rebirth"
+    ],
+    [
+        "Good Memories",
+        false,
+        false,
+        40,
+        "Good Memories"
+    ],
+    [
+        "Looking Confused",
+        false,
+        false,
+        37,
+        "Looking Confused"
+    ],
+    [
+        "Savage Man",
+        false,
+        false,
+        34,
+        "Savage Man"
+    ],
+    [
+        "Teasing",
+        false,
+        false,
+        35,
+        "Teasing"
+    ],
+    [
+        "Awawawa",
+        false,
+        false,
+        39,
+        "Awawawa"
+    ],
+    [
+        "Lonely",
+        false,
+        false,
+        43,
+        "Lonely"
+    ],
+    [
+        "Wilderness",
+        false,
+        false,
+        45,
+        "Wilderness"
+    ],
+    [
+        "Cheerful",
+        false,
+        false,
+        36,
+        "Cheerful"
+    ],
+    [
+        "Determination",
+        false,
+        false,
+        32,
+        "Determination"
+    ],
+    [
+        "Cold Farewell (normal)",
+        false,
+        false,
+        33,
+        "Cold Farewell (normal)"
+    ]
+]

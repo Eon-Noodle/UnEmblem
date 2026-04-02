@@ -1,0 +1,1968 @@
+[
+    {
+        "nid": "Does_Nothing",
+        "name": "Does Nothing",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": []
+    },
+    {
+        "nid": "Unsecret",
+        "name": "Un\u2588\u2588\u2588\u2588\u2588",
+        "desc": "<jitter2 magnitude=0.5>Confidential</>",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Undead",
+        "name": "Undead",
+        "desc": "Survives on 1 HP then gains <red>Half Dead</> for 2 turn. Regenerate <orange><sin y_amplitude=1>{e:unit.get_max_hp() // 10}</></> HP every turn.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "regeneration",
+                0.1
+            ],
+            [
+                "true_miracle_give_status",
+                "Half_Dead"
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Half_Dead"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unluck",
+        "name": "Unluck",
+        "desc": "Inflict an ally with <red>Unluck Touch</>, results in a massive friendly-fire AoE attack.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "ability",
+                "Unluck"
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Unluck_child"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unluck_child",
+        "name": "Unluck Touch",
+        "desc": "Cursed to be hit by a meteor soon, dealing <orange><sin y_amplitude=1>{e:(0 if not game.supports.get(unit.nid, self.initiator_nid) else len(game.supports.get(unit.nid, self.initiator_nid).unlocked_ranks)) * 10 + 20}</></> AoE damage within the range of 3.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            1
+        ],
+        "components": [
+            [
+                "lost_on_endstep",
+                null
+            ],
+            [
+                "event_on_remove_with_args",
+                {
+                    "event_on_remove": "Global Unluck Explode",
+                    "extra_args": "initiator, u(skill.initiator_nid)"
+                }
+            ],
+            [
+                "aura",
+                "Does_Nothing"
+            ],
+            [
+                "aura_range",
+                2
+            ],
+            [
+                "aura_target",
+                "unit"
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    170,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "stack",
+                999
+            ]
+        ]
+    },
+    {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')}%</></> chance to make enemies hit themselves.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            14,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "proc_rate",
+                "SKILL"
+            ],
+            [
+                "defense_proc",
+                "Untruth_child"
+            ]
+        ]
+    },
+    {
+        "nid": "Untruth_child",
+        "name": "Untruth",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "devil_axe_gba",
+                "Affect attacks done by enemy"
+            ]
+        ]
+    },
+    {
+        "nid": "Unseen",
+        "name": "Unseen",
+        "desc": "<pink>Toggleable.</> Become invisible, but cant use items.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unseen_on",
+                    "Unseen_off"
+                ]
+            ],
+            [
+                "has_tags",
+                [
+                    "Blip"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unseen_child",
+        "name": "Unseen",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "has_tags",
+                [
+                    "Invisible"
+                ]
+            ],
+            [
+                "sight_range_bonus",
+                -99
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Unseen_1"
+                ]
+            ],
+            [
+                "modify_ai_priority",
+                0.0
+            ],
+            [
+                "change_variant",
+                "_Invisible"
+            ]
+        ]
+    },
+    {
+        "nid": "Unseen_on",
+        "name": "Unseen",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unseen_0"
+            ],
+            [
+                "condition",
+                "not unit.get_skill(\"Unseen_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unseen_off",
+        "name": "Unseen",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unseen_1"
+            ],
+            [
+                "condition",
+                "unit.get_skill(\"Unseen_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unchange",
+        "name": "Unchange",
+        "desc": "Place barriers to block enemies, or keep them for <green>-1 Dmg taken</> each.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            7,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "ability",
+                "Unchange"
+            ],
+            [
+                "dynamic_resist",
+                "skill.data.get('charge')"
+            ],
+            [
+                "drain_charge_expression",
+                "1 + (unit.get_internal_level() // 10)"
+            ]
+        ]
+    },
+    {
+        "nid": "Unmove",
+        "name": "Unmove",
+        "desc": "<pink>Toggleable.</> Freeze unit and others in line of sight.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            4,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unmove_on",
+                    "Unmove_off"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unmove_child",
+        "name": "Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unit_tint",
+                [
+                    0,
+                    80,
+                    120
+                ]
+            ],
+            [
+                "stat_multiplier",
+                [
+                    [
+                        "MOV",
+                        0
+                    ]
+                ]
+            ],
+            [
+                "avoid",
+                -999
+            ],
+            [
+                "crit_avoid",
+                -30
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Unmove_1"
+                ]
+            ],
+            [
+                "cannot_trade",
+                null
+            ],
+            [
+                "has_tags",
+                [
+                    "CannotRescue"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unmove_grandchild",
+        "name": "Unmove",
+        "desc": "Cannot move. Enemy attacks won't miss and unit suffers <red>-30 Crit avoid</>.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            6
+        ],
+        "components": [
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "unit_tint",
+                [
+                    0,
+                    80,
+                    120
+                ]
+            ],
+            [
+                "stat_multiplier",
+                [
+                    [
+                        "MOV",
+                        0
+                    ]
+                ]
+            ],
+            [
+                "avoid",
+                -999
+            ],
+            [
+                "crit_avoid",
+                -30
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Eclipse"
+                ]
+            ],
+            [
+                "condition",
+                "'Invisible' not in unit.tags"
+            ]
+        ]
+    },
+    {
+        "nid": "Unmove_on",
+        "name": "Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unmove_0"
+            ],
+            [
+                "condition",
+                "not unit.get_skill(\"Unmove_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unmove_off",
+        "name": "Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unmove_1"
+            ],
+            [
+                "condition",
+                "unit.get_skill(\"Unmove_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unrepair",
+        "name": "Unrepair",
+        "desc": "Prevent enemies from healing for <orange><sin y_amplitude=1>{e: 1 + (unit.get_internal_level() // 10)}</></> turns after hitting them.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            13
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "give_status_after_hit",
+                "Unrepair_child"
+            ]
+        ]
+    },
+    {
+        "nid": "Unrepair_child",
+        "name": "Unrepair",
+        "desc": "Cannot regain HP.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            13
+        ],
+        "components": [
+            [
+                "has_tags",
+                [
+                    "HealBlock"
+                ]
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    85,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "eval_end_time",
+                "((initiator.get_internal_level() // 10) + 1) if (initiator := u(skill.initiator_nid)) else 0"
+            ]
+        ]
+    },
+    {
+        "nid": "Untrust",
+        "name": "Untrust",
+        "desc": "Protect unit and adjacent allies from direct damages.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            4,
+            5
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "aura",
+                "Untrust_child"
+            ],
+            [
+                "aura_range",
+                1
+            ],
+            [
+                "aura_target",
+                "ally"
+            ]
+        ]
+    },
+    {
+        "nid": "Untrust_child",
+        "name": "Untrust",
+        "desc": "Can only take damage from splash attacks, dual attacks or statuses.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            4,
+            5
+        ],
+        "components": []
+    },
+    {
+        "nid": "Untrust_secret",
+        "name": "Un\u2588\u2588\u2588\u2588\u2588",
+        "desc": "Protect unit and adjacent allies with <red><jitter2 magnitude=0.5>Un</></>\u2588\u2588\u2588\u2588\u2588.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "aura",
+                "Untrust_child_secret"
+            ],
+            [
+                "aura_range",
+                1
+            ],
+            [
+                "aura_target",
+                "ally"
+            ]
+        ]
+    },
+    {
+        "nid": "Untrust_child_secret",
+        "name": "Un\u2588\u2588\u2588\u2588\u2588",
+        "desc": "<jitter2 magnitude=0.5>Confidential</>",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            4
+        ],
+        "components": []
+    },
+    {
+        "nid": "Unfeel",
+        "name": "Unfeel",
+        "desc": "Immune to mental statuses.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "immunity",
+                [
+                    "Mental"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unstoppable",
+        "name": "Unstoppable",
+        "desc": "Move extra spaces at the cost of half current HP.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            9,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unbreakable",
+        "name": "Unbreakable",
+        "desc": "Imbue weapons with <red>Unbreakable</>, prevents them from breaking.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            2,
+            10
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unchaste",
+        "name": "Unchaste",
+        "desc": "<pink>Toggleable.</> Attract all enemies attention.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            14
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unchaste_on",
+                    "Unchaste_off"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unchaste_child",
+        "name": "Unchaste",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    255,
+                    0,
+                    255
+                ]
+            ],
+            [
+                "modify_ai_priority",
+                99.0
+            ]
+        ]
+    },
+    {
+        "nid": "Unchaste_on",
+        "name": "Unchaste",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unchaste_0"
+            ],
+            [
+                "condition",
+                "not unit.get_skill(\"Unchaste_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unchaste_off",
+        "name": "Unchaste",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unchaste_1"
+            ],
+            [
+                "condition",
+                "unit.get_skill(\"Unchaste_child\")"
+            ]
+        ]
+    },
+    {
+        "nid": "Unburn",
+        "name": "Unburn",
+        "desc": "Protect all units within 5 tiles from <red>Burnt</> status and fiery tiles.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "immunity",
+                [
+                    "Burnt"
+                ]
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Burnt"
+                ]
+            ],
+            [
+                "aura",
+                "Unburn_child"
+            ],
+            [
+                "aura_range",
+                5
+            ],
+            [
+                "aura_target",
+                "unit"
+            ]
+        ]
+    },
+    {
+        "nid": "Unburn_child",
+        "name": "Unburn",
+        "desc": "Immune from <red>Burnt</> status and fiery tiles.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "immunity",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Unjustice",
+        "name": "Unjustice",
+        "desc": "After initiate combat, disable enemies from using their current weapon until next turn.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            2
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "give_status_after_attack",
+                "Unjustice_child"
+            ]
+        ]
+    },
+    {
+        "nid": "Unjustice_child",
+        "name": "Unjustice",
+        "desc": "Disabled from using <blue>{e:self.data.get('disabled_weapon', 'None')}</> until next turn.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            2
+        ],
+        "components": [
+            [
+                "cannot_use_current_item",
+                null
+            ],
+            [
+                "lost_on_endstep",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Untouchable",
+        "name": "Untouchable",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unbelievable",
+        "name": "Unbelievable",
+        "desc": "Missed attacks still deal half the damage.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            10,
+            8
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unfair",
+        "name": "Unfair",
+        "desc": "Copy <orange><sin y_amplitude=1>{e: 1 + (unit.get_internal_level() // 10)}</></> negations at random. Maybe use other stat instead of internal level?",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            8,
+            12
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Untell",
+        "name": "Untell",
+        "desc": "Unit is silenced.",
+        "icon_nid": "Skills_rallies",
+        "icon_index": [
+            15,
+            6
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Undecrease",
+        "name": "Undecrease",
+        "desc": "Items don't get worn down after usage. Only if hit?",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            4,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unfade",
+        "name": "Unfade",
+        "desc": "Unit won't get any older.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            1,
+            13
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Undraw",
+        "name": "Undraw",
+        "desc": "Enemies cannot retaliate. Both unit and enemy cannot crit. Combat Art?",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            9,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unavoidable",
+        "name": "Unavoidable",
+        "desc": "Attacks cannot miss.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            2
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unback",
+        "name": "Unback",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unhealthy",
+        "name": "Unhealthy",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Unruin",
+        "name": "Unruin",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Petrify",
+        "name": "Petrify",
+        "desc": "Unit is petrified. Cannot avoid enemy attacks and suffers -30 dodge.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            6
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "time",
+                5
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "MOV",
+                        -99
+                    ]
+                ]
+            ],
+            [
+                "cannot_use_items",
+                null
+            ],
+            [
+                "avoid",
+                -1000
+            ],
+            [
+                "crit_avoid",
+                -30
+            ]
+        ]
+    },
+    {
+        "nid": "Poisoned",
+        "name": "Poisoned",
+        "desc": "Loses <red>3 HP</> each turn. Non-lethal.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            2
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "upkeep_damage",
+                3
+            ],
+            [
+                "upkeep_sound",
+                "Poison"
+            ],
+            [
+                "upkeep_animation",
+                "MapPoison"
+            ]
+        ]
+    },
+    {
+        "nid": "Burnt",
+        "name": "Burnt",
+        "desc": "Loses <red>3 HP</> each turn. Non-lethal. Can spread to adjacent allies.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            3
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "upkeep_damage_in_sync",
+                3
+            ],
+            [
+                "spread",
+                [
+                    [
+                        0,
+                        -1
+                    ],
+                    [
+                        -1,
+                        0
+                    ],
+                    [
+                        0,
+                        1
+                    ],
+                    [
+                        1,
+                        0
+                    ]
+                ]
+            ],
+            [
+                "immunity_check",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Sleep",
+        "name": "Sleep",
+        "desc": "Unit is asleep.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            3,
+            12
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "time",
+                5
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "MOV",
+                        -99
+                    ]
+                ]
+            ],
+            [
+                "cannot_use_items",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Half_Dead",
+        "name": "Half Dead",
+        "desc": "Cannot move. Enemies will ignore and can slip through this unit.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "time",
+                2
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "enemy_pass",
+                null
+            ],
+            [
+                "modify_ai_priority",
+                0.0
+            ]
+        ]
+    },
+    {
+        "nid": "Berserk",
+        "name": "Berserk",
+        "desc": "Unit is confused and can no longer tell friend from foe.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            5,
+            0
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "time",
+                5
+            ],
+            [
+                "ignore_alliances",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "change_ai",
+                "Berserk"
+            ],
+            [
+                "unit_anim",
+                "MapBerserk"
+            ],
+            [
+                "immunity_check",
+                [
+                    "Mental"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Greed",
+        "name": "Greed",
+        "desc": "Holding two or more <violet>Artifacts</> will corrupt the mind.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            3,
+            13
+        ],
+        "components": [
+            [
+                "stack",
+                2
+            ],
+            [
+                "grey_if_inactive",
+                null
+            ],
+            [
+                "condition",
+                "len([s for s in unit.skills if s.nid == skill.nid]) > 1"
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "change_ai",
+                "Berserk"
+            ],
+            [
+                "unit_anim",
+                "MapBerserk"
+            ],
+            [
+                "immunity_check",
+                [
+                    "Mental"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Aegis",
+        "name": "Aegis",
+        "desc": "Completely fends off any attack, even an attack from God.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            7,
+            17
+        ],
+        "components": [
+            [
+                "ignore_damage",
+                null
+            ],
+            [
+                "shield",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Rescue",
+        "name": "Rescue",
+        "desc": "Unit is weighed down with a traveler.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "stat_multiplier",
+                [
+                    [
+                        "SKL",
+                        0.5
+                    ],
+                    [
+                        "SPD",
+                        0.5
+                    ]
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "NoAvoid",
+        "name": "NoAvoid",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                -1000
+            ],
+            [
+                "crit_avoid",
+                1000
+            ]
+        ]
+    },
+    {
+        "nid": "Bargain",
+        "name": "Bargain",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "change_buy_price",
+                0.5
+            ]
+        ]
+    },
+    {
+        "nid": "Highlight",
+        "name": "Highlight",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    255,
+                    255,
+                    255
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Canto_Plus",
+        "name": "Canto Plus",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "canto_plus",
+                null
+            ],
+            [
+                "lost_on_endstep",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Fort",
+        "name": "Fort",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                20
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "DEF",
+                        3
+                    ]
+                ]
+            ],
+            [
+                "regeneration",
+                0.2
+            ]
+        ]
+    },
+    {
+        "nid": "Throne",
+        "name": "Throne",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                30
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "DEF",
+                        3
+                    ]
+                ]
+            ],
+            [
+                "regeneration",
+                0.10000000000000002
+            ]
+        ]
+    },
+    {
+        "nid": "Forest",
+        "name": "Forest",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                20
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "DEF",
+                        1
+                    ]
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Mountain",
+        "name": "Mountain",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                30
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "DEF",
+                        1
+                    ]
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Peak",
+        "name": "Peak",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                40
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "DEF",
+                        2
+                    ]
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Lake",
+        "name": "Lake",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "avoid",
+                10
+            ]
+        ]
+    },
+    {
+        "nid": "Cruel_Sun",
+        "name": "Cruel Sun",
+        "desc": "Inflicts <red>Burnt</> to all enemies on the map.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            13,
+            10
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "aura",
+                "Burnt"
+            ],
+            [
+                "aura_range",
+                99
+            ],
+            [
+                "aura_target",
+                "enemy"
+            ],
+            [
+                "hide_aura",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "STR",
+                        10
+                    ],
+                    [
+                        "SKL",
+                        10
+                    ],
+                    [
+                        "DEF",
+                        20
+                    ],
+                    [
+                        "RES",
+                        10
+                    ]
+                ]
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Titanic",
+        "name": "Titanic",
+        "desc": "Can walk past enemy units and terrains with ease.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            3,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "pass",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Pass",
+        "name": "Pass",
+        "desc": "Can move through enemy units.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            3,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "pass",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Convoyer",
+        "name": "Convoyer",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Steal",
+        "name": "Steal",
+        "desc": "Can steal items from enemies with lower speed.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            12,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "ability",
+                "Steal"
+            ],
+            [
+                "sight_range_bonus",
+                3
+            ]
+        ]
+    },
+    {
+        "nid": "Locktouch",
+        "name": "Locktouch",
+        "desc": "Unit can opened locks without a key.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            2,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "locktouch",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Void_Curse",
+        "name": "Void Curse",
+        "desc": "No exp gained for attacking this unit.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            12,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "enemy_exp_multiplier",
+                0
+            ]
+        ]
+    },
+    {
+        "nid": "Flying_Slash",
+        "name": "Flying Slash",
+        "desc": "Range +1 when equipping swords",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            8,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "condition",
+                "unit.get_weapon() and item_system.weapon_type(unit, unit.get_weapon()) == 'Sword'"
+            ],
+            [
+                "eval_max_range",
+                "1"
+            ]
+        ]
+    },
+    {
+        "nid": "Seafarer",
+        "name": "Seafarer",
+        "desc": "Can walk on water surface.",
+        "icon_nid": "Movement",
+        "icon_index": [
+            0,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "movement_type",
+                "Mariner"
+            ]
+        ]
+    },
+    {
+        "nid": "Canto",
+        "name": "Canto",
+        "desc": "Can move again after certain actions.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "canto",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Plot_Armour",
+        "name": "Plot Armour",
+        "desc": "Grants <green>+20 Str</> and <green>+30 Skl</>",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            5,
+            2
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "STR",
+                        20
+                    ],
+                    [
+                        "SKL",
+                        30
+                    ]
+                ]
+            ],
+            [
+                "multi_desc_lore",
+                [
+                    "Untruth"
+                ]
+            ]
+        ]
+    },
+    {
+        "nid": "Lethality",
+        "name": "Lethality",
+        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')//4}%</></> chance to instantly kill enemies. Doesn't work on boss.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            10,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "attack_proc",
+                "Lethality_child"
+            ],
+            [
+                "proc_rate",
+                "LETHALITY"
+            ],
+            [
+                "combat_condition",
+                "'Boss' not in target.tags"
+            ]
+        ]
+    },
+    {
+        "nid": "Lethality_child",
+        "name": "Lethality",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "damage",
+                999
+            ],
+            [
+                "alternate_battle_anim",
+                "Critical"
+            ]
+        ]
+    }
+]

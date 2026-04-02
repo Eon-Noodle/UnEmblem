@@ -1,0 +1,142 @@
+[
+    {
+        "nid": "min_quest",
+        "dtype": "str",
+        "svalue": "1",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "max_quest",
+        "dtype": "str",
+        "svalue": "4",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "pref_quest",
+        "dtype": "str",
+        "svalue": "1.0",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "pref_artifact",
+        "dtype": "str",
+        "svalue": "1.0",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "weight_penalty",
+        "dtype": "kv",
+        "svalue": "",
+        "kvvalue": [
+            [
+                "Galaxy",
+                "1"
+            ],
+            [
+                "Fog",
+                "1"
+            ]
+        ],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "weight_artifact",
+        "dtype": "kv",
+        "svalue": "",
+        "kvvalue": [
+            [
+                "Soul_Caliber",
+                "1"
+            ],
+            [
+                "Game_of_Death",
+                "1"
+            ]
+        ],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "quests",
+        "dtype": "list",
+        "svalue": "",
+        "kvvalue": [],
+        "oattrs": [
+            "nid",
+            "negator",
+            "location",
+            "weight"
+        ],
+        "lovalue": [
+            {
+                "nid": "Untruth",
+                "negator": "Shen",
+                "location": "HongKong",
+                "weight": "4"
+            },
+            {
+                "nid": "Unchange",
+                "negator": "Gina",
+                "location": "Siberia",
+                "weight": "4"
+            },
+            {
+                "nid": "Unseen",
+                "negator": "Sean",
+                "location": "Rio",
+                "weight": "3"
+            },
+            {
+                "nid": "Unmove",
+                "negator": "Chikara",
+                "location": "Rio",
+                "weight": "2"
+            },
+            {
+                "nid": "Wolf",
+                "negator": "UMA",
+                "location": "Buroja",
+                "weight": "2"
+            },
+            {
+                "nid": "Seafoam",
+                "negator": "UMA",
+                "location": "Siberia",
+                "weight": "2"
+            },
+            {
+                "nid": "Colour",
+                "negator": "UMA",
+                "location": "Romania",
+                "weight": "2"
+            },
+            {
+                "nid": "Unfeel",
+                "negator": "Phil",
+                "location": "Nyc",
+                "weight": "1"
+            }
+        ]
+    }
+]

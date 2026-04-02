@@ -1,0 +1,17 @@
+[
+    {
+        "nid": "Union",
+        "name": "Union",
+        "leader": "Nothing"
+    },
+    {
+        "nid": "Roundtable",
+        "name": "Roundtable",
+        "leader": "Fuuko"
+    },
+    {
+        "nid": "MapEntity",
+        "name": "MapEntity",
+        "leader": "MapEntity"
+    }
+]

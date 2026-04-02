@@ -491,7 +491,7 @@ class SupportDisplay():
         ranks = {}
         prefabs = DB.support_pairs.get_pairs(self.unit_nid, other_unit_nid)
         if prefabs:
-            prefab = prefabs[0] 
+            prefab = prefabs[0]
             pair = game.supports.create_pair(prefab.nid)
             for bonus in prefab.requirements:
                 rank = bonus.support_rank

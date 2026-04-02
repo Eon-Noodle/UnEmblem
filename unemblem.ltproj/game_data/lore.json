@@ -1,0 +1,23 @@
+[
+    {
+        "nid": "Undead",
+        "name": "Undead",
+        "title": "Undead",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Andy{br}<yellow>Type:</> Self-targeting Compulsory-activation{br}<yellow>Detail:</> Negates any and everything that puts him near death. He still has a sense of pain."
+    },
+    {
+        "nid": "Unluck",
+        "name": "Unluck",
+        "title": "Unluck",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Fuuko Izumo{br}<yellow>Type:</> External-targeting Compulsory-activation{br}<yellow>Detail:</> Brings an unlucky event to any target that directly touches her bare skin. The scale of the event is determined by likability."
+    },
+    {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "title": "Untruth",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Shen Xiang{br}<yellow>Type:</> External-targeting Compulsory-activation{br}<yellow>Detail:</> Once he looks at his target, it forces the target to reverse their thoughts and actions.\n<yellow>Detail:</> Shen's often seen winking because blinking with both eyes cuts off the distribution of his ability, so he makes it a habit to only close one eye at a time."
+    }
+]

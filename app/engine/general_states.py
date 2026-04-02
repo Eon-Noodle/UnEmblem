@@ -47,6 +47,8 @@ def get_multi_item_choices(unit: UnitObject, parent_item: ItemObject, weapons: b
 class LoadingState(State):
     name = 'start_level_asset_loading'
     transparent = False
+    bg_surf = None
+    sprites = []
 
     # For A E S T H E T I C S
     duration = 1000  # How long to wait after we load in everything to actually move to the turn_change state
@@ -71,7 +73,7 @@ class LoadingState(State):
         # unload used assets
         # unload music
         get_sound_thread().flush()
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'] if not game.game_vars.get('silent') else 0)
         get_sound_thread().set_sfx_volume(cf.SETTINGS['sound_volume'])
         self.level_nid = game.level_nid
 
@@ -87,6 +89,17 @@ class LoadingState(State):
             for music_command in inspector.find_all_calls_of_command(event_commands.ChangeMusic(), self.level_nid).values():
                 level_songs.add(music_command.parameters.get('Music'))
             self.loading_threads.append(threads.start(get_sound_thread().load_songs, (level_songs,)))
+
+        idx = 0
+        while True:
+            sprite_name = 'loading_screen_sprites_%d' % idx
+            if sprite_name not in SPRITES:
+                break
+            self.sprites.append(SPRITES.get(sprite_name))
+            idx += 1
+
+        self.bg_surf = SPRITES.get('bg_black').copy()
+        FONT['credit'].blit('loading...', self.bg_surf, (4, WINHEIGHT-20))
 
     def update(self):
         if self.loading_threads is None:
@@ -105,7 +118,10 @@ class LoadingState(State):
                 game.state.change('turn_change')
 
     def draw(self, surf):
-        surf.blit(SPRITES.get('bg_black'), (0, 0))
+        if self.bg_surf:
+            surf.blit(self.bg_surf, (0, 0))
+        if self.sprites:
+            engine.blit_center(surf, self.sprites[engine.get_time() // 10 % len(self.sprites)])
         return surf
 
     def end(self):
