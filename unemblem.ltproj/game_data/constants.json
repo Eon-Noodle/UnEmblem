@@ -201,7 +201,7 @@
     ],
     [
         "autogenerate_grey_map_sprites",
-        true
+        false
     ],
     [
         "translucent_unit_sprite",

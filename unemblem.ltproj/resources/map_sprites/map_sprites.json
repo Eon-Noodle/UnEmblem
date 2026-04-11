@@ -1,5 +1,6 @@
 [
     "Citizen",
+    "Citizen_Nico",
     "Conqueror",
     "Leader",
     "Lancer",
@@ -25,6 +26,8 @@
     "Cowboy",
     "Soldier_Echoes",
     "Swordmaster_FE10",
+    "Swordmaster_FE10_Shen",
+    "Swordmaster_FE10_Mui",
     "Hero",
     "Hero_Justice",
     "Transporter",
