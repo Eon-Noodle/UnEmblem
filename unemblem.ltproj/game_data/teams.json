@@ -38,12 +38,12 @@
     ],
     [
         [
-            "other",
-            "player"
-        ],
-        [
             "player",
             "staff"
+        ],
+        [
+            "other",
+            "player"
         ]
     ]
 ]

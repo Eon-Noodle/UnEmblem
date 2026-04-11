@@ -1750,9 +1750,9 @@
         "nid": "Nico",
         "name": "Nico",
         "desc": "Head engineer of the Union. He trusts only scientific facts, and can be a bit cynical.",
-        "variant": "",
+        "variant": "_Nico",
         "level": 1,
-        "klass": "Citizen_Nico",
+        "klass": "Citizen",
         "tags": [],
         "bases": {
             "HP": 33,
@@ -2627,7 +2627,7 @@
         "desc": "<violet>Negator of Truth</>. He seeks out strong sparring partners.",
         "variant": "_Shen",
         "level": 20,
-        "klass": "Grand_Master_1",
+        "klass": "Grand_Master",
         "tags": [
             "Wink"
         ],
@@ -2797,7 +2797,7 @@
         "desc": "A martial art prodigy. She fights with discipline and honour.",
         "variant": "_Mui",
         "level": 20,
-        "klass": "Grand_Master_1",
+        "klass": "Grand_Master",
         "tags": [],
         "bases": {
             "HP": 45,
@@ -2960,7 +2960,7 @@
         "desc": "<violet>Negator of Feeling</>. Lack of emotions, but still driven to save others.",
         "variant": "_Phil",
         "level": 20,
-        "klass": "Precisione_1",
+        "klass": "Precisione",
         "tags": [],
         "bases": {
             "HP": 34,

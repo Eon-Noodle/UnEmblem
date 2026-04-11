@@ -201,7 +201,7 @@
     ],
     [
         "autogenerate_grey_map_sprites",
-        true
+        false
     ],
     [
         "translucent_unit_sprite",
@@ -286,6 +286,10 @@
     [
         "title_sound",
         true
+    ],
+    [
+        "title_full_support",
+        false
     ],
     [
         "music_main",
