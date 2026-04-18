@@ -57,11 +57,33 @@
     },
     {
         "nid": "wexp_icons",
-        "subicon_dict": {}
+        "subicon_dict": {
+            "Sword": [
+                0,
+                0
+            ],
+            "Spears": [
+                0,
+                1
+            ],
+            "Swords": [
+                0,
+                0
+            ]
+        }
     },
     {
         "nid": "wexp_icons_2",
-        "subicon_dict": {}
+        "subicon_dict": {
+            "Brutes": [
+                0,
+                0
+            ],
+            "Firearms": [
+                0,
+                1
+            ]
+        }
     },
     {
         "nid": "Knuckle",

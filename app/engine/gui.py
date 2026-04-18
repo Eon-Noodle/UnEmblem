@@ -7,6 +7,7 @@ from app.engine.sprites import SPRITES
 from app.engine.fonts import FONT
 from app.engine.input_manager import get_input_manager
 from app.engine.game_state import game
+from app.engine.sound import get_sound_thread
 
 from app.engine import engine, image_mods, icons
 from app.engine.graphics.text.text_renderer import render_text, text_width
@@ -374,3 +375,101 @@ class MouseIndicator():
                 surf.blit(self.mouse_indicator_top, (0, 0), None, engine.BLEND_RGB_ADD)
             elif mouse_y >= WINHEIGHT - 16:
                 surf.blit(self.mouse_indicator_bottom, (0, WINHEIGHT - self.mouse_indicator_bottom.get_height()), None, engine.BLEND_RGB_ADD)
+
+class NegationBanner():
+    def __init__(self, skill, right: bool):
+        font = FONT['bconvo-white']
+        icon = icons.get_icon(skill)
+        text = skill.name.split('_')[0].upper()
+        text_width = font.width(text)
+
+        self.right = right
+
+        self.un_surf = engine.create_surface(font.size('UN'), transparent=True)
+        font.blit('UN', self.un_surf)
+
+        self.text_surf = engine.create_surface(font.size(text[2:]), transparent=True)
+        font.blit(text[2:], self.text_surf)
+
+        self.full_surf = engine.create_surface((text_width + 22, WINHEIGHT - 64), transparent=True)
+        if self.right:
+            font.blit(text, self.full_surf, (20, 0))
+            self.full_surf.blit(icon, (0, 0))
+        else:
+            font.blit(text, self.full_surf)
+            self.full_surf.blit(icon, (text_width + 4, 0))
+
+        self.image = None
+
+        self.last_update = engine.get_time()
+        self.done: bool = False
+        self.states = {
+            'out':          150,
+            'hold':         700,
+            'full_in':      400,
+            'text_remove':  100,
+            'text_dup':     400,
+            'in':           800
+        }
+        self.state, self.duration = self.states.popitem()
+        self.dup_idx = 0
+        self.sfx_done = False
+
+    def update(self):
+        current_time = engine.get_time() - self.last_update
+        if current_time > self.duration:
+            if self.states:
+                self.state, self.duration = self.states.popitem()
+            else:
+                self.done = True
+            self.last_update = engine.get_time()
+            return
+
+        if self.state == 'in':
+            if not self.sfx_done:
+                get_sound_thread().play_sfx('Next Turn')
+                self.sfx_done = True
+
+            self.image = SPRITES.get('pennant_bg').copy()
+            progress = (current_time - self.duration // 2) * WINWIDTH / (self.duration * 8)
+            if self.right:
+                x_pos = WINWIDTH // 2 - int(progress * abs(progress))
+            else:
+                x_pos = WINWIDTH // 2 + int(progress * abs(progress))
+            self.image.blit(self.un_surf, (x_pos, 0))
+
+        elif self.state == 'text_dup':
+            num = current_time * 5 // self.duration
+            top = 32
+            if self.dup_idx <= num:
+                if self.dup_idx == 0:
+                    self.image = engine.create_surface((self.text_surf.get_width(), WINHEIGHT), transparent=True)
+                self.image.blit(self.text_surf, (0, top + self.dup_idx * (self.text_surf.get_height() + 4)))
+                self.dup_idx += 1
+
+        elif self.state == 'text_remove':
+            transparency = utils.clamp(current_time/self.duration, 0, 1)
+            self.image = image_mods.make_translucent(self.image, transparency)
+
+        elif self.state == 'full_in':
+            transparency = 1 - utils.clamp(current_time/self.duration, 0, 1)
+            self.image = image_mods.make_translucent(self.full_surf, transparency)
+
+        elif self.state == 'hold':
+            pass
+
+        elif self.state == 'out':
+            transparency = utils.clamp(current_time/self.duration, 0, 1)
+            self.image = image_mods.make_translucent(self.full_surf, transparency)
+
+    def draw(self, surf):
+        if not self.image:
+            return
+
+        if self.image.get_width() == WINWIDTH:
+            x_pos = 0
+        elif self.right:
+            x_pos = WINWIDTH - self.image.get_width() - 4
+        else:
+            x_pos = 4
+        surf.blit(self.image, (x_pos, (WINHEIGHT - self.image.get_height()) // 2))

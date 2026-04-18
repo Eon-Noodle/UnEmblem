@@ -43,6 +43,16 @@
         "nid": "Union_Guard",
         "name": "Union Guard",
         "desc": "Combat division of the Union.",
+        "icon_nid": "UnionEmblem",
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Audience",
+        "name": "Audience",
+        "desc": "",
         "icon_nid": "BlankEmblem",
         "icon_index": [
             0,

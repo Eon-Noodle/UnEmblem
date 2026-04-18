@@ -83,6 +83,28 @@
         ]
     },
     {
+        "nid": "Unluck_dummy",
+        "name": "Unluck",
+        "desc": "Inflict an ally with <red>Unluck Touch</>, results in a massive friendly-fire AoE attack.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Unluck_child"
+                ]
+            ]
+        ]
+    },
+    {
         "nid": "Unluck_child",
         "name": "Unluck Touch",
         "desc": "Cursed to be hit by a meteor soon, dealing <orange><sin y_amplitude=1>{e:(0 if not game.supports.get(unit.nid, self.initiator_nid) else len(game.supports.get(unit.nid, self.initiator_nid).unlocked_ranks)) * 10 + 20}</></> AoE damage within the range of 3.",
@@ -157,10 +179,10 @@
         "nid": "Untruth_child",
         "name": "Untruth",
         "desc": "",
-        "icon_nid": "Skills_attributes",
+        "icon_nid": "Skills_specials",
         "icon_index": [
-            15,
-            3
+            14,
+            1
         ],
         "components": [
             [
@@ -1463,6 +1485,59 @@
         ]
     },
     {
+        "nid": "Rebellion",
+        "name": "Rebellion",
+        "desc": "Grants bonus damage.\nTakes half the damage dealt.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "combat_art",
+                "Rebellion_child"
+            ]
+        ]
+    },
+    {
+        "nid": "Rebellion_child",
+        "name": "Rebellion",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "lifelink",
+                -0.5
+            ],
+            [
+                "inc_damage_on_hit",
+                {
+                    "amount": 1,
+                    "class": [
+                        "God"
+                    ]
+                }
+            ],
+            [
+                "damage",
+                10
+            ]
+        ]
+    },
+    {
         "nid": "Fort",
         "name": "Fort",
         "desc": "",
@@ -1697,7 +1772,7 @@
     {
         "nid": "Titanic",
         "name": "Titanic",
-        "desc": "Can walk past enemy units and terrains with ease.",
+        "desc": "Can walk past enemy units and terrains with ease. Immune to all status effects.",
         "icon_nid": "Skills_actions",
         "icon_index": [
             3,
@@ -1710,6 +1785,10 @@
             ],
             [
                 "pass",
+                null
+            ],
+            [
+                "immune_status",
                 null
             ]
         ]
@@ -1962,6 +2041,31 @@
             [
                 "alternate_battle_anim",
                 "Critical"
+            ]
+        ]
+    },
+    {
+        "nid": "Skill100",
+        "name": "Skill100",
+        "desc": "",
+        "icon_nid": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "SKL",
+                        100
+                    ]
+                ]
             ]
         ]
     }

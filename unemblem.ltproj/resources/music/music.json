@@ -7,76 +7,6 @@
         "Love Call"
     ],
     [
-        "OverWorld Orchestra",
-        false,
-        false,
-        0,
-        "OverWorld Orchestra"
-    ],
-    [
-        "8bitRPG Battle",
-        true,
-        false,
-        0,
-        "8bitRPG Battle"
-    ],
-    [
-        "Atmosphere Dark",
-        false,
-        false,
-        0,
-        "Atmosphere Dark"
-    ],
-    [
-        "Toys Factory",
-        false,
-        false,
-        0,
-        "Toys Factory"
-    ],
-    [
-        "Dream and Reality",
-        false,
-        false,
-        0,
-        "Dream and Reality"
-    ],
-    [
-        "Forgotten Past",
-        false,
-        false,
-        0,
-        "Forgotten Past"
-    ],
-    [
-        "Fight",
-        false,
-        false,
-        0,
-        "Fight"
-    ],
-    [
-        "Thunderclap",
-        false,
-        false,
-        0,
-        "Thunderclap"
-    ],
-    [
-        "OverWorld Remastered",
-        false,
-        false,
-        0,
-        "OverWorld Remastered"
-    ],
-    [
-        "Suspense3",
-        false,
-        false,
-        0,
-        "Suspense3"
-    ],
-    [
         "Battle with a Serene Man",
         false,
         false,
@@ -523,5 +453,11 @@
         false,
         33,
         "Cold Farewell (normal)"
+    ],
+    [
+        "Chapter Sound",
+        false,
+        false,
+        0
     ]
 ]

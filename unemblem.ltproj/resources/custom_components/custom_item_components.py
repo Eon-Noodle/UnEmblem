@@ -11,6 +11,7 @@ from app.utilities import utils, static_random
 
 from app.engine.item_components.utility_components import Heal, EquationHeal
 
+
 class DoNothing(ItemComponent):
     nid = 'do_nothing'
     desc = 'does nothing'
@@ -18,6 +19,7 @@ class DoNothing(ItemComponent):
 
     expose = ComponentType.Int
     value = 1
+
 
 class HealPlus(Heal):
     tag = ItemTags.CUSTOM
@@ -42,32 +44,6 @@ class HealPlus(Heal):
             return 0
         super().ai_priority(unit, item, target, move)
 
+
 class EquationHealPlus(EquationHeal, HealPlus):
     tag = ItemTags.CUSTOM
-
-class IncDamageOnHit(ItemComponent):
-    nid = 'inc_damage_on_hit'
-    desc = "Damage of item increases by **amount** permanently, for each time it lands a hit on units of listed classes."
-    tag = ItemTags.SPECIAL
-
-    expose = ComponentType.NewMultipleOptions
-    options = {
-        'amount': ComponentType.Int,
-        'class': (ComponentType.List, ComponentType.Class)
-    }
-
-    def __init__(self, value=None):
-        self.value = {
-            'amount': 1,
-            'class': []
-        }
-        if value and isinstance(value, dict):
-            self.value.update(value)
-
-    def on_hit(self, actions, playback, unit, item, target, item2, target_pos, mode, attack_info):
-        if target.klass not in self.value.get('class', []):
-            return
-        prefab = DB.items.get(item.nid)
-        if prefab.components.get('damage'):
-            prefab.damage.value += self.value.get('amount', 1)
-            item.damage.value += self.value.get('amount', 1)

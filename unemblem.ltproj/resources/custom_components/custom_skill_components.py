@@ -229,6 +229,9 @@ class Shield(SkillComponent):
     desc = "Equipped weapon lost one use after combat if unit took strike"
     tag = SkillTags.COMBAT2
 
+    def init(self, skill):
+        self._did_something = False
+
     def after_take_strike(self, actions, playback, unit, item, target, item2, mode, attack_info, strike):
         self._did_something = True
 
@@ -272,3 +275,35 @@ class EvalEndTime(EndTime):
         self.skill.data['turns'] = eval_int
         self.skill.data['starting_turns'] = eval_int
 
+
+class IncDamageOnHit(SkillComponent):
+    nid = 'inc_damage_on_hit'
+    desc = "Damage increases by **amount** permanently, for each attack on units of listed classes."
+    paired_with = ('damage',)
+    tag = SkillTags.COMBAT
+
+    expose = ComponentType.NewMultipleOptions
+    options = {
+        'amount': ComponentType.Int,
+        'class': (ComponentType.List, ComponentType.Class)
+    }
+
+    def __init__(self, value=None):
+        self.value = {
+            'amount': 1,
+            'class': []
+        }
+        if value and isinstance(value, dict):
+            self.value.update(value)
+
+    def after_strike(self, actions, playback, unit, item, target, item2, mode, attack_info, strike):
+        if not target or target.klass not in self.value.get('class', []) or not self.skill:
+            return
+
+        for p in playback:
+            if p.nid in ('mark_hit', 'mark_crit') and p.attacker == unit:
+                prefab = DB.skills.get(self.skill.nid)
+                if prefab.components.get('damage'):
+                    prefab.damage.value += self.value.get('amount', 1)
+                    self.skill.damage.value += self.value.get('amount', 1)
+                return

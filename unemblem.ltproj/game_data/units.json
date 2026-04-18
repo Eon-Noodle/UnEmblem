@@ -2269,92 +2269,6 @@
         "fields": []
     },
     {
-        "nid": "Tutorial",
-        "name": "Tutorial",
-        "desc": "For normal units, their descriptions are written here. Not for me! Press <blue>{eval:engine.get_key_name(cf.SETTINGS['key_BACK']).upper()}</> to go back.",
-        "variant": "_Tutorial",
-        "level": 1,
-        "klass": "Sludge",
-        "tags": [
-            "Boss",
-            "UMA"
-        ],
-        "bases": {
-            "HP": 52,
-            "STR": 23,
-            "SPD": 15,
-            "SKL": 21,
-            "DEF": 24,
-            "LCK": 22,
-            "RES": 9,
-            "CON": 25,
-            "MOV": 6,
-            "MAG": 12
-        },
-        "growths": {
-            "SKL": 0,
-            "HP": 0,
-            "RES": 0,
-            "CON": 0,
-            "DEF": 0,
-            "STR": 0,
-            "SPD": 0,
-            "LCK": 0,
-            "MOV": 0,
-            "MAG": 0
-        },
-        "stat_cap_modifiers": {
-            "SKL": 0,
-            "HP": 0,
-            "RES": 0,
-            "CON": 0,
-            "DEF": 0,
-            "STR": 0,
-            "SPD": 0,
-            "LCK": 0,
-            "MOV": 0,
-            "MAG": 0
-        },
-        "starting_items": [
-            [
-                "Pound",
-                false
-            ],
-            [
-                "Dissolving_Fume",
-                false
-            ]
-        ],
-        "learned_skills": [
-            [
-                1,
-                "Plot_Armour"
-            ]
-        ],
-        "unit_notes": [],
-        "wexp_gain": {
-            "Magic": [
-                false,
-                151,
-                null
-            ],
-            "Arcane": [
-                false,
-                0,
-                null
-            ],
-            "Brute": [
-                false,
-                151,
-                null
-            ]
-        },
-        "alternate_classes": [],
-        "portrait_nid": "Tutorial",
-        "affinity": "None",
-        "fields": []
-    },
-    {
         "nid": "Sun",
         "name": "Sun",
         "desc": "Creator of the UMAs, Rules, and this World.",
@@ -3164,6 +3078,10 @@
         },
         "starting_items": [
             [
+                "Fierbois_Sabre",
+                false
+            ],
+            [
                 "Rebellion",
                 false
             ]
@@ -3185,170 +3103,6 @@
         "alternate_classes": [],
         "portrait_nid": "Juiz",
         "affinity": "None",
-        "fields": []
-    },
-    {
-        "nid": "Enjin_100",
-        "name": "Enjin",
-        "desc": "<violet>Negator of Burn</>. He only gets wet from ramen, baby!",
-        "variant": "",
-        "level": 20,
-        "klass": "Pugilist",
-        "tags": [],
-        "bases": {
-            "HP": 55,
-            "STR": 27,
-            "SKL": 17,
-            "SPD": 13,
-            "LCK": 11,
-            "DEF": 13,
-            "RES": 6,
-            "CON": 17,
-            "MOV": 6,
-            "MAG": 0
-        },
-        "growths": {
-            "HP": 80,
-            "STR": 65,
-            "SKL": 40,
-            "SPD": 20,
-            "LCK": 40,
-            "DEF": 25,
-            "RES": 15,
-            "CON": 0,
-            "MOV": 0,
-            "MAG": 0
-        },
-        "stat_cap_modifiers": {
-            "SPD": 0,
-            "SKL": 0,
-            "STR": 0,
-            "RES": 0,
-            "MOV": 0,
-            "LCK": 0,
-            "CON": 0,
-            "DEF": 0,
-            "HP": 0,
-            "MAG": 0
-        },
-        "starting_items": [
-            [
-                "Basho_Glove",
-                false
-            ]
-        ],
-        "learned_skills": [
-            [
-                1,
-                "Unburn"
-            ]
-        ],
-        "unit_notes": [],
-        "wexp_gain": {
-            "Sword": [
-                false,
-                0,
-                251
-            ],
-            "Lance": [
-                false,
-                0,
-                251
-            ],
-            "Axe": [
-                true,
-                71,
-                251
-            ],
-            "Bow": [
-                false,
-                0,
-                251
-            ],
-            "Staff": [
-                false,
-                0,
-                251
-            ],
-            "Light": [
-                false,
-                0,
-                251
-            ],
-            "Anima": [
-                false,
-                0,
-                251
-            ],
-            "Dark": [
-                false,
-                0,
-                251
-            ],
-            "Default": [
-                false,
-                0,
-                251
-            ],
-            "Nurse": [
-                false,
-                0,
-                251
-            ],
-            "Brute": [
-                true,
-                251,
-                251
-            ],
-            "Gun": [
-                false,
-                0,
-                251
-            ],
-            "Techno": [
-                false,
-                0,
-                251
-            ],
-            "Magic": [
-                false,
-                0,
-                251
-            ],
-            "Soul": [
-                false,
-                0,
-                251
-            ],
-            "MedPod": [
-                false,
-                0,
-                251
-            ],
-            "Medipod": [
-                false,
-                0,
-                251
-            ],
-            "Firearm": [
-                false,
-                0,
-                251
-            ],
-            "Arcane": [
-                false,
-                0,
-                251
-            ],
-            "Spear": [
-                false,
-                0,
-                251
-            ]
-        },
-        "alternate_classes": [],
-        "portrait_nid": "Enjin",
-        "affinity": "Wind",
         "fields": []
     },
     {
@@ -3620,6 +3374,92 @@
         },
         "alternate_classes": [],
         "portrait_nid": "Justice",
+        "affinity": "None",
+        "fields": []
+    },
+    {
+        "nid": "Tutorial",
+        "name": "Tutorial",
+        "desc": "For normal units, their descriptions are written here. Not for me! Press <blue>{eval:engine.get_key_name(cf.SETTINGS['key_BACK']).upper()}</> to go back.",
+        "variant": "_Tutorial",
+        "level": 1,
+        "klass": "Sludge",
+        "tags": [
+            "Boss",
+            "UMA"
+        ],
+        "bases": {
+            "HP": 52,
+            "STR": 23,
+            "SPD": 15,
+            "SKL": 21,
+            "DEF": 24,
+            "LCK": 22,
+            "RES": 9,
+            "CON": 25,
+            "MOV": 6,
+            "MAG": 12
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0
+        },
+        "starting_items": [
+            [
+                "Pound",
+                false
+            ],
+            [
+                "Dissolving_Fume",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Plot_Armour"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Magic": [
+                false,
+                151,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                151,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "",
         "affinity": "None",
         "fields": []
     },
