@@ -38,9 +38,9 @@ jobs:
           mkdir unemblem
           mv dist/unemblem ./unemblem/lt_engine
           cp utilities/install/double_click_to_play.bat ./unemblem
-          cp app/engine/item_system.py ./unemblem/lt_engine/app/engine
-          cp app/engine/skill_system.py ./unemblem/lt_engine/app/engine
-          echo ${{ github.sha }} > ./unemblem/lt_engine/version.txt
+          cp app/engine/item_system.py ./unemblem/unemblem/app/engine
+          cp app/engine/skill_system.py ./unemblem/unemblem/app/engine
+          echo ${{ github.sha }} > ./unemblem/unemblem/version.txt
 
       - name: Zip engine
         run: powershell Compress-Archive -Path unemblem -DestinationPath UnEmblem.zip
