@@ -563,7 +563,7 @@
             0
         ],
         "map_sprite_nid": "Lancer",
-        "combat_anim_nid": "Cavalier",
+        "combat_anim_nid": "Martial_Artist",
         "fields": []
     },
     {
@@ -2161,7 +2161,7 @@
             0
         ],
         "map_sprite_nid": "Swordmaster_FE10",
-        "combat_anim_nid": "Cavalier",
+        "combat_anim_nid": "Grand_Master",
         "fields": []
     },
     {

@@ -43,7 +43,7 @@
     {
         "nid": "Spear",
         "name": "Spear",
-        "force_melee_anim": false,
+        "force_melee_anim": true,
         "hide_from_display": false,
         "hide_from_convoy": false,
         "rank_bonus": [],

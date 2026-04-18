@@ -6,66 +6,6 @@
         1
     ],
     [
-        "OverWorld Orchestra",
-        false,
-        false,
-        0
-    ],
-    [
-        "8bitRPG Battle",
-        true,
-        false,
-        0
-    ],
-    [
-        "Atmosphere Dark",
-        false,
-        false,
-        0
-    ],
-    [
-        "Toys Factory",
-        false,
-        false,
-        0
-    ],
-    [
-        "Dream and Reality",
-        false,
-        false,
-        0
-    ],
-    [
-        "Forgotten Past",
-        false,
-        false,
-        0
-    ],
-    [
-        "Fight",
-        false,
-        false,
-        0
-    ],
-    [
-        "Thunderclap",
-        false,
-        false,
-        0
-    ],
-    [
-        "OverWorld Remastered",
-        false,
-        false,
-        0
-    ],
-    [
-        "Suspense3",
-        false,
-        false,
-        0
-    ],
-    [
         "Battle with a Serene Man",
         false,
         false,
@@ -448,5 +388,11 @@
         false,
         false,
         33
+    ],
+    [
+        "Chapter Sound",
+        false,
+        false,
+        0
     ]
 ]

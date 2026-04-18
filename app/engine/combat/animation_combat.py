@@ -922,12 +922,15 @@ class AnimationCombat(BaseCombat, MockCombat):
         if skill.nid in self.add_proc_icon.memory.get(unit.nid, []):
             return False
 
-        c = False
-        if (unit is self.right or unit is self.right.strike_partner) and self.rp_battle_anim:
-            c = True
-        elif (unit is self.left or unit is self.left.strike_partner) and self.lp_battle_anim:
-            c = True
-        new_icon = gui.SkillIcon(skill, unit is self.right, center=c)
+        if skill.name.startswith('Un'):
+            new_icon = gui.NegationBanner(skill, unit is self.right)
+        else:
+            c = False
+            if (unit is self.right or unit is self.right.strike_partner) and self.rp_battle_anim:
+                c = True
+            elif (unit is self.left or unit is self.left.strike_partner) and self.lp_battle_anim:
+                c = True
+            new_icon = gui.SkillIcon(skill, unit is self.right, center=c)
         self.proc_icons.append(new_icon)
 
         # Make sure the same proc icon never shows up twice in the same phase

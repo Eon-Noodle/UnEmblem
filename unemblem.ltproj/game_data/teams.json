@@ -34,16 +34,23 @@
             "combat_variant_palette": "",
             "combat_color": "",
             "phase_change_sound_effect": null
+        },
+        {
+            "nid": "enemy3",
+            "map_sprite_palette": "map_sprite_green",
+            "combat_variant_palette": null,
+            "combat_color": "green",
+            "phase_change_sound_effect": null
         }
     ],
     [
         [
-            "player",
-            "staff"
-        ],
-        [
             "other",
             "player"
+        ],
+        [
+            "player",
+            "staff"
         ]
     ]
 ]

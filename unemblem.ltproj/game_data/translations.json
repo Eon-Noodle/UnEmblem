@@ -490,5 +490,41 @@
     {
         "nid": "tip_msg_5",
         "text": "This length is seriously too short to write anything and it is driving me insane! Players can't even read this part!"
+    },
+    {
+        "nid": "lab_opener",
+        "text": "I can manufacture Techno weapons on demand.{w}{clear}Need anything?"
+    },
+    {
+        "nid": "forge_opener",
+        "text": "..."
+    },
+    {
+        "nid": "lab_buy",
+        "text": "What do you need?"
+    },
+    {
+        "nid": "forge_buy",
+        "text": "..."
+    },
+    {
+        "nid": "lab_back",
+        "text": "Anything else?"
+    },
+    {
+        "nid": "forge_back",
+        "text": "..."
+    },
+    {
+        "nid": "word",
+        "text": ""
+    },
+    {
+        "nid": "lab_leave",
+        "text": "Now leave us alone."
+    },
+    {
+        "nid": "forge_leave",
+        "text": "..."
     }
 ]

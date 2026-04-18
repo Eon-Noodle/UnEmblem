@@ -13,5 +13,10 @@
         "nid": "MapEntity",
         "name": "MapEntity",
         "leader": "MapEntity"
+    },
+    {
+        "nid": "Loop_100",
+        "name": "Loop 100",
+        "leader": "Juiz_100"
     }
 ]

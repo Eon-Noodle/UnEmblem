@@ -204,7 +204,7 @@
         "info_offset": 0
     },
     {
-        "nid": "Tutorial",
+        "nid": "Colour",
         "blinking_offset": [
             0,
             0
@@ -216,14 +216,26 @@
         "info_offset": 0
     },
     {
-        "nid": "Colour",
+        "nid": "Master_of_Arms",
         "blinking_offset": [
-            0,
-            0
+            32,
+            16
         ],
         "smiling_offset": [
-            0,
-            0
+            32,
+            32
+        ],
+        "info_offset": 0
+    },
+    {
+        "nid": "Bandit",
+        "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            32,
+            48
         ],
         "info_offset": 0
     }

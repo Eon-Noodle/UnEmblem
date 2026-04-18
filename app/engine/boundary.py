@@ -398,6 +398,7 @@ class BoundaryInterface():
                                     fog_of_war_radius,
                                     utils.tuple_mul(utils.tuple_add(unit.sprite.position, (0.5, 0.5)), (TILEWIDTH, TILEHEIGHT)))
 
+        '''
         from app.engine import config as cf
         if cf.SETTINGS["mouse"]:
             from app.engine.input_manager import get_input_manager
@@ -406,6 +407,7 @@ class BoundaryInterface():
                 self.add_light_gradient(fog_of_war_surf,
                                         fog_of_war_radius,
                                         utils.tuple_add(pos, cull_rect[:2]))
+        '''
 
         for region in game.level.regions:
             if region.region_type == RegionType.VISION:

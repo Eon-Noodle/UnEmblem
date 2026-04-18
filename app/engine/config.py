@@ -13,7 +13,7 @@ def base_config() -> OrderedDict:
                         ('screen_size', 2),
                         ('fullscreen', 0),
                         ('sound_buffer_size', 2),
-                        ('animation', 'Always'),
+                        ('animation', 'Never'),
                         ('display_fps', 0),
                         ('battle_bg', 0),
                         ('unit_speed', 120),

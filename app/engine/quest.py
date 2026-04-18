@@ -83,7 +83,7 @@ class Quest():
 
     def get_blurb(self) -> str:
         return '%s of <blue>%s</>.||<yellow>Participation Count:</> %d.||<yellow>Reward:</> %s.' \
-                % (self.goal, self.nid, self.limit, self.reward)
+                % (self.goal, self.nid, self.limit, self.reward.replace('_', ' '))
 
     def save(self):
         s_dict = {
@@ -115,6 +115,12 @@ class QuestManager():
 
         self.rewards:    List[str] = []
         self.artifacts:  Dict[str, List[str]] = {}
+
+        self.quests = {
+            'Gunpowder': Quest('Gunpowder', 'Neutralization', True, 2, 'Addition of a Roundtable Seat'),
+            'Untruth': Quest('Untruth', 'Capture', True, 2, 'Addition of a Roundtable Seat')
+        }
+        self.attempt = ['Gunpowder', 'Untruth']
 
     def draw_lot(self, options: dict):
         res = list(options.keys())[static_random.weighted_choice(options.values(), self.random)]
@@ -241,7 +247,7 @@ class QuestManager():
             msg = "<blue>Success!</>|Marking %s on the map." % name
             res = 'location'
 
-        return str(pos), "%s of %s,|%s" % (quest.goal, quest.nid, msg), res          
+        return str(pos), "%s of %s,|%s" % (quest.goal, quest.nid, msg), res
 
     def get_quest_info(self, idx: int) -> str:
         if idx:
@@ -271,7 +277,7 @@ class QuestManager():
         return set(LOCATION_DICT.get(nid) for nid, quest in self.quests.items() if not quest.done)
 
     def get_pin(self) -> Set[str]:
-        return set([LOCATION_DICT.get(reward) for reward in self.rewards] + list(self.artifacts.keys())) 
+        return set([LOCATION_DICT.get(reward) for reward in self.rewards] + list(self.artifacts.keys()))
 
     def get_options_from_location(self, location: str) -> List[str]:
         if self.is_quest_phase():
@@ -331,11 +337,11 @@ class QuestManager():
         else:
             self.artifacts.remove(self.current)
 
-        self.current = None 
+        self.current = None
 
     def cheat(self):
         for quest in self.quests.values():
-            quest.done = True      
+            quest.done = True
 
     def save(self):
         s_dict = {
