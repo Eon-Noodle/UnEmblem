@@ -43,7 +43,7 @@ jobs:
           echo ${{ github.sha }} > ./unemblem/lt_engine/version.txt
 
       - name: Zip engine
-        run: powershell Compress-Archive -Path lt_engine -DestinationPath UnEmblem.zip
+        run: powershell Compress-Archive -Path unemblem -DestinationPath UnEmblem.zip
 
       - name: Upload engine artifact
         uses: actions/upload-artifact@v4
