@@ -32,8 +32,8 @@ def base_config() -> OrderedDict:
                         ('autoend_turn', 1),
                         ('confirm_end', 1),
                         ('hp_map_team', 'All'),
-                        ('hp_map_cull', 'All'),
-                        ('display_hints', 0),
+                        ('hp_map_cull', 'Wounded'),
+                        ('display_hints', 1),
                         ('rumble', 1),
                         ('key_SELECT', 'K_x'),
                         ('key_BACK', 'K_z'),
@@ -79,7 +79,7 @@ def convert_setting(k, v):
 
 def read_config_file():
     config = base_config()
-    
+
     def parse_ini(fn):
         with open(fn) as fp:
             for line in fp:
