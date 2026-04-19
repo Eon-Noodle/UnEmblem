@@ -1,1 +1,728 @@
-[]
+[
+    {
+        "nid": "Game_Maker",
+        "sub_nid": "Game Maker",
+        "credit_type": "Text",
+        "category": "Tools",
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "Lex Talionis is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. It's created by rainlash and developed by mag and KD."
+            ]
+        ]
+    },
+    {
+        "nid": "FE_Repo",
+        "sub_nid": "Graphics Repo",
+        "credit_type": "Text",
+        "category": "Tools",
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "Fire Emblem Fangame Essentials is a public repository of free assets for creating Fire Emblem fangames."
+            ]
+        ]
+    },
+    {
+        "nid": "YTMP",
+        "sub_nid": "OGG Converter",
+        "credit_type": "Text",
+        "category": "Tools",
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "YTMP3 is a fast YouTube downloader that converts YouTube videos into high-quality audio formats including OGG."
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Andy",
+        "sub_nid": "Andy",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Andy"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Chikara",
+        "sub_nid": "Chikara",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Chikara"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Sean",
+        "sub_nid": "Sean",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "The total squid",
+                "Sean"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Justice",
+        "sub_nid": "Justice",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "WhatIsAnAubin and Kingcrimson",
+                "Justice"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Melody",
+        "sub_nid": "Melody",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "SaintRubenio",
+                "Melody"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Master_of_Arms",
+        "sub_nid": "Master_of_Arms",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Garytop",
+                "Master of Arms"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Bandit",
+        "sub_nid": "Bandit",
+        "credit_type": 4,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Melia and Random Wizard",
+                "Bandit"
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Conqueror",
+        "sub_nid": "Conqueror",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, original by ZoramineFae",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Martial_Artist",
+        "sub_nid": "Lancer",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "SALVAGED",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Athlete",
+        "sub_nid": "Boxer",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "ShadowAllyX",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Hero",
+        "sub_nid": "Hero",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Pikmin",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Pugilist",
+        "sub_nid": "Berserker",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "ZoramineFae",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Grandmaster",
+        "sub_nid": "Swordmaster_FE10",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, original by L95",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Warlord",
+        "sub_nid": "Sergeant",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Spud",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Bastion",
+        "sub_nid": "General",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Nuramon",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Swordmaster",
+        "sub_nid": "Samurai",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "GabrielKnight",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Assassin",
+        "sub_nid": "Assassin",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "SkidMarc25",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Vigilante",
+        "sub_nid": "Cowboy",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "MeatofJustice",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Mercenary",
+        "sub_nid": "Soldier_Echoes",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, original by Nuramon, Feier and flasuban",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Caregiver",
+        "sub_nid": "Caregiver_Chikara",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, original by HyperGammaSpaces",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Precisione",
+        "sub_nid": "Angel",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, original by Unknown",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Slime",
+        "sub_nid": "Oozium",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Advanced Wars (IS), ported by Amyd",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Banshee",
+        "sub_nid": "Banshee",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Sphealnuke",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Lamia",
+        "sub_nid": "Lamia",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Dutch Introvert",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Helicopter",
+        "sub_nid": "Helicopter",
+        "credit_type": 8,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Advanced Wars (IS), ported by Amyd",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Sword",
+        "sub_nid": "Sword",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            21
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and Indogutsu Tenbuki",
+                "Basho Sword"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Glove",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            6
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Basho Glove"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Spear",
+        "sub_nid": "Lance",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            17
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Basho Spear"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Core",
+        "sub_nid": "Techno",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            1
+        ],
+        "contrib": [
+            [
+                "Batima",
+                "Basho Core"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Fierbois_Saber",
+        "sub_nid": "Sword",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            22
+        ],
+        "contrib": [
+            [
+                "Eon, original by LordGlenn and Orihara Saki",
+                "Fierbois Saber"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Rebellion",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            7
+        ],
+        "contrib": [
+            [
+                "Zarg",
+                "Rebellion"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Apoccy",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Eon, original by Celice",
+                "Apocalypse"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Iron_Gauntlet",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "VelvetKitsune and LordGlenn",
+                "Iron Gauntlet"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Whip_Knuckle",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            5
+        ],
+        "contrib": [
+            [
+                "SMITHYGCN",
+                "Whip Knuckle"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Musket",
+        "sub_nid": "Firearm",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Musket"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Revolver",
+        "sub_nid": "Firearm",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            8
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Revolver"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Laser_Core",
+        "sub_nid": "Techno",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Zelix",
+                "Laser Core"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_She_Mao",
+        "sub_nid": "Lance",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            18
+        ],
+        "contrib": [
+            [
+                "Zelix",
+                "She Mao"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Elixir",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            6
+        ],
+        "contrib": [
+            [
+                "Rootrick and Zarg",
+                "Elixir"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Brute",
+        "sub_nid": "wexp_icons_2",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Alice",
+                "Brute Weapon Type"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Skills",
+        "sub_nid": "Skills_specials",
+        "credit_type": 1,
+        "category": "Graphics",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "ZessDynamite, rainlash, LordGlenn, suneohair, and others",
+                "Skill Icons"
+            ]
+        ]
+    },
+    {
+        "nid": "Tileset",
+        "sub_nid": "Tileset",
+        "credit_type": "List",
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Red orange juice",
+                "Overworld Map"
+            ],
+            [
+                "ChipPlays",
+                "Forge"
+            ],
+            [
+                "marceles",
+                "Laboratory"
+            ]
+        ]
+    },
+    {
+        "nid": "Pano_Temple",
+        "sub_nid": "Temple",
+        "credit_type": 6,
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Struedelmuffin",
+                "Temple"
+            ]
+        ]
+    },
+    {
+        "nid": "Graphic_Other",
+        "sub_nid": "Other",
+        "credit_type": "List",
+        "category": "Graphics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Rasta",
+                "Unit Info Design"
+            ],
+            [
+                "Xilirite",
+                "Support Screen Design"
+            ]
+        ]
+    },
+    {
+        "nid": "Music",
+        "sub_nid": "Music",
+        "credit_type": "List",
+        "category": "Musics",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Shiyui",
+                "Love Call"
+            ],
+            [
+                "Kenichiro Suehiro",
+                "Undead Unluck OST"
+            ]
+        ]
+    },
+    {
+        "nid": "Technicals",
+        "sub_nid": "Technicals",
+        "credit_type": "List",
+        "category": "Technicals",
+        "icon_index": [],
+        "contrib": [
+            [
+                "beccarte",
+                "Enemy Pass Skill Hook"
+            ],
+            [
+                "PKLucky and muddak",
+                "README Template"
+            ]
+        ]
+    }
+]

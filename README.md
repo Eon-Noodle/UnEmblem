@@ -10,16 +10,16 @@
 >
 > **LT-maker** is the easy-to-use but powerful editor built on top of the **Lex Talionis** engine. The **Lex Talionis** engine itself has been completely rewritten using the knowledge gained over seven years of development to be faster, better, and easier-to-use. You can create a whole new game without touching any code.
 
-**Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository began as a fork of the LT-maker repository and has since been modified.
+**Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash. I regularly pull updates from the original source and push my modifications here.
 
-<p>
-  <span style="display: inline-block; width: 120px;"><strong>Website:</strong></span> <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=dotnet"></a><br>
-  <span style="display: inline-block; width: 120px;"><strong>Repository:</strong></span> <a href="https://gitlab.com/rainlash/lt-maker"><img src="https://img.shields.io/badge/Gitlab-Explore-FC6D26?logo=gitlab&logoColor=white"></a><br>
-  <span style="display: inline-block; width: 120px;"><strong>Documentation:</strong></span> <a href="https://lt-maker.readthedocs.io/en/latest/"><img src="https://img.shields.io/badge/Read%20the%20Doc-Browse-2980B9?logo=readthedocs"></a><br>
-  <span style="display: inline-block; width: 120px;"><strong>Discord Server:</strong></span> <a href="https://discord.gg/dC6VWGh4sw"><img src="https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white"></a>
-</p>
+**Website:** <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=dotnet"></a><br>
+**Repository:** <a href="https://gitlab.com/rainlash/lt-maker"><img src="https://img.shields.io/badge/Gitlab-Explore-FC6D26?logo=gitlab&logoColor=white"></a><br>
+**Documentation:** <a href="https://lt-maker.readthedocs.io/en/latest/"><img src="https://img.shields.io/badge/Read%20the%20Doc-Browse-2980B9?logo=readthedocs"></a><br>
+**Discord Server:** <a href="https://discord.gg/dC6VWGh4sw"><img src="https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white"></a>
 
-# Installation Guides
+---
+
+## Installation Guides
 <details>
   <summary>For WINDOWS</summary> 
 
@@ -153,7 +153,7 @@
 5) Download the APK file (named something like `Winlator.apk`) from [GitHub Releases](https://github.com/brunodev85/Winlator/releases).
 
 6) Install the app by running the APK file.
-    * If the installation because of Google Play Protect, be assured that it is not a malware. Apps outside of the Google Play Store are often flagged, so you will need to turn off Google Play Protect:
+    * If the installation fails because of Google Play Protect, be assured that it is not a malware. Apps outside of the Google Play Store are often flagged, so you will need to turn off Google Play Protect:
         1) Open the **Google Play Store** app
         2) Tap your profile icon (top right) → **Play Protect → Settings** (gear icon).
         3) Toggle off **"Scan apps with Play Protect"**.
@@ -197,11 +197,7 @@
     * If you have a controller, you don’t need the onscreen controls. You’ll have to connect your controller and set it up in the **Input Controls** screen. The controller **must** be connected **before** the game is launched, else it won’t be detected.
 </details>
 
-<details>
-    <summary>For IOS</summary>
-
-Tough luck lol
-</details>
+---
 
 ## Default Controls
 
@@ -241,6 +237,16 @@ If the game gets an update and you would like to transfer your saves from an old
 
 * You can toggle mouse controls in-game through **Extras > Options > Config > Mouse**
 
+---
+
+## Credits
+
+Thank you PKLucky and muddak for the template of this `README.md` file.
+
+For other credits, see [CREDITS.md](CREDITS.md) file for details.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash.
+
+See the [LICENSE.txt](LICENSE.txt) file for details.
