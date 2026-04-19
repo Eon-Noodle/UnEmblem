@@ -13,7 +13,7 @@
 **Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository began as a fork of the LT-maker repository and has since been modified.
 
 <p>
-  <span style="display: inline-block; width: 120px;"><strong>Website:</strong></span> <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=data:image/jpeg;base64,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"></a><br>
+  <span style="display: inline-block; width: 120px;"><strong>Website:</strong></span> <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=dotnet"></a><br>
   <span style="display: inline-block; width: 120px;"><strong>Repository:</strong></span> <a href="https://gitlab.com/rainlash/lt-maker"><img src="https://img.shields.io/badge/Gitlab-Explore-FC6D26?logo=gitlab&logoColor=white"></a><br>
   <span style="display: inline-block; width: 120px;"><strong>Documentation:</strong></span> <a href="https://lt-maker.readthedocs.io/en/latest/"><img src="https://img.shields.io/badge/Read%20the%20Doc-Browse-2980B9?logo=readthedocs"></a><br>
   <span style="display: inline-block; width: 120px;"><strong>Discord Server:</strong></span> <a href="https://discord.gg/dC6VWGh4sw"><img src="https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white"></a>
@@ -76,9 +76,7 @@
 
 2) Clone this repository to your prefered storage location: `git clone https://github.com/Eon-Noodle/UnEmblem.git`
 
-3) Remove the `default.ltproj` folder from the `unemblem` folder.
-
-4) Open a terminal window in the ``unemblem\` folder and type: `python3 run_engine.py`. The engine should now boot up with the desired game. 
+3) Open a terminal window in the ``unemblem\` folder and type: `python3 run_engine.py`. The engine should now boot up with the desired game. 
     - You can also create a script to perform this command. It is recommended to run this script in the terminal, as the game uses the terminal as a log.
     - If the desired game does not boot up, change the command to `python3 run_editor.py`, click the **"Open other"** button and select the **"UnEmblem.ltproj"** folder. Once the editor opens, click the play icon in the icon bar and then select the **"Test Full Game..."** option. From there, you can play as normal.
 </details>
@@ -90,39 +88,34 @@
     ```
     git clone https://github.com/Eon-Noodle/UnEmblem.git
     ```
-2) Remove the `default.ltproj` folder from the `unemblem` folder;
-    ```
-    cd unemblem
-    rm -rf default.ltproj
-    ```
-3) Install Homebrew;
+2) Install Homebrew;
     ```
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-4) Install Wine;
+3) Install Wine;
     ```
     brew install wine-stable
     ```
-5) Install Miniconda;
+4) Install Miniconda;
     ```
     brew install --cask miniconda
     ```
-6) Initialize conda in your shell;
+5) Initialize conda in your shell;
     ```
     conda init "$(basename "${SHELL}")"
     ```
-7) Perform the following steps before first boot;
+6) Perform the following steps before first boot;
     ```
     cd unemblem
     conda create -n fe-i-lt python=3.11.7
     conda activate fe-i-lt
     ```
-8) Setup Windows Python;
+7) Setup Windows Python;
     ```
     curl -O https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe
     wine python-3.11.7-amd64.exe
     ```
-9) Install the following requirements **in Wine Python**;
+8) Install the following requirements **in Wine Python**;
     ```
     wine pip install -r
     python3pip
@@ -133,7 +126,7 @@
     mypy==1.8.0
     mypy-extensions==1.0.0
     ```
-10) Execute the following commands;
+9) Execute the following commands;
     ```
     cd unemblem
     conda activate fe-i-lt
