@@ -77,7 +77,8 @@ if __name__ == '__main__':
         source_generator.generate_all()
 
     try:
-        find_and_run_project()
+        main('unemblem')
+        # find_and_run_project()
         # main('lion_throne')
         # test_play('sacred_stones')
     except Exception as e:
