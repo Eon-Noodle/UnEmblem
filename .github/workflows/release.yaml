@@ -9,6 +9,8 @@ jobs:
   build-engine:
     name: Build Engine
     runs-on: windows-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
