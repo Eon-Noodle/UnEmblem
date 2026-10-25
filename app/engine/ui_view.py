@@ -345,7 +345,7 @@ class UIView():
 
     def create_unit_info(self, unit):
         font = FONT['info-grey']
-        surf = SPRITES.get('unit_info_bg').copy()
+        surf = SPRITES.get('unit_info_bg' + ('_player' if unit.team == 'player' else '')).copy()
         width, height = surf.get_size()
         top, left = 4, 6
         if not unit.portrait_nid and unit.faction:
@@ -380,6 +380,27 @@ class UIView():
             idx = int(hp_ratio * hp_surf.get_width())
             hp_surf = engine.subsurface(hp_surf, (0, 0, idx, 2))
             surf.blit(hp_surf, (left + 58, top + 40))
+
+        if unit.team == 'player':
+            # Health text
+            surf.blit(SPRITES.get('unit_info_cp'), (left + 1, top + 45))
+            surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 46))
+            current_cp = unit.get_mana()
+            max_cp = unit.get_stat('CP')
+            font.blit_right(str(current_cp) if current_cp < 100 else '??', surf, (left + 33, top + 41))
+            font.blit_right(str(max_cp) if max_cp < 100 else '??', surf, (left + 57, top + 41))
+
+            # Composure BG
+            bg_surf = SPRITES.get('health_bar2_bg')
+            surf.blit(bg_surf, (left + 57, top + 47))
+
+            # Composure Bar
+            cp_ratio = utils.clamp(current_cp / float(max_cp), 0, 1)
+            if cp_ratio > 0:
+                cp_surf = SPRITES.get('health_bar2')
+                idx = int(cp_ratio * cp_surf.get_width())
+                cp_surf = engine.subsurface(cp_surf, (0, 0, idx, 2))
+                surf.blit(cp_surf, (left + 58, top + 48))
 
         # Weapon Icon
         for idx, item in enumerate(unit.nonaccessories[:5]):
@@ -464,7 +485,8 @@ class UIView():
             'AUX':      (1, 133, 16,  9),
             'INFO':     (1, 149, 16,  9),
             'START':    (0, 165, 33,  9),
-            'MOVE':     (0, 196, 17, 17)
+            'MOVE':     (0, 192, 16, 16),
+            'SPEED':    (0, 208, 16, 16)
         }
         hints = [{
             'SELECT':   'Open Menu',

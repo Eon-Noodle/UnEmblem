@@ -3,6 +3,8 @@
 ![level_down_arrow.png](level_down_arrow.png)
 ![level_down_numbers.png](level_down_numbers.png)
 ![level_screen.png](level_screen.png)
+![level_screen_bottom.png](level_screen_bottom.png)
+![level_screen_top.png](level_screen_top.png)
 ![level_up_arrow.png](level_up_arrow.png)
 ![level_up_numbers.png](level_up_numbers.png)
 ![manabar.png](manabar.png)

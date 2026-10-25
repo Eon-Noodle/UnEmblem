@@ -28,6 +28,10 @@
         false
     ],
     [
+        "speed_up",
+        true
+    ],
+    [
         "pairup",
         false
     ],

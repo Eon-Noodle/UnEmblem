@@ -6,9 +6,11 @@
     "Enjin": "Union",
     "Fuuko": "Union",
     "Gina": "Union",
+    "Gunpowder": "Enemies",
     "Isshin": "Union",
     "Juiz": "Union",
     "Justice": "Enemies",
+    "Luo": "Other",
     "Melody": "Enemies",
     "Mui": "Union",
     "Nico": "Union",
@@ -16,6 +18,5 @@
     "Rip": "Union",
     "Sean": "Union",
     "Shen": "Union",
-    "Sun": "Enemies",
-    "Tutorial": "Enemies"
+    "Sun": "Enemies"
 }

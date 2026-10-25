@@ -60,5 +60,6 @@
 ![RedDot.png](RedDot.png)
 ![Snag.png](Snag.png)
 ![StatUpSpark.png](StatUpSpark.png)
+![StatusHeal.png](StatusHeal.png)
 ![Swoosh.png](Swoosh.png)
 ![Warp.png](Warp.png)

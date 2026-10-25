@@ -379,7 +379,7 @@
             ],
             [
                 "damage",
-                5
+                6
             ],
             [
                 "hit",
@@ -450,7 +450,7 @@
             ],
             [
                 "damage",
-                8
+                9
             ],
             [
                 "hit",
@@ -1417,7 +1417,7 @@
             ],
             [
                 "damage",
-                8
+                5
             ],
             [
                 "hit",
@@ -1429,7 +1429,7 @@
             ],
             [
                 "weight",
-                10
+                3
             ],
             [
                 "uses",
@@ -1488,7 +1488,7 @@
             ],
             [
                 "damage",
-                7
+                5
             ],
             [
                 "hit",
@@ -1500,7 +1500,7 @@
             ],
             [
                 "weight",
-                12
+                9
             ],
             [
                 "uses",
@@ -1559,7 +1559,7 @@
             ],
             [
                 "damage",
-                11
+                8
             ],
             [
                 "hit",
@@ -1571,7 +1571,7 @@
             ],
             [
                 "weight",
-                15
+                7
             ],
             [
                 "uses",
@@ -1634,7 +1634,7 @@
             ],
             [
                 "damage",
-                11
+                8
             ],
             [
                 "hit",
@@ -1646,7 +1646,7 @@
             ],
             [
                 "weight",
-                11
+                5
             ],
             [
                 "uses",
@@ -1709,7 +1709,7 @@
             ],
             [
                 "damage",
-                15
+                12
             ],
             [
                 "hit",
@@ -1721,7 +1721,7 @@
             ],
             [
                 "weight",
-                12
+                6
             ],
             [
                 "uses",
@@ -1780,7 +1780,7 @@
             ],
             [
                 "damage",
-                10
+                8
             ],
             [
                 "hit",
@@ -1792,7 +1792,7 @@
             ],
             [
                 "weight",
-                16
+                10
             ],
             [
                 "uses",
@@ -1855,7 +1855,7 @@
             ],
             [
                 "damage",
-                15
+                11
             ],
             [
                 "hit",
@@ -1867,7 +1867,7 @@
             ],
             [
                 "weight",
-                11
+                5
             ],
             [
                 "uses",
@@ -3092,7 +3092,7 @@
         "components": [
             [
                 "status_on_hold",
-                "Greed"
+                "Artifact"
             ]
         ]
     },
@@ -3165,7 +3165,7 @@
             ],
             [
                 "status_on_hold",
-                "Greed"
+                "Artifact"
             ]
         ]
     },
@@ -3185,7 +3185,7 @@
             ],
             [
                 "status_on_hold",
-                "Greed"
+                "Artifact"
             ],
             [
                 "target_enemy",
@@ -3348,7 +3348,7 @@
             ],
             [
                 "status_on_hold",
-                "Greed"
+                "Artifact"
             ]
         ]
     },
@@ -3423,14 +3423,14 @@
             ],
             [
                 "status_on_hold",
-                "Greed"
+                "Artifact"
             ]
         ]
     },
     {
         "nid": "Meteor_Strike",
         "name": "Meteor Strike",
-        "desc": "Deal exact 30 damage to all units in range of 2.",
+        "desc": "Deal a flat 30 damage to each unit in range of 2.",
         "icon_nid": "Neutral",
         "icon_index": [
             0,
@@ -3582,7 +3582,7 @@
     {
         "nid": "Perish_Lullaby",
         "name": "Perish Lullaby",
-        "desc": "",
+        "desc": "Only usuable before moving.",
         "icon_nid": "Enemies_Only",
         "icon_index": [
             0,
@@ -3640,6 +3640,30 @@
             [
                 "level_exp",
                 null
+            ],
+            [
+                "no_attack_after_move",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Dynamite",
+        "name": "Dynamite",
+        "desc": "Upon unit's death, deal a flat 10 damage to each adjacent enemy.",
+        "icon_nid": "Enemies_Only",
+        "icon_index": [
+            0,
+            3
+        ],
+        "components": [
+            [
+                "locked",
+                null
+            ],
+            [
+                "status_on_hold",
+                "Dynamite"
             ]
         ]
     },

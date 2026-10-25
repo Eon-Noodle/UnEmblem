@@ -204,7 +204,8 @@ class EventState(State):
             'AUX':      (1, 133, 16,  9),
             'INFO':     (1, 149, 16,  9),
             'START':    (0, 165, 33,  9),
-            'MOVE':     (0, 196, 17, 17)
+            'MOVE':     (0, 192, 16, 16),
+            'SPEED':    (0, 208, 16, 16)
         }
         hints = {
             'SELECT':   'Continue',

@@ -6,7 +6,6 @@
 |------|----------------|
 | **Lex Talionis Engine** | rainlash, mag, KD and others - [GitLab](https://gitlab.com/rainlash/lt-maker) / [Website](https://lex-talionis.net) |
 | **Usenti** | Cearn - [gbadev.org](https://gbadev.org/tools.php?showinfo=1441) |
-| **ImageFX** | Google - [labs.google/fx](https://labs.google/fx/en/tools/image-fx) |
 | **YTMP3** | [media.ytmp3.gg](https://media.ytmp3.gg/) |
 | **Ezgif** | [ezgif.com](https://ezgif.com/) |
 
@@ -68,7 +67,7 @@
 | **Swordmaster** | GabrielKnight - [Stand](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Thieves%2C%20Rogues%2C%20Assassins/Samurai%20(Iaijutsu%20-%20Rouge)%20(M)%20Sword%20%7BGabrielKnight%7D-stand.png) / [Walk](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Thieves%2C%20Rogues%2C%20Assassins/Samurai%20(Iaijutsu%20-%20Rouge)%20(M)%20Sword%20%7BGabrielKnight%7D-walk.png) |
 | **Assassin** | SkidMarc25 - [Stand](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Thieves%2C%20Rogues%2C%20Assassins/Assassin%20(M)%20Hooded%20%7BSkidMarc25%7D-stand.png) / [Walk](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Thieves%2C%20Rogues%2C%20Assassins/Assassin%20(M)%20Hooded%20%7BSkidMarc25%7D-walk.png) |
 | **Vigilante** | MeatofJustice - [Stand](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Bow)%20Archers%20and%20Hunters/Cowboy%20(M)%20Crossbow%20%7BMeatofJustice%7D-stand.png) / [Walk](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Bow)%20Archers%20and%20Hunters/Cowboy%20(M)%20Crossbow%20%7BMeatofJustice%7D-walk.png) |
-| **Mercenary** | Inspired by Nuramon, Feier and flasuban - [Stand 1](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Myrms%20and%20Swordmasters/Dread%20Fighter%20(M)%20%7BNuramon%7D-stand.png) / [Walk 1](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Myrms%20and%20Swordmasters/Dread%20Fighter%20(M)%20%7BNuramon%7D-walk.png) / [Stand 2](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Lnc)%20Soldiers%2C%20Halberdiers/Soldier%20(M)%20Echoes%20Lance%20%7BFeier%2C%20flasuban%7D-stand.png) / [Walk 2](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Lnc)%20Soldiers%2C%20Halberdiers/Soldier%20(M)%20Echoes%20Lance%20%7BFeier%2C%20flasuban%7D-walk.png) |
+| **Sharpshooter** | Inspired by Nuramon, Feier and flasuban - [Stand 1](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Myrms%20and%20Swordmasters/Dread%20Fighter%20(M)%20%7BNuramon%7D-stand.png) / [Walk 1](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Swd)%20Myrms%20and%20Swordmasters/Dread%20Fighter%20(M)%20%7BNuramon%7D-walk.png) / [Stand 2](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Lnc)%20Soldiers%2C%20Halberdiers/Soldier%20(M)%20Echoes%20Lance%20%7BFeier%2C%20flasuban%7D-stand.png) / [Walk 2](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Infantry%20-%20(Lnc)%20Soldiers%2C%20Halberdiers/Soldier%20(M)%20Echoes%20Lance%20%7BFeier%2C%20flasuban%7D-walk.png) |
 | **Precisione** | Inspired by Unknown - [Stand](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Magi%20-%20Special/Angel%20(F)%20%7BUnknown%7D-stand.png) / [Walk](https://github.com/Klokinator/FE-Repo/blob/main/Map%20Sprites/Magi%20-%20Special/Angel%20(F)%20%7BUnknown%7D-walk.png) |
 
 ---
@@ -88,13 +87,14 @@
 
 | Asset | Author / Source |
 |-------|----------------|
-| **Sean Datz** | Undead Unluck (Tozuka-sensei); coloured by the_total_squid - [Discord](https://discord.com/channels/668533571421601792/668535226795950096/1409524907834081362) |
-| **Andy** | Undead Unluck (Tozuka-sensei) - [Chapter 029](https://undead-unluck.fandom.com/wiki/Undead_Unluck_(Manga)?file=Chapter_029.png) |
-| **Juiz** | Undead Unluck (Tozuka-sensei) - [Chapter 034](https://undead-unluck.fandom.com/wiki/Undead_Unluck_(Manga)?file=Chapter_034.png) |
-| **Other Playable Units** | Undead Unluck (Tozuka-sensei and David Production) - [Character Page](https://undead-unluck.net/#character) |
+| **Sean Datz** | Undead Unluck (Tozuka-sensei); coloured by the_total_squid; converted to pixel art by Slimey |
+| **Andy** | Undead Unluck (Tozuka-sensei); converted to pixel art by Slimey - [Chapter 029](https://undead-unluck.fandom.com/wiki/Undead_Unluck_(Manga)?file=Chapter_029.png) |
+| **Juiz** | Undead Unluck (Tozuka-sensei); converted to pixel art by Slimey - [Chapter 034](https://undead-unluck.fandom.com/wiki/Undead_Unluck_(Manga)?file=Chapter_034.png) |
+| **Other Playable Units** | Undead Unluck (Tozuka-sensei and David Production); converted to pixel art by Slimey - [Character Page](https://undead-unluck.net/#character) |
 | **UMA Justice** | WhatIsAnAubin and Kingcrimson - [FE-Repo](https://github.com/Klokinator/FE-Repo/blob/main/Portrait%20Repository/Generic%20Characters%20(Villagers%2C%20Goons%2C%20and%20Loons)/Ghost%20Knight%20(Half%20Visor)%20%7BWhatIsAnAubin%2C%20Kingcrimson%7D%20%5BF2E%5D.png) |
 | **UMA Melody** | SaintRubenio - [FE-Repo](https://github.com/Klokinator/FE-Repo/blob/main/Portrait%20Repository/Generic%20Characters%20(Villagers%2C%20Goons%2C%20and%20Loons)/Gorgon%20%7BSaintRubenio%7D%20%5BF2E%5D.png) |
-| **UMA Colour** | ImageFX - (prompts listed below) |
+| **UMA Colour** | Slimey |
+| **UMA Gunpowder** | Glaceo - [FE-Repo](https://github.com/Klokinator/FE-Repo/blob/main/Portrait%20Repository/Generic%20Characters%20(Villagers%2C%20Goons%2C%20and%20Loons)/Skeleton%20(Ranger)%20%7BGlaceo%7D%20%5BF2E%5D.png) / [Hat](https://github.com/Klokinator/FE-Repo/blob/main/Portrait%20Repository/Generic%20Characters%20(Villagers%2C%20Goons%2C%20and%20Loons)/Skeleton%20(Sniper)%20%7BGlaceo%7D%20%5BF2E%5D.png) |
 
 ---
 
@@ -147,19 +147,6 @@
 | Contribution | Author / Source |
 |--------------|----------------|
 | **README File Template** | PKLucky and muddak - [PKLucky Carrd](https://pklucky.carrd.co) / [muddak Carrd](https://muddaksartchive.carrd.co) |
-
----
-
-## IMAGEFX AI PROMPT
-
-### UMA Colour Portrait
-```
-pixel art, digital, retro, 8-bit, pixelated
-This is a retro pixel art digital image in the style of Fire Emblem featuring a portrait of a braided girl monster with palette for head.
-Beneath the palette is a big smile revealing spiky teeth.
-It is wearing a poncho.
-The background is entirely olive green.
-```
 
 ---
 

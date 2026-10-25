@@ -9,6 +9,7 @@ from app.engine.game_state import game
 from app.engine.objects.unit import UnitObject
 from app.utilities import utils, static_random
 
+from app.engine.item_components.base_components import SiegeWeapon
 from app.engine.item_components.utility_components import Heal, EquationHeal
 
 

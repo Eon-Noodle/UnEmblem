@@ -454,11 +454,11 @@ class InfoMenuState(State):
         if self.state == 'personal_data' and self.growth_flag:
             if not self.hp_growth_surf:
                 self.hp_growth_surf = self.create_hp_section(growths=True)
-            portrait_surf.blit(self.hp_growth_surf, (8, 128))
+            portrait_surf.blit(self.hp_growth_surf, (40, 112))
         else:
             if not self.hp_surf:
                 self.hp_surf = self.create_hp_section()
-            portrait_surf.blit(self.hp_surf, (8, 128))
+            portrait_surf.blit(self.hp_surf, (40, 112))
 
         # If no portrait for this unit, either create one or default to class card using icons.get_portrait
         if not self.current_portrait:
@@ -490,7 +490,7 @@ class InfoMenuState(State):
         if not self.transparency:
             active_sprite = self.unit.sprite.create_image('active')
             x_pos = 81 - active_sprite.get_width()//2
-            y_pos = WINHEIGHT - active_sprite.get_height() - 21
+            y_pos = WINHEIGHT - active_sprite.get_height() - 61
             surf.blit(active_sprite, (x_pos, y_pos + self.scroll_offset_y))
 
     def growth_colors(self, value):
@@ -517,40 +517,42 @@ class InfoMenuState(State):
 
     def create_portrait_section(self):
         surf = engine.create_surface((96, WINHEIGHT), transparent=True)
-        # The HP row's slash belongs to the HP section, since growths leave it out
-        info_unit = SPRITES.get('info_unit')
-        surf.blit(engine.subsurface(info_unit, (0, 0, 40, 14)), (8, 114))  # Lv and E
-        surf.blit(engine.subsurface(info_unit, (0, 14, 24, 14)), (8, 128))  # HP
 
         # Blit affinity
         affinity = DB.affinities.get(self.unit.affinity)
         if affinity and affinity.nid != 'None':
-            icons.draw_item(surf, affinity, (78, 81))
+            icons.draw_item(surf, affinity, (4, 81))
             affinity_desc = text_funcs.translate_and_text_evaluate(affinity.desc, self=affinity, unit=self.unit)
-            self.info_graph.register((76, 80, 16, 16), affinity_desc, 'all')
+            self.info_graph.register((2, 80, 16, 16), affinity_desc, 'all')
+
+        # Blit the white status platform
+        surf.blit(SPRITES.get('status_platform'), (66, 83))
 
         render_text(surf, ['text'], [self.unit.name], ['white'], (48, 80), HAlignment.CENTER)
         unit_desc = text_funcs.translate_and_text_evaluate(self.unit.desc, self=self.unit, unit=self.unit)
         self.info_graph.register((24, 80, 52, 24), unit_desc, 'all')
 
-        top, left = 96, 8
+        top, left = 96, 4
         class_obj = DB.classes.get(self.unit.klass)
         render_text(surf, ['text'], [class_obj.name], ['white'], (left, top))
         class_desc = text_funcs.translate_and_text_evaluate(class_obj.desc, self=class_obj, unit=self.unit)
         self.info_graph.register((left, top, 72, 16), class_desc, 'all')
 
-        render_text(surf, ['text'], [str(self.unit.level)], ['blue'], (left + 31, top + 16), HAlignment.RIGHT)
+        surf.blit(SPRITES.get('info_unit'), (left - 2, top + 18))
+        render_text(surf, ['text'], [str(self.unit.level)], ['blue'], (left + 29, top + 16), HAlignment.RIGHT)
         desc = text_funcs.translate_and_text_evaluate('Level_desc', unit=self.unit)
         self.info_graph.register((left, top + 16, 30, 16), desc, 'all')
-        render_text(surf, ['text'], [str(self.unit.exp)], ['blue'], (left + 55, top + 16), HAlignment.RIGHT)
+        render_text(surf, ['text'], [str(self.unit.exp)], ['blue'], (left + 29, top + 32), HAlignment.RIGHT)
         desc = text_funcs.translate_and_text_evaluate('Exp_desc', unit=self.unit)
-        self.info_graph.register((left + 30, top + 16, 30, 16), desc, 'all')
-
+        self.info_graph.register((left, top + 32, 30, 16), desc, 'all')
         desc = text_funcs.translate_and_text_evaluate('HP_desc', unit=self.unit)
-        self.info_graph.register((left, top + 32, 72, 16), desc, 'all')
+        self.info_graph.register((left + 30, top + 16, 72, 16), desc, 'all')
 
-        # Blit the white status platform
-        surf.blit(SPRITES.get('status_platform'), (left + 58, top + 27))
+        if self.unit.team == 'player':
+            surf.blit(SPRITES.get('info_unit_cp'), (left + 32, top + 34))
+            desc = text_funcs.translate_and_text_evaluate('CP_desc', unit=self.unit)
+            self.info_graph.register((left + 30, top + 32, 72, 16), desc, 'all')
+
         return surf
 
     def create_hp_section(self, growths=False):
@@ -558,15 +560,17 @@ class InfoMenuState(State):
         The values on the HP row beneath the portrait: the unit's HP growth
         when growths are shown, otherwise its current and max HP
         """
-        surf = engine.create_surface((64, 16), transparent=True)
+        surf = engine.create_surface((64, 32), transparent=True)
         if growths:
             # Leaves room for three digits
             icons.draw_growth(surf, 'HP', self.unit, (39, 0), percent=True)
+            if self.unit.team == 'player':
+                icons.draw_growth(surf, 'CP', self.unit, (39, 16), percent=True)
             return surf
 
-        surf.blit(engine.subsurface(SPRITES.get('info_unit'), (24, 14, 16, 14)), (24, 0))  # Slash
-        current_hp = str(self.unit.get_hp())
-        max_hp = str(self.unit.get_max_hp())
+        surf.blit(SPRITES.get('info_hp_slash'), (34, 2))  # Slash
+        current_hp = str(self.unit.get_hp()) if self.unit.get_hp() < 100 else '??'
+        max_hp = str(self.unit.get_max_hp()) if self.unit.get_max_hp() < 100 else '??'
         # 14 pixels is width of space available to draw current_hp or max_hp
         if text_width('text', current_hp) > 14 or text_width('text', max_hp) > 14:
             hp_font = 'narrow'
@@ -574,6 +578,13 @@ class InfoMenuState(State):
             hp_font = 'text'
         render_text(surf, [hp_font], [current_hp], ['blue'], (31, 0), HAlignment.RIGHT)
         render_text(surf, [hp_font], [max_hp], ['blue'], (55, 0), HAlignment.RIGHT)
+
+        if self.unit.team == 'player':
+            surf.blit(SPRITES.get('info_hp_slash'), (34, 18))
+            current_cp = str(self.unit.get_mana()) if self.unit.get_mana() < 100 else '??'
+            max_cp = str(self.unit.get_stat('CP')) if self.unit.get_stat('CP') < 100 else '??'
+            render_text(surf, ['text'], [current_cp], ['blue'], (31, 16), HAlignment.RIGHT)
+            render_text(surf, ['text'], [max_cp], ['blue'], (55, 16), HAlignment.RIGHT)
         return surf
 
     def draw_top_arrows(self, surf):
@@ -763,8 +774,6 @@ class InfoMenuState(State):
         else:
             other_stats.insert(0, 'TRV')
             other_stats.insert(0, 'AID')
-        if self.unit.get_max_mana() > 0:
-            other_stats.insert(0, 'MANA')
         if DB.constants.value('lead'):
             other_stats.append('LEAD')
 
@@ -1094,7 +1103,12 @@ class InfoMenuState(State):
 
             if not portrait.image:
                 portrait.image = engine.image_load(portrait.full_path)
-            im = engine.subsurface(portrait.image, (*portrait.blinking_offset, 32, 16)).convert()
+            im = engine.subsurface(portrait.image, (*utils.tuple_add(
+                        portrait.get_face_frame()[0:2],
+                        portrait.get_blink_coord(),
+                        (16, 8),
+                        (-portrait.blink_size[0] // 2, -portrait.blink_size[1] // 2)
+                    ), 32, 16)).convert()
             engine.set_colorkey(im, COLORKEY, rleaccel=True)
             return im.copy()
 

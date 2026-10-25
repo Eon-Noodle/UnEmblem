@@ -45,14 +45,14 @@
                 0.1
             ],
             [
-                "true_miracle_give_status",
-                "Half_Dead"
-            ],
-            [
                 "multi_desc_skill",
                 [
                     "Half_Dead"
                 ]
+            ],
+            [
+                "true_miracle_give_status",
+                "Half_Dead"
             ]
         ]
     },
@@ -1302,48 +1302,6 @@
         ]
     },
     {
-        "nid": "Greed",
-        "name": "Greed",
-        "desc": "Holding two or more <violet>Artifacts</> will corrupt the mind.",
-        "icon_nid": "Skills_specials",
-        "icon_index": [
-            3,
-            13
-        ],
-        "components": [
-            [
-                "stack",
-                2
-            ],
-            [
-                "grey_if_inactive",
-                null
-            ],
-            [
-                "condition",
-                "len([s for s in unit.skills if s.nid == skill.nid]) > 1"
-            ],
-            [
-                "unselectable",
-                null
-            ],
-            [
-                "change_ai",
-                "Berserk"
-            ],
-            [
-                "unit_anim",
-                "MapBerserk"
-            ],
-            [
-                "immunity_check",
-                [
-                    "Mental"
-                ]
-            ]
-        ]
-    },
-    {
         "nid": "Aegis",
         "name": "Aegis",
         "desc": "Completely fends off any attack, even an attack from God.",
@@ -1534,6 +1492,46 @@
             [
                 "damage",
                 10
+            ]
+        ]
+    },
+    {
+        "nid": "Dynamite",
+        "name": "Dynamite",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "eval_ai_priority",
+                "len(get_units_within_distance(unit.position, team=\"player\"))"
+            ],
+            [
+                "hidden",
+                null
+            ],
+            [
+                "show_aura",
+                [
+                    128,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "aura",
+                "Does_Nothing"
+            ],
+            [
+                "aura_range",
+                1
+            ],
+            [
+                "aura_target",
+                "unit"
             ]
         ]
     },
@@ -1814,26 +1812,6 @@
         ]
     },
     {
-        "nid": "Convoyer",
-        "name": "Convoyer",
-        "desc": "",
-        "icon_nid": "Skills_attributes",
-        "icon_index": [
-            15,
-            3
-        ],
-        "components": [
-            [
-                "hidden",
-                null
-            ],
-            [
-                "unselectable",
-                null
-            ]
-        ]
-    },
-    {
         "nid": "Steal",
         "name": "Steal",
         "desc": "Can steal items from enemies with lower speed.",
@@ -1944,7 +1922,7 @@
     {
         "nid": "Canto",
         "name": "Canto",
-        "desc": "Can move again after certain actions.",
+        "desc": "Can move again after attacking.",
         "icon_nid": "Skills_specials",
         "icon_index": [
             0,
@@ -1956,7 +1934,7 @@
                 null
             ],
             [
-                "canto",
+                "canto_plus",
                 null
             ]
         ]
@@ -1993,6 +1971,26 @@
                 [
                     "Untruth"
                 ]
+            ]
+        ]
+    },
+    {
+        "nid": "Bonewalker",
+        "name": "Bonewalker",
+        "desc": "Unit fully recovers HP after every round of combat.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "post_combat_damage",
+                999
             ]
         ]
     },
@@ -2045,6 +2043,26 @@
         ]
     },
     {
+        "nid": "Convoyer",
+        "name": "Convoyer",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ]
+        ]
+    },
+    {
         "nid": "Skill100",
         "name": "Skill100",
         "desc": "",
@@ -2066,6 +2084,88 @@
                         100
                     ]
                 ]
+            ]
+        ]
+    },
+    {
+        "nid": "Artifact",
+        "name": "Artifact",
+        "desc": "Each <violet>Artifacts</> in inventory <red>halves the unit's Composure</>.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            3,
+            13
+        ],
+        "components": [
+            [
+                "stack",
+                2
+            ]
+        ]
+    },
+    {
+        "nid": "Anguish",
+        "name": "Anguish",
+        "desc": "Unit is uncontrollable and can attack allies.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            12,
+            3
+        ],
+        "components": [
+            [
+                "global",
+                null
+            ],
+            [
+                "hidden_if_inactive",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "change_ai",
+                "Berserk"
+            ],
+            [
+                "unit_anim",
+                "MapBerserk"
+            ],
+            [
+                "immunity_check",
+                [
+                    "Mental"
+                ]
+            ],
+            [
+                "condition",
+                "unit.team == 'player' and unit.get_mana() <= 0"
+            ]
+        ]
+    },
+    {
+        "nid": "Anguish_On_Kill",
+        "name": "Anguish On Kill",
+        "desc": "",
+        "icon_nid": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "global",
+                null
+            ],
+            [
+                "hidden",
+                null
+            ],
+            [
+                "mana_on_kill",
+                -1
             ]
         ]
     }

@@ -97,7 +97,7 @@
     },
     {
         "nid": "MANA",
-        "expression": "0"
+        "expression": "CP // (1 + len([s for s in unit.skills if s.nid == 'Artifact']))"
     },
     {
         "nid": "ZERO",

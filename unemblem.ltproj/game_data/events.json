@@ -1517,21 +1517,6 @@
         "nid": "Ragnarok Intro"
     },
     {
-        "name": "Status Spread",
-        "trigger": null,
-        "level_nid": null,
-        "condition": "True",
-        "commands": [],
-        "only_once": false,
-        "priority": 20,
-        "_source": [
-            "for;un_unit;[un_unit.nid for direction in ((0,-1), (1,0), (0,1), (-1,0)) if (un_unit:=game.board.get_unit(utils.tuple_add(unit.position, direction))) and un_unit.team == unit.team and not has_skill(un_unit, skill.nid)]",
-            "    give_skill;{un_unit};{e:skill.nid};{unit}",
-            "endf"
-        ],
-        "nid": "Global Status Spread"
-    },
-    {
         "name": "Countdown",
         "trigger": "turn_change",
         "level_nid": "Ragnarok",
@@ -2212,5 +2197,52 @@
             "game.state.back()"
         ],
         "nid": "Untruth Unit Select Cancel"
+    },
+    {
+        "name": "Bomber Death",
+        "trigger": "combat_death",
+        "level_nid": "Gunpowder",
+        "condition": "unit.klass == 'Bomber'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "map_anim;AOE_Meteor;{position}",
+            "for;adj_unit;get_units_within_distance(position)",
+            "    set_current_hp;{adj_unit};{e:u('{adj_unit}').get_hp() - 10};damage_numbers",
+            "endf"
+        ],
+        "nid": "Gunpowder Bomber Death"
+    },
+    {
+        "name": "Bomber Reinforcement",
+        "trigger": "turn_change",
+        "level_nid": "Gunpowder",
+        "condition": "game.turncount > 1 and not game.board.get_unit((7, 1))",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "create_unit;103;;;7,1;fade",
+            "move;{created_unit};7,2;;closest",
+            "create_unit;103;;;7,1;fade",
+            "move;{created_unit};7,2;;closest"
+        ],
+        "nid": "Gunpowder Bomber Reinforcement"
+    },
+    {
+        "name": "Gunpowder Phase 2",
+        "trigger": "unit_death",
+        "level_nid": "Gunpowder",
+        "condition": "unit.nid == 'Gunpowder'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "resurrect;Gunpowder",
+            "give_skill;Gunpowder;Bonewalker",
+            ""
+        ],
+        "nid": "Gunpowder Gunpowder Phase 2"
     }
 ]

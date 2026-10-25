@@ -72,6 +72,15 @@
         "hidden_stat": false
     },
     {
+        "nid": "CP",
+        "name": "Composure",
+        "maximum": 100,
+        "desc": "",
+        "position": "hidden",
+        "growth_colors": false,
+        "hidden_stat": false
+    },
+    {
         "nid": "MOV",
         "name": "Move",
         "maximum": 30,

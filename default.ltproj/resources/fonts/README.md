@@ -16,6 +16,7 @@
 ![number_small.png](number_small.png)
 ![number_small2.png](number_small2.png)
 ![number_small3.png](number_small3.png)
+![number_small4.png](number_small4.png)
 ![rank.png](rank.png)
 ![reel.png](reel.png)
 ![short.png](short.png)

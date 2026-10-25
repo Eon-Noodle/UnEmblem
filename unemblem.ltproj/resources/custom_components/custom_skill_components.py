@@ -307,3 +307,19 @@ class IncDamageOnHit(SkillComponent):
                     prefab.damage.value += self.value.get('amount', 1)
                     self.skill.damage.value += self.value.get('amount', 1)
                 return
+
+
+class EvalAIPriority(SkillComponent):
+    nid = 'eval_ai_priority'
+    desc = """Unit will have its priority multiplied by X solved using evaluate.
+    0 is no attack; 1 is neutral; higher numbers will guarantee attacks."""
+    tag = SkillTags.ADVANCED
+
+    expose = ComponentType.String
+
+    def ai_priority_multiplier(self, unit):
+        try:
+            return float(evaluate.evaluate(self.value, unit, local_args={'skill': self.skill}))
+        except Exception as e:
+            logging.error("Couldn't evaluate %s conditional (%s)", self.value, e)
+        return 1.0

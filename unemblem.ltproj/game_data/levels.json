@@ -26,8 +26,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    2,
-                    4
+                    8,
+                    7
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -177,13 +177,13 @@
             },
             {
                 "nid": "Melody_100",
-                "team": "enemy",
+                "team": "player",
                 "ai": "None",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    9,
-                    7
+                    3,
+                    8
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -288,6 +288,32 @@
                 "starting_position": [
                     0,
                     3
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Gunpowder",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    11,
+                    9
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Luo",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    1,
+                    4
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -471,7 +497,7 @@
             {
                 "nid": "Sun",
                 "team": "enemy",
-                "ai": "Pursue_Fuuko",
+                "ai": "PursueFuuko",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -677,7 +703,7 @@
             {
                 "nid": "Colour_100",
                 "team": "enemy",
-                "ai": "Attack_Ragnarok",
+                "ai": "AttackRagnarok",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -687,7 +713,7 @@
             {
                 "nid": "Melody_100",
                 "team": "enemy",
-                "ai": "Attack_Ragnarok",
+                "ai": "AttackRagnarok",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -697,7 +723,7 @@
             {
                 "nid": "Justice_100",
                 "team": "enemy",
-                "ai": "Attack_Ragnarok",
+                "ai": "AttackRagnarok",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -1135,7 +1161,7 @@
                 "nid": "111",
                 "variant": null,
                 "level": 1,
-                "klass": "Grand_Master",
+                "klass": "Grandmaster",
                 "faction": "Contender",
                 "starting_items": [
                     [
@@ -1156,7 +1182,7 @@
                 "nid": "112",
                 "variant": null,
                 "level": 1,
-                "klass": "Grand_Master",
+                "klass": "Grandmaster",
                 "faction": "Contender",
                 "starting_items": [
                     [
@@ -1660,6 +1686,210 @@
                 }
             }
         ],
+        "ai_groups": []
+    },
+    {
+        "nid": "Gunpowder",
+        "name": "Wight Powder War",
+        "tilemap": "Gunpowder",
+        "bg_tilemap": null,
+        "party": "Union",
+        "music": {},
+        "objective": {
+            "simple": "",
+            "win": "",
+            "loss": ""
+        },
+        "roam": false,
+        "roam_unit": null,
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "Gunpowder",
+                "team": "enemy2",
+                "ai": "AttackBomber",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    7,
+                    2
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Fuuko",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    12,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Andy",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Shen",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    9
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Mui",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    14,
+                    9
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "101",
+                "variant": null,
+                "level": 1,
+                "klass": "Bomber",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemy",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    3
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "102",
+                "variant": null,
+                "level": 1,
+                "klass": "Bomber",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemy",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    3,
+                    6
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "103",
+                "variant": null,
+                "level": 1,
+                "klass": "Bomber",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemy",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    9,
+                    5
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "104",
+                "variant": null,
+                "level": 1,
+                "klass": "Bomber",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemy",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "105",
+                "variant": null,
+                "level": 1,
+                "klass": "Bomber",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemy",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            }
+        ],
+        "regions": [],
+        "unit_groups": [],
         "ai_groups": []
     },
     {

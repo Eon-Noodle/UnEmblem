@@ -226,5 +226,10 @@
         "nid": "testing",
         "terrain_grid": {},
         "autotiles": {}
+    },
+    {
+        "nid": "[A] Preview - Suburb (Temperate)",
+        "terrain_grid": {},
+        "autotiles": {}
     }
 ]

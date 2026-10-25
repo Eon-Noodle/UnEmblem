@@ -72,9 +72,6 @@ NEGATOR_DICT: Dict[str, str] = {
 
 @dataclass
 class Quest():
-    """
-    Class representing a quest task
-    """
     nid: NID
     goal: str
     done: bool

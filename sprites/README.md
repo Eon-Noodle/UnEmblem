@@ -1,6 +1,8 @@
 <!-- AUTO-GENERATED-IMAGE-GALLERY -->
 ![bg_black_tile.png](bg_black_tile.png)
 ![bg_fow_tile.png](bg_fow_tile.png)
+![bg_fow_tile_white.png](bg_fow_tile_white.png)
+![bg_white_tile.png](bg_white_tile.png)
 ![boss_icon.png](boss_icon.png)
 ![buttons.png](buttons.png)
 ![chapter_title_banner.png](chapter_title_banner.png)
@@ -31,8 +33,8 @@
 ![pennant_bg.png](pennant_bg.png)
 ![phase_transition.png](phase_transition.png)
 ![press_start.png](press_start.png)
+![protect_blue_icon.png](protect_blue_icon.png)
 ![protect_green_icon.png](protect_green_icon.png)
-![protect_icon.png](protect_icon.png)
 ![protect_purple_icon.png](protect_purple_icon.png)
 ![protect_red_icon.png](protect_red_icon.png)
 ![rescue_icon_blue.png](rescue_icon_blue.png)

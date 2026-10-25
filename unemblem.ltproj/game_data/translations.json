@@ -256,6 +256,10 @@
         "text": "Hit points. The unit is removed from the battle if HP reaches 0."
     },
     {
+        "nid": "CP_desc",
+        "text": "Composure. Decrease everytime unit defeat an enemy. The unit falls into Anguish if CP reaches 0."
+    },
+    {
         "nid": "armory_opener",
         "text": "This is an armory.{w}{clear}Buy something, would ya?"
     },

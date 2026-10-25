@@ -371,8 +371,7 @@ class SettingsMenuState(State):
             if self.state == 'top_menu':
                 text = 'config_desc'
             else:
-                idx = self.config_menu.get_current_index()
-                text = config[idx][0] + '_desc'
+                text = self.config_menu.get_current() + '_desc'
         elif self.tab == 'keyboard':
             text = 'keymap_desc'
         else:

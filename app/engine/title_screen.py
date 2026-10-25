@@ -30,16 +30,18 @@ from app.utilities import utils
 
 import logging
 
+HINT_SPRITES_RECT = {
+    'SELECT':   (0,  66, 14, 13),
+    'BACK':     (0,  82, 14, 13),
+    'AUX':      (1, 133, 16,  9),
+    'INFO':     (1, 149, 16,  9),
+    'START':    (0, 165, 33,  9),
+    'MOVE':     (0, 192, 16, 16),
+    'SPEED':    (0, 208, 16, 16)
+}
+
 def create_hint_surf():       
     sprite = SPRITES.get('buttons')
-    sprites_rect = {
-        'SELECT':   (0,  66, 14, 13),
-        'BACK':     (0,  82, 14, 13),
-        'AUX':      (1, 133, 16,  9),
-        'INFO':     (1, 149, 16,  9),
-        'START':    (0, 165, 33,  9),
-        'MOVE':     (0, 196, 17, 17)
-    }
     hints = ['Move', 'Select', 'Back']
     font_name = 'text'
     dimension = (text_funcs.get_max_width(font_name, hints) + 20,
@@ -47,7 +49,7 @@ def create_hint_surf():
     surf = engine.create_surface(dimension, transparent=True)
 
     for idx, hint in enumerate(hints):
-        button = engine.subsurface(sprite, sprites_rect.get(hint.upper()))
+        button = engine.subsurface(sprite, HINT_SPRITES_RECT.get(hint.upper()))
         engine.blit_center(surf, button, (8, 8 + idx*16))
         FONT[font_name].blit(hint, surf, (18, idx*16))
     return surf
@@ -109,17 +111,10 @@ class KeymapGuideState(State):
         keymap = []
         movement_keys = {}
         correction_dict = {
+            'SPEED': 'SPEED UP',
             'RETURN': 'ENTER'
         }
         sprite = SPRITES.get('buttons')
-        sprites_rect = {
-            'SELECT':   (0,  66, 14, 13),
-            'BACK':     (0,  82, 14, 13),
-            'AUX':      (1, 133, 16,  9),
-            'INFO':     (1, 149, 16,  9),
-            'START':    (0, 165, 33,  9),
-            'MOVE':     (0, 196, 17, 17)
-        }
         for k, v in cf.SETTINGS.items():
             tokens = k.split('_')
             if tokens[0] != 'key':
@@ -130,16 +125,16 @@ class KeymapGuideState(State):
             if key in ('UP', 'LEFT', 'DOWN', 'RIGHT'):
                 movement_keys[key] = button
             else:
-                if rect := sprites_rect.get(key):
+                if rect := HINT_SPRITES_RECT.get(key):
                     engine.blit_center(surf, engine.subsurface(sprite, rect), (20, 34 + len(keymap)*8))
-                keymap += ['        <yellow>%s</>' % key.lower().capitalize(),
+                keymap += ['        <yellow>%s</>' % correction_dict.get(key, key).lower().capitalize(),
                            'Press <blue>%s</>' % correction_dict.get(button, button)]
 
-        engine.blit_center(surf, engine.subsurface(sprite, sprites_rect.get('MOVE')), (20, 34 + len(keymap)*8))
+        engine.blit_center(surf, engine.subsurface(sprite, HINT_SPRITES_RECT.get('MOVE')), (20, 34 + len(keymap)*8))
         keymap += ['        <yellow>Move</>',
                    'Press <blue>%s</>' % ''.join(movement_keys[k] for k in ('UP', 'LEFT', 'DOWN', 'RIGHT'))]
 
-        table = SimpleMenuUI(keymap, title='CONTROL GUIDE', rows=6, cols=2, row_width=120, bg='')
+        table = SimpleMenuUI(keymap, title='CONTROL GUIDE', rows=7, cols=2, row_width=120, bg='')
         table.draw(surf)
 
     def _draw_tip(self, surf):
@@ -161,7 +156,7 @@ class KeymapGuideState(State):
             options = [v.text for k, v in DB.translations.items() if k.startswith('tip_msg')]
             tip = 'Tip: %s' % random.choice(options) if options else ''
 
-        render_text(surf, ['text'], [tip], ['white'], (10, 132))
+        render_text(surf, ['text'], [tip], ['white'], (10, 140))
 
     def start(self):
         self.surf = engine.create_surface((WINWIDTH, WINHEIGHT), transparent=True)

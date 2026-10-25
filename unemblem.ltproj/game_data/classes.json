@@ -19,7 +19,8 @@
             "CON": 5,
             "MOV": 5,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 65,
@@ -31,7 +32,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -43,7 +45,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -55,7 +58,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -67,7 +71,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -189,39 +194,41 @@
     {
         "nid": "Brawler",
         "name": "Brawler",
-        "desc": "Ruffians with great strength but poor defense.",
+        "desc": "Boxers with great footwork but poor defense.",
         "tier": 1,
         "movement_group": "Trudger",
         "promotes_from": null,
         "turns_into": [
             "Pugilist",
-            "Grand_Master"
+            "Grandmaster"
         ],
         "tags": [],
         "max_level": 20,
         "bases": {
             "HP": 20,
-            "STR": 5,
-            "SKL": 2,
-            "SPD": 4,
+            "STR": 4,
+            "SKL": 4,
+            "SPD": 9,
             "LCK": 0,
             "DEF": 2,
-            "CON": 11,
+            "CON": 9,
             "MOV": 5,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 85,
-            "STR": 55,
-            "SKL": 35,
-            "SPD": 30,
+            "STR": 35,
+            "SKL": 30,
+            "SPD": 55,
             "LCK": 15,
             "DEF": 15,
             "CON": 0,
             "MOV": 0,
             "RES": 15,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -233,7 +240,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -245,7 +253,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -257,7 +266,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -384,22 +394,23 @@
         "movement_group": "Infantry",
         "promotes_from": null,
         "turns_into": [
-            "Grand_Master",
+            "Grandmaster",
             "Warlord"
         ],
         "tags": [],
         "max_level": 20,
         "bases": {
             "HP": 18,
-            "STR": 4,
-            "SKL": 8,
-            "SPD": 8,
+            "STR": 5,
+            "SKL": 5,
+            "SPD": 5,
             "LCK": 0,
-            "DEF": 4,
-            "CON": 9,
+            "DEF": 5,
+            "CON": 11,
             "MOV": 5,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 80,
@@ -411,7 +422,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 20,
-            "MAG": 17
+            "MAG": 17,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -423,7 +435,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -435,7 +448,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -447,7 +461,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -581,27 +596,29 @@
         "max_level": 20,
         "bases": {
             "HP": 17,
-            "STR": 5,
-            "SKL": 3,
-            "SPD": 1,
+            "STR": 7,
+            "SKL": 4,
+            "SPD": 2,
             "LCK": 0,
             "DEF": 9,
             "CON": 13,
             "MOV": 4,
             "RES": 1,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 80,
-            "STR": 40,
+            "STR": 55,
             "SKL": 30,
-            "SPD": 15,
+            "SPD": 25,
             "LCK": 25,
             "DEF": 28,
             "CON": 0,
             "MOV": 0,
             "RES": 20,
-            "MAG": 10
+            "MAG": 10,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -613,7 +630,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -625,7 +643,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -637,7 +656,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -759,7 +779,7 @@
     {
         "nid": "Duelist",
         "name": "Duelist",
-        "desc": "Swordfighters with superior speed and skill.",
+        "desc": "Swordfighters with precise strikes and high crits.",
         "tier": 1,
         "movement_group": "Infantry",
         "promotes_from": null,
@@ -772,26 +792,28 @@
         "bases": {
             "HP": 16,
             "STR": 4,
-            "SKL": 9,
-            "SPD": 10,
+            "SKL": 8,
+            "SPD": 5,
             "LCK": 0,
             "DEF": 2,
             "CON": 8,
             "MOV": 5,
             "RES": 1,
-            "MAG": 2
+            "MAG": 2,
+            "CP": 1
         },
         "growths": {
             "HP": 70,
-            "STR": 35,
-            "SKL": 40,
-            "SPD": 40,
+            "STR": 30,
+            "SKL": 55,
+            "SPD": 35,
             "LCK": 30,
             "DEF": 15,
             "CON": 0,
             "MOV": 0,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -803,7 +825,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -815,7 +838,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -827,7 +851,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -969,19 +994,21 @@
             "RES": 0,
             "CON": 6,
             "MOV": 6,
-            "MAG": 3
+            "MAG": 3,
+            "CP": 1
         },
         "growths": {
             "HP": 50,
             "STR": 5,
-            "SKL": 45,
+            "SKL": 55,
             "SPD": 40,
             "LCK": 40,
             "DEF": 5,
             "RES": 20,
             "CON": 0,
             "MOV": 0,
-            "MAG": 5
+            "MAG": 5,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -993,7 +1020,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -1005,7 +1033,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1017,7 +1046,8 @@
             "RES": 20,
             "CON": 20,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [
             [
@@ -1150,7 +1180,7 @@
         "promotes_from": null,
         "turns_into": [
             "Vigilante",
-            "Mercenary"
+            "Sharpshooter"
         ],
         "tags": [],
         "max_level": 20,
@@ -1164,7 +1194,8 @@
             "MOV": 5,
             "CON": 7,
             "RES": 0,
-            "MAG": 1
+            "MAG": 1,
+            "CP": 1
         },
         "growths": {
             "HP": 70,
@@ -1176,7 +1207,8 @@
             "RES": 20,
             "MOV": 0,
             "CON": 0,
-            "MAG": 35
+            "MAG": 35,
+            "CP": 0
         },
         "growth_bonus": {
             "SKL": 0,
@@ -1188,7 +1220,8 @@
             "RES": 0,
             "SPD": 0,
             "HP": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "SKL": 0,
@@ -1200,7 +1233,8 @@
             "RES": 0,
             "SPD": 0,
             "HP": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1212,7 +1246,8 @@
             "RES": 20,
             "MOV": 15,
             "CON": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -1301,7 +1336,8 @@
             "MOV": 6,
             "CON": 6,
             "STR": 0,
-            "MAG": 1
+            "MAG": 1,
+            "CP": 1
         },
         "growths": {
             "HP": 55,
@@ -1313,7 +1349,8 @@
             "RES": 30,
             "MOV": 0,
             "CON": 0,
-            "MAG": 55
+            "MAG": 55,
+            "CP": 0
         },
         "growth_bonus": {
             "SKL": 0,
@@ -1325,7 +1362,8 @@
             "RES": 0,
             "SPD": 0,
             "HP": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "SKL": 0,
@@ -1337,7 +1375,8 @@
             "RES": 0,
             "SPD": 0,
             "HP": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1349,7 +1388,8 @@
             "RES": 20,
             "MOV": 15,
             "CON": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -1436,7 +1476,8 @@
             "RES": 6,
             "CON": 5,
             "MOV": 5,
-            "MAG": 1
+            "MAG": 1,
+            "CP": 1
         },
         "growths": {
             "HP": 50,
@@ -1448,7 +1489,8 @@
             "RES": 50,
             "CON": 0,
             "MOV": 0,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -1460,7 +1502,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -1472,7 +1515,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1484,7 +1528,8 @@
             "RES": 20,
             "CON": 20,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -1623,7 +1668,8 @@
             "RES": 5,
             "CON": 6,
             "MOV": 6,
-            "MAG": 1
+            "MAG": 1,
+            "CP": 1
         },
         "growths": {
             "HP": 60,
@@ -1635,7 +1681,8 @@
             "RES": 30,
             "CON": 0,
             "MOV": 0,
-            "MAG": 50
+            "MAG": 50,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -1647,7 +1694,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -1659,7 +1707,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1671,7 +1720,8 @@
             "RES": 20,
             "CON": 20,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -1793,7 +1843,7 @@
     {
         "nid": "Pugilist",
         "name": "Pugilist",
-        "desc": "Relentless fighters who traverse well through rocky terrains and often deal critical hits.",
+        "desc": "Relentless fighters who traverse well through rocky terrains.",
         "tier": 2,
         "movement_group": "Trudger",
         "promotes_from": "Brawler",
@@ -1810,7 +1860,8 @@
             "CON": 14,
             "MOV": 6,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 5
         },
         "growths": {
             "HP": 75,
@@ -1822,7 +1873,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 13,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -1834,7 +1886,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 4,
@@ -1846,7 +1899,8 @@
             "CON": -97,
             "MOV": -97,
             "RES": 2,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -1858,7 +1912,8 @@
             "CON": 25,
             "MOV": 15,
             "RES": 21,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -1978,8 +2033,8 @@
         "fields": []
     },
     {
-        "nid": "Grand_Master",
-        "name": "Grand Master",
+        "nid": "Grandmaster",
+        "name": "Grandmaster",
         "desc": "Seasoned martial masters with remarkable skills.",
         "tier": 2,
         "movement_group": "Infantry",
@@ -1997,7 +2052,8 @@
             "CON": 11,
             "MOV": 6,
             "RES": 2,
-            "MAG": 2
+            "MAG": 2,
+            "CP": 5
         },
         "growths": {
             "HP": 75,
@@ -2009,7 +2065,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 20,
-            "MAG": 15
+            "MAG": 15,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -2021,7 +2078,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 4,
@@ -2033,7 +2091,8 @@
             "CON": -97,
             "MOV": -97,
             "RES": 2,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2045,7 +2104,8 @@
             "CON": 25,
             "MOV": 15,
             "RES": 22,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2184,7 +2244,8 @@
             "RES": 3,
             "MAG": 1,
             "MOV": 6,
-            "CON": 13
+            "CON": 13,
+            "CP": 5
         },
         "growths": {
             "HP": 70,
@@ -2196,7 +2257,8 @@
             "DEF": 21,
             "RES": 20,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2208,7 +2270,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -2220,7 +2283,8 @@
             "DEF": 2,
             "RES": 1,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2232,7 +2296,8 @@
             "DEF": 29,
             "RES": 25,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2316,7 +2381,8 @@
             "RES": 5,
             "MAG": 0,
             "MOV": 5,
-            "CON": 15
+            "CON": 15,
+            "CP": 5
         },
         "growths": {
             "HP": 75,
@@ -2328,7 +2394,8 @@
             "DEF": 23,
             "RES": 25,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2340,7 +2407,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 4,
@@ -2352,7 +2420,8 @@
             "DEF": 2,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2364,7 +2433,8 @@
             "DEF": 30,
             "RES": 25,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2448,7 +2518,8 @@
             "RES": 2,
             "MAG": 4,
             "MOV": 6,
-            "CON": 9
+            "CON": 9,
+            "CP": 5
         },
         "growths": {
             "HP": 65,
@@ -2460,7 +2531,8 @@
             "DEF": 15,
             "RES": 22,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2472,7 +2544,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 5,
@@ -2484,7 +2557,8 @@
             "DEF": 2,
             "RES": 1,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2496,7 +2570,8 @@
             "DEF": 22,
             "RES": 23,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2580,7 +2655,8 @@
             "RES": 0,
             "MAG": 0,
             "MOV": 6,
-            "CON": 8
+            "CON": 8,
+            "CP": 5
         },
         "growths": {
             "HP": 50,
@@ -2592,7 +2668,8 @@
             "DEF": 5,
             "RES": 15,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2604,7 +2681,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -2616,7 +2694,8 @@
             "DEF": 2,
             "RES": 2,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2628,7 +2707,8 @@
             "DEF": 20,
             "RES": 20,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [
             [
@@ -2717,7 +2797,8 @@
             "RES": 0,
             "MAG": 0,
             "MOV": 6,
-            "CON": 8
+            "CON": 8,
+            "CP": 5
         },
         "growths": {
             "HP": 50,
@@ -2729,7 +2810,8 @@
             "DEF": 10,
             "RES": 20,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2741,7 +2823,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -2753,7 +2836,8 @@
             "DEF": 2,
             "RES": 1,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2765,7 +2849,8 @@
             "DEF": 20,
             "RES": 20,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2830,8 +2915,8 @@
         "fields": []
     },
     {
-        "nid": "Mercenary",
-        "name": "Mercenary",
+        "nid": "Sharpshooter",
+        "name": "Sharpshooter",
         "desc": "War veterans who possess unparalleled accuracy with their firearms.",
         "tier": 2,
         "movement_group": "Infantry",
@@ -2849,7 +2934,8 @@
             "RES": 2,
             "MAG": 4,
             "MOV": 6,
-            "CON": 8
+            "CON": 8,
+            "CP": 5
         },
         "growths": {
             "HP": 65,
@@ -2861,7 +2947,8 @@
             "DEF": 15,
             "RES": 20,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -2873,7 +2960,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -2885,7 +2973,8 @@
             "DEF": 2,
             "RES": 1,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -2897,7 +2986,8 @@
             "DEF": 25,
             "RES": 23,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -2983,7 +3073,8 @@
             "RES": 5,
             "MAG": 5,
             "MOV": 7,
-            "CON": 7
+            "CON": 7,
+            "CP": 5
         },
         "growths": {
             "HP": 45,
@@ -2995,7 +3086,8 @@
             "DEF": 10,
             "RES": 40,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3007,7 +3099,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 4,
@@ -3019,7 +3112,8 @@
             "DEF": 3,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3031,7 +3125,8 @@
             "DEF": 21,
             "RES": 25,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3117,7 +3212,8 @@
             "RES": 8,
             "MAG": 4,
             "MOV": 6,
-            "CON": 7
+            "CON": 7,
+            "CP": 5
         },
         "growths": {
             "HP": 45,
@@ -3129,7 +3225,8 @@
             "DEF": 8,
             "RES": 40,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3141,7 +3238,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -3153,7 +3251,8 @@
             "DEF": 3,
             "RES": 2,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3165,7 +3264,8 @@
             "DEF": 22,
             "RES": 30,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3249,7 +3349,8 @@
             "RES": 8,
             "MAG": 4,
             "MOV": 6,
-            "CON": 6
+            "CON": 6,
+            "CP": 5
         },
         "growths": {
             "HP": 45,
@@ -3261,7 +3362,8 @@
             "DEF": 10,
             "RES": 40,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3273,7 +3375,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -3285,7 +3388,8 @@
             "DEF": 2,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3297,7 +3401,8 @@
             "DEF": 24,
             "RES": 28,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3381,7 +3486,8 @@
             "RES": 0,
             "CON": 6,
             "MOV": 5,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 95,
@@ -3393,7 +3499,8 @@
             "RES": 13,
             "CON": 0,
             "MOV": 0,
-            "MAG": 10
+            "MAG": 10,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -3405,7 +3512,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -3417,7 +3525,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3429,7 +3538,8 @@
             "RES": 20,
             "CON": 25,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3533,7 +3643,8 @@
             "RES": 0,
             "CON": 6,
             "MOV": 5,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 85,
@@ -3545,7 +3656,8 @@
             "RES": 13,
             "CON": 0,
             "MOV": 0,
-            "MAG": 10
+            "MAG": 10,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -3557,7 +3669,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -3569,7 +3682,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3581,7 +3695,8 @@
             "RES": 22,
             "CON": 25,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3685,7 +3800,8 @@
             "RES": 8,
             "MAG": 4,
             "MOV": 8,
-            "CON": 6
+            "CON": 6,
+            "CP": 1
         },
         "growths": {
             "HP": 45,
@@ -3697,7 +3813,8 @@
             "DEF": 10,
             "RES": 40,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3709,7 +3826,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -3721,7 +3839,8 @@
             "DEF": 2,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3733,7 +3852,8 @@
             "DEF": 24,
             "RES": 28,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3817,7 +3937,8 @@
             "RES": 8,
             "MAG": 4,
             "MOV": 6,
-            "CON": 6
+            "CON": 6,
+            "CP": 1
         },
         "growths": {
             "HP": 45,
@@ -3829,7 +3950,8 @@
             "DEF": 10,
             "RES": 40,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3841,7 +3963,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 3,
@@ -3853,7 +3976,8 @@
             "DEF": 2,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -3865,7 +3989,8 @@
             "DEF": 24,
             "RES": 28,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -3949,7 +4074,8 @@
             "RES": 5,
             "MAG": 0,
             "MOV": 5,
-            "CON": 15
+            "CON": 15,
+            "CP": 1
         },
         "growths": {
             "HP": 75,
@@ -3961,7 +4087,8 @@
             "DEF": 23,
             "RES": 25,
             "MOV": 0,
-            "CON": 0
+            "CON": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -3973,7 +4100,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 4,
@@ -3985,7 +4113,8 @@
             "DEF": 2,
             "RES": 3,
             "MOV": -97,
-            "CON": -97
+            "CON": -97,
+            "CP": 0
         },
         "max_stats": {
             "HP": 80,
@@ -3997,7 +4126,8 @@
             "DEF": 30,
             "RES": 25,
             "MOV": 15,
-            "CON": 25
+            "CON": 25,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4062,6 +4192,285 @@
         "fields": []
     },
     {
+        "nid": "Ranger",
+        "name": "Ranger",
+        "desc": "Gunmen that fire from the saddle and outflank foes with high mobility.",
+        "tier": 1,
+        "movement_group": "Mount",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 5,
+            "MAG": 0,
+            "SKL": 4,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 4,
+            "RES": 0,
+            "CP": 1,
+            "MOV": 7,
+            "CON": 7
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 30,
+            "MAG": 10,
+            "SKL": 40,
+            "SPD": 45,
+            "LCK": 30,
+            "DEF": 12,
+            "RES": 15,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 20,
+            "DEF": 20,
+            "RES": 20,
+            "CP": 30,
+            "MOV": 15,
+            "CON": 20
+        },
+        "learned_skills": [
+            [
+                1,
+                "Canto"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                31,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Skeleton_Paladin",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
+        "nid": "Bomber",
+        "name": "Bomber",
+        "desc": "Bonewalkers that sacrifice them to explode enemies.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 1,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 1,
+            "MOV": 4,
+            "CON": 0
+        },
+        "growths": {
+            "HP": 0,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CP": 0,
+            "MOV": 0,
+            "CON": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 30,
+            "MAG": 30,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 30,
+            "CP": 100,
+            "MOV": 30,
+            "CON": 25
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Sword_Bonewalker",
+        "combat_anim_nid": null,
+        "fields": []
+    },
+    {
         "nid": "Conqueror",
         "name": "Conqueror",
         "desc": "Mythical warrior whose name appears even in the oldest of legends.",
@@ -4081,7 +4490,8 @@
             "RES": 0,
             "CON": 8,
             "MOV": 5,
-            "MAG": 3
+            "MAG": 3,
+            "CP": 1
         },
         "growths": {
             "HP": 90,
@@ -4093,7 +4503,8 @@
             "RES": 15,
             "CON": 0,
             "MOV": 0,
-            "MAG": 22
+            "MAG": 22,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -4105,7 +4516,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -4117,7 +4529,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -4129,7 +4542,8 @@
             "RES": 20,
             "CON": 20,
             "MOV": 15,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4270,7 +4684,8 @@
             "CON": 5,
             "MOV": 5,
             "RES": 0,
-            "MAG": 2
+            "MAG": 2,
+            "CP": 1
         },
         "growths": {
             "HP": 90,
@@ -4282,7 +4697,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 20,
-            "MAG": 22
+            "MAG": 22,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -4294,7 +4710,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -4306,7 +4723,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -4318,7 +4736,8 @@
             "CON": 20,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4460,7 +4879,8 @@
             "CON": 25,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 1
         },
         "growths": {
             "HP": 10,
@@ -4472,7 +4892,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 10,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -4484,7 +4905,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -4496,7 +4918,8 @@
             "CON": 0,
             "MOV": 0,
             "RES": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -4508,7 +4931,8 @@
             "CON": 25,
             "MOV": 15,
             "RES": 20,
-            "MAG": 20
+            "MAG": 20,
+            "CP": 30
         },
         "learned_skills": [
             [
@@ -4652,7 +5076,8 @@
             "DEF": 20,
             "RES": 30,
             "MOV": 8,
-            "CON": 999
+            "CON": 999,
+            "CP": 1
         },
         "growths": {
             "MOV": 0,
@@ -4664,7 +5089,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "MOV": 0,
@@ -4676,7 +5102,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "MOV": 0,
@@ -4688,7 +5115,8 @@
             "CON": 0,
             "SPD": 0,
             "SKL": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 128,
@@ -4700,7 +5128,8 @@
             "DEF": 27,
             "RES": 30,
             "MOV": 15,
-            "CON": 999
+            "CON": 999,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4784,7 +5213,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 0,
@@ -4796,7 +5226,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -4808,7 +5239,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -4820,7 +5252,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -4832,7 +5265,8 @@
             "RES": 30,
             "CON": 25,
             "MOV": 15,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4936,7 +5370,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 0,
@@ -4948,7 +5383,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -4960,7 +5396,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -4972,7 +5409,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -4984,7 +5422,8 @@
             "RES": 30,
             "CON": 25,
             "MOV": 15,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -5088,7 +5527,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 0,
@@ -5100,7 +5540,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -5112,7 +5553,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -5124,7 +5566,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 60,
@@ -5136,7 +5579,8 @@
             "RES": 30,
             "CON": 25,
             "MOV": 15,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 30
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -5242,7 +5686,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 0,
@@ -5254,7 +5699,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -5266,7 +5712,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -5278,7 +5725,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 30,
@@ -5290,7 +5738,8 @@
             "RES": 30,
             "CON": 30,
             "MOV": 30,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 30
         },
         "learned_skills": [
             [
@@ -5440,7 +5889,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growths": {
             "HP": 0,
@@ -5452,7 +5902,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "growth_bonus": {
             "HP": 0,
@@ -5464,7 +5915,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "promotion": {
             "HP": 0,
@@ -5476,7 +5928,8 @@
             "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 0
+            "MAG": 0,
+            "CP": 0
         },
         "max_stats": {
             "HP": 30,
@@ -5488,7 +5941,8 @@
             "RES": 30,
             "CON": 30,
             "MOV": 30,
-            "MAG": 30
+            "MAG": 30,
+            "CP": 30
         },
         "learned_skills": [
             [

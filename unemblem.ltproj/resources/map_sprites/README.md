@@ -81,6 +81,8 @@
 ![Samurai_Juiz-stand.png](Samurai_Juiz-stand.png)
 ![Sergeant-move.png](Sergeant-move.png)
 ![Sergeant-stand.png](Sergeant-stand.png)
+![Skeleton_Paladin-move.png](Skeleton_Paladin-move.png)
+![Skeleton_Paladin-stand.png](Skeleton_Paladin-stand.png)
 ![Soldier_Echoes-move.png](Soldier_Echoes-move.png)
 ![Soldier_Echoes-stand.png](Soldier_Echoes-stand.png)
 ![Soldier_Flintlock-move.png](Soldier_Flintlock-move.png)

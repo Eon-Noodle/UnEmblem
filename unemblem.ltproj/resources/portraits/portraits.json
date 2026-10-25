@@ -74,43 +74,6 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Shen",
-        "blinking_offset": [
-            24,
-            32
-        ],
-        "smiling_offset": [
-            24,
-            48
-        ],
-        "info_offset": [
-            8,
-            0
-        ],
-        "chibi_coord": [
-            128,
-            80
-        ],
-        "full_size": [
-            160,
-            112
-        ],
-        "face_size": [
-            96,
-            80
-        ],
-        "blink_size": [
-            32,
-            16
-        ],
-        "mouth_size": [
-            32,
-            16
-        ],
-        "blink_frames": 2,
-        "mouth_frames": 3
-    },
-    {
         "nid": "Mui",
         "blinking_offset": [
             24,
@@ -148,18 +111,18 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Gina",
+        "nid": "Shen",
         "blinking_offset": [
-            32,
-            46
+            24,
+            32
         ],
         "smiling_offset": [
-            32,
-            62
+            24,
+            48
         ],
         "info_offset": [
-            8,
-            8
+            4,
+            0
         ],
         "chibi_coord": [
             128,
@@ -222,30 +185,30 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Sean",
+        "nid": "Gina",
         "blinking_offset": [
-            21,
-            28
-        ],
-        "smiling_offset": [
-            21,
-            44
-        ],
-        "info_offset": [
-            8,
+            0,
             0
         ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": [
+            32,
+            24
+        ],
         "chibi_coord": [
-            128,
-            80
+            144,
+            96
         ],
         "full_size": [
-            160,
-            112
+            176,
+            128
         ],
         "face_size": [
-            96,
-            80
+            144,
+            96
         ],
         "blink_size": [
             32,
@@ -296,43 +259,6 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Isshin",
-        "blinking_offset": [
-            0,
-            0
-        ],
-        "smiling_offset": [
-            0,
-            0
-        ],
-        "info_offset": [
-            8,
-            7
-        ],
-        "chibi_coord": [
-            128,
-            80
-        ],
-        "full_size": [
-            160,
-            112
-        ],
-        "face_size": [
-            96,
-            80
-        ],
-        "blink_size": [
-            32,
-            16
-        ],
-        "mouth_size": [
-            32,
-            16
-        ],
-        "blink_frames": 2,
-        "mouth_frames": 3
-    },
-    {
         "nid": "Nico",
         "blinking_offset": [
             12,
@@ -343,44 +269,7 @@
             46
         ],
         "info_offset": [
-            8,
-            0
-        ],
-        "chibi_coord": [
-            128,
-            80
-        ],
-        "full_size": [
-            160,
-            112
-        ],
-        "face_size": [
-            96,
-            80
-        ],
-        "blink_size": [
-            32,
-            16
-        ],
-        "mouth_size": [
-            32,
-            16
-        ],
-        "blink_frames": 2,
-        "mouth_frames": 3
-    },
-    {
-        "nid": "Juiz",
-        "blinking_offset": [
-            18,
-            32
-        ],
-        "smiling_offset": [
-            18,
-            48
-        ],
-        "info_offset": [
-            8,
+            0,
             0
         ],
         "chibi_coord": [
@@ -444,18 +333,18 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Enjin",
+        "nid": "Sean",
         "blinking_offset": [
-            0,
-            0
+            21,
+            28
         ],
         "smiling_offset": [
-            24,
-            48
+            21,
+            44
         ],
         "info_offset": [
-            8,
-            8
+            0,
+            0
         ],
         "chibi_coord": [
             128,
@@ -481,14 +370,51 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Apoccy",
+        "nid": "Juiz",
         "blinking_offset": [
-            0,
-            56
+            18,
+            32
         ],
         "smiling_offset": [
+            18,
+            48
+        ],
+        "info_offset": [
             0,
-            56
+            0
+        ],
+        "chibi_coord": [
+            128,
+            80
+        ],
+        "full_size": [
+            160,
+            112
+        ],
+        "face_size": [
+            96,
+            80
+        ],
+        "blink_size": [
+            32,
+            16
+        ],
+        "mouth_size": [
+            32,
+            16
+        ],
+        "blink_frames": 2,
+        "mouth_frames": 3
+    },
+    {
+        "nid": "Enjin",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            24,
+            48
         ],
         "info_offset": [
             8,
@@ -505,6 +431,80 @@
         "face_size": [
             96,
             80
+        ],
+        "blink_size": [
+            32,
+            16
+        ],
+        "mouth_size": [
+            32,
+            16
+        ],
+        "blink_frames": 2,
+        "mouth_frames": 3
+    },
+    {
+        "nid": "Isshin",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": [
+            8,
+            40
+        ],
+        "chibi_coord": [
+            128,
+            112
+        ],
+        "full_size": [
+            160,
+            144
+        ],
+        "face_size": [
+            128,
+            112
+        ],
+        "blink_size": [
+            32,
+            16
+        ],
+        "mouth_size": [
+            32,
+            16
+        ],
+        "blink_frames": 2,
+        "mouth_frames": 3
+    },
+    {
+        "nid": "Apoccy",
+        "blinking_offset": [
+            0,
+            0
+        ],
+        "smiling_offset": [
+            0,
+            0
+        ],
+        "info_offset": [
+            12,
+            8
+        ],
+        "chibi_coord": [
+            128,
+            88
+        ],
+        "full_size": [
+            160,
+            120
+        ],
+        "face_size": [
+            96,
+            88
         ],
         "blink_size": [
             32,
@@ -639,6 +639,43 @@
             0
         ],
         "info_offset": [
+            4,
+            0
+        ],
+        "chibi_coord": [
+            128,
+            80
+        ],
+        "full_size": [
+            160,
+            112
+        ],
+        "face_size": [
+            96,
+            80
+        ],
+        "blink_size": [
+            32,
+            16
+        ],
+        "mouth_size": [
+            32,
+            16
+        ],
+        "blink_frames": 2,
+        "mouth_frames": 3
+    },
+    {
+        "nid": "Gunpowder",
+        "blinking_offset": [
+            24,
+            24
+        ],
+        "smiling_offset": [
+            24,
+            40
+        ],
+        "info_offset": [
             8,
             0
         ],
@@ -666,30 +703,18 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Master_of_Arms",
+        "nid": "Luo",
         "blinking_offset": [
-            32,
-            16
+            0,
+            0
         ],
         "smiling_offset": [
-            32,
-            32
-        ],
-        "info_offset": 0
-    },
-    {
-        "nid": "Bandit",
-        "blinking_offset": [
-            24,
-            32
-        ],
-        "smiling_offset": [
-            32,
-            48
+            0,
+            0
         ],
         "info_offset": [
             8,
-            0
+            8
         ],
         "chibi_coord": [
             128,

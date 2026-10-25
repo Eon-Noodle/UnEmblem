@@ -1,5 +1,4 @@
 <!-- AUTO-GENERATED-IMAGE-GALLERY -->
-![buttons.png](buttons.png)
 ![chapter_select_blue.png](chapter_select_blue.png)
 ![chapter_select_blue_flicker.png](chapter_select_blue_flicker.png)
 ![chapter_select_blue_highlight.png](chapter_select_blue_highlight.png)
@@ -15,6 +14,7 @@
 ![info_title_skills.png](info_title_skills.png)
 ![info_title_supports.png](info_title_supports.png)
 ![info_unit.png](info_unit.png)
+![info_unit_cp.png](info_unit_cp.png)
 ![lab_portrait.png](lab_portrait.png)
 ![logo.png](logo.png)
 ![menu_gem_small.png](menu_gem_small.png)
@@ -25,3 +25,5 @@
 ![title_menu_dark_highlight.png](title_menu_dark_highlight.png)
 ![turnbanner_enemy3.png](turnbanner_enemy3.png)
 ![unit_info_bg.png](unit_info_bg.png)
+![unit_info_bg_player.png](unit_info_bg_player.png)
+![unit_info_cp.png](unit_info_cp.png)
