@@ -1,7 +1,6 @@
 <!-- AUTO-GENERATED-IMAGE-GALLERY -->
 ![Andy.png](Andy.png)
 ![Apoccy.png](Apoccy.png)
-![Bandit.png](Bandit.png)
 ![Chikara.png](Chikara.png)
 ![Colour.png](Colour.png)
 ![Enjin.png](Enjin.png)
@@ -12,7 +11,6 @@
 ![Juiz.png](Juiz.png)
 ![Justice.png](Justice.png)
 ![Luo.png](Luo.png)
-![Master_of_Arms.png](Master_of_Arms.png)
 ![Melody.png](Melody.png)
 ![Mui.png](Mui.png)
 ![Nico.png](Nico.png)
