@@ -1,5 +1,5 @@
 import random
-from app.engine import item_system, item_funcs, equations, action
+from app.engine import item_system, item_funcs, action
 from app.engine.game_state import game
 
 def can_restock(item) -> bool:
@@ -80,7 +80,7 @@ def optimize_all():
             unit for unit in units
             if not item_funcs.inventory_full(unit, item) and
             not any(item.heal for item in unit.items)]
-        units_that_can_wield = sorted(units_that_can_wield, key=lambda u: equations.parser.hitpoints(u))
+        units_that_can_wield = sorted(units_that_can_wield, key=lambda u: u.get_max_hp())
         if units_that_can_wield:
             unit = units_that_can_wield.pop()
             take_item(item, unit)

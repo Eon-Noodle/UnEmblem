@@ -19,7 +19,7 @@ from app.utilities import utils
 
 from app.engine.sprites import SPRITES
 from app.engine.sound import get_sound_thread
-from app.engine import engine, image_mods, gui, health_bar, equations
+from app.engine import engine, image_mods, gui, health_bar
 from app.engine import item_funcs, item_system, skill_system, particles, status_heal_effect
 import app.engine.config as cf
 from app.engine.animations import Animation
@@ -894,7 +894,7 @@ class UnitSprite():
            (cf.SETTINGS['hp_map_team'] == 'Ally' and self.unit.team in DB.teams.allies) or \
            (cf.SETTINGS['hp_map_team'] == 'Enemy' and self.unit.team in DB.teams.enemies):
             if (cf.SETTINGS['hp_map_cull'] == 'All') or \
-               (cf.SETTINGS['hp_map_cull'] == 'Wounded' and self.unit.get_hp() < equations.parser.hitpoints(self.unit)):
+               (cf.SETTINGS['hp_map_cull'] == 'Wounded' and self.unit.get_hp() < self.unit.get_max_hp()):
                 return True
         return False
 

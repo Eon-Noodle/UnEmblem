@@ -3,7 +3,7 @@ import random
 from app.data.database.skill_components import SkillComponent, SkillTags
 from app.data.database.components import ComponentType
 
-from app.engine import equations, action, skill_system
+from app.engine import action, skill_system
 from app.engine.game_state import game
 from app.engine.combat import playback as pb
 from app.utilities import static_random
@@ -98,7 +98,7 @@ class Regeneration(SkillComponent):
     value = 0.2
 
     def on_upkeep(self, actions, playback, unit):
-        max_hp = equations.parser.hitpoints(unit)
+        max_hp = unit.get_max_hp()
         if unit.get_hp() < max_hp:
             hp_change = int(max_hp * self.value)
             actions.append(action.ChangeHP(unit, hp_change))

@@ -18,14 +18,12 @@ class SecondaryAIPriorityTests(unittest.TestCase):
         ai.unit.position = (0, 0)
         enemy = MagicMock()
         enemy.get_hp.return_value = 20
+        enemy.get_max_hp.return_value = 20
         # An item that applies a status but is not the `status_on_hit` component
         item = MagicMock()
         item.status_on_hit = None
 
-        parser = MagicMock()
-        parser.hitpoints.return_value = 20
-        with patch.object(ai_controller.equations, 'parser', parser), \
-             patch.object(ai_controller.item_funcs, 'get_all_items', return_value=[item]), \
+        with patch.object(ai_controller.item_funcs, 'get_all_items', return_value=[item]), \
              patch.object(ai_controller.item_funcs, 'available', return_value=True), \
              patch.object(ai_controller.item_system, 'is_weapon', return_value=False), \
              patch.object(ai_controller.item_system, 'is_spell', return_value=False), \

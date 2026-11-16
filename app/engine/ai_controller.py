@@ -5,7 +5,7 @@ from typing import Callable, List, Optional, Set
 
 from app.constants import FRAMERATE
 from app.data.database.database import DB
-from app.engine import (action, combat_calcs, engine, equations, evaluate,
+from app.engine import (action, combat_calcs, engine, evaluate,
                         item_funcs, item_system, line_of_sight,
                         skill_system)
 from app.engine.objects.unit import UnitObject
@@ -870,7 +870,7 @@ class SecondaryAI():
         return path
 
     def default_priority(self, enemy):
-        hp_max = equations.parser.hitpoints(enemy)
+        hp_max = enemy.get_max_hp()
         weakness_term = float(hp_max - enemy.get_hp()) / hp_max
 
         items = [item for item in item_funcs.get_all_items(self.unit) if

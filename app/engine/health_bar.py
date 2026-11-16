@@ -273,8 +273,7 @@ class CombatHealthBar(HealthBar):
 
 class MapHealthBar(HealthBar):
     def draw(self, surf, left, top):
-        total = max(1, self.get_max_val())
-        fraction = utils.clamp(self.displayed_val / total, 0, 1)
+        fraction = utils.clamp(self.displayed_val / self.get_max_val(), 0, 1)
         index_pixel = int(12 * fraction) + 1
 
         surf.blit(SPRITES.get('map_health_outline'), (left, top + 13))

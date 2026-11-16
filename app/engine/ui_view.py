@@ -8,7 +8,7 @@ import app.engine.config as cf
 from app.constants import TILEX, TILEY, WINHEIGHT, WINWIDTH
 from app.data.database.database import DB
 from app.data.database.difficulty_modes import RNGOption
-from app.engine import (base_surf, combat_calcs, engine, equations, evaluate,
+from app.engine import (base_surf, combat_calcs, engine, evaluate,
                         icons, image_mods, item_funcs, item_system,
                         skill_system, text_funcs)
 from app.engine.fonts import FONT
@@ -341,7 +341,7 @@ class UIView():
         surf.blit(SPRITES.get('unit_info_hp'), (left + 34, top + height - 20))
         surf.blit(SPRITES.get('unit_info_slash'), (left + 66, top + height - 19))
         current_hp = unit.get_hp()
-        max_hp = equations.parser.hitpoints(unit)
+        max_hp = unit.get_max_hp()
         font.blit_right(str(current_hp), surf, (left + 66, top + 16))
         font.blit_right(str(max_hp), surf, (left + 90, top + 16))
 
@@ -963,7 +963,7 @@ class UIView():
             # Blit /
             FONT['text-yellow'].blit('/', bg_surf, (width - 25, running_height))
             # Blit stats['HP']
-            maxhp = str(equations.parser.hitpoints(defender))
+            maxhp = str(defender.get_max_hp())
             maxhp_width = FONT['text-blue'].width(maxhp)
             FONT['text-blue'].blit(maxhp, bg_surf, (width - 5 - maxhp_width, running_height))
             # Blit currenthp

@@ -690,7 +690,7 @@ class ResetUnitVars(Action):
         self.old_current_mana = self.unit.get_mana()
 
     def do(self):
-        self.unit.set_hp(min(self.unit.get_hp(), equations.parser.hitpoints(self.unit)))
+        self.unit.set_hp(min(self.unit.get_hp(), self.unit.get_max_hp()))
         self.unit.set_mana(min(self.unit.get_mana(), equations.parser.get_mana(self.unit)))
 
     def reverse(self):

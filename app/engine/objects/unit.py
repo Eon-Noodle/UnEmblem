@@ -335,9 +335,10 @@ class UnitObject(Prefab):
     def get_max_hp(self) -> int:
         """
         Returns:
-            Unit's maximum HP
+            Unit's maximum HP, never less than 1, whatever its class,
+            stats and the HP equation give
         """
-        return equations.parser.hitpoints(self)
+        return max(1, equations.parser.hitpoints(self))
 
     def get_hp(self) -> int:
         """
@@ -347,7 +348,7 @@ class UnitObject(Prefab):
         return self.current_hp
 
     def set_hp(self, val: int):
-        self.current_hp = int(utils.clamp(val, 0, equations.parser.hitpoints(self)))
+        self.current_hp = int(utils.clamp(val, 0, self.get_max_hp()))
 
     def get_max_mana(self):
         """
