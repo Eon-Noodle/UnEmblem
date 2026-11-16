@@ -524,6 +524,14 @@
         "text": "Units that fall in combat will die permanently."
     },
     {
+        "nid": "Supply_desc",
+        "text": "Open the convoy."
+    },
+    {
+        "nid": "Guide_desc",
+        "text": "Check for tips and tricks."
+    },
+    {
         "nid": "_attribution",
         "text": "This game is made by (Edit \"_attribution\" in the Translations editor.)"
     }
