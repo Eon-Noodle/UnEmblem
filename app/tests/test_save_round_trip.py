@@ -4,7 +4,7 @@ from typing import Callable
 from app.data.database.database import DB
 from app.data.resources.resources import RESOURCES
 from app.engine.stale_save import StaleSaveError
-from app.tests.engine_harness import EngineHarness, EngineTestCase, diff_saves
+from app.tests.engine_harness import EngineHarness, EngineTestCase, diff_saves, shared_with_game
 
 # testing_proj level 0: Eirika (4, 5) and Seth (4, 4) against the generic
 # fighters 101 (9, 6) and 102 (8, 6), with O'Neill guarding (10, 8)
@@ -49,6 +49,12 @@ class SaveRoundTripTests(EngineTestCase):
         play_first_combat(self.harness)
         finish_turn_1(self.harness)
         self.assertRoundTrips()
+
+    def test_a_save_shares_nothing_with_the_game(self):
+        play_first_combat(self.harness)
+        finish_turn_1(self.harness)
+        s_dict, _ = self.harness.game.save()
+        self.assertEqual([], shared_with_game(s_dict, self.harness.game))
 
     def test_loading_twice_is_the_same_as_loading_once(self):
         play_first_combat(self.harness)

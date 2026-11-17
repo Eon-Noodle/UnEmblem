@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+
 from typing import TYPE_CHECKING, Dict, List, Optional, Set, Tuple
 
 from app.constants import TILEHEIGHT, TILEWIDTH
@@ -181,9 +183,9 @@ class OverworldObject():
                   'prefab_nid': self.nid,
                   'overworld_entities': [entity.save() for entity in self.overworld_entities.values()],
                   'selected_party_nid': self.selected_party_nid,
-                  'node_properties': self.node_properties,
-                  'enabled_menu_options':self.enabled_menu_options,
-                  'visible_menu_options':self.visible_menu_options
+                  'node_properties': copy.deepcopy(self.node_properties),
+                  'enabled_menu_options': copy.deepcopy(self.enabled_menu_options),
+                  'visible_menu_options': copy.deepcopy(self.visible_menu_options)
                   }
         return s_dict
 

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+
 from typing import Set, Tuple, Dict
 from app.utilities.enums import Alignments
 from app.utilities.typing import NID
@@ -80,7 +82,7 @@ class SpeakStyleLibrary(Dict[NID, SpeakStyle]):
             self.update(user_styles)
 
     def save(self) -> dict:
-        return {nid: style.save() for nid, style in self.items()}
+        return {nid: copy.deepcopy(style.save()) for nid, style in self.items()}
 
     @classmethod
     def restore(cls, save_dict) -> SpeakStyleLibrary:

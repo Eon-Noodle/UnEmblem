@@ -116,7 +116,7 @@ class UnitGroup(Prefab):
 
     @classmethod
     def from_prefab(cls, prefab):
-        self = cls(prefab.nid, prefab.units, prefab.positions)
+        self = cls(prefab.nid, prefab.units, prefab.positions.copy())
         self.units = [u for u in self.units if u]
         return self
 

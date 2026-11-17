@@ -3,7 +3,7 @@ Plays the Prologue of the sample project, default.ltproj, through the real
 engine: its intro, both turns, every event it triggers and the win. What
 breaks the engine broadly, or breaks the sample project, breaks this first
 '''
-from app.tests.engine_harness import EngineHarness, diff_saves, logged_errors_fail
+from app.tests.engine_harness import EngineHarness, diff_saves, logged_errors_fail, shared_with_game
 from app.tests.test_turnwheel import TurnwheelTestCase
 
 PROJECT = 'default.ltproj'
@@ -73,6 +73,12 @@ class DefaultProjectTests(TurnwheelTestCase):
                 del s_dict['action_log']
             self.assertEqual([], diff_saves(straight_through, with_a_load))
             defeat_oneill(self.harness)
+
+    def test_a_save_shares_nothing_with_the_game(self):
+        '''The Prologue has overworlds and speak styles, which testing_proj's saves leave empty'''
+        play_turn_1(self.harness)
+        s_dict, _ = self.harness.game.save()
+        self.assertEqual([], shared_with_game(s_dict, self.harness.game))
 
     def test_the_turnwheel_runs_back_through_the_first_turn(self):
         with logged_errors_fail():

@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import copy
 from typing import Optional
 from app.data.database.skill_components import SkillComponent
 from app.data.database.components import ComponentData
@@ -84,10 +86,10 @@ class SkillObject():
         serial_dict['uid'] = self.uid
         serial_dict['nid'] = self.nid
         serial_dict['owner_nid'] = self.owner_nid
-        serial_dict['data'] = self.data
+        serial_dict['data'] = self.data.copy()
         serial_dict['initiator_nid'] = self.initiator_nid
         serial_dict['subskill'] = self.subskill_uid
-        components = [(component.nid, component.value) for component in self.components]
+        components = [(component.nid, copy.deepcopy(component.value)) for component in self.components]
         serial_dict['components'] = components
         return serial_dict
 

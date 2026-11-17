@@ -43,7 +43,7 @@ class PartyObject(Prefab):
         return {'nid': self.nid,
                 'name': self.name,
                 'leader_nid': self.leader_nid,
-                'party_prep_manage_sort_order': self.party_prep_manage_sort_order,
+                'party_prep_manage_sort_order': self.party_prep_manage_sort_order.copy(),
                 'money': self.money,
                 'convoy': [item.uid for item in self.convoy],
                 'bexp': self.bexp}

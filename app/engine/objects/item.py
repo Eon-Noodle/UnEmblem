@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import copy
 import logging
 from typing import TYPE_CHECKING, Optional
 
@@ -118,10 +120,10 @@ class ItemObject():
         serial_dict['desc'] = self.desc
         serial_dict['owner_nid'] = self.owner_nid
         serial_dict['droppable'] = self.droppable
-        serial_dict['data'] = self.data
-        serial_dict['subitems'] = self.subitem_uids
+        serial_dict['data'] = self.data.copy()
+        serial_dict['subitems'] = self.subitem_uids.copy()
         serial_dict['command_item'] = self.command_item_uid
-        components = [(component.nid, component.value) for component in self.components]
+        components = [(component.nid, copy.deepcopy(component.value)) for component in self.components]
         serial_dict['components'] = components
         return serial_dict
 

@@ -924,13 +924,13 @@ class UnitObject(Prefab):
                   'items': [item.uid for item in self.items],
                   'name': self.name,
                   'desc': self.desc,
-                  'tags': self._tags,
-                  'stats': self.stats,
-                  'growths': self.growths,
-                  'growth_points': self.growth_points,
-                  'stat_cap_modifiers': self.stat_cap_modifiers,
+                  'tags': self._tags.copy(),
+                  'stats': self.stats.copy(),
+                  'growths': self.growths.copy(),
+                  'growth_points': self.growth_points.copy(),
+                  'stat_cap_modifiers': self.stat_cap_modifiers.copy(),
                   'starting_position': self.starting_position,
-                  'wexp': self.wexp,
+                  'wexp': self.wexp.copy(),
                   'portrait_nid': self.portrait_nid,
                   'affinity': self.affinity,
                   # Aura children are intentionally not serialized; they are re-derived
@@ -938,7 +938,7 @@ class UnitObject(Prefab):
                   # current parent skill instance (see GameState load + restore).
                   'skills': [(skill_info.skill_obj.uid, skill_info.source, skill_info.source_type)
                              for skill_info in self._skills if skill_info.source_type != SourceType.AURA],
-                  'notes': self.notes,
+                  'notes': self.notes.copy(),
                   'current_hp': self.current_hp,
                   'current_mana': self.current_mana,
                   'current_fatigue': self.current_fatigue,
@@ -947,7 +947,7 @@ class UnitObject(Prefab):
                   'built_guard': self.built_guard,
                   'dead': self.dead,
                   'action_state': self.get_action_state(),
-                  '_fields': self._fields,
+                  '_fields': self._fields.copy(),
                   'equipped_weapon': self.equipped_weapon.uid if self.equipped_weapon else None,
                   'equipped_accessory': self.equipped_accessory.uid if self.equipped_accessory else None,
                   }

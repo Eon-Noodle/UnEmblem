@@ -81,7 +81,7 @@ class DialogLog():
         return chibi
 
     def save(self) -> List[Tuple[str, str]]:
-        return self.entries
+        return self.entries.copy()
 
     def load(self, entries: List[Tuple[str, str]]):
         for entry in entries:

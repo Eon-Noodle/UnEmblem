@@ -30,6 +30,7 @@ sequences.
 from __future__ import annotations
 
 import contextlib
+import enum
 import logging
 import os
 import pickle
@@ -367,6 +368,54 @@ class EngineHarness():
         '''Runs through the other phases until the player can act on turn'''
         self.run_until(lambda: self.game.turncount == turn and self.state == 'free' and not self.game.state.temp_state,
                        max_frames, 'player phase of turn %d' % turn)
+
+def _is_shareable(value) -> bool:
+    '''What a save must not share with the game: what the game changes in place (an enum never changes)'''
+    return isinstance(value, (dict, list, set)) or \
+        (type(value).__module__.startswith('app.') and not isinstance(value, enum.Enum))
+
+def shared_with_game(s_dict: dict, game: GameState) -> list[str]:
+    '''
+    Every place in a save that holds a dict, list, set or game object the
+    live game holds too. The game pickles a save on a thread while play goes
+    on, so the save must hold copies: a shared one can change before the
+    thread pickles it, or change size while it does
+    '''
+    live: set[int] = set()
+    seen: set[int] = set()
+
+    def walk_live(value, depth: int):
+        if id(value) in seen or depth > 8:
+            return
+        seen.add(id(value))
+        if _is_shareable(value):
+            live.add(id(value))
+        if isinstance(value, dict):
+            for sub_value in value.values():
+                walk_live(sub_value, depth + 1)
+        elif isinstance(value, (list, set, tuple)):
+            for sub_value in value:
+                walk_live(sub_value, depth + 1)
+        elif type(value).__module__.startswith('app.') and hasattr(value, '__dict__'):
+            for sub_value in vars(value).values():
+                walk_live(sub_value, depth + 1)
+
+    walk_live(game, 0)
+    shared = []
+
+    def walk_save(value, path: str):
+        if _is_shareable(value) and id(value) in live:
+            shared.append(path or '/')
+            return
+        if isinstance(value, dict):
+            for key, sub_value in value.items():
+                walk_save(sub_value, '%s/%s' % (path, key))
+        elif isinstance(value, (list, tuple)):
+            for idx, sub_value in enumerate(value):
+                walk_save(sub_value, '%s/%d' % (path, idx))
+
+    walk_save(s_dict, '')
+    return shared
 
 def diff_saves(before, after, path: str = '') -> list[str]:
     '''

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from functools import lru_cache
 
+import copy
 import random
 import time
 from collections import Counter
@@ -403,14 +404,14 @@ class GameState():
         s_dict = {'units': [unit.save() for unit in self.unit_registry.values()],
                   'items': [item.save() for item in self.item_registry.values()],
                   'skills': [skill.save() for skill in self.skill_registry.values()],
-                  'terrain_status_registry': self.terrain_status_registry,
+                  'terrain_status_registry': self.terrain_status_registry.copy(),
                   'regions': [region.save() for region in self.region_registry.values()],
                   'level': self._current_level.save() if self._current_level else None,
                   'overworlds': [overworld.save() for overworld in self.overworld_registry.values()],
                   'turncount': self.turncount,
                   'playtime': self.playtime,
-                  'game_vars': self.game_vars,
-                  'level_vars': self.level_vars,
+                  'game_vars': self.game_vars.copy(),
+                  'level_vars': self.level_vars.copy(),
                   'current_mode': self.current_mode.save(),
                   'teams': [team.save() for team in self.teams.values()],
                   'parties': [party.save() for party in self.parties.values()],
@@ -421,17 +422,17 @@ class GameState():
                   'supports': self.supports.save(),
                   'records': self.records.save(),
                   'speak_styles': self.speak_styles.save(),
-                  'market_items': self.market_items,  # Item nids
-                  'unlocked_lore': self.unlocked_lore,
+                  'market_items': self.market_items.copy(),  # Item nids
+                  'unlocked_lore': self.unlocked_lore.copy(),
                   'dialog_log': self.dialog_log.save(),
-                  'already_triggered_events': self.already_triggered_events,
-                  'talk_options': self.talk_options,
-                  'talk_hidden': self.talk_hidden,
-                  'base_convos': self.base_convos,
+                  'already_triggered_events': self.already_triggered_events.copy(),
+                  'talk_options': self.talk_options.copy(),
+                  'talk_hidden': self.talk_hidden.copy(),
+                  'base_convos': self.base_convos.copy(),
                   'current_random_state': static_random.get_combat_random_state(),
                   'bounds': self.board.bounds if self.board else None,
-                  'fog_state': self.board.previously_visited_tiles if self.board else None,
-                  'roam_info': self.roam_info,
+                  'fog_state': self.board.previously_visited_tiles.copy() if self.board else None,
+                  'roam_info': copy.copy(self.roam_info),
                   }
         meta_dict = {'playtime': self.playtime,
                      'realtime': time.time(),

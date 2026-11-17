@@ -1,3 +1,5 @@
+import copy
+
 from app.data.database.database import DB
 from app.engine.objects.difficulty_mode import DifficultyModeObject
 from app.utilities.data import Data
@@ -114,12 +116,12 @@ class LevelObject():
                   'tilemap': self.tilemap.save(),
                   'bg_tilemap': self.bg_tilemap.save() if self.bg_tilemap else None,
                   'party': self.party,
-                  'music': self.music,
-                  'objective': self.objective,
+                  'music': self.music.copy(),
+                  'objective': self.objective.copy(),
                   'units': [unit.nid for unit in self.units],
                   'regions': [region.nid for region in self.regions],
-                  'unit_groups': [unit_group.save() for unit_group in self.unit_groups],
-                  'ai_groups': [ai_group.save() for ai_group in self.ai_groups],
+                  'unit_groups': [copy.deepcopy(unit_group.save()) for unit_group in self.unit_groups],
+                  'ai_groups': [copy.deepcopy(ai_group.save()) for ai_group in self.ai_groups],
                   }
         return s_dict
 
