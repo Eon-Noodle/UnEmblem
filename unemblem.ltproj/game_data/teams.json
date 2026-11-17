@@ -8,6 +8,13 @@
             "phase_change_sound_effect": null
         },
         {
+            "nid": "player2",
+            "map_sprite_palette": "map_sprite_union",
+            "combat_variant_palette": "GenericBlue",
+            "combat_color": "blue",
+            "phase_change_sound_effect": null
+        },
+        {
             "nid": "enemy",
             "map_sprite_palette": "map_sprite_red",
             "combat_variant_palette": "GenericRed",
@@ -33,13 +40,6 @@
             "map_sprite_palette": "map_sprite_union",
             "combat_variant_palette": "",
             "combat_color": "",
-            "phase_change_sound_effect": null
-        },
-        {
-            "nid": "enemy3",
-            "map_sprite_palette": "map_sprite_green",
-            "combat_variant_palette": null,
-            "combat_color": "green",
             "phase_change_sound_effect": null
         }
     ],

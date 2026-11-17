@@ -602,77 +602,13 @@
         "roam_ai": true
     },
     {
-        "nid": "AttackBomber",
-        "behaviours": [
-            {
-                "action": "Attack",
-                "target": "Enemy",
-                "target_spec": [
-                    "Class",
-                    "Bomber"
-                ],
-                "view_range": -2,
-                "invert_targeting": false,
-                "roam_speed": 100,
-                "desired_proximity": 0,
-                "condition": ""
-            },
-            {
-                "action": "Move_away_from",
-                "target": "Enemy",
-                "target_spec": null,
-                "view_range": -4,
-                "invert_targeting": false,
-                "roam_speed": 100,
-                "desired_proximity": 0,
-                "condition": ""
-            },
-            {
-                "action": "None",
-                "target": "None",
-                "target_spec": null,
-                "view_range": 0,
-                "invert_targeting": false,
-                "roam_speed": 100,
-                "desired_proximity": 0,
-                "condition": ""
-            }
-        ],
-        "priority": 20,
-        "offense_bias": 2,
-        "roam_ai": false
-    },
-    {
-        "nid": "FollowEnemy",
+        "nid": "FollowEnemies",
         "behaviours": [
             {
                 "action": "Move_to",
                 "target": "Enemy",
-                "target_spec": [
-                    "Team",
-                    "player"
-                ],
-                "view_range": -4,
-                "invert_targeting": false,
-                "roam_speed": 100,
-                "desired_proximity": 0,
-                "condition": ""
-            },
-            {
-                "action": "None",
-                "target": "None",
                 "target_spec": null,
-                "view_range": 0,
-                "invert_targeting": false,
-                "roam_speed": 100,
-                "desired_proximity": 0,
-                "condition": ""
-            },
-            {
-                "action": "None",
-                "target": "None",
-                "target_spec": null,
-                "view_range": 0,
+                "view_range": -2,
                 "invert_targeting": false,
                 "roam_speed": 100,
                 "desired_proximity": 0,

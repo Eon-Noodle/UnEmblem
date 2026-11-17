@@ -182,6 +182,7 @@ class PartyTransferState(State):
     def start(self):
         self.fluid = FluidScroll()
         self.bg = background.create_background('rune_background')
+        self.button_surf = self.create_button_surf()
         self.top_party, self.bottom_party, self.fixed_list, self.top_party_name, self.bottom_party_name, \
             self.top_party_limit, self.bottom_party_limit = game.memory['party_transfer']
         self.top_units = [unit for unit in game.get_units_in_party(self.top_party.nid) if skill_system.can_select(unit)]
@@ -337,19 +338,7 @@ class PartyTransferState(State):
                 left_justify += FONT[font].width(word)
 
         # Draw button info
-        sprite = SPRITES.get('buttons')
-        buttons = [sprite.subsurface(0, 66, 14, 13), sprite.subsurface(0, 165, 33, 9)]
-        font = FONT['text']
-        commands = ['Swap', 'Done']
-        commands = [text_funcs.translate(c) for c in commands]
-        size = (49 + max(font.width(c) for c in commands), 40)
-        button_surf = base_surf.create_base_surf(size[0], size[1], 'menu_bg_brown')
-        button_surf = image_mods.make_translucent(button_surf, 0.1)
-        button_surf.blit(buttons[0], (20 - buttons[0].get_width()//2, 18 - buttons[0].get_height()))
-        button_surf.blit(buttons[1], (20 - buttons[1].get_width()//2, 32 - buttons[1].get_height()))
-        for idx, command in enumerate(commands):
-            font.blit(command, button_surf, (38, idx * 16 + 3))
-        surf.blit(button_surf, (WINWIDTH//2 + 35, WINHEIGHT//2 + 25))
+        surf.blit(self.button_surf, (WINWIDTH//2 + 35, WINHEIGHT//2 + 25))
 
         # Draw info card
         menus.draw_unit_top(surf, (135,65), self.menu.get_current())
@@ -386,6 +375,21 @@ class PartyTransferState(State):
                         self.menu = self.menu2
                     self.menu.selecting_hand = (1, idx)
         return did_move
+
+    def create_button_surf(self) -> engine.Surface:
+        sprite = SPRITES.get('buttons')
+        buttons = [sprite.subsurface(0, 66, 14, 13), sprite.subsurface(0, 165, 33, 9)]
+        font = FONT['text']
+        commands = ['Swap', 'Done']
+        commands = [text_funcs.translate(c) for c in commands]
+        size = (49 + max(font.width(c) for c in commands), 40)
+        button_surf = base_surf.create_base_surf(size[0], size[1], 'menu_bg_brown')
+        button_surf = image_mods.make_translucent(button_surf, 0.1)
+        button_surf.blit(buttons[0], (20 - buttons[0].get_width()//2, 18 - buttons[0].get_height()))
+        button_surf.blit(buttons[1], (20 - buttons[1].get_width()//2, 32 - buttons[1].get_height()))
+        for idx, command in enumerate(commands):
+            font.blit(command, button_surf, (38, idx * 16 + 3))
+        return button_surf
 
 class PartyTransferConfirmState(MapState):
     name = 'party_transfer_confirm'

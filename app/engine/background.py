@@ -3,6 +3,7 @@ from typing import List, Tuple
 from app.constants import WINWIDTH, WINHEIGHT
 from app.data.resources.resources import RESOURCES
 from app.engine import engine, image_mods
+from app.engine.game_state import game
 from app.engine.sprites import SPRITES
 from app.utilities import utils
 
@@ -46,7 +47,10 @@ class SpriteBackground():
 class PanoramaBackground():
     def __init__(self, panorama, speed=125, loop=True, autoscale=True):
         self.counter = 0
-        self.panorama = panorama
+        if panorama.nid == 'default_background' and game.game_vars.get("galaxy"):
+            self.panorama = RESOURCES.panoramas.get('default_background_stars') or panorama
+        else:
+            self.panorama = panorama
         if not self.panorama.images:
             for path in self.panorama.get_all_paths():
                 image = engine.image_load(path)

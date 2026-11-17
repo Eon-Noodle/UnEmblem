@@ -125,6 +125,9 @@ class InfoMenuState(State):
         self.hint_pennant: Optional[banner.Pennant] = None
         self.info_multiple_pages: Optional[bool] = None
 
+        self.book_bg = engine.subsurface(SPRITES.get('book_flip_0'), (23, 14, 144, 160))
+        self.book_flip_sprite = None
+
         game.state.change('transition_in')
         return 'repeat'
 
@@ -256,7 +259,7 @@ class InfoMenuState(State):
 
     def move_left(self):
         if len(info_states) > 1:
-            get_sound_thread().play_sfx('Status_Page_Change')
+            get_sound_thread().play_sfx('Status_Character')
             index = info_states.index(self.state)
             new_index = (index - 1) % len(info_states)
             self.next_state = info_states[new_index]
@@ -271,7 +274,7 @@ class InfoMenuState(State):
 
     def move_right(self):
         if len(info_states) > 1:
-            get_sound_thread().play_sfx('Status_Page_Change')
+            get_sound_thread().play_sfx('Status_Character')
             index = info_states.index(self.state)
             new_index = (index + 1) % len(info_states)
             self.next_state = info_states[new_index]
@@ -387,6 +390,21 @@ class InfoMenuState(State):
         # Left and Right
         elif self.next_state is not None:
             self.transition_counter += 1
+            if self.transition_counter % 4 == 0:
+                counter = self.transition_counter // 4
+                if book_flip_sprite := SPRITES.get('book_flip_%d' % counter, None):
+                    if self.transition == 'RIGHT':
+                        book_flip_sprite = engine.flip_horiz(book_flip_sprite)
+                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, (23, 14, 144, 160))
+                else:
+                    self.book_flip_sprite = None
+                    self.state = self.next_state
+                    self.next_state = None
+                    self.info_graph.set_current_state(self.state)
+                    self.transition = None
+                    self.transition_counter = 0
+
+            '''
             # As on the GBA (sPageSlideOffsetLut), the page slides out 4, 7, 10, 12 and 14 tiles,
             # and the next one in from 13, 9, 7, 5, 3, 2 and 1 tiles away, a step a frame
             in_offsets = (104, 72, 56, 40, 24, 16, 8)
@@ -414,6 +432,7 @@ class InfoMenuState(State):
                     self.info_graph.set_current_state(self.state)
                     self.transition_counter = 1
                     self.scroll_offset_x = in_offsets[0] if self.transition == 'RIGHT' else -in_offsets[0]
+            '''
 
     def draw(self, surf):
         if self.bg:
@@ -421,6 +440,8 @@ class InfoMenuState(State):
         else:
             # info menu shouldn't be transparent
             surf.blit(SPRITES.get('bg_black'), (0, 0))
+
+        surf.blit(self.book_bg, (96, 0))
 
         # Image flashy thing at the top of the InfoMenu
         num_frames = 8
@@ -431,7 +452,11 @@ class InfoMenuState(State):
         surf.blit(im, (98, 0), None, engine.BLEND_RGB_ADD)
 
         self.draw_portrait(surf)
-        self.draw_slide(surf)
+
+        if self.book_flip_sprite:
+            surf.blit(self.book_flip_sprite, (96, 0))
+        else:
+            self.draw_slide(surf)
 
         if self.info_graph.current_bb or self.info_graph.last_bb:  # The last one, as it shrinks away
             self.info_graph.draw(surf)
@@ -548,7 +573,7 @@ class InfoMenuState(State):
         desc = text_funcs.translate_and_text_evaluate('HP_desc', unit=self.unit)
         self.info_graph.register((left + 30, top + 16, 72, 16), desc, 'all')
 
-        if self.unit.team == 'player':
+        if self.unit.team.startswith('player'):
             surf.blit(SPRITES.get('info_unit_cp'), (left + 32, top + 34))
             desc = text_funcs.translate_and_text_evaluate('CP_desc', unit=self.unit)
             self.info_graph.register((left + 30, top + 32, 72, 16), desc, 'all')
@@ -579,7 +604,7 @@ class InfoMenuState(State):
         render_text(surf, [hp_font], [current_hp], ['blue'], (31, 0), HAlignment.RIGHT)
         render_text(surf, [hp_font], [max_hp], ['blue'], (55, 0), HAlignment.RIGHT)
 
-        if self.unit.team == 'player':
+        if self.unit.team.startswith('player'):
             surf.blit(SPRITES.get('info_hp_slash'), (34, 18))
             current_cp = str(self.unit.get_mana()) if self.unit.get_mana() < 100 else '??'
             max_cp = str(self.unit.get_stat('CP')) if self.unit.get_stat('CP') < 100 else '??'
@@ -907,22 +932,36 @@ class InfoMenuState(State):
 
         weapon = self.unit.get_weapon()
         accessory = self.unit.get_accessory()
+        offhand = self.unit.get_offhand()
 
         # Blit items
         for idx, item in enumerate(self.unit.nonaccessories):
             equipped_subitem: Optional[ItemObject] = None
-            if item.multi_item and any(subitem is weapon for subitem in item.subitems):
-                surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
-                for subitem in item.subitems:
-                    if subitem is weapon:
-                        equipped_subitem = subitem
-                        item_option = create_item_option(idx, subitem)
-                        break
-                else:  # Shouldn't happen
-                    item_option = create_item_option(idx, item)
+            if item.multi_item:
+                if any(subitem is weapon for subitem in item.subitems):
+                    surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
+                    for subitem in item.subitems:
+                        if subitem is weapon:
+                            equipped_subitem = subitem
+                            item_option = create_item_option(idx, subitem)
+                            break
+                    else:  # Shouldn't happen
+                        item_option = create_item_option(idx, item)
+
+                elif any(subitem is offhand for subitem in item.subitems):
+                    surf.blit(SPRITES.get('equipment_highlight_green'), (8, idx * 16 + 24 + 8))
+                    for subitem in item.subitems:
+                        if subitem is offhand:
+                            equipped_subitem = subitem
+                            item_option = create_item_option(idx, subitem)
+                            break
+                    else:  # Shouldn't happen
+                        item_option = create_item_option(idx, item) 
             else:
                 if item is weapon:
                     surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
+                elif item is offhand:
+                    surf.blit(SPRITES.get('equipment_highlight_green'), (8, idx * 16 + 24 + 8))
                 item_option = create_item_option(idx, item)
             item_option.draw(surf, 8, idx * 16 + 24)
             help_dlg = build_dialog_list(equipped_subitem if equipped_subitem else item, PageType.ITEM, unit=self.unit)
@@ -1004,6 +1043,8 @@ class InfoMenuState(State):
         '''
 
         top, left = 110, 12
+        battle_surf = SPRITES.get('battle_info')
+        surf.blit(battle_surf, (left - 4, top - 2))
         battle_info = {
             'Atk':  combat_calcs.damage,
             'AS':   combat_calcs.attack_speed,

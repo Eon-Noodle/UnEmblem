@@ -166,5 +166,17 @@
     [
         "Temple",
         1
+    ],
+    [
+        "Locomotive",
+        1
+    ],
+    [
+        "default_background_stars",
+        1
+    ],
+    [
+        "scuffed_win",
+        1
     ]
 ]

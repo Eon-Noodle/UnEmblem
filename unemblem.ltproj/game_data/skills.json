@@ -83,28 +83,6 @@
         ]
     },
     {
-        "nid": "Unluck_dummy",
-        "name": "Unluck",
-        "desc": "Inflict an ally with <red>Unluck Touch</>, results in a massive friendly-fire AoE attack.",
-        "icon_nid": "Skills_actions",
-        "icon_index": [
-            11,
-            1
-        ],
-        "components": [
-            [
-                "class_skill",
-                null
-            ],
-            [
-                "multi_desc_skill",
-                [
-                    "Unluck_child"
-                ]
-            ]
-        ]
-    },
-    {
         "nid": "Unluck_child",
         "name": "Unluck Touch",
         "desc": "Cursed to be hit by a meteor soon, dealing <orange><sin y_amplitude=1>{e:(0 if not game.supports.get(unit.nid, self.initiator_nid) else len(game.supports.get(unit.nid, self.initiator_nid).unlocked_ranks)) * 10 + 20}</></> AoE damage within the range of 3.",
@@ -154,7 +132,7 @@
     {
         "nid": "Untruth",
         "name": "Untruth",
-        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')}%</></> chance to make enemies hit themselves.",
+        "desc": "Reverse <blue>Weapon Triangle Advantage</>.",
         "icon_nid": "Skills_specials",
         "icon_index": [
             14,
@@ -166,12 +144,14 @@
                 null
             ],
             [
-                "proc_rate",
-                "SKILL"
+                "combat_art",
+                "Untruth_child"
             ],
             [
-                "defense_proc",
-                "Untruth_child"
+                "multi_desc_lore",
+                [
+                    "Weapon_Triangle"
+                ]
             ]
         ]
     },
@@ -190,8 +170,8 @@
                 null
             ],
             [
-                "devil_axe_gba",
-                "Affect attacks done by enemy"
+                "item_override",
+                "Untruth"
             ]
         ]
     },
@@ -861,7 +841,7 @@
     {
         "nid": "Unjustice",
         "name": "Unjustice",
-        "desc": "After initiate combat, disable enemies from using their current weapon until next turn.",
+        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')}%</></> chance to make enemies hit themselves. Doesn't work on God.",
         "icon_nid": "Skills_actions",
         "icon_index": [
             2,
@@ -873,15 +853,23 @@
                 null
             ],
             [
-                "give_status_after_attack",
+                "defense_proc",
                 "Unjustice_child"
+            ],
+            [
+                "proc_rate",
+                "SKILL"
+            ],
+            [
+                "combat_condition",
+                "target.klass != 'God'"
             ]
         ]
     },
     {
         "nid": "Unjustice_child",
         "name": "Unjustice",
-        "desc": "Disabled from using <blue>{e:self.data.get('disabled_weapon', 'None')}</> until next turn.",
+        "desc": "",
         "icon_nid": "Skills_actions",
         "icon_index": [
             2,
@@ -889,12 +877,12 @@
         ],
         "components": [
             [
-                "cannot_use_current_item",
+                "hidden",
                 null
             ],
             [
-                "lost_on_endstep",
-                null
+                "devil_axe_gba",
+                "Affect attacks done by enemy"
             ]
         ]
     },
@@ -997,7 +985,7 @@
     {
         "nid": "Undraw",
         "name": "Undraw",
-        "desc": "Enemies cannot retaliate. Both unit and enemy cannot crit. Combat Art?",
+        "desc": "After initiate combat, disable enemies from using their current weapon until next turn.",
         "icon_nid": "Skills_specials",
         "icon_index": [
             9,
@@ -1006,6 +994,30 @@
         "components": [
             [
                 "class_skill",
+                null
+            ],
+            [
+                "give_status_after_attack",
+                "Undraw_child"
+            ]
+        ]
+    },
+    {
+        "nid": "Undraw_child",
+        "name": "Undraw",
+        "desc": "Disabled from using <blue>{e:self.data.get('disabled_weapon', 'None')}</> until next turn.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            9,
+            1
+        ],
+        "components": [
+            [
+                "cannot_use_current_item",
+                null
+            ],
+            [
+                "lost_on_endstep",
                 null
             ]
         ]
@@ -1514,24 +1526,10 @@
                 null
             ],
             [
-                "show_aura",
+                "has_tags",
                 [
-                    128,
-                    0,
-                    0
+                    "Dynamite"
                 ]
-            ],
-            [
-                "aura",
-                "Does_Nothing"
-            ],
-            [
-                "aura_range",
-                1
-            ],
-            [
-                "aura_target",
-                "unit"
             ]
         ]
     },
@@ -1603,7 +1601,7 @@
     },
     {
         "nid": "Forest",
-        "name": "Forest",
+        "name": "Terrain",
         "desc": "",
         "icon_nid": "Skills_attributes",
         "icon_index": [
@@ -1934,49 +1932,14 @@
                 null
             ],
             [
-                "canto_plus",
+                "canto",
                 null
             ]
         ]
     },
     {
-        "nid": "Plot_Armour",
-        "name": "Plot Armour",
-        "desc": "Grants <green>+20 Str</> and <green>+30 Skl</>",
-        "icon_nid": "Skills_actions",
-        "icon_index": [
-            5,
-            2
-        ],
-        "components": [
-            [
-                "class_skill",
-                null
-            ],
-            [
-                "stat_change",
-                [
-                    [
-                        "STR",
-                        20
-                    ],
-                    [
-                        "SKL",
-                        30
-                    ]
-                ]
-            ],
-            [
-                "multi_desc_lore",
-                [
-                    "Untruth"
-                ]
-            ]
-        ]
-    },
-    {
-        "nid": "Bonewalker",
-        "name": "Bonewalker",
+        "nid": "Walking_Dead",
+        "name": "Walking Dead",
         "desc": "Unit fully recovers HP after every round of combat.",
         "icon_nid": "Skills_specials",
         "icon_index": [
@@ -1989,8 +1952,8 @@
                 null
             ],
             [
-                "post_combat_damage",
-                999
+                "recoil",
+                -99
             ]
         ]
     },
@@ -2043,8 +2006,8 @@
         ]
     },
     {
-        "nid": "Convoyer",
-        "name": "Convoyer",
+        "nid": "Ineligible",
+        "name": "Ineligible",
         "desc": "",
         "icon_nid": "Skills_attributes",
         "icon_index": [
@@ -2059,31 +2022,6 @@
             [
                 "unselectable",
                 null
-            ]
-        ]
-    },
-    {
-        "nid": "Skill100",
-        "name": "Skill100",
-        "desc": "",
-        "icon_nid": null,
-        "icon_index": [
-            0,
-            0
-        ],
-        "components": [
-            [
-                "hidden",
-                null
-            ],
-            [
-                "stat_change",
-                [
-                    [
-                        "SKL",
-                        100
-                    ]
-                ]
             ]
         ]
     },
@@ -2141,7 +2079,7 @@
             ],
             [
                 "condition",
-                "unit.team == 'player' and unit.get_mana() <= 0"
+                "unit.team.startswith('player') and unit.get_mana() <= 0"
             ]
         ]
     },

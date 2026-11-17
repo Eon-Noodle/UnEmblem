@@ -48,3 +48,15 @@ class HealPlus(Heal):
 
 class EquationHealPlus(EquationHeal, HealPlus):
     tag = ItemTags.CUSTOM
+
+
+class TargetsTags(ItemComponent):
+    nid = 'target_tag'
+    desc = "Item targets any unit with these tags"
+    tag = ItemTags.TARGET
+
+    expose = (ComponentType.List, ComponentType.Tag)
+
+    def valid_targets(self, unit, item) -> set:
+        return {other.position for other in game.units if other.position
+                and any(tag in self.value for tag in other.tags)}

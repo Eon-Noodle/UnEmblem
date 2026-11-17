@@ -32,6 +32,18 @@
                 "dodge": "0",
                 "attack_speed": "0",
                 "defense_speed": "0"
+            },
+            {
+                "weapon_type": "Anti_Melee",
+                "weapon_rank": "All",
+                "damage": -1,
+                "resist": 0,
+                "accuracy": -15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
             }
         ],
         "icon_nid": "wexp_icons",
@@ -73,6 +85,18 @@
                 "dodge": "0",
                 "attack_speed": "0",
                 "defense_speed": "0"
+            },
+            {
+                "weapon_type": "Anti_Melee",
+                "weapon_rank": "All",
+                "damage": -1,
+                "resist": 0,
+                "accuracy": -15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
             }
         ],
         "icon_nid": "wexp_icons",
@@ -114,6 +138,18 @@
                 "dodge": "0",
                 "attack_speed": "0",
                 "defense_speed": "0"
+            },
+            {
+                "weapon_type": "Anti_Melee",
+                "weapon_rank": "All",
+                "damage": -1,
+                "resist": 0,
+                "accuracy": -15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
             }
         ],
         "icon_nid": "wexp_icons_2",
@@ -285,6 +321,58 @@
             },
             {
                 "weapon_type": "Soul",
+                "weapon_rank": "All",
+                "damage": 1,
+                "resist": 0,
+                "accuracy": 15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
+            }
+        ],
+        "disadvantage": [],
+        "icon_nid": null,
+        "icon_index": [
+            0,
+            0
+        ]
+    },
+    {
+        "nid": "Anti_Melee",
+        "name": "Anti Melee",
+        "force_melee_anim": false,
+        "hide_from_display": true,
+        "hide_from_convoy": false,
+        "rank_bonus": [],
+        "advantage": [
+            {
+                "weapon_type": "Sword",
+                "weapon_rank": "All",
+                "damage": 1,
+                "resist": 0,
+                "accuracy": 15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
+            },
+            {
+                "weapon_type": "Spear",
+                "weapon_rank": "All",
+                "damage": 1,
+                "resist": 0,
+                "accuracy": 15,
+                "avoid": 0,
+                "crit": 0,
+                "dodge": 0,
+                "attack_speed": 0,
+                "defense_speed": 0
+            },
+            {
+                "weapon_type": "Brute",
                 "weapon_rank": "All",
                 "damage": 1,
                 "resist": 0,

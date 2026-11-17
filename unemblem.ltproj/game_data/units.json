@@ -76,7 +76,7 @@
             "LCK": 10,
             "DEF": 9,
             "RES": 8,
-            "CON": 11,
+            "CON": 13,
             "MOV": 6,
             "MAG": 6,
             "CP": 10
@@ -248,7 +248,7 @@
             "SPD": 9,
             "LCK": 0,
             "DEF": 3,
-            "CON": 5,
+            "CON": 6,
             "MOV": 5,
             "RES": 1,
             "MAG": 3,
@@ -282,7 +282,11 @@
         },
         "starting_items": [
             [
-                "Aegis",
+                "Revolver",
+                false
+            ],
+            [
+                "Panpanda",
                 false
             ]
         ],
@@ -439,7 +443,7 @@
             "LCK": 2,
             "DEF": 5,
             "RES": 1,
-            "CON": 9,
+            "CON": 11,
             "MOV": 5,
             "MAG": 4,
             "CP": 5
@@ -473,10 +477,6 @@
         "starting_items": [
             [
                 "Iron_Spear",
-                false
-            ],
-            [
-                "Iron_Gauntlet",
                 false
             ],
             [
@@ -614,7 +614,7 @@
             "LCK": 4,
             "DEF": 6,
             "RES": 2,
-            "CON": 7,
+            "CON": 9,
             "MOV": 5,
             "MAG": 3,
             "CP": 8
@@ -648,10 +648,6 @@
         "starting_items": [
             [
                 "Basho_Fan",
-                false
-            ],
-            [
-                "Iron_Spear",
                 false
             ],
             [
@@ -784,7 +780,7 @@
             "LCK": 5,
             "DEF": 5,
             "RES": 0,
-            "CON": 5,
+            "CON": 7,
             "MOV": 5,
             "MAG": 4,
             "CP": 5
@@ -955,7 +951,7 @@
             "LCK": 8,
             "DEF": 3,
             "RES": 1,
-            "CON": 7,
+            "CON": 8,
             "MOV": 6,
             "MAG": 2,
             "CP": 5
@@ -1126,7 +1122,7 @@
             "LCK": 6,
             "DEF": 2,
             "RES": 6,
-            "CON": 4,
+            "CON": 6,
             "MOV": 5,
             "MAG": 2,
             "CP": 2
@@ -1297,7 +1293,7 @@
             "LCK": 8,
             "DEF": 3,
             "RES": 5,
-            "CON": 3,
+            "CON": 5,
             "MOV": 7,
             "MAG": 6,
             "CP": 8
@@ -1455,7 +1451,7 @@
     {
         "nid": "Isshin",
         "name": "Isshin",
-        "desc": "A mysterious blacksmith hidden behind a scary mask.",
+        "desc": "A scary blacksmith of silent nature.",
         "variant": "",
         "level": 4,
         "klass": "Convoyer",
@@ -1856,7 +1852,7 @@
             "LCK": 3,
             "DEF": 6,
             "RES": 1,
-            "CON": 14,
+            "CON": 10,
             "MOV": 5,
             "MAG": 0,
             "CP": 12
@@ -2391,11 +2387,13 @@
     {
         "nid": "Gunpowder",
         "name": "Gunpowder",
-        "desc": "<violet>Embodiment of Gunpowder</>",
+        "desc": "<violet>Embodiment of Firearms Explosive</>",
         "variant": "",
         "level": 4,
         "klass": "Ranger",
-        "tags": [],
+        "tags": [
+            "Boss"
+        ],
         "bases": {
             "HP": 20,
             "STR": 5,
@@ -2409,11 +2407,35 @@
             "MOV": 7,
             "CON": 4
         },
-        "growths": {},
-        "stat_cap_modifiers": {},
+        "growths": {
+            "STR": 0,
+            "SKL": 0,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "RES": 0,
+            "HP": 0,
+            "CP": 0,
+            "DEF": 0
+        },
+        "stat_cap_modifiers": {
+            "STR": 0,
+            "SKL": 0,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "RES": 0,
+            "HP": 0,
+            "CP": 0,
+            "DEF": 0
+        },
         "starting_items": [
             [
-                "Sniping_Rifle",
+                "Detonator",
                 false
             ]
         ],
@@ -2428,7 +2450,7 @@
         },
         "alternate_classes": [],
         "portrait_nid": "Gunpowder",
-        "affinity": null,
+        "affinity": "None",
         "fields": []
     },
     {
@@ -2436,34 +2458,34 @@
         "name": "Luo",
         "desc": "Former senior of Shen. Master of Snake Fist School.",
         "variant": "",
-        "level": 1,
-        "klass": "Grandmaster",
+        "level": 14,
+        "klass": "Martial_Artist",
         "tags": [],
         "bases": {
-            "HP": 48,
-            "STR": 20,
-            "SKL": 22,
-            "SPD": 22,
-            "LCK": 12,
-            "DEF": 14,
-            "RES": 10,
-            "CON": 11,
+            "HP": 28,
+            "STR": 8,
+            "SKL": 9,
+            "SPD": 8,
+            "LCK": 6,
+            "DEF": 8,
+            "RES": 9,
+            "CON": 10,
             "MOV": 6,
-            "MAG": 17,
-            "CP": 16
+            "MAG": 4,
+            "CP": 9
         },
         "growths": {
-            "HP": 85,
-            "STR": 45,
-            "SKL": 50,
-            "SPD": 45,
-            "LCK": 35,
-            "DEF": 25,
-            "RES": 25,
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
             "CON": 0,
             "MOV": 0,
-            "MAG": 45,
-            "CP": 30
+            "MAG": 0,
+            "CP": 0
         },
         "stat_cap_modifiers": {
             "SPD": 0,
@@ -2584,7 +2606,7 @@
             ],
             "Spear": [
                 true,
-                251,
+                181,
                 251
             ]
         },
@@ -2648,7 +2670,7 @@
                 false
             ],
             [
-                "Basho_Glove",
+                "Silver_Gauntlet",
                 false
             ]
         ],
@@ -2819,7 +2841,7 @@
                 false
             ],
             [
-                "Basho_Lance",
+                "Silver_Spear",
                 false
             ]
         ],
@@ -3102,7 +3124,7 @@
     {
         "nid": "Juiz_100",
         "name": "Juiz",
-        "desc": "<violet>Negator of Justice</>. Founder of the Union. Former first seat on the Roundtable.",
+        "desc": "<violet>Negator of Justice</>. Founder of the UNION. Former first seat on the Roundtable.",
         "variant": "_Juiz",
         "level": 20,
         "klass": "Swordmaster",
@@ -3255,7 +3277,7 @@
     {
         "nid": "Colour_100",
         "name": "Colour",
-        "desc": "<violet>Embodiment of Colour</>",
+        "desc": "<violet>Embodiment of Hue and Saturation</>",
         "variant": "_Colour",
         "level": 20,
         "klass": "Banshee",
@@ -3322,10 +3344,10 @@
         "fields": []
     },
     {
-        "nid": "Melody_100",
-        "name": "Melody",
-        "desc": "<violet>Embodiment of Melody</>",
-        "variant": "_Melody",
+        "nid": "Medicine_100",
+        "name": "Medicine",
+        "desc": "<violet>Embodiment of Medication and Cure</>",
+        "variant": "_Medicine",
         "level": 20,
         "klass": "Lamia",
         "tags": [
@@ -3386,14 +3408,14 @@
             ]
         },
         "alternate_classes": [],
-        "portrait_nid": "Melody",
+        "portrait_nid": "Medicine",
         "affinity": "None",
         "fields": []
     },
     {
         "nid": "Justice_100",
         "name": "Justice",
-        "desc": "<violet>Embodiment of Justice</> and the fifth Master Rule.",
+        "desc": "<violet>Embodiment of Personal Belief and Ambition</>. The fifth Master Rule.",
         "variant": "_Justice",
         "level": 20,
         "klass": "Hero",
@@ -3460,7 +3482,7 @@
         "fields": []
     },
     {
-        "nid": "Tutorial",
+        "nid": "Narrator",
         "name": "Tutorial",
         "desc": "For normal units, their descriptions are written here. Not for me! Press <blue>{eval:engine.get_key_name(cf.SETTINGS['key_BACK']).upper()}</> to go back.",
         "variant": "_Tutorial",
@@ -3480,7 +3502,7 @@
             "CON": 25,
             "MOV": 6,
             "MAG": 12,
-            "CP": 0
+            "CP": 1
         },
         "growths": {
             "SKL": 0,
@@ -3508,22 +3530,8 @@
             "MAG": 0,
             "CP": 0
         },
-        "starting_items": [
-            [
-                "Pound",
-                false
-            ],
-            [
-                "Dissolving_Fume",
-                false
-            ]
-        ],
-        "learned_skills": [
-            [
-                1,
-                "Plot_Armour"
-            ]
-        ],
+        "starting_items": [],
+        "learned_skills": [],
         "unit_notes": [],
         "wexp_gain": {
             "Magic": [
@@ -3538,7 +3546,7 @@
             ],
             "Brute": [
                 false,
-                151,
+                0,
                 null
             ]
         },

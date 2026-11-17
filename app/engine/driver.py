@@ -277,7 +277,7 @@ class MainLoop():
         updated = time.perf_counter_ns()
 
         if game.game_vars.get("grayscale"):
-            engine.apply_grayscale(surf)
+            engine.apply_grayscale(self.surf)
 
         engine.push_display(self.surf, engine.get_screensize(), engine.DISPLAYSURF)
 

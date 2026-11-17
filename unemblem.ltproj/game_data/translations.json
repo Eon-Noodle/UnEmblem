@@ -477,22 +477,14 @@
     },
     {
         "nid": "tip_msg_1",
-        "text": "Hold down <yellow>Back</> to sprint in free roam mode"
-    },
-    {
-        "nid": "tip_msg_2",
         "text": "Check credits.txt, amazing people listed there"
     },
     {
-        "nid": "tip_msg_3",
+        "nid": "tip_msg_2",
         "text": "Deploy units in same quest to build support"
     },
     {
-        "nid": "tip_msg_4",
-        "text": "Cursor Dance won't work: different RNGs are used"
-    },
-    {
-        "nid": "tip_msg_5",
+        "nid": "tip_msg_3",
         "text": "This length is seriously too short to write anything and it is driving me insane! Players can't even read this part!"
     },
     {

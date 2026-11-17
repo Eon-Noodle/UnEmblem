@@ -187,12 +187,12 @@
     {
         "nid": "Gina",
         "blinking_offset": [
-            0,
-            0
+            48,
+            62
         ],
         "smiling_offset": [
-            0,
-            0
+            48,
+            78
         ],
         "info_offset": [
             32,
@@ -592,7 +592,7 @@
         "mouth_frames": 3
     },
     {
-        "nid": "Melody",
+        "nid": "Medicine",
         "blinking_offset": [
             24,
             24
@@ -705,6 +705,43 @@
     {
         "nid": "Luo",
         "blinking_offset": [
+            24,
+            32
+        ],
+        "smiling_offset": [
+            24,
+            48
+        ],
+        "info_offset": [
+            8,
+            8
+        ],
+        "chibi_coord": [
+            128,
+            80
+        ],
+        "full_size": [
+            160,
+            112
+        ],
+        "face_size": [
+            96,
+            80
+        ],
+        "blink_size": [
+            32,
+            16
+        ],
+        "mouth_size": [
+            32,
+            16
+        ],
+        "blink_frames": 2,
+        "mouth_frames": 3
+    },
+    {
+        "nid": "Dev",
+        "blinking_offset": [
             0,
             0
         ],
@@ -713,8 +750,8 @@
             0
         ],
         "info_offset": [
-            8,
-            8
+            0,
+            0
         ],
         "chibi_coord": [
             128,

@@ -1,2 +1,0 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->
-![skill.png](skill.png)

@@ -1,2 +1,0 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->
-![Screenshot_2022-01-10_153610.png](Screenshot_2022-01-10_153610.png)

@@ -1,5 +1,26 @@
 [
     {
+        "nid": "Weapon_Triangle",
+        "name": "Weapon Triangle",
+        "title": "Weapon Triangle",
+        "category": "Guide",
+        "text": "Physical weapons possess a unique hierachy.{br}<icon>Swords</><red>Swords</> best <icon>Brutes</><green>Gauntlets</>.{br}<icon>Brutes</><green>Gauntlets</> best <icon>Spears</><blue>Spears</>.{br}<icon>Spears</><blue>Spears</> best <icon>Swords</><red>Swords</>.{br}<icon>Firearms</><orange>Guns</> are not affected by the Weapon Triangle."
+    },
+    {
+        "nid": "Composure",
+        "name": "Composure",
+        "title": "Composure",
+        "category": "Guide",
+        "text": "Each playable unit has a Composure gauge that decreases everytime unit defeat an enemy, and reset at the end of each chapter.\nThe unit falls into <red>Anguish</> if Composure reaches 0.{br}When in <red>Anguish</>, unit is uncontrollable and will indiscriminately attack everyone, even allies.{br}"
+    },
+    {
+        "nid": "Dual_Wield",
+        "name": "Dual Wield",
+        "title": "Dual Wield",
+        "category": "Guide",
+        "text": "All units can choose to equip a second weapon as offhand weapon, at the cost of Attack Speed, as both weapon's weights contribute towards the calculation.\nThis allows unit to make follow-up attack with offhand weapon after the attack with main weapon. Unit can also counterattack with offhand weapon, if enemy is out of main weapon's range, but within offhand weapon's range."
+    },
+    {
         "nid": "Undead",
         "name": "Undead",
         "title": "Undead",

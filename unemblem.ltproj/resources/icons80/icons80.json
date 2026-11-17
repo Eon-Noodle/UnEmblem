@@ -62,5 +62,9 @@
     {
         "nid": "Berserker_Unarmed",
         "subicon_dict": {}
+    },
+    {
+        "nid": "Bonewalker_Lance",
+        "subicon_dict": {}
     }
 ]

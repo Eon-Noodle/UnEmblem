@@ -109,6 +109,9 @@ class SettingsMenuState(State):
         self.top_cursor = menus.Cursor()
         self.reset_cursor = menus.Cursor()
 
+        self.reset_bg = base_surf.create_base_surf(
+            RESET_BUTTON_RECT[-2], RESET_BUTTON_RECT[-1], 'menu_bg_green')
+
         self.confirm_menu = menus.Choice(None, ['Yes', 'No'], 'center', None)  # Clear background
         self.confirm_menu.set_horizontal(True)
         header = text_funcs.translate('Reset controls to defaults?')
@@ -344,7 +347,7 @@ class SettingsMenuState(State):
 
     def draw_reset_button(self, surf):
         x, y, width, height = RESET_BUTTON_RECT
-        surf.blit(base_surf.create_base_surf(width, height, 'menu_bg_green'), (x, y))
+        surf.blit(self.reset_bg, (x, y))
         text = text_funcs.translate('Reset to Defaults')
         focused = self.state in ('reset_button', 'reset_confirm')
         font = FONT['text-yellow'] if focused else FONT['text']

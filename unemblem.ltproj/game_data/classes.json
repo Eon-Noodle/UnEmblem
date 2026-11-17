@@ -180,6 +180,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -321,6 +326,11 @@
                 0,
                 null
             ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
             "Lance": [
                 false,
                 0,
@@ -405,7 +415,7 @@
             "SKL": 5,
             "SPD": 5,
             "LCK": 0,
-            "DEF": 5,
+            "DEF": 4,
             "CON": 11,
             "MOV": 5,
             "RES": 0,
@@ -512,6 +522,11 @@
                 251
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -711,6 +726,11 @@
                 0,
                 null
             ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
             "Lance": [
                 true,
                 31,
@@ -902,6 +922,11 @@
                 251
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -1106,6 +1131,11 @@
                 0,
                 null
             ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
             "Lance": [
                 false,
                 0,
@@ -1300,6 +1330,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Deserter",
@@ -1439,6 +1474,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -1637,6 +1677,11 @@
                 true,
                 31,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -1829,6 +1874,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -2021,6 +2071,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Berserker_Unarmed",
@@ -2213,6 +2268,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Fighter_Lance",
@@ -2347,6 +2407,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -2487,6 +2552,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "General_Shield",
@@ -2621,6 +2691,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -2766,6 +2841,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Assassin",
@@ -2903,6 +2983,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Cowboy",
@@ -3037,6 +3122,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -3179,6 +3269,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -3315,6 +3410,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -3455,6 +3555,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -3589,6 +3694,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -3750,6 +3860,11 @@
                 0,
                 null
             ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
             "Lance": [
                 false,
                 0,
@@ -3906,6 +4021,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -4043,6 +4163,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -4177,6 +4302,11 @@
                 null
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -4322,6 +4452,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -4334,9 +4469,9 @@
         "fields": []
     },
     {
-        "nid": "Bomber",
-        "name": "Bomber",
-        "desc": "Bonewalkers that sacrifice them to explode enemies.",
+        "nid": "Bonewalker",
+        "name": "Bonewalker",
+        "desc": "Dead warriors given will by an UMA.",
         "tier": 1,
         "movement_group": "Infantry",
         "promotes_from": null,
@@ -4344,27 +4479,27 @@
         "tags": [],
         "max_level": 20,
         "bases": {
-            "HP": 1,
-            "STR": 0,
+            "HP": 20,
+            "STR": 4,
             "MAG": 0,
-            "SKL": 0,
-            "SPD": 0,
+            "SKL": 2,
+            "SPD": 3,
             "LCK": 0,
-            "DEF": 0,
+            "DEF": 3,
             "RES": 0,
             "CP": 1,
-            "MOV": 4,
-            "CON": 0
+            "MOV": 5,
+            "CON": 7
         },
         "growths": {
-            "HP": 0,
-            "STR": 0,
+            "HP": 80,
+            "STR": 50,
             "MAG": 0,
-            "SKL": 0,
-            "SPD": 0,
-            "LCK": 0,
-            "DEF": 0,
-            "RES": 0,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 10,
+            "DEF": 30,
+            "RES": 15,
             "CP": 0,
             "MOV": 0,
             "CON": 0
@@ -4397,16 +4532,16 @@
         },
         "max_stats": {
             "HP": 60,
-            "STR": 30,
-            "MAG": 30,
-            "SKL": 30,
-            "SPD": 30,
+            "STR": 20,
+            "MAG": 20,
+            "SKL": 20,
+            "SPD": 20,
             "LCK": 30,
-            "DEF": 30,
-            "RES": 30,
-            "CP": 100,
-            "MOV": 30,
-            "CON": 25
+            "DEF": 20,
+            "RES": 20,
+            "CP": 30,
+            "MOV": 15,
+            "CON": 20
         },
         "learned_skills": [],
         "wexp_gain": {
@@ -4416,8 +4551,8 @@
                 null
             ],
             "Spear": [
-                false,
-                0,
+                true,
+                71,
                 null
             ],
             "Brute": [
@@ -4459,14 +4594,19 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
-        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_nid": "Bonewalker_Lance",
         "icon_index": [
             0,
             0
         ],
-        "map_sprite_nid": "Sword_Bonewalker",
+        "map_sprite_nid": "Lance_Bonewalker",
         "combat_anim_nid": null,
         "fields": []
     },
@@ -4597,6 +4737,11 @@
                 0,
                 null
             ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
             "Lance": [
                 true,
                 31,
@@ -4665,7 +4810,7 @@
     {
         "nid": "Leader",
         "name": "Leader",
-        "desc": "Leader of the Union. First seat on the Roundtable.",
+        "desc": "Leader of the UNION. First seat on the Roundtable.",
         "tier": 1,
         "movement_group": "Infantry",
         "promotes_from": null,
@@ -4787,6 +4932,11 @@
                 251
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -4937,7 +5087,7 @@
         "learned_skills": [
             [
                 1,
-                "Convoyer"
+                "Ineligible"
             ]
         ],
         "wexp_gain": {
@@ -4987,6 +5137,11 @@
                 251
             ],
             "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -5182,6 +5337,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -5336,6 +5496,11 @@
                 null
             ],
             "Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -5496,6 +5661,11 @@
                 false,
                 0,
                 null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -5650,6 +5820,11 @@
                 null
             ],
             "Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
                 false,
                 0,
                 null
@@ -5856,6 +6031,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",
@@ -6059,6 +6239,11 @@
                 false,
                 0,
                 251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
             ]
         },
         "icon_nid": "Generic_Portrait_Citizen",

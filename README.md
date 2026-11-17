@@ -10,7 +10,9 @@
 >
 > **LT-maker** is the easy-to-use but powerful editor built on top of the **Lex Talionis** engine. The **Lex Talionis** engine itself has been completely rewritten using the knowledge gained over seven years of development to be faster, better, and easier-to-use. You can create a whole new game without touching any code.
 
-**Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash. I regularly pull updates from the original source and push my modifications here.
+**Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash.
+
+Any modifications I made to the engine is available as `.patch` files in [engine hacks](engine_hacks) folder (will add soon...)
 
 **Website:** <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=dotnet"></a><br>
 **Repository:** <a href="https://gitlab.com/rainlash/lt-maker"><img src="https://img.shields.io/badge/Gitlab-Explore-FC6D26?logo=gitlab&logoColor=white"></a><br>
@@ -209,12 +211,13 @@
 |AUX        | A        |       | Back            | Share        |
 |Move       | Arrows   | Hover | Left Stick      | Left Stick   |
 |Start      | S        |       | Start / Y       | Options / Triangle |
+|Speed Up   | Tab      |       |                 |              |
 |Screenshot | ` / F12  |       |                 |              |
 
 * The **AUX** key is used to focus the cursor on your units when on the map, to toggle the Growth Rate display on the Unit Info Menu and to show more pages for item/skill descriptions if they have more than one page.
 * Screenshots are saved as `.png` files if **F12** was pressed or `.bmp` files if **`** key was pressed and held. Screenshots are saved within the game folder.
 * You can soft reset by holding **Select, Back, and Start**.
-* You can rebind which key on your keyboard does what in the **Options > Controls** menu in-game. Controller button remapping has not been implemented yet, although you can use an input remapper to bind controller input to keyboard keys as a workaround.
+* You can rebind which key on your keyboard or controller does what in the **Options > Controls** menu in-game.
 
 ## Known Issues
 * Windows Defender and other common anti-virus programs do not like LT-Maker games. Just choose to run the game anyway and/or make it an exception for Windows Defender.
@@ -249,4 +252,4 @@ For other credits, see [CREDITS.md](CREDITS.md) file for details.
 
 This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash.
 
-See the [LICENSE.txt](LICENSE.txt) file for details.
+See the [LICENSE](LICENSE) file for details.

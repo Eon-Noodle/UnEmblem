@@ -141,7 +141,7 @@
         ],
         "contrib": [
             [
-                "Slimey, The total squid",
+                "Slimey and The total squid",
                 "Sean"
             ]
         ]
@@ -164,45 +164,28 @@
         ]
     },
     {
-        "nid": "Portraits_Master_of_Arms",
-        "sub_nid": "Master_of_Arms",
+        "nid": "Portraits_Gunpowder",
+        "sub_nid": "Gunpowder",
         "credit_type": 4,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Portraits",
         "icon_index": [
             0,
             0
         ],
         "contrib": [
             [
-                "Garytop",
-                "Master of Arms"
+                "Glaceo",
+                "Gunpowder"
             ]
         ]
     },
     {
-        "nid": "Portraits_Bandit",
-        "sub_nid": "Bandit",
+        "nid": "Portraits_Medicine",
+        "sub_nid": "Medicine",
         "credit_type": 4,
         "category": "Graphics",
-        "custom_header": null,
-        "icon_index": [
-            0,
-            0
-        ],
-        "contrib": [
-            [
-                "Melia and Random Wizard",
-                "Bandit"
-            ]
-        ]
-    },
-    {
-        "nid": "Portraits_Melody",
-        "sub_nid": "Melody",
-        "credit_type": 4,
-        "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Portraits",
         "icon_index": [
             0,
             0
@@ -210,7 +193,7 @@
         "contrib": [
             [
                 "SaintRubenio",
-                "Melody"
+                "Medicine"
             ]
         ]
     },
@@ -228,23 +211,6 @@
             [
                 "WhatIsAnAubin and Kingcrimson",
                 "Justice"
-            ]
-        ]
-    },
-    {
-        "nid": "Portraits_Gunpowder",
-        "sub_nid": "Gunpowder",
-        "credit_type": 4,
-        "category": "Graphics",
-        "custom_header": "Portraits",
-        "icon_index": [
-            0,
-            0
-        ],
-        "contrib": [
-            [
-                "Glaceo",
-                "Gunpowder"
             ]
         ]
     },
@@ -281,11 +247,25 @@
         "sub_nid": "Lamia",
         "credit_type": 8,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Map sprites",
         "icon_index": [],
         "contrib": [
             [
                 "Dutch Introvert",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Bonewalker_Lance",
+        "sub_nid": "Lance_Bonewalker",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Epicer",
                 null
             ]
         ]
@@ -323,7 +303,7 @@
         "sub_nid": "General",
         "credit_type": 8,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Map sprites",
         "icon_index": [],
         "contrib": [
             [
@@ -491,7 +471,7 @@
         "sub_nid": "Conqueror",
         "credit_type": 8,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Map sprites",
         "icon_index": [],
         "contrib": [
             [
@@ -505,7 +485,7 @@
         "sub_nid": "wexp_icons_2",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": "Icons16",
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -522,7 +502,7 @@
         "sub_nid": "Techno",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             1
@@ -539,7 +519,7 @@
         "sub_nid": "Artifact",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             6
@@ -556,7 +536,7 @@
         "sub_nid": "Knuckle",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             5
@@ -573,7 +553,7 @@
         "sub_nid": "Sword",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             21
@@ -590,7 +570,7 @@
         "sub_nid": "Knuckle",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             6
@@ -607,7 +587,7 @@
         "sub_nid": "Lance",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             17
@@ -624,7 +604,7 @@
         "sub_nid": "Firearm",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -641,7 +621,7 @@
         "sub_nid": "Firearm",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             8
@@ -658,7 +638,7 @@
         "sub_nid": "Knuckle",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -675,7 +655,7 @@
         "sub_nid": "Artifact",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             7
@@ -692,7 +672,7 @@
         "sub_nid": "Techno",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -709,7 +689,7 @@
         "sub_nid": "Lance",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             18
@@ -726,7 +706,7 @@
         "sub_nid": "Skills_specials",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -743,7 +723,7 @@
         "sub_nid": "Artifact",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": null,
+        "custom_header": "Icons",
         "icon_index": [
             0,
             0
@@ -760,7 +740,7 @@
         "sub_nid": "Sword",
         "credit_type": 1,
         "category": "Graphics",
-        "custom_header": "Icons16",
+        "custom_header": "Icons",
         "icon_index": [
             0,
             22
@@ -769,6 +749,40 @@
             [
                 "Eon, inspired by LordGlenn and Orihara Saki",
                 "Fierbois Saber"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon80_Bonewalker_Lance",
+        "sub_nid": "Bonewalker_Lance",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Epicer",
+                "Bonewalker Lance"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon80_Bastion",
+        "sub_nid": "General_Shield",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Pushwall and SamirPlayz",
+                "Bastion"
             ]
         ]
     },

@@ -64,6 +64,22 @@
         ]
     },
     {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "desc": "",
+        "icon_nid": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "custom_triangle_multiplier",
+                -1.0
+            ]
+        ]
+    },
+    {
         "nid": "Unseen_0",
         "name": "Activate Unseen",
         "desc": "",
@@ -2811,6 +2827,57 @@
         ]
     },
     {
+        "nid": "Tea",
+        "name": "Tea",
+        "desc": "Restores 3 CP.",
+        "icon_nid": "Consumable_2",
+        "icon_index": [
+            0,
+            9
+        ],
+        "components": [
+            [
+                "usable",
+                null
+            ],
+            [
+                "value",
+                1500
+            ],
+            [
+                "target_ally",
+                null
+            ],
+            [
+                "uses",
+                3
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "mana_restore",
+                3
+            ],
+            [
+                "map_hit_add_blend",
+                [
+                    96,
+                    144,
+                    232
+                ]
+            ],
+            [
+                "map_cast_pose",
+                null
+            ]
+        ]
+    },
+    {
         "nid": "Lockpick",
         "name": "Lockpick",
         "desc": "Opens lockers and doors.",
@@ -3111,6 +3178,10 @@
                 null
             ],
             [
+                "status_on_hold",
+                "Artifact"
+            ],
+            [
                 "target_enemy",
                 null
             ],
@@ -3139,14 +3210,6 @@
                 5
             ],
             [
-                "level_exp",
-                null
-            ],
-            [
-                "weapon_type",
-                "Firearm"
-            ],
-            [
                 "uses",
                 40
             ],
@@ -3158,21 +3221,25 @@
                 }
             ],
             [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Firearm"
+            ],
+            [
                 "prf_unit",
                 [
                     "Fuuko"
                 ]
-            ],
-            [
-                "status_on_hold",
-                "Artifact"
             ]
         ]
     },
     {
         "nid": "Basho_Fan",
         "name": "Basho Fan",
-        "desc": "An <violet>Artifact</>. For Mui only.\nPush target on hit, if possible.",
+        "desc": "An <violet>Artifact</>. Push target on hit, if possible.",
         "icon_nid": "Artifact",
         "icon_index": [
             0,
@@ -3235,10 +3302,8 @@
                 "Brute"
             ],
             [
-                "prf_unit",
-                [
-                    "Mui"
-                ]
+                "weapon_rank",
+                "D"
             ],
             [
                 "shove",
@@ -3261,6 +3326,10 @@
                 null
             ],
             [
+                "status_on_equip",
+                "Aegis"
+            ],
+            [
                 "weight",
                 16
             ],
@@ -3278,10 +3347,6 @@
             [
                 "level_exp",
                 null
-            ],
-            [
-                "status_on_equip",
-                "Aegis"
             ]
         ]
     },
@@ -3355,7 +3420,7 @@
     {
         "nid": "She_Mao",
         "name": "She Mao",
-        "desc": "An <violet>Artifact</>. Ignores enemy's Def.",
+        "desc": "An <violet>Artifact</>.\nHas <blue>Weapon Triangle Advantage</> against all melee weapons.",
         "icon_nid": "Lance",
         "icon_index": [
             0,
@@ -3365,6 +3430,10 @@
             [
                 "weapon",
                 null
+            ],
+            [
+                "status_on_hold",
+                "Artifact"
             ],
             [
                 "target_enemy",
@@ -3380,7 +3449,7 @@
             ],
             [
                 "damage",
-                14
+                7
             ],
             [
                 "hit",
@@ -3388,7 +3457,7 @@
             ],
             [
                 "crit",
-                30
+                0
             ],
             [
                 "weight",
@@ -3418,12 +3487,12 @@
                 "A"
             ],
             [
-                "alternate_resist_formula",
-                "ZERO"
+                "weapon_triangle_override",
+                "Anti_Melee"
             ],
             [
-                "status_on_hold",
-                "Artifact"
+                "custom_triangle_multiplier",
+                3.0
             ]
         ]
     },
@@ -3650,7 +3719,7 @@
     {
         "nid": "Dynamite",
         "name": "Dynamite",
-        "desc": "Upon unit's death, deal a flat 10 damage to each adjacent enemy.",
+        "desc": "Deal damages to adjacent enemies when detonated.",
         "icon_nid": "Enemies_Only",
         "icon_index": [
             0,
@@ -3664,6 +3733,76 @@
             [
                 "status_on_hold",
                 "Dynamite"
+            ]
+        ]
+    },
+    {
+        "nid": "Detonator",
+        "name": "Detonator",
+        "desc": "Targets only <red>Dynamites</>. Detonates them on hit.",
+        "icon_nid": "Firearm",
+        "icon_index": [
+            0,
+            6
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "target_tag",
+                [
+                    "Dynamite"
+                ]
+            ],
+            [
+                "damage",
+                23
+            ],
+            [
+                "weapon_type",
+                "Firearm"
+            ],
+            [
+                "weapon_rank",
+                "D"
+            ],
+            [
+                "weight",
+                10
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                17
+            ],
+            [
+                "effective_damage",
+                {
+                    "effective_tags": [
+                        "Flying"
+                    ],
+                    "effective_multiplier": 1.0,
+                    "effective_bonus_damage": 10,
+                    "show_effectiveness_flash": true,
+                    "weapon_effectiveness_multiplied": true
+                }
+            ],
+            [
+                "enemy_blast_aoe",
+                1
+            ],
+            [
+                "alternate_damage_formula",
+                "ZERO"
             ]
         ]
     },
@@ -3748,6 +3887,257 @@
             [
                 "map_cast_pose",
                 null
+            ]
+        ]
+    },
+    {
+        "nid": "Iron_Musket_Gunpowder",
+        "name": "Iron Musket",
+        "desc": "",
+        "icon_nid": "Firearm",
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "value",
+                540
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                2
+            ],
+            [
+                "max_range",
+                2
+            ],
+            [
+                "damage",
+                13
+            ],
+            [
+                "hit",
+                85
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "weight",
+                5
+            ],
+            [
+                "uses",
+                45
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Firearm"
+            ],
+            [
+                "weapon_rank",
+                "E"
+            ],
+            [
+                "effective_damage",
+                {
+                    "effective_tags": [
+                        "Flying"
+                    ],
+                    "effective_multiplier": 1.0,
+                    "effective_bonus_damage": 12,
+                    "show_effectiveness_flash": true,
+                    "weapon_effectiveness_multiplied": true
+                }
+            ],
+            [
+                "alternate_damage_formula",
+                "ZERO"
+            ]
+        ]
+    },
+    {
+        "nid": "Steel_Musket_Gunpowder",
+        "name": "Steel Musket",
+        "desc": "",
+        "icon_nid": "Firearm",
+        "icon_index": [
+            0,
+            1
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "value",
+                720
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                2
+            ],
+            [
+                "max_range",
+                2
+            ],
+            [
+                "damage",
+                16
+            ],
+            [
+                "hit",
+                70
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "weight",
+                9
+            ],
+            [
+                "uses",
+                30
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Firearm"
+            ],
+            [
+                "weapon_rank",
+                "D"
+            ],
+            [
+                "effective_damage",
+                {
+                    "effective_tags": [
+                        "Flying"
+                    ],
+                    "effective_multiplier": 1.0,
+                    "effective_bonus_damage": 18,
+                    "show_effectiveness_flash": true,
+                    "weapon_effectiveness_multiplied": true
+                }
+            ],
+            [
+                "alternate_damage_formula",
+                "ZERO"
+            ]
+        ]
+    },
+    {
+        "nid": "Revolver_Gunpowder",
+        "name": "Revolver",
+        "desc": "An <violet>Artifact</>. For Fuuko only.\nA gift from previous loop.",
+        "icon_nid": "Firearm",
+        "icon_index": [
+            0,
+            8
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "status_on_hold",
+                "Artifact"
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                2
+            ],
+            [
+                "max_range",
+                2
+            ],
+            [
+                "damage",
+                14
+            ],
+            [
+                "hit",
+                95
+            ],
+            [
+                "crit",
+                10
+            ],
+            [
+                "weight",
+                5
+            ],
+            [
+                "uses",
+                40
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Firearm"
+            ],
+            [
+                "prf_unit",
+                [
+                    "Fuuko"
+                ]
+            ],
+            [
+                "alternate_damage_formula",
+                "ZERO"
             ]
         ]
     },

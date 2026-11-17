@@ -1,2 +1,0 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->
-![logo.png](logo.png)

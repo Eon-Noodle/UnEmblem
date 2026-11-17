@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'}
-IGNORE_FOLDERS = {'.git', '__pycache__'}
+IGNORE_FOLDERS = {'.git', '__pycache__', 'venv'}
 START_PATH = Path('.').resolve()
 
 # Marker to identify auto-generated galleries
@@ -26,8 +26,8 @@ def generate_folder_readme(folder_path, images):
                             for img_path in images)  
     readme_path.write_text(content, encoding='utf-8')
 
-def scan_and_generate():
-    for root, dirs, files in os.walk(START_PATH):
+def scan_and_generate(folder_path):
+    for root, dirs, files in os.walk(folder_path):
         dirs[:] = [d for d in dirs if d not in IGNORE_FOLDERS]       
         root_path = Path(root)
 
@@ -52,4 +52,5 @@ def scan_and_generate():
             readme_path.unlink()
 
 if __name__ == "__main__":
-    scan_and_generate()
+    scan_and_generate(START_PATH / "unemblem.ltproj")
+    scan_and_generate(START_PATH / "sprites")

@@ -1,2 +1,0 @@
-<!-- AUTO-GENERATED-IMAGE-GALLERY -->
-![combat-markers.png](combat-markers.png)

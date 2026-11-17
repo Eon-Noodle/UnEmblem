@@ -1429,14 +1429,64 @@ class EquipItem(Action):
             self.current_equipped = self.unit.equipped_accessory
         else:
             self.current_equipped = self.unit.equipped_weapon
+        self.is_offhand_weapon = self.item is self.unit.offhand_weapon
 
     def do(self):
-        self.unit.equip(self.item)
+        if self.is_offhand_weapon:
+            self.unit.swap_offhand()
+        else:
+            self.unit.equip(self.item)
 
     def reverse(self):
+        if self.is_offhand_weapon:
+            self.unit.swap_offhand()
+            return
         self.unit.unequip(self.item)
         if self.current_equipped:
             self.unit.equip(self.current_equipped)
+
+
+class OffhandItem(Action):
+    persist_through_menu_cancel = True
+
+    def __init__(self, unit, item):
+        self.unit = unit
+        self.item = item
+        self.current_equipped = self.unit.offhand_weapon
+        self.is_equipped_weapon = self.item is self.unit.equipped_weapon
+
+    def do(self):
+        if self.is_equipped_weapon:
+            self.unit.swap_offhand()
+        else:
+            self.unit.offhand(self.item)
+
+    def reverse(self):
+        if self.is_equipped_weapon:
+            self.unit.swap_offhand()
+            return
+        self.unit.unequip(self.item)
+        if self.current_equipped:
+            self.unit.offhand(self.current_equipped)
+
+
+class UnOffhandItem(Action):
+    """
+    Separated from UnequipItem() for now to utilise the `persist_through_menu_cancel`
+    Remember to update this after Jaidyn's Unequip MR is done.
+    """
+    persist_through_menu_cancel = True
+
+    def __init__(self, unit, item):
+        self.unit = unit
+        self.item = item
+
+    def do(self):
+        # No auto-equip
+        self.unit.unequip(self.item)
+
+    def reverse(self):
+        self.unit.offhand(self.item)
 
 
 class UnequipItem(Action):
@@ -1445,6 +1495,7 @@ class UnequipItem(Action):
         self.item = item
         self.is_equipped_weapon = self.item is self.unit.equipped_weapon
         self.is_equipped_accesory = self.item is self.unit.equipped_accessory
+        self.is_offhand_weapon = self.item is self.unit.offhand_weapon
 
     def do(self):
         if self.is_equipped_weapon or self.is_equipped_accesory:
@@ -1458,9 +1509,15 @@ class UnequipItem(Action):
                         self.unit.equip(item)
                         break
 
+        elif self.is_offhand_weapon:
+            # No auto-equip
+            self.unit.unequip(self.item)
+
     def reverse(self):
         if self.is_equipped_weapon or self.is_equipped_accesory:
             self.unit.equip(self.item)
+        elif self.is_offhand_weapon:
+            self.unit.offhand(self.item)
 
 
 class BringToTopItem(Action):
@@ -1477,6 +1534,23 @@ class BringToTopItem(Action):
     def do(self):
         self.unit.bring_to_top_item(self.item)
 
+    def reverse(self):
+        self.unit.insert_item(self.old_idx, self.item)
+
+
+class BringToSecondTopItem(Action):
+    """
+    Assumes item is in inventory
+    """
+    persist_through_menu_cancel = True
+
+    def __init__(self, unit, item):
+        self.unit = unit
+        self.item = item
+        self.old_idx = unit.items.index(item)
+
+    def do(self):
+        self.unit.insert_item(1, self.item)
     def reverse(self):
         self.unit.insert_item(self.old_idx, self.item)
 

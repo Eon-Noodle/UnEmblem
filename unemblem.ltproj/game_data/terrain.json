@@ -192,7 +192,7 @@
         "background": "combat_sea",
         "mtype": "Sea",
         "opaque": false,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "River",
@@ -282,7 +282,7 @@
         "background": "combat_village",
         "mtype": "Normal",
         "opaque": true,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Fort",
@@ -327,7 +327,7 @@
         "background": "combat_plains",
         "mtype": "Normal",
         "opaque": true,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Vendor",
@@ -342,7 +342,7 @@
         "background": "combat_plains",
         "mtype": "Normal",
         "opaque": true,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Arena",
@@ -357,7 +357,7 @@
         "background": "combat_arena",
         "mtype": "Normal",
         "opaque": true,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Village",
@@ -372,7 +372,7 @@
         "background": "combat_village",
         "mtype": "Normal",
         "opaque": true,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Chest",
@@ -432,7 +432,7 @@
         "background": "combat_ruins",
         "mtype": "Normal",
         "opaque": false,
-        "status": "Avoid10"
+        "status": null
     },
     {
         "nid": "Village Ruins",
@@ -460,7 +460,7 @@
         "minimap": "Waste",
         "platform": "Arena",
         "background": "None",
-        "mtype": "Cliff",
+        "mtype": "Wall",
         "opaque": false,
         "status": null
     },
@@ -468,9 +468,9 @@
         "nid": "Roundtable",
         "name": "Roundtable",
         "color": [
-            0,
-            0,
-            0
+            255,
+            255,
+            255
         ],
         "minimap": "Throne",
         "platform": "Throne",
@@ -485,7 +485,7 @@
         "color": [
             0,
             0,
-            0
+            255
         ],
         "minimap": "Throne",
         "platform": "Throne",
@@ -498,9 +498,9 @@
         "nid": "Bookshelf",
         "name": "Bookshelf",
         "color": [
+            170,
             0,
-            0,
-            0
+            255
         ],
         "minimap": "Grass",
         "platform": "Arena",
@@ -510,17 +510,32 @@
         "status": null
     },
     {
-        "nid": "Railgun",
-        "name": "Railgun",
+        "nid": "Crate",
+        "name": "Crate",
+        "color": [
+            170,
+            85,
+            0
+        ],
+        "minimap": "Pier",
+        "platform": "Chest",
+        "background": "None",
+        "mtype": "Pillar",
+        "opaque": false,
+        "status": "Forest"
+    },
+    {
+        "nid": "Train",
+        "name": "Train",
         "color": [
             0,
             0,
             0
         ],
-        "minimap": "Grass",
+        "minimap": "Waste",
         "platform": "Arena",
         "background": "None",
-        "mtype": "Normal",
+        "mtype": "Wall",
         "opaque": false,
         "status": null
     }

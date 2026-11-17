@@ -28,12 +28,12 @@ class MapCombat(SimpleCombat):
     # striker takes to step back among them
     quick_rest = utils.frames2ms(23)
 
-    def __init__(self, attacker, main_item, items, positions, main_target_positions, splash_positions, script, total_rounds=1):
-        self._full_setup(attacker, main_item, items, positions,
-                         main_target_positions, splash_positions)
+    def __init__(self, attacker, main_item, offhand_item, items, offhand_items, positions, main_target_positions, splash_positions, offhand_splash_positions, script, total_rounds=1):
+        self._full_setup(attacker, main_item, offhand_item, items, offhand_items, positions,
+                         main_target_positions, splash_positions, offhand_splash_positions)
         self.state_machine = CombatPhaseSolver(
-            attacker, self.main_item, self.items,
-            self.defenders, self.splashes, self.target_positions,
+            attacker, self.main_item, self.offhand_item, self.items, self.offhand_items,
+            self.defenders, self.splashes, self.offhand_splashes, self.target_positions,
             self.defender, self.def_item, script, total_rounds)
 
         self.last_update = engine.get_time()
@@ -221,7 +221,7 @@ class MapCombat(SimpleCombat):
                     if anim:
                         anim = MapAnimation(anim, brush.pos)
                         self.animations.append(anim)
-                        
+
                 self.set_state('sound')
 
         elif self.state == 'sound':
@@ -242,7 +242,7 @@ class MapCombat(SimpleCombat):
                 sound_brushes = self.get_from_playback('cast_sound')
                 for brush in sound_brushes:
                     get_sound_thread().play_sfx(brush.sound)
-                self.projectile_brushes = [brush for brush in self.playback if brush.nid in ('spell_cast_anim', 'sequential_anim')] #See if we have any projectiles to fire 
+                self.projectile_brushes = [brush for brush in self.playback if brush.nid in ('spell_cast_anim', 'sequential_anim')] #See if we have any projectiles to fire
                 if item_system.wait_on_map_anim(self.attacker, self.main_item): #We should let cast anims play before proceeding
                     self.set_state('cast_anim_wait')
                 elif self.main_item.sequence_item and any([item_system.wait_on_map_anim(self.attacker, item) for item in self.items]): #Handle sequence items
@@ -252,14 +252,14 @@ class MapCombat(SimpleCombat):
                         self.set_state('anim')
                     else:
                         self.set_state('projectile_anim')
-                    
+
         elif self.state == 'cast_anim_wait':
             if self._skip or not self.animations:
                 if not self.projectile_brushes:
                     self.set_state('anim')
                 else:
                     self.set_state('projectile_anim')
-                
+
         elif self.state == 'projectile_anim':
             #Handle projectile animations.  Looks better here than in start anim since it occurs after the attacker's lunge
             animation_brushes = [brush for brush in self.projectile_brushes if brush.nid == 'spell_cast_anim'] #Normal projectiles
@@ -268,7 +268,7 @@ class MapCombat(SimpleCombat):
                 if anim:
                     anim = SpellAnimation(anim, brush.pos, brush.velocity, brush.duration, brush.theta, loop = brush.loop)
                     self.animations.append(anim)
-            
+
             animation_brushes = [brush for brush in self.projectile_brushes if brush.nid == 'sequential_anim'] #Sequence projectiles
             if animation_brushes:
                 animation_brushes.reverse()
@@ -462,7 +462,7 @@ class MapCombat(SimpleCombat):
         for b in self.playback:
             if b.nid in ('damage_hit', 'damage_crit'):
                 damage_lookup[(b.attacker, b.defender, b.item)] = b.true_damage
-                
+
         for brush in self.playback:
             if brush.nid == 'unit_tint_add':
                 if self.no_hit_flash:
@@ -606,7 +606,7 @@ class MapCombat(SimpleCombat):
             hp_bar.draw(surf)
 
         return surf
-        
+
     def all_proj_anim_done(self):
         for anim in self.animations:
             if isinstance(anim, SpellAnimation) and not anim.is_done():

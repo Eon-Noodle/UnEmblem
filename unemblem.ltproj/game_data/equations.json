@@ -114,5 +114,9 @@
     {
         "nid": "LETHALITY",
         "expression": "SKL//4"
+    },
+    {
+        "nid": "WEIGHT_TO_DUAL_WIELD",
+        "expression": "CON + STR"
     }
 ]

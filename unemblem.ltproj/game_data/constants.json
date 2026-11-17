@@ -253,7 +253,7 @@
     ],
     [
         "reset_mana",
-        false
+        true
     ],
     [
         "double_splash",

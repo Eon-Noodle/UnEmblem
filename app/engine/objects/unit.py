@@ -104,6 +104,7 @@ class UnitObject(Prefab):
     items: List[ItemObject] = field(default_factory=list)  #: List of ItemObjects currently held by the unit
     equipped_weapon: ItemObject = None
     equipped_accessory: ItemObject = None
+    offhand_weapon: ItemObject = None
 
     _skills: List[UnitSkill] = field(default_factory=list)
     # What skills returns, or None until it is next asked for. Changing the skills
@@ -523,6 +524,9 @@ class UnitObject(Prefab):
         accessory = self.equipped_accessory
         if accessory:
             bonus += item_system.stat_change(self, accessory, stat_nid)
+        offhand = self.offhand_weapon
+        if offhand:
+            bonus += item_system.stat_change(self, offhand, stat_nid)
         return bonus
 
     def subtle_stat_bonus(self, stat_nid: NID) -> int:
@@ -537,6 +541,9 @@ class UnitObject(Prefab):
         accessory = self.equipped_accessory
         if accessory:
             contribution.update(item_system.stat_change_contribution(self, accessory, stat_nid))
+        offhand = self.offhand_weapon
+        if offhand:
+            contribution.update(item_system.stat_change_contribution(self, offhand, stat_nid))
         return contribution
 
     def get_stat(self, stat_nid: NID) -> int:
@@ -697,9 +704,34 @@ class UnitObject(Prefab):
         """Returns the currently equipped accessory of the unit"""
         return self.equipped_accessory
 
-    def can_equip(self, item: ItemObject) -> bool:
+    def get_offhand(self) -> Optional[ItemObject]:
+        """Returns the currently offhand weapon of the unit"""
+        return self.offhand_weapon
+
+    def can_equip(self, item: ItemObject, must_keep_offhand: bool = False) -> bool:
         """Return True if the unit can equip *item*"""
-        return item_system.equippable(self, item) and item_funcs.available(self, item)
+        if item_system.equippable(self, item) and item_funcs.available(self, item):
+            if must_keep_offhand and (offhand_item := self.get_offhand()):
+                return self.can_dual_wield(item, offhand_item)
+            return True
+
+    def can_offhand(self, item: ItemObject) -> bool:
+        """Return True if the unit can offhand *item*"""
+        if self.can_equip(item):
+            if not (main_item := self.get_weapon()):
+                return True
+            return self.can_dual_wield(main_item, item)
+
+    def can_dual_wield(self, main_item: ItemObject, offhand_item: ItemObject) -> bool:
+        if not (main_item and offhand_item) or main_item is offhand_item:
+            return False
+
+        weight = 0
+        if main_item.weight:
+            weight += main_item.weight.value
+        if offhand_item.weight:
+            weight += offhand_item.weight.value
+        return equations.parser.weight_to_dual_wield(self) - weight >= 0
 
     def autoequip(self):
         logging.debug("Autoequipping...")
@@ -710,7 +742,7 @@ class UnitObject(Prefab):
         if not self.equipped_weapon:
             for item in all_items:
                 if not item_system.is_accessory(self, item):
-                    if self.can_equip(item):
+                    if self.can_equip(item, self.offhand_weapon is not None):
                         self.equip(item)
                         break
         if self.equipped_accessory and not self.can_equip(self.equipped_accessory):
@@ -720,6 +752,14 @@ class UnitObject(Prefab):
                 if item_system.is_accessory(self, item):
                     if self.can_equip(item):
                         self.equip(item)
+                        break
+        if self.offhand_weapon and not self.can_offhand(self.offhand_weapon):
+            self.unequip(self.offhand_weapon)
+            # Only auto-equip offhand item if there is already an offhand item
+            for item in all_items:
+                if not item_system.is_accessory(self, item):
+                    if self.can_offhand(item):
+                        self.offhand(item)
                         break
         # keep accessories sorted after items
         self.items = sorted(self.items, key=lambda item: item_system.is_accessory(self, item))
@@ -731,6 +771,8 @@ class UnitObject(Prefab):
 
     def equip(self, item):
         if self.has_equipped(item):
+            return  # Don't need to do anything
+        elif item is self.offhand_weapon:
             return  # Don't need to do anything
         logging.debug("Equipping %s" % item)
         if item_system.is_accessory(self, item):
@@ -745,14 +787,38 @@ class UnitObject(Prefab):
         skill_system.on_equip_item(self, item)
 
     def unequip(self, item, swap_to=None):
-        if item is self.equipped_weapon or item is self.equipped_accessory:
+        if item is self.equipped_weapon or \
+                item is self.equipped_accessory or \
+                item is self.offhand_weapon:
             logging.debug("Unequipping %s" % item)
             if item_system.is_accessory(self, item):
                 self.equipped_accessory = swap_to
-            else:
+            elif item is self.equipped_weapon:
                 self.equipped_weapon = swap_to
+            else:
+                self.offhand_weapon = swap_to
             skill_system.on_unequip_item(self, item)
             item_system.on_unequip_item(self, item)
+
+    def offhand(self, item):
+        if item_system.is_accessory(self, item):
+            return  # Don't need to do anything
+        elif item is self.equipped_weapon:
+            return  # Don't need to do anything
+        elif item is self.offhand_weapon:
+            return  # Don't need to do anything
+        logging.debug("Offhanding %s" % item)
+        if self.offhand_weapon:
+            self.unequip(self.offhand_weapon, item)
+        self.offhand_weapon = item
+        item_system.on_equip_item(self, item)
+        skill_system.on_equip_item(self, item)
+
+    def swap_offhand(self):
+        logging.debug("Swapping equipped %s with offhand %s" % (self.equipped_weapon, self.offhand_weapon))
+        item = self.equipped_weapon
+        self.equipped_weapon = self.offhand_weapon
+        self.offhand_weapon = item
 
     def add_item(self, item):
         index = len(self.items)
@@ -941,6 +1007,7 @@ class UnitObject(Prefab):
                   '_fields': self._fields,
                   'equipped_weapon': self.equipped_weapon.uid if self.equipped_weapon else None,
                   'equipped_accessory': self.equipped_accessory.uid if self.equipped_accessory else None,
+                  'offhand_weapon': self.offhand_weapon.uid if self.offhand_weapon else None,
                   }
         return s_dict
 
@@ -991,6 +1058,7 @@ class UnitObject(Prefab):
 
         self.equipped_weapon = None
         self.equipped_accessory = None
+        self.offhand_weapon = None
 
         # Drop any serialized aura children (heals old saves that baked them in);
         # they are re-derived from the live board after all units arrive.
@@ -1021,6 +1089,12 @@ class UnitObject(Prefab):
             self.equipped_accessory = game.get_item(equipped_accessory_uid)
         else:
             self.equipped_accessory = self.get_accessory()
+
+        offhand_weapon_uid = s_dict.get('offhand_weapon')
+        if offhand_weapon_uid is not None:
+            self.offhand_weapon = game.get_item(offhand_weapon_uid)
+        else:
+            self.offhand_weapon = self.get_offhand()
 
         # -- Other properties
         self.dead = s_dict['dead']

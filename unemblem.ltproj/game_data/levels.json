@@ -26,7 +26,7 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    8,
+                    11,
                     7
                 ],
                 "starting_traveler": null,
@@ -39,8 +39,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    3,
-                    4
+                    12,
+                    1
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -52,8 +52,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    2,
-                    5
+                    13,
+                    2
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -65,8 +65,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    3,
-                    5
+                    14,
+                    2
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -156,8 +156,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    10,
-                    6
+                    6,
+                    8
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -176,7 +176,7 @@
                 "generic": false
             },
             {
-                "nid": "Melody_100",
+                "nid": "Medicine_100",
                 "team": "player",
                 "ai": "None",
                 "roam_ai": null,
@@ -242,7 +242,7 @@
             },
             {
                 "nid": "Mui_100",
-                "team": "player",
+                "team": "enemy",
                 "ai": "None",
                 "roam_ai": null,
                 "ai_group": "",
@@ -294,7 +294,7 @@
             },
             {
                 "nid": "Gunpowder",
-                "team": "player",
+                "team": "enemy",
                 "ai": "None",
                 "roam_ai": null,
                 "ai_group": "",
@@ -307,13 +307,13 @@
             },
             {
                 "nid": "Luo",
-                "team": "player",
-                "ai": "None",
+                "team": "enemy",
+                "ai": "Guard",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    1,
-                    4
+                    14,
+                    0
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -489,7 +489,7 @@
         "roam": false,
         "roam_unit": null,
         "go_to_overworld": false,
-        "should_record": false,
+        "should_record": true,
         "tags": [
             "TechnicalLevel"
         ],
@@ -711,7 +711,7 @@
                 "generic": false
             },
             {
-                "nid": "Melody_100",
+                "nid": "Medicine_100",
                 "team": "enemy",
                 "ai": "AttackRagnarok",
                 "roam_ai": null,
@@ -731,7 +731,7 @@
                 "generic": false
             },
             {
-                "nid": "Tutorial",
+                "nid": "Narrator",
                 "team": "player",
                 "ai": "None",
                 "roam_ai": null,
@@ -760,7 +760,7 @@
                 "units": [
                     "Justice_100",
                     "Colour_100",
-                    "Melody_100"
+                    "Medicine_100"
                 ],
                 "positions": {}
             },
@@ -854,10 +854,10 @@
     },
     {
         "nid": "Untruth",
-        "name": "Prologue: The truth is",
+        "name": "Prologue I: The Truth is",
         "tilemap": "Tenraisai",
         "bg_tilemap": null,
-        "party": "Union",
+        "party": "Roundtable",
         "music": {
             "player_phase": "Start of Action",
             "enemy_phase": "Start of Action",
@@ -877,7 +877,7 @@
         ],
         "units": [
             {
-                "nid": "Fuuko",
+                "nid": "Andy",
                 "team": "player",
                 "ai": "None",
                 "roam_ai": null,
@@ -887,7 +887,7 @@
                 "generic": false
             },
             {
-                "nid": "Andy",
+                "nid": "Fuuko",
                 "team": "player",
                 "ai": "None",
                 "roam_ai": null,
@@ -919,6 +919,16 @@
                     12,
                     12
                 ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Luo",
+                "team": "player2",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
                 "starting_traveler": null,
                 "generic": false
             },
@@ -964,7 +974,7 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    12,
+                    7,
                     6
                 ],
                 "starting_traveler": null,
@@ -1002,18 +1012,18 @@
                 "faction": "Contender",
                 "starting_items": [
                     [
-                        "Iron_Gauntlet",
+                        "Iron_Spear",
                         false
                     ]
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "Defend",
+                "ai": "Attack",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    9,
-                    17
+                    11,
+                    15
                 ],
                 "starting_traveler": null,
                 "generic": true
@@ -1021,14 +1031,58 @@
             {
                 "nid": "105",
                 "variant": null,
-                "level": 5,
+                "level": 1,
                 "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
-                        "Iron_Gauntlet",
+                        "Iron_Spear",
                         false
-                    ],
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    7,
+                    18
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "106",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    16,
+                    17
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "107",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
                     [
                         "Iron_Spear",
                         false
@@ -1040,56 +1094,8 @@
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    14,
-                    16
-                ],
-                "starting_traveler": null,
-                "generic": true
-            },
-            {
-                "nid": "106",
-                "variant": null,
-                "level": 1,
-                "klass": "Duelist",
-                "faction": "Contender",
-                "starting_items": [
-                    [
-                        "Iron_Sword",
-                        false
-                    ]
-                ],
-                "starting_skills": [],
-                "team": "enemy",
-                "ai": "Defend",
-                "roam_ai": null,
-                "ai_group": "",
-                "starting_position": [
-                    7,
-                    9
-                ],
-                "starting_traveler": null,
-                "generic": true
-            },
-            {
-                "nid": "107",
-                "variant": null,
-                "level": 2,
-                "klass": "Duelist",
-                "faction": "Contender",
-                "starting_items": [
-                    [
-                        "Iron_Sword",
-                        false
-                    ]
-                ],
-                "starting_skills": [],
-                "team": "enemy",
-                "ai": "Defend",
-                "roam_ai": null,
-                "ai_group": "",
-                "starting_position": [
-                    5,
-                    5
+                    6,
+                    11
                 ],
                 "starting_traveler": null,
                 "generic": true
@@ -1098,7 +1104,7 @@
                 "nid": "108",
                 "variant": null,
                 "level": 1,
-                "klass": "Brawler",
+                "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
@@ -1119,7 +1125,7 @@
                 "nid": "109",
                 "variant": null,
                 "level": 1,
-                "klass": "Brawler",
+                "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
@@ -1140,7 +1146,7 @@
                 "nid": "110",
                 "variant": null,
                 "level": 1,
-                "klass": "Brawler",
+                "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
@@ -1161,17 +1167,17 @@
                 "nid": "111",
                 "variant": null,
                 "level": 1,
-                "klass": "Grandmaster",
+                "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
-                        "She_Mao",
+                        "Iron_Gauntlet",
                         false
                     ]
                 ],
                 "starting_skills": [],
-                "team": "enemy3",
-                "ai": "None",
+                "team": "enemy",
+                "ai": "Attack",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -1181,18 +1187,81 @@
             {
                 "nid": "112",
                 "variant": null,
-                "level": 1,
-                "klass": "Grandmaster",
+                "level": 2,
+                "klass": "Martial_Artist",
                 "faction": "Contender",
                 "starting_items": [
                     [
-                        "Silver_Gauntlet",
+                        "Iron_Gauntlet",
                         false
                     ]
                 ],
                 "starting_skills": [],
-                "team": "other",
-                "ai": "None",
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "124",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "125",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "126",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": null,
@@ -1414,260 +1483,8 @@
                 "generic": true
             }
         ],
-        "regions": [
-            {
-                "nid": "formation_1",
-                "region_type": "formation",
-                "position": [
-                    10,
-                    11
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": "",
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            },
-            {
-                "nid": "formation_2",
-                "region_type": "formation",
-                "position": [
-                    11,
-                    11
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": null,
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            },
-            {
-                "nid": "formation_3",
-                "region_type": "formation",
-                "position": [
-                    12,
-                    11
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": null,
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            },
-            {
-                "nid": "formation_4",
-                "region_type": "formation",
-                "position": [
-                    10,
-                    13
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": null,
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            },
-            {
-                "nid": "formation_5",
-                "region_type": "formation",
-                "position": [
-                    11,
-                    13
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": null,
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            },
-            {
-                "nid": "formation_6",
-                "region_type": "formation",
-                "position": [
-                    12,
-                    13
-                ],
-                "size": [
-                    1,
-                    1
-                ],
-                "sub_nid": null,
-                "highlight": null,
-                "condition": "True",
-                "time_left": null,
-                "only_once": false,
-                "interrupt_move": false,
-                "hide_time": false
-            }
-        ],
+        "regions": [],
         "unit_groups": [
-            {
-                "nid": "Reinforcement",
-                "units": [
-                    "108",
-                    "109",
-                    "110"
-                ],
-                "positions": {
-                    "108": [
-                        11,
-                        19
-                    ],
-                    "109": [
-                        10,
-                        20
-                    ],
-                    "110": [
-                        12,
-                        20
-                    ]
-                }
-            },
-            {
-                "nid": "Officers",
-                "units": [
-                    "111",
-                    "112"
-                ],
-                "positions": {
-                    "111": [
-                        11,
-                        4
-                    ],
-                    "112": [
-                        10,
-                        4
-                    ]
-                }
-            },
-            {
-                "nid": "Union",
-                "units": [
-                    "Fuuko",
-                    "Andy"
-                ],
-                "positions": {
-                    "Fuuko": [
-                        11,
-                        13
-                    ],
-                    "Andy": [
-                        10,
-                        13
-                    ]
-                }
-            },
-            {
-                "nid": "Winner",
-                "units": [
-                    "Fuuko",
-                    "Andy",
-                    "Shen",
-                    "Mui"
-                ],
-                "positions": {
-                    "Shen": [
-                        11,
-                        8
-                    ],
-                    "Mui": [
-                        12,
-                        8
-                    ],
-                    "Andy": [
-                        10,
-                        9
-                    ],
-                    "Fuuko": [
-                        11,
-                        9
-                    ]
-                }
-            },
-            {
-                "nid": "Winner_2",
-                "units": [
-                    "Fuuko",
-                    "Andy",
-                    "Shen",
-                    "Mui"
-                ],
-                "positions": {
-                    "Fuuko": [
-                        11,
-                        9
-                    ],
-                    "Andy": [
-                        11,
-                        8
-                    ],
-                    "Shen": [
-                        12,
-                        8
-                    ],
-                    "Mui": [
-                        12,
-                        9
-                    ]
-                }
-            },
-            {
-                "nid": "Winner_3",
-                "units": [
-                    "Fuuko",
-                    "Andy",
-                    "Shen",
-                    "Mui"
-                ],
-                "positions": {
-                    "Fuuko": [
-                        11,
-                        13
-                    ],
-                    "Andy": [
-                        11,
-                        12
-                    ],
-                    "Shen": [
-                        12,
-                        12
-                    ],
-                    "Mui": [
-                        12,
-                        13
-                    ]
-                }
-            },
             {
                 "nid": "ShenMui",
                 "units": [
@@ -1676,12 +1493,159 @@
                 ],
                 "positions": {
                     "Shen": [
-                        12,
-                        16
+                        10,
+                        6
                     ],
                     "Mui": [
                         12,
+                        6
+                    ]
+                }
+            },
+            {
+                "nid": "AndyFuuko",
+                "units": [
+                    "Andy",
+                    "Fuuko"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        5
+                    ],
+                    "Fuuko": [
+                        11,
+                        7
+                    ]
+                }
+            },
+            {
+                "nid": "Reinforcement",
+                "units": [
+                    "108",
+                    "109",
+                    "110",
+                    "111",
+                    "112",
+                    "124",
+                    "125",
+                    "126"
+                ],
+                "positions": {
+                    "108": [
+                        11,
+                        19
+                    ],
+                    "109": [
+                        10,
+                        19
+                    ],
+                    "110": [
+                        13,
+                        18
+                    ],
+                    "111": [
+                        10,
                         17
+                    ],
+                    "112": [
+                        6,
+                        14
+                    ],
+                    "124": [
+                        15,
+                        15
+                    ],
+                    "125": [
+                        5,
+                        8
+                    ],
+                    "126": [
+                        17,
+                        10
+                    ]
+                }
+            },
+            {
+                "nid": "Luo",
+                "units": [
+                    "Luo"
+                ],
+                "positions": {
+                    "Luo": [
+                        11,
+                        4
+                    ]
+                }
+            },
+            {
+                "nid": "Union",
+                "units": [
+                    "Andy",
+                    "Fuuko",
+                    "Shen",
+                    "Mui"
+                ],
+                "positions": {
+                    "Andy": [
+                        10,
+                        8
+                    ],
+                    "Fuuko": [
+                        11,
+                        8
+                    ],
+                    "Shen": [
+                        11,
+                        7
+                    ],
+                    "Mui": [
+                        12,
+                        7
+                    ]
+                }
+            },
+            {
+                "nid": "Union_Retreat",
+                "units": [
+                    "Andy",
+                    "Fuuko",
+                    "Shen",
+                    "Mui"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        14
+                    ],
+                    "Fuuko": [
+                        10,
+                        15
+                    ],
+                    "Shen": [
+                        12,
+                        14
+                    ],
+                    "Mui": [
+                        11,
+                        15
+                    ]
+                }
+            },
+            {
+                "nid": "AndyShen",
+                "units": [
+                    "Andy",
+                    "Shen"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        7
+                    ],
+                    "Shen": [
+                        10,
+                        7
                     ]
                 }
             }
@@ -1690,15 +1654,18 @@
     },
     {
         "nid": "Gunpowder",
-        "name": "Wight Powder War",
+        "name": "Prologue II: Here It Comes",
         "tilemap": "Gunpowder",
         "bg_tilemap": null,
-        "party": "Union",
-        "music": {},
+        "party": "Roundtable",
+        "music": {
+            "player_phase": "Start of Action",
+            "enemy_phase": "Start of Action"
+        },
         "objective": {
-            "simple": "",
-            "win": "",
-            "loss": ""
+            "simple": "Defeat Boss",
+            "win": "Defeat Boss",
+            "loss": "Any player unit dies"
         },
         "roam": false,
         "roam_unit": null,
@@ -1710,12 +1677,12 @@
         "units": [
             {
                 "nid": "Gunpowder",
-                "team": "enemy2",
-                "ai": "AttackBomber",
+                "team": "enemy",
+                "ai": "Guard",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    7,
+                    2,
                     2
                 ],
                 "starting_traveler": null,
@@ -1729,7 +1696,7 @@
                 "ai_group": "",
                 "starting_position": [
                     12,
-                    8
+                    13
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -1742,7 +1709,7 @@
                 "ai_group": "",
                 "starting_position": [
                     13,
-                    8
+                    13
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -1755,7 +1722,7 @@
                 "ai_group": "",
                 "starting_position": [
                     13,
-                    9
+                    14
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -1768,7 +1735,20 @@
                 "ai_group": "",
                 "starting_position": [
                     14,
-                    9
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Isshin",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    14,
+                    14
                 ],
                 "starting_traveler": null,
                 "generic": false
@@ -1777,9 +1757,13 @@
                 "nid": "101",
                 "variant": null,
                 "level": 1,
-                "klass": "Bomber",
+                "klass": "Bonewalker",
                 "faction": "UMA_Junior",
                 "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
                     [
                         "Dynamite",
                         false
@@ -1787,11 +1771,11 @@
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "FollowEnemy",
+                "ai": "FollowEnemies",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    13,
+                    4,
                     3
                 ],
                 "starting_traveler": null,
@@ -1801,9 +1785,13 @@
                 "nid": "102",
                 "variant": null,
                 "level": 1,
-                "klass": "Bomber",
+                "klass": "Bonewalker",
                 "faction": "UMA_Junior",
                 "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
                     [
                         "Dynamite",
                         false
@@ -1811,12 +1799,12 @@
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "FollowEnemy",
+                "ai": "FollowEnemies",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    3,
-                    6
+                    0,
+                    4
                 ],
                 "starting_traveler": null,
                 "generic": true
@@ -1825,9 +1813,13 @@
                 "nid": "103",
                 "variant": null,
                 "level": 1,
-                "klass": "Bomber",
+                "klass": "Bonewalker",
                 "faction": "UMA_Junior",
                 "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
                     [
                         "Dynamite",
                         false
@@ -1835,12 +1827,12 @@
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "FollowEnemy",
+                "ai": "FollowEnemies",
                 "roam_ai": null,
                 "ai_group": "",
                 "starting_position": [
-                    9,
-                    5
+                    5,
+                    4
                 ],
                 "starting_traveler": null,
                 "generic": true
@@ -1849,9 +1841,13 @@
                 "nid": "104",
                 "variant": null,
                 "level": 1,
-                "klass": "Bomber",
+                "klass": "Bonewalker",
                 "faction": "UMA_Junior",
                 "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
                     [
                         "Dynamite",
                         false
@@ -1859,10 +1855,13 @@
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "FollowEnemy",
+                "ai": "FollowEnemies",
                 "roam_ai": null,
                 "ai_group": "",
-                "starting_position": null,
+                "starting_position": [
+                    3,
+                    8
+                ],
                 "starting_traveler": null,
                 "generic": true
             },
@@ -1870,9 +1869,13 @@
                 "nid": "105",
                 "variant": null,
                 "level": 1,
-                "klass": "Bomber",
+                "klass": "Bonewalker",
                 "faction": "UMA_Junior",
                 "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
                     [
                         "Dynamite",
                         false
@@ -1880,15 +1883,150 @@
                 ],
                 "starting_skills": [],
                 "team": "enemy",
-                "ai": "FollowEnemy",
+                "ai": "FollowEnemies",
                 "roam_ai": null,
                 "ai_group": "",
-                "starting_position": null,
+                "starting_position": [
+                    8,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "106",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    0,
+                    14
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "107",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    9,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "108",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    8,
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "109",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Guard",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    5
+                ],
                 "starting_traveler": null,
                 "generic": true
             }
         ],
-        "regions": [],
+        "regions": [
+            {
+                "nid": "House",
+                "region_type": "event",
+                "position": [
+                    13,
+                    4
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "Visit",
+                "highlight": null,
+                "condition": "v('visit_count') < 2",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            }
+        ],
         "unit_groups": [],
         "ai_groups": []
     },
@@ -3765,6 +3903,30 @@
                 "hide_time": false
             }
         ],
+        "unit_groups": [],
+        "ai_groups": []
+    },
+    {
+        "nid": "Win",
+        "name": "Scuffed Win",
+        "tilemap": "Void",
+        "bg_tilemap": null,
+        "party": "Union",
+        "music": {},
+        "objective": {
+            "simple": "",
+            "win": "",
+            "loss": ""
+        },
+        "roam": false,
+        "roam_unit": null,
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [],
+        "regions": [],
         "unit_groups": [],
         "ai_groups": []
     }
