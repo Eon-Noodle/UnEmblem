@@ -1,6 +1,9 @@
+import sys
 from unittest.mock import patch
 
 from app.tests import qt_headless  # noqa: F401  (must precede any Qt import)
+
+from PyQt5.QtWidgets import QApplication
 
 from app.editor.game_actions import game_actions
 from app.engine import driver, game_state
@@ -9,6 +12,12 @@ from app.tests.engine_harness import EngineTestCase
 
 
 class EventTesterTests(EngineTestCase):
+    @classmethod
+    def setUpClass(cls):
+        # The editor pauses while the engine runs, which starts the editor's
+        # timer, a QWidget
+        cls.app = QApplication.instance() or QApplication(sys.argv)
+
     def test_event_tester_ignores_vars_of_previous_launch(self):
         # A test play earlier in the same editor session leaves its vars behind
         game_state.game.build_new()
