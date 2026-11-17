@@ -84,6 +84,8 @@ class Action():
             value = ('region', value.nid)
         elif isinstance(value, list):
             value = ('list', [Action.save_obj(v) for v in value])
+        elif isinstance(value, tuple):
+            value = ('tuple', [Action.save_obj(v) for v in value])
         elif isinstance(value, Action):
             value = ('action', value.save())
         else:
@@ -124,6 +126,8 @@ class Action():
             return game.get_region(value[1])
         elif value[0] == 'list':
             return [Action.restore_obj(v) for v in value[1]]
+        elif value[0] == 'tuple':
+            return tuple(Action.restore_obj(v) for v in value[1])
         elif value[0] == 'action':
             name, value = value[1][0], value[1][1]
             action = getattr(sys.modules[__name__], name)

@@ -141,6 +141,8 @@ class Recordkeeper():
         elif record_type == 'heal':
             self.healing.append(DamageRecord(*data))
         elif record_type == 'death':
+            # Never through action.do, so never in the action log: a death
+            # stays on record even if the turnwheel turns it back
             self.death.append(KillRecord(*data))
         elif record_type == 'item_use':
             self.item_use.append(ItemRecord(*data))
@@ -168,8 +170,6 @@ class Recordkeeper():
             return self.damage.pop()
         elif record_type == 'heal':
             return self.healing.pop()
-        elif record_type == 'death':
-            return self.player_death.pop()  # Death records aren't overwritten by turnwheel
         elif record_type == 'item_use':
             return self.item_use.pop()
         elif record_type == 'steal':

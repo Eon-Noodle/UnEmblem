@@ -172,29 +172,37 @@ def ignored(path: str, prefixes: tuple[str, ...]) -> bool:
 class RecordedPlay():
     '''
     Plays through part of a level, snapshotting the game before each action the
-    log records. Whatever changes between one action and the next counts as
-    part of the first: a unit's Move ends when it arrives, frames after Move.do
+    log records, by its place in the log: a save loaded partway restores the
+    log with new actions in the same places. Whatever changes between one
+    action and the next counts as part of the first: a unit's Move ends when it
+    arrives, frames after Move.do
     '''
 
     def __init__(self, game: GameState, play: Callable[[], None]):
-        self.game = game
         befores: dict[int, dict[str, Any]] = {}
 
         def snapshotting(run: Callable[[action.Action], None]) -> Callable[[action.Action], None]:
             def wrapper(act: action.Action):
-                if game.action_log.is_recording() and game.action_log.action_depth == 0:
-                    befores[id(act)] = snapshot(game)
+                log = game.action_log
+                top = log.is_recording() and log.action_depth == 0
+                before = snapshot(game) if top else None
+                place = len(log.actions)
                 run(act)
+                if top and len(log.actions) > place and log.actions[place] is act:
+                    befores[place] = before
             return wrapper
 
         with patch.object(action, 'do', snapshotting(action.do)),                 patch.object(action, 'execute', snapshotting(action.execute)):
             play()
-        self.final = snapshot(game)
+        final = snapshot(game)
 
-        actions = game.action_log.actions
-        self.before = {id(act): befores[id(act)] for act in actions}
-        self.after = {id(act): befores[id(actions[idx + 1])] for idx, act in enumerate(actions[:-1])}
-        self.after[id(actions[-1])] = self.final
+        count = len(game.action_log.actions)
+        self.before = [befores[idx] for idx in range(count)]
+        self.after = self.before[1:] + [final]
+
+    @property
+    def final(self) -> dict[str, Any]:
+        return self.after[-1]
 
 class TurnwheelPlayTests(EngineTestCase):
     '''
@@ -233,17 +241,19 @@ class TurnwheelPlayTests(EngineTestCase):
 
         while not log.at_far_past():
             start = snapshot(game)
+            idx = log.action_index
             act = log.run_action_backward()
-            problems = self.problems(start, snapshot(game), played.after[id(act)], played.before[id(act)])
+            problems = self.problems(start, snapshot(game), played.after[idx], played.before[idx])
             failures += ['reversing %s (or what changed after it, before the next action), %s' % (act.__class__.__name__, problem) for problem in problems]
-        first_free = played.before[id(log.actions[log.action_index + 1])]
+        first_free = played.before[log.action_index + 1]
         failures += ['back at the first free action, %s differs' % path
                      for path in changed_paths(first_free, snapshot(game)) if not ignored(path, DELIBERATELY_KEPT)]
 
         while not log.at_far_future():
             start = snapshot(game)
             act = log.run_action_forward()
-            problems = self.problems(start, snapshot(game), played.before[id(act)], played.after[id(act)])
+            idx = log.action_index
+            problems = self.problems(start, snapshot(game), played.before[idx], played.after[idx])
             failures += ['executing %s (or what changed after it, before the next action), %s' % (act.__class__.__name__, problem) for problem in problems]
         failures += ['forward again at the end, %s differs' % path
                      for path in changed_paths(played.final, snapshot(game)) if not ignored(path, DELIBERATELY_KEPT)]
@@ -332,3 +342,19 @@ class TurnwheelPlayTests(EngineTestCase):
             self.harness.attack('Seth', (8, 5), 5000)
         self.assertTurnwheelUndoesAndRedoes(play)
         self.assertEqual(2, self.harness.game.get_unit('Seth').level)
+
+    def test_a_loaded_game_turns_back(self):
+        '''
+        An event takes Seth's Inspiration, the game is saved and loaded, and
+        Eirika waits: the turnwheel then runs back through actions that came
+        out of the save, which must point at the game's own objects
+        '''
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            self.harness.run_event('remove_skill;Seth;Inspiration;no_banner')
+            self.harness.round_trip()
+            self.harness.run_until_state('free')
+            self.harness.wait('Eirika', (4, 5))
+            self.harness.run_until_state('free')
+        self.assertTurnwheelUndoesAndRedoes(play)
