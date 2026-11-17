@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-import copy
 from typing import Optional
 from app.data.database.skill_components import SkillComponent
-from app.data.database.components import ComponentData
+from app.data.database.components import ComponentData, saved_value
 
 from app.data.database.database import DB
 import app.engine.skill_component_access as SCA
@@ -89,7 +88,7 @@ class SkillObject():
         serial_dict['data'] = self.data.copy()
         serial_dict['initiator_nid'] = self.initiator_nid
         serial_dict['subskill'] = self.subskill_uid
-        components = [(component.nid, copy.deepcopy(component.value)) for component in self.components]
+        components = [(component.nid, saved_value(component.value)) for component in self.components]
         serial_dict['components'] = components
         return serial_dict
 

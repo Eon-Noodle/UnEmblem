@@ -7,6 +7,15 @@ from typing import Dict, List, Optional, Tuple
 from app.utilities import str_utils
 from app.utilities.data import Data
 
+def saved_value(value):
+    '''
+    A component's value as a save holds it: a list, dict or set is deep
+    copied, since the game can change it in place before the save is pickled,
+    and a plain value, which nothing can change, goes as it is
+    '''
+    if isinstance(value, (list, dict, set)):
+        return copy.deepcopy(value)
+    return value
 
 class ComponentType(Enum):
     Bool = 0

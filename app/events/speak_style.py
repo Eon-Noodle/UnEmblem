@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import copy
-
 from typing import Set, Tuple, Dict
 from app.utilities.enums import Alignments
 from app.utilities.typing import NID
@@ -31,6 +29,11 @@ class SpeakStyle(Prefab):
         self.name_tag_bg: str = name_tag_bg
         self.boop_sound: str = boop_sound
         self.flags: Set[str] = flags or set()
+
+    def save(self) -> Dict:
+        s_dict = super().save()
+        s_dict['flags'] = self.flags.copy()
+        return s_dict
 
     def copy(self) -> SpeakStyle:
         return self.restore(self.as_dict())
@@ -82,7 +85,7 @@ class SpeakStyleLibrary(Dict[NID, SpeakStyle]):
             self.update(user_styles)
 
     def save(self) -> dict:
-        return {nid: copy.deepcopy(style.save()) for nid, style in self.items()}
+        return {nid: style.save() for nid, style in self.items()}
 
     @classmethod
     def restore(cls, save_dict) -> SpeakStyleLibrary:

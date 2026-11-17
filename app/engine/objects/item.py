@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import copy
 import logging
 from typing import TYPE_CHECKING, Optional
 
 import app.engine.item_component_access as ICA
 from app.data.database.database import DB
 from app.engine import stale_save
-from app.data.database.components import ComponentData
+from app.data.database.components import ComponentData, saved_value
 
 if TYPE_CHECKING:
     from app.data.database.item_components import ItemComponent
@@ -123,7 +122,7 @@ class ItemObject():
         serial_dict['data'] = self.data.copy()
         serial_dict['subitems'] = self.subitem_uids.copy()
         serial_dict['command_item'] = self.command_item_uid
-        components = [(component.nid, copy.deepcopy(component.value)) for component in self.components]
+        components = [(component.nid, saved_value(component.value)) for component in self.components]
         serial_dict['components'] = components
         return serial_dict
 
