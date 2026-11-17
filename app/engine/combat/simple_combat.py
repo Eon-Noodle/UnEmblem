@@ -210,9 +210,13 @@ class SimpleCombat():
 
         self.handle_death(all_units)
 
-        self.attacker.built_guard = True
-        if self.defender:
-            self.defender.built_guard = True
+        self.build_guard()
+
+    def build_guard(self):
+        '''A unit that fought has built its guard, which keeps its guard gauge from rising between turns'''
+        for unit in (self.attacker, self.defender):
+            if unit and not unit.built_guard:
+                action.do(action.BuiltGuard(unit))
 
     def start_event(self, full_animation=False):
         # region is set to True or False depending on whether we are in a battle anim
