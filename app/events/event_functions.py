@@ -2497,6 +2497,10 @@ def promote(self: Event, global_unit, klass_list: Optional[List[NID]] = None, fl
         self.logger.error("promote: Couldn't find unit %s" % global_unit)
         return
     if klass_list:
+        for klass_nid in klass_list:
+            if klass_nid not in DB.classes:
+                self.logger.error("promote: No class %s in the database" % klass_nid)
+                return
         if len(klass_list) == 1:
             new_klass = klass_list[0]
         else:
