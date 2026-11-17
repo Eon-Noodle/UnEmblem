@@ -182,7 +182,7 @@ class Recordkeeper():
             return self.levels.pop()
         elif record_type == 'exp_gain':
             return self.exp.pop()
-        elif record_type == 'money_gain':
+        elif record_type == 'money':
             return self.money.pop()
 
     # Interogation functions

@@ -425,12 +425,13 @@ class UnitObject(Prefab):
     def set_exp(self, val: int) -> int:
         self.exp = int(utils.clamp(val, 0, 100))
 
-    def add_skill(self, skill, source=None, source_type=SourceType.DEFAULT, test=False):
+    def add_skill(self, skill, source=None, source_type=SourceType.DEFAULT, test=False, index: Optional[int] = None):
         """
         # Adds skill to the UnitSkill list while checking if the skill already exists/stack is full
         # If so, removes the oldest displaceable skill and returns it
         # If no existing skill is displaceable AND the new skill is displaceable, returns the new skill back
         # Only actually adds the new skill on test=False
+        # At index in the list if given (where a removed skill was), else last
         """
         popped_skill = None
         stack_value = skill.stack.value if skill.stack else 1
@@ -444,23 +445,27 @@ class UnitObject(Prefab):
             if len(displaceable_skills) > 0:
                 popped_skill = displaceable_skills[0]
         if not test:
-            self._skills.append(UnitSkill(skill, source, source_type))
+            if index is None:
+                self._skills.append(UnitSkill(skill, source, source_type))
+            else:
+                self._skills.insert(index, UnitSkill(skill, source, source_type))
             self._visible_skills_cache = None
         return popped_skill
 
     def remove_skill(self, skill, source, source_type=SourceType.DEFAULT, test=False):
         """
-        # Removes the given skill and returns it along with its source and source type
+        # Removes the given skill and returns its source, its source type and
+        # the index it had in the UnitSkill list
         # If the given skill cannot be removed, returns nothing
         # Only actually removes the skill on test=False
         """
         removed_skill_info = None
         to_remove = None
-        for s in self._skills:
+        for idx, s in enumerate(self._skills):
             same_source = s.source == source and s.source_type == source_type
             if s.skill_obj.uid == skill.uid and \
                     (s.source_type.removable or same_source):
-                removed_skill_info = (s.source, s.source_type)
+                removed_skill_info = (s.source, s.source_type, idx)
                 to_remove = s
         if not test and to_remove:
             self._skills.remove(to_remove)

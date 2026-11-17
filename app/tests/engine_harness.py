@@ -51,6 +51,7 @@ from app.engine.objects.item import ItemObject
 from app.engine.objects.skill import SkillObject
 from app.engine.sound import get_sound_thread
 from app.engine.state_machine import StateMachine
+from app.events.triggers import GenericTrigger
 from app.utilities.typing import NID, Pos
 
 FRAME_MS = 1000 // FPS
@@ -281,6 +282,12 @@ class EngineHarness():
                 return
             self.press('DOWN')
         raise AssertionError('No option %r in %s' % (option, [opt.get() for opt in menu.options]))
+
+    # === Events ===
+    def run_event(self, script: str, max_frames: int = 600):
+        '''From the free state, plays an event made of script's commands, and waits for the free state again'''
+        self.game.events._add_event_from_script('harness_event', script, GenericTrigger())
+        self.run_until_state('free', max_frames)
 
     # === Turns ===
     def move_unit(self, unit_nid: NID, pos: Pos):

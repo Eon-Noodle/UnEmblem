@@ -1505,7 +1505,15 @@ class TradeItem(Action):
         recalc_unit(self.unit2)
 
     def reverse(self):
-        self.swap(self.unit1, self.unit2, self.item2, self.item1, self.item_index2, self.item_index1)
+        # Each item goes back to its old owner, in its old slot
+        if self.item1:
+            self.unit2.remove_item(self.item1)
+        if self.item2:
+            self.unit1.remove_item(self.item2)
+        if self.item1:
+            self.unit1.insert_item(self.item_index1, self.item1)
+        if self.item2:
+            self.unit2.insert_item(self.item_index2, self.item2)
 
         recalc_unit(self.unit1)
         recalc_unit(self.unit2)
@@ -3675,8 +3683,8 @@ class RemoveSkill(Action):
         if true_remove:
             skill_system.before_true_remove(self.unit, skill)
         skill.owner_nid = None
-        removed_source, removed_source_type = self.unit.remove_skill(skill, self.source, self.source_type)
-        self.removed_skills.append((skill, removed_source, removed_source_type))
+        removed_source, removed_source_type, removed_index = self.unit.remove_skill(skill, self.source, self.source_type)
+        self.removed_skills.append((skill, removed_source, removed_source_type, removed_index))
 
         if skill.aura and self.unit.position and game.board and game.tilemap:
             game.boundary.unregister_unit_auras(self.unit)
@@ -3721,10 +3729,14 @@ class RemoveSkill(Action):
 
     @recalculate_unit
     def reverse(self):
-        for skill, source, source_type in self.removed_skills:
+        # Each skill back in the place it had in the unit's skills, which
+        # decides which of two with the same nid is active. The last removed
+        # goes back first, so each place is as it was when it was removed.
+        # A save from before the places were kept has none, and appends
+        for skill, source, source_type, *index in reversed(self.removed_skills):
             skill_system.before_add(self.unit, skill)
             skill.owner_nid = self.unit.nid
-            self.unit.add_skill(skill, source, source_type)
+            self.unit.add_skill(skill, source, source_type, index=index[0] if index else None)
 
             if skill.aura and self.unit.position and game.board and game.tilemap:
                 game.boundary.unregister_unit_auras(self.unit)

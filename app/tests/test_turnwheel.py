@@ -9,7 +9,7 @@ from app.engine import action
 from app.engine.game_state import GameState
 from app.engine.turnwheel import ActionLog
 from app.tests.engine_harness import EngineTestCase
-from app.tests.test_save_round_trip import finish_turn_1, play_first_combat
+from app.tests.test_save_round_trip import LEVEL, finish_turn_1, play_first_combat
 
 class TurnwheelTests(unittest.TestCase):
     def setUp(self):
@@ -103,9 +103,10 @@ class TurnwheelTests(unittest.TestCase):
         self.assertEqual(9, action_groups[0].end)
 
 # What a snapshot leaves out of the save: the action log is what the turnwheel
-# runs through, playtime counts frames, and the state stack belongs to the
-# turnwheel while it runs
-UNSNAPSHOTTED = ('action_log', 'playtime', 'state')
+# runs through, playtime counts frames, the state stack belongs to the
+# turnwheel while it runs, and the turnwheel never runs during an event (whose
+# local args are proxies resolved against the events running now)
+UNSNAPSHOTTED = ('action_log', 'playtime', 'state', 'events')
 # Die.reverse remembers who came back to life, for the turnwheel to tell
 DELIBERATELY_KEPT = ('/level_vars/_resurrect',
                      # Hybrid fog remembers the tiles a unit uncovered: the player
@@ -133,12 +134,33 @@ def flatten(value: Any, path: str = '', out: dict[str, Any] | None = None) -> di
         out[path] = value
     return out
 
+def held_objects(s_dict: dict[str, Any]) -> None:
+    '''
+    Keys the save's units by nid and its items and skills by uid, so an object
+    keeps its path whatever comes before it, and keeps only the items and
+    skills a unit or a convoy holds. An item or skill stays in the game's
+    registry once made, held or not, for the turnwheel to give back when it
+    runs forward again; one a unit no longer holds is no part of the game.
+    (An ability item, such as Steal's, belongs to its skill, and keeps only
+    its targeting between uses)
+    '''
+    held_items = {uid for unit in s_dict['units'] for uid in unit['items']} | \
+        {uid for party in s_dict['parties'] for uid in party['convoy']}
+    items = {item['uid']: item for item in s_dict['items']}
+    for uid in list(held_items):
+        held_items |= set(items[uid]['subitems'])
+    s_dict['items'] = {uid: item for uid, item in items.items() if uid in held_items}
+    held_skills = {uid for unit in s_dict['units'] for uid, _source, _source_type in unit['skills']}
+    s_dict['skills'] = {skill['uid']: skill for skill in s_dict['skills'] if skill['uid'] in held_skills}
+    s_dict['units'] = {unit['nid']: unit for unit in s_dict['units']}
+
 def snapshot(game: GameState) -> dict[str, Any]:
     s_dict, _ = game.save()
     # A save shares objects with the game, which goes on changing them
     s_dict = pickle.loads(pickle.dumps(s_dict))
     for key in UNSNAPSHOTTED:
         del s_dict[key]
+    held_objects(s_dict)
     return flatten(s_dict)
 
 def changed_paths(before: dict[str, Any], after: dict[str, Any]) -> set[str]:
@@ -234,3 +256,79 @@ class TurnwheelPlayTests(EngineTestCase):
             play_first_combat(self.harness)
             finish_turn_1(self.harness)
         self.assertTurnwheelUndoesAndRedoes(play)
+
+    def test_event_then_steal(self):
+        '''
+        An event changes items, vars, money, hp and skills, and Eirika steals
+        the Vulnerary it gave fighter 102
+        '''
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            self.harness.run_event('\n'.join([
+                'give_item;102;Vulnerary;no_banner',
+                'game_var;Gathered;5',
+                'level_var;Seen;True',
+                'give_money;300;no_banner',
+                'set_current_hp;Seth;20',
+                'give_skill;Eirika;Canto;no_banner',
+                'remove_skill;Seth;Inspiration;no_banner',
+            ]))
+            self.harness.move_unit('Eirika', (8, 5))
+            self.harness.choose('Steal')
+            self.harness.run_until_state('combat_targeting')
+            self.harness.press('SELECT')
+            self.harness.run_until_state('item_targeting')
+            self.harness.press('SELECT')
+            self.harness.run_until_state('free', 2000)
+        self.assertTurnwheelUndoesAndRedoes(play)
+        self.assertEqual(['Iron_Axe'], [item.nid for item in self.harness.game.get_unit('102').items])
+
+    def test_trade(self):
+        '''Eirika hands Seth her Vulnerary, then waits'''
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            # Seth stands beside her
+            self.harness.move_unit('Eirika', (4, 5))
+            self.harness.choose('Trade')
+            self.harness.run_until_state('targeting')
+            self.harness.press('SELECT')
+            self.harness.run_until_state('trade')
+            # Her Vulnerary, to Seth's empty slot
+            self.harness.press('SELECT')
+            self.harness.press('RIGHT')
+            self.harness.press('SELECT')
+            self.harness.press('BACK')
+            self.harness.run_until_state('menu')
+            self.harness.choose('Wait')
+            self.harness.run_until_state('free')
+        self.assertTurnwheelUndoesAndRedoes(play)
+        self.assertEqual(['Steel_Sword', 'Silver_Lance', 'Vulnerary', 'Vulnerary'],
+                         [item.nid for item in self.harness.game.get_unit('Seth').items])
+
+    def test_item_use(self):
+        '''Eirika, hurt by an event, drinks a Vulnerary'''
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            self.harness.run_event('set_current_hp;Eirika;5')
+            self.harness.move_unit('Eirika', (4, 5))
+            self.harness.choose('Item')
+            self.harness.run_until_state('item')
+            self.harness.choose(self.harness.game.get_unit('Eirika').items[0])
+            self.harness.run_until_state('item_child')
+            self.harness.choose('Use')
+            self.harness.run_until_state('free', 2000)
+        self.assertTurnwheelUndoesAndRedoes(play)
+        self.assertEqual(15, self.harness.game.get_unit('Eirika').get_hp())
+
+    def test_level_up(self):
+        '''Seth, one experience point short, levels up killing a fighter'''
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            self.harness.run_event('set_exp;Seth;99')
+            self.harness.attack('Seth', (8, 5), 5000)
+        self.assertTurnwheelUndoesAndRedoes(play)
+        self.assertEqual(2, self.harness.game.get_unit('Seth').level)
