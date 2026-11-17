@@ -54,6 +54,7 @@ from app.engine.objects.skill import SkillObject
 from app.engine.sound import get_sound_thread
 from app.engine.state_machine import StateMachine
 from app.events.triggers import GenericTrigger
+from app.utilities import threads
 from app.utilities.typing import NID, Pos
 
 FRAME_MS = 1000 // FPS
@@ -187,10 +188,20 @@ class EngineHarness():
         # was a third of the time the tests that play a level took
         self._phase_banner_patch = patch.object(PhaseIn, 'update', return_value=True)
         self._phase_banner_patch.start()
+        # Background work (loading a level's music) runs to completion where it
+        # starts, as in the browser build. On a thread it takes real time,
+        # which the fake clock outruns by thousands of frames
+        self._threads_patch = patch.object(threads, 'CAN_START_THREADS', False)
+        self._threads_patch.start()
+        # While set, anything that runs until a state presses SELECT whenever
+        # an event or an alert is on top: through every line of dialog, as a
+        # player reading along would, and the first option of any choice
+        self.click_through_events = False
 
     def close(self):
         self._true_time_patch.stop()
         self._phase_banner_patch.stop()
+        self._threads_patch.stop()
 
     @property
     def game(self) -> GameState:
@@ -208,13 +219,16 @@ class EngineHarness():
     def load(self, s_dict: dict):
         '''
         Loads a save as the title screen's Load Game does (TitleLoadState),
-        from a pickled copy, since a save on disk is a pickle
+        from a pickled copy, since a save on disk is a pickle. The copy comes
+        first: a save holds some of the game's own objects, such as its game
+        vars, which build_new clears
         '''
+        s_dict = pickle.loads(pickle.dumps(s_dict))
         game = self.game
         game.state.clear()
         game.state.process_temp_state()
         game.build_new()
-        game.load(pickle.loads(pickle.dumps(s_dict)))
+        game.load(s_dict)
         save.set_next_uids(game)
 
     def round_trip(self) -> tuple[dict, dict]:
@@ -248,7 +262,10 @@ class EngineHarness():
         for _ in range(max_frames):
             if condition():
                 return
-            self.step()
+            if self.click_through_events and self.state in ('event', 'alert'):
+                self.press('SELECT')
+            else:
+                self.step()
         if not condition():
             raise AssertionError('%s not reached in %d frames; state stack is %s'
                                  % (description, max_frames, self.game.state.state_names()))

@@ -209,7 +209,7 @@ class RecordedPlay():
     def final(self) -> dict[str, Any]:
         return self.after[-1]
 
-class TurnwheelPlayTests(EngineTestCase):
+class TurnwheelTestCase(EngineTestCase):
     '''
     Every action the turnwheel runs back must undo just what it did, and every
     action it runs forward again must redo just that. Each action is checked
@@ -264,6 +264,9 @@ class TurnwheelPlayTests(EngineTestCase):
                      for path in changed_paths(played.final, snapshot(game)) if not ignored(path, DELIBERATELY_KEPT)]
 
         self.assertEqual([], failures)
+
+class TurnwheelPlayTests(TurnwheelTestCase):
+    '''The turnwheel through each kind of action testing_proj's level 0 can play'''
 
     def test_combat_and_enemy_phase(self):
         '''Seth kills a fighter, Eirika waits, and the enemy phase plays out'''
