@@ -415,6 +415,10 @@ class UnitObject(Prefab):
     def set_field(self, key: str, value: str):
         self._fields[key] = value
 
+    def remove_field(self, key: str):
+        '''Removes the unit's own value for key, so get_field falls back to its class's'''
+        del self._fields[key]
+
     def get_exp(self) -> int:
         """
         Returns:

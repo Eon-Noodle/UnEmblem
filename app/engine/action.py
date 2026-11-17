@@ -2437,7 +2437,8 @@ class ChangeField(Action):
         self.unit = unit
         self.value = value
         self.key = key
-        self.old_value = self.unit._fields.get(key, '')
+        # None when the unit has no such field of its own
+        self.old_value = self.unit._fields.get(key)
         self.should_increment = should_increment
 
     def do(self):
@@ -2448,7 +2449,10 @@ class ChangeField(Action):
         self.unit.set_field(self.key, self.value)
 
     def reverse(self):
-        self.unit.set_field(self.key, self.old_value)
+        if self.old_value is None:
+            self.unit.remove_field(self.key)
+        else:
+            self.unit.set_field(self.key, self.old_value)
 
 class SetUnitNote(Action):
     def __init__(self, unit: UnitObject, key: str, value: str):

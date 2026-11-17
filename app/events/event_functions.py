@@ -985,7 +985,7 @@ def load_unit(self: Event, unique_unit, team=None, ai=None, flags=None):
     level_unit_prefab = UniqueUnit(unit_nid, team, ai, None)
     new_unit = UnitObject.from_prefab(level_unit_prefab, self.game.current_mode)
     new_unit.party = self.game.current_party
-    self.game.full_register(new_unit)
+    action.do(action.RegisterUnit(new_unit))
 
 def make_generic(self: Event, nid, klass, level: int, team, ai=None, faction=None, animation_variant=None, item_list: Optional[List[str]]=None, flags=None):
     assign_unit = False
@@ -1221,10 +1221,7 @@ def kill_unit(self: Event, unit, flags=None):
         rescuer = self.game.get_rescuer(unit)
         action.execute(action.Separate(rescuer, unit, rescuer.position))
 
-    if not unit.position:
-        unit.dead = True
-    elif 'immediate' in flags:
-        unit.dead = True
+    if not unit.position or 'immediate' in flags:
         action.do(action.Die(unit))
     else:
         self.game.death.should_die(unit)

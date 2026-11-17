@@ -29,10 +29,12 @@ sequences.
 '''
 from __future__ import annotations
 
+import contextlib
+import logging
 import os
 import pickle
 import unittest
-from typing import Callable, Optional
+from typing import Callable, Iterator, Optional
 from unittest.mock import patch
 
 import pygame
@@ -141,6 +143,28 @@ def _start_engine():
     from app.engine.game_counters import ANIMATION_COUNTERS
     ANIMATION_COUNTERS.reset()
     battle_animation.battle_anim_registry.clear()
+
+@contextlib.contextmanager
+def logged_errors_fail() -> Iterator[None]:
+    '''
+    Fails on any error logged inside it. An event command that can't do what
+    it's asked (a unit or class that doesn't exist, a command misspelled)
+    logs an error and carries on, which a test would otherwise never notice
+    '''
+    errors: list[str] = []
+
+    class ErrorHandler(logging.Handler):
+        def emit(self, record: logging.LogRecord):
+            errors.append(record.getMessage())
+
+    handler = ErrorHandler(logging.ERROR)
+    logging.getLogger().addHandler(handler)
+    try:
+        yield
+    finally:
+        logging.getLogger().removeHandler(handler)
+    if errors:
+        raise AssertionError('Errors were logged: %s' % errors)
 
 class EngineHarness():
     '''
@@ -284,10 +308,15 @@ class EngineHarness():
         raise AssertionError('No option %r in %s' % (option, [opt.get() for opt in menu.options]))
 
     # === Events ===
-    def run_event(self, script: str, max_frames: int = 600):
-        '''From the free state, plays an event made of script's commands, and waits for the free state again'''
+    def start_event(self, script: str):
+        '''From the free state, starts an event made of script's commands'''
         self.game.events._add_event_from_script('harness_event', script, GenericTrigger())
-        self.run_until_state('free', max_frames)
+
+    def run_event(self, script: str, max_frames: int = 600):
+        '''Plays an event made of script's commands, and waits for the free state again'''
+        with logged_errors_fail():
+            self.start_event(script)
+            self.run_until_state('free', max_frames)
 
     # === Turns ===
     def move_unit(self, unit_nid: NID, pos: Pos):

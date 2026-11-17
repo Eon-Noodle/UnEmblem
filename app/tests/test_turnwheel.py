@@ -8,7 +8,7 @@ from unittest.mock import patch
 from app.engine import action
 from app.engine.game_state import GameState
 from app.engine.turnwheel import ActionLog
-from app.tests.engine_harness import EngineTestCase
+from app.tests.engine_harness import EngineTestCase, logged_errors_fail
 from app.tests.test_save_round_trip import LEVEL, finish_turn_1, play_first_combat
 
 class TurnwheelTests(unittest.TestCase):
@@ -104,9 +104,12 @@ class TurnwheelTests(unittest.TestCase):
 
 # What a snapshot leaves out of the save: the action log is what the turnwheel
 # runs through, playtime counts frames, the state stack belongs to the
-# turnwheel while it runs, and the turnwheel never runs during an event (whose
-# local args are proxies resolved against the events running now)
-UNSNAPSHOTTED = ('action_log', 'playtime', 'state', 'events')
+# turnwheel while it runs, the turnwheel never runs during an event (whose
+# local args are proxies resolved against the events running now), and the
+# terrain status registry keeps the skill each tile's terrain gives, made the
+# first time a unit stands there and reused after (whether a unit holds one
+# is in its skills)
+UNSNAPSHOTTED = ('action_log', 'playtime', 'state', 'events', 'terrain_status_registry')
 # Die.reverse remembers who came back to life, for the turnwheel to tell
 DELIBERATELY_KEPT = ('/level_vars/_resurrect',
                      # Hybrid fog remembers the tiles a unit uncovered: the player
@@ -136,13 +139,13 @@ def flatten(value: Any, path: str = '', out: dict[str, Any] | None = None) -> di
 
 def held_objects(s_dict: dict[str, Any]) -> None:
     '''
-    Keys the save's units by nid and its items and skills by uid, so an object
-    keeps its path whatever comes before it, and keeps only the items and
-    skills a unit or a convoy holds. An item or skill stays in the game's
-    registry once made, held or not, for the turnwheel to give back when it
-    runs forward again; one a unit no longer holds is no part of the game.
-    (An ability item, such as Steal's, belongs to its skill, and keeps only
-    its targeting between uses)
+    Keys the save's units by nid and its items, skills and regions by uid and
+    nid, so an object keeps its path whatever comes before it, and keeps only
+    the items and skills a unit or a convoy holds and the regions the level
+    holds. An item, skill or region stays in the game's registry once made,
+    held or not, for the turnwheel to give back when it runs forward again;
+    one nothing holds is no part of the game. (An ability item, such as
+    Steal's, belongs to its skill, and keeps only its targeting between uses)
     '''
     held_items = {uid for unit in s_dict['units'] for uid in unit['items']} | \
         {uid for party in s_dict['parties'] for uid in party['convoy']}
@@ -153,6 +156,8 @@ def held_objects(s_dict: dict[str, Any]) -> None:
     held_skills = {uid for unit in s_dict['units'] for uid, _source, _source_type in unit['skills']}
     s_dict['skills'] = {skill['uid']: skill for skill in s_dict['skills'] if skill['uid'] in held_skills}
     s_dict['units'] = {unit['nid']: unit for unit in s_dict['units']}
+    held_regions = set(s_dict['level']['regions'])
+    s_dict['regions'] = {region['nid']: region for region in s_dict['regions'] if region['nid'] in held_regions}
 
 def snapshot(game: GameState) -> dict[str, Any]:
     s_dict, _ = game.save()
@@ -358,3 +363,73 @@ class TurnwheelPlayTests(EngineTestCase):
             self.harness.wait('Eirika', (4, 5))
             self.harness.run_until_state('free')
         self.assertTurnwheelUndoesAndRedoes(play)
+
+    def play_event(self, *commands: str):
+        self.harness.start_level(LEVEL)
+        self.harness.run_until_state('free')
+        self.harness.run_event('\n'.join(commands))
+
+    def test_promotion_and_class_change(self):
+        def play():
+            self.harness.start_level(LEVEL)
+            self.harness.run_until_state('free')
+            with logged_errors_fail():
+                self.harness.start_event('promote;Eirika\nchange_class;Seth;Cavalier;silent')
+                # Promotion shows what Eirika learns, and waits for a press
+                self.harness.run_until_state('alert', 2000)
+                self.harness.press('SELECT')
+                self.harness.run_until_state('free', 2000)
+        self.assertTurnwheelUndoesAndRedoes(play)
+        self.assertEqual('Eirika_Great_Lord', self.harness.game.get_unit('Eirika').klass)
+        self.assertEqual('Cavalier', self.harness.game.get_unit('Seth').klass)
+
+    def test_units_join_and_leave(self):
+        self.assertTurnwheelUndoesAndRedoes(lambda: self.play_event(
+            'load_unit;Franz',
+            'add_unit;Franz;4,3;immediate',
+            'make_generic;Grunt;Fighter;3;enemy',
+            'add_unit;Grunt;3,3;immediate',
+            "remove_unit;O'Neill;immediate",
+            'kill_unit;101;immediate',
+            'change_team;102;player',
+            'move_unit;Seth;5,3;immediate',
+        ))
+        game = self.harness.game
+        self.assertEqual((4, 3), game.get_unit('Franz').position)
+        self.assertEqual((3, 3), game.get_unit('Grunt').position)
+        self.assertIsNone(game.get_unit("O'Neill").position)
+        self.assertTrue(game.get_unit('101').dead)
+        self.assertEqual('player', game.get_unit('102').team)
+        self.assertEqual((5, 3), game.get_unit('Seth').position)
+
+    def test_unit_changes(self):
+        self.assertTurnwheelUndoesAndRedoes(lambda: self.play_event(
+            'set_stats;Seth;STR,3;immediate',
+            'add_tag;Seth;Armor',
+            'change_ai;101;Guard',
+            'set_name;Seth;Sethy',
+            'change_affinity;Seth;Fire',
+            'autolevel_to;Eirika;5',
+            'set_unit_field;Seth;foo;5',
+        ))
+        game = self.harness.game
+        seth = game.get_unit('Seth')
+        self.assertIn('Armor', seth.tags)
+        self.assertEqual('Guard', game.get_unit('101').ai)
+        self.assertEqual('Sethy', seth.name)
+        self.assertEqual('Fire', seth.affinity)
+        self.assertEqual(5, game.get_unit('Eirika').level)
+        self.assertEqual(5, seth.get_field('foo'))
+
+    def test_level_and_party_changes(self):
+        self.assertTurnwheelUndoesAndRedoes(lambda: self.play_event(
+            'add_region;Patch;5,3;1,1;normal',
+            'add_lore;Prologue',
+            'give_bexp;100;no_banner',
+            'game_var;_convoy;True',
+            'give_item;convoy;Vulnerary;no_banner',
+        ))
+        game = self.harness.game
+        self.assertIsNotNone(game.get_region('Patch'))
+        self.assertEqual(100, game.get_party().bexp)
+        self.assertEqual(['Vulnerary'], [item.nid for item in game.get_party().convoy])
