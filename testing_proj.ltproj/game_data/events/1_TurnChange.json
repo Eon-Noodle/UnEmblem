@@ -8,7 +8,7 @@
         "only_once": false,
         "priority": 20,
         "_source": [
-            "give_item;101;Hand Axe"
+            "give_item;101;Hand_Axe"
         ]
     }
 ]

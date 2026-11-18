@@ -17,7 +17,7 @@ class EventInspectorTests(unittest.TestCase):
     def test_unit_dump(self):
         give_item_events = self.event_inspector.find_all_calls_of_command(GiveItem())
         self.assertEqual(len(give_item_events), 1)
-        self.assertEqual(list(give_item_events.values())[0].to_plain_text(), 'give_item;101;Hand Axe')
+        self.assertEqual(list(give_item_events.values())[0].to_plain_text(), 'give_item;101;Hand_Axe')
 
     def test_find_music_in_python_event(self):
         # Python-style ($-prefixed) events were invisible to the inspector, so music they

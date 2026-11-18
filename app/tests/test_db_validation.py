@@ -423,6 +423,30 @@ class EventValidationTests(ValidationTestCase):
         self.add_event('else', 'wait;100')
         self.assert_one(self.warnings(), 'Line 1: else', 'else has no if before it')
 
+    def test_an_item_the_project_does_not_have(self):
+        '''Named by its display name, as a designer often does, rather than its nid'''
+        self.add_event('give_item;101;Iron Sword')
+        self.assert_one(self.warnings(), 'Line 1: give_item;101;Iron Sword',
+                        'Item "Iron Sword" is not an item in this project')
+
+    def test_a_list_naming_one_class_the_project_does_not_have(self):
+        self.add_event('change_class;Eirika;Eirika_Great_Lord,%s' % MISSING)
+        self.assert_one(self.warnings(), 'KlassList "Eirika_Great_Lord,%s" is not a list of classes in this project' % MISSING)
+
+    def test_arguments_the_project_has(self):
+        self.add_event('change_class;Eirika;Eirika_Great_Lord', 'give_skill;Eirika;%s' % SKILL,
+                       'add_market_item;%s' % ITEM)
+        self.assertEqual([], self.warnings())
+
+    def test_an_item_or_skill_named_by_its_uid(self):
+        self.add_event('remove_item;Eirika;12', 'remove_skill;Eirika;42')
+        self.assertEqual([], self.warnings())
+
+    def test_an_argument_filled_in_as_the_event_runs_or_left_empty(self):
+        self.add_event('give_item;101;{var:prize}', 'give_item;{unit};{e:game.get_item(1).nid}',
+                       'make_generic;Bandit;Archer;1;player;;;;%s' % ITEM)
+        self.assertEqual([], self.warnings())
+
     def test_an_end_closing_a_for(self):
         self.add_event('for;x;[1, 2]', 'end')
         reports = self.warnings()

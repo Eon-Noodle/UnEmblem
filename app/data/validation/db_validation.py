@@ -225,9 +225,10 @@ class DBChecker():
                 all_errors += alz.verify_event(event.nid, event.source)
             else:
                 # Warnings, not errors: a line the engine can't read runs as a
-                # comment, as one left behind by an older engine version does
+                # comment, as one left behind by an older engine version does,
+                # and an argument naming nothing may sit in a branch never taken
                 e_err = ltdb.Error(DType.EVENTS, event.nid).to_warn()
-                for line_num, line, problem in event_checks.event_problems(event.source):
+                for line_num, line, problem in event_checks.event_problems(event.source, self.db, self.resources):
                     all_warnings.append(e_err.msg('Line %d: %s\n    %s' % (line_num, line.strip(), problem)))
         return ValidationResult(all_errors, all_warnings)
 

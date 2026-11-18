@@ -9,7 +9,7 @@
         "priority": 20,
         "_source": [
             "enable_turnwheel;t",
-            "add_market_item;Steel Sword",
+            "add_market_item;Steel_Sword",
             "game_var;_convoy;True"
         ]
     }
