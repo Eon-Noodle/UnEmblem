@@ -431,5 +431,34 @@ class EventValidationTests(ValidationTestCase):
         self.assertIn('for has no endf to close it', reports[0])
 
 
+class EquationValidationTests(ValidationTestCase):
+    def equation_errors(self) -> list:
+        return [error for error in self.errors() if 'Equation' in error]
+
+    def test_a_typo_in_a_stat(self):
+        DB.equations.get('HIT').expression = 'SKLL*2 + LCK//2'
+        self.assert_one(self.equation_errors(), "Equation:'HIT'", 'SKLL*2 + LCK//2', 'Not a stat or an equation: SKLL')
+
+    def test_a_typo_in_an_equation(self):
+        DB.equations.get('AVOID').expression = 'ATTACK_SPED*2'
+        self.assert_one(self.equation_errors(), "Equation:'AVOID'", 'Not a stat or an equation: ATTACK_SPED')
+
+    def test_an_expression_that_is_not_valid(self):
+        DB.equations.get('DAMAGE').expression = 'STR +'
+        self.assert_one(self.equation_errors(), "Equation:'DAMAGE'", 'Not a valid expression')
+
+    def test_a_stat_removed_while_an_equation_uses_it(self):
+        DB.stats.remove_key('LCK')
+        reports = [error for error in self.equation_errors() if "Equation:'HIT'" in error]
+        self.assert_one(reports, 'Not a stat or an equation: LCK')
+
+    def test_python_the_engine_runs(self):
+        """Builtins, the unit, strings, attributes and names a comprehension binds are all fine"""
+        DB.equations.get('RESCUE_AID').expression = \
+            "max(0, 25 - CON) if 'Mounted' in unit.tags else min(x for x in [CON, unit.level])"
+        DB.equations.get('HIT').expression = 'float(SKL) * 1.5 + abs(LCK - 2) + (lambda y: y)(SPD)'
+        self.assertEqual([], self.equation_errors())
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,44 +1,27 @@
-import re, functools
+import functools
 
 from app.data.database.database import DB
+from app.data.database.equations import EQUATION_ARGS, to_python
 
 class Parser():
     def __init__(self):
+        self.stat_nids = [stat.nid for stat in DB.stats]
+        self.equation_nids = [equation.nid for equation in DB.equations.values() if equation.expression]
+        # Each equation becomes a function in this dict, which they all share as
+        # their globals, so each can call the others through it
         self.equations = {}
         for equation in DB.equations.values():
             if equation.expression:
-                self.equations[equation.nid] = self.tokenize(equation.expression)
-
-        self.replacement_dict = self.create_replacement_dict()
-
-        for nid in list(self.equations.keys()):
-            expression = self.equations[nid]
-            self.fix(nid, expression, self.replacement_dict)
+                python = to_python(equation.expression, self.stat_nids, self.equation_nids)
+                try:
+                    exec("def %s(%s): return %s" % (equation.nid, ', '.join(EQUATION_ARGS), python), self.equations)
+                except SyntaxError as e:
+                    raise ValueError("Equation %s is not a valid expression: %s" % (equation.nid, equation.expression)) from e
 
         # Now add these equations as local functions
         for nid in self.equations.keys():
             if not nid.startswith('__'):
                 setattr(self, nid.lower(), functools.partial(self.equations[nid], self.equations))
-
-    def tokenize(self, s: str) -> str:
-        return re.split('([^a-zA-Z_])', s)
-
-    def create_replacement_dict(self):
-        dic = {}
-        for stat in DB.stats:
-            dic[stat.nid] = ("(unit.stats['%s'] + unit.stat_bonus('%s'))" % (stat.nid, stat.nid))
-        for nid in self.equations.keys():
-            dic[nid] = ("equations['%s'](equations, unit)" % nid)
-        return dic
-
-    def fix(self, lhs, rhs, dic):
-        rhs = [dic.get(n, n) for n in rhs]
-        rhs = ''.join(rhs)
-        if 'float' in rhs:
-            pass  # Don't need to convert if you are turning it into a float
-        else:
-            rhs = 'int(%s)' % rhs
-        exec("def %s(equations, unit): return %s" % (lhs, rhs), self.equations)
 
     def get(self, lhs, unit):
         if lhs in self.equations:
@@ -48,15 +31,8 @@ class Parser():
     def get_expression(self, expr, unit):
         # For one time use
         # Can't seem to be used with any sub equations
-        expr = self.tokenize(expr)
-        expr = [self.replacement_dict.get(n, n) for n in expr]
-        expr = ''.join(expr)
-        if 'float' in expr:
-            pass  # Don't need to convert if you are turning it into a float
-        else:
-            expr = 'int(%s)' % expr
         equations = self.equations
-        return eval(expr)
+        return eval(to_python(expr, self.stat_nids, self.equation_nids))
 
     def get_mana(self, unit):
         if hasattr(self, 'mana'):

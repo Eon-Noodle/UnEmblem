@@ -7,6 +7,7 @@ from app.data.database.components import Component, ComponentType
 from app.data.database.database import Database
 from app.data.database.database_types import DatabaseType as DType
 from app.data.database.database_validator import DatabaseValidatorEngine
+from app.data.database import equations
 from app.data.database.item_components import ItemTags
 from app.data.database.level_units import GenericUnit, UniqueUnit
 from app.data.database.levels import OBJECTIVE_KEYS, LevelPrefab
@@ -204,6 +205,17 @@ class DBChecker():
             res.errors += self._val_or_err(unit.alternate_classes, DType.CLASSES, u_err.field("Alternate Classes"))
         return res
 
+    def validate_equations(self) -> ValidationResult:
+        stat_nids = [stat.nid for stat in self.db.stats]
+        equation_nids = [equation.nid for equation in self.db.equations if equation.expression]
+        all_errors = []
+        for equation in self.db.equations:
+            if equation.expression:
+                problem = equations.expression_problem(equation.expression, stat_nids, equation_nids)
+                if problem:
+                    all_errors.append(ltdb.Error(DType.EQUATIONS, equation.nid).msg('%s\n    %s' % (equation.expression, problem)))
+        return ValidationResult(all_errors)
+
     def validate_events(self) -> ValidationResult:
         alz = PyEventAnalyzer(self.db.events)
         all_errors = []
@@ -288,6 +300,7 @@ class DBChecker():
 
     def validate_for_errors(self) -> List:
         all_errors = self.validate_events().errors
+        all_errors += self.validate_equations().errors
         all_errors += self.validate_items_and_skills().errors
         all_errors += self.validate_levels().errors
         all_errors += self.validate_units().errors
