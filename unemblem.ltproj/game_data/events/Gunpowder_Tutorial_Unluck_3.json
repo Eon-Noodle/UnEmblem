@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Tutorial Unluck 3",
+        "trigger": "unit_wait",
+        "level_nid": "Gunpowder",
+        "condition": "v('tutorial') and unit.nid == 'Fuuko' and has_skill('Andy', 'Unluck_child')",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "s;;Finally, <yellow>move Andy next to the target</> and end your turn.|A meteorite will soon hit Andy and anyone nearby.;;;Tutorial"
+        ],
+        "nid": "Gunpowder Tutorial Unluck 3"
+    }
+]

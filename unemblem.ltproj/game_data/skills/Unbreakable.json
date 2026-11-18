@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Unbreakable",
+        "name": "Unbreakable",
+        "desc": "Imbue weapons with <red>Unbreakable</>, prevents them from breaking.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            2,
+            10
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    }
+]

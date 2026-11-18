@@ -1,0 +1,144 @@
+[
+    {
+        "nid": "Sharpshooter",
+        "name": "Sharpshooter",
+        "desc": "War veterans who possess unparalleled accuracy with their firearms.",
+        "tier": 2,
+        "movement_group": "Infantry",
+        "promotes_from": "Militia",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 7,
+            "SKL": 6,
+            "SPD": 5,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 2,
+            "MAG": 4,
+            "MOV": 6,
+            "CON": 8,
+            "CP": 5
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 30,
+            "MAG": 15,
+            "SKL": 30,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 15,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 2,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 1,
+            "MOV": -97,
+            "CON": -97,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 25,
+            "MAG": 24,
+            "SKL": 30,
+            "SPD": 28,
+            "LCK": 30,
+            "DEF": 25,
+            "RES": 23,
+            "MOV": 15,
+            "CON": 25,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                40,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Soldier_Echoes",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

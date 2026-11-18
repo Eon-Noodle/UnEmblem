@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Lamia",
+        "sub_nid": "Lamia",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Dutch Introvert",
+                null
+            ]
+        ]
+    }
+]

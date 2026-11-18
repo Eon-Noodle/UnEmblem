@@ -1,0 +1,41 @@
+[
+    {
+        "nid": "Aegis",
+        "name": "Aegis",
+        "desc": "A <violet>Sacred Spirit Treasure</>.\nWhen equipped, completely fends off any damage.",
+        "icon_nid": "Artifact",
+        "icon_index": [
+            0,
+            5
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "status_on_equip",
+                "Aegis"
+            ],
+            [
+                "weight",
+                16
+            ],
+            [
+                "uses",
+                3
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ]
+        ]
+    }
+]

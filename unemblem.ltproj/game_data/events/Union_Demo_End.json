@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Demo End",
+        "trigger": "level_start",
+        "level_nid": "Union",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 5,
+        "_source": [
+            "u;Dev;Right",
+            "s;Dev;Hii, game dev here.{c:wait;400} Sorry but this is where the demo ends.|I hope you enjoyed this short demo, and feel free to walk around in this UNION HQ.",
+            "r;Dev"
+        ],
+        "nid": "Union Demo End"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Unmove Piggyback Transfer",
+        "trigger": "unit_wait",
+        "level_nid": null,
+        "condition": "unit.has_given",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "level_var;un_units;[act.other.nid for act in game.action_log.actions if hasattr(act, 'other') and act.unit == unit and act.other.traveler and u(act.other.traveler).get_skill('Unmove_child')]",
+            "",
+            "if;not {v:un_units}",
+            "    finish",
+            "end",
+            "",
+            "level_var;un_pos;game.cursor.path[-1] if game.cursor.path and len(game.cursor.path) - 1 + unit.movement_left < unit.get_stat('MOV') else position",
+            "level_var;un_unit;{v:un_units}[-1]",
+            "",
+            "level_var;unmove_parameters;{e:[u('{v:un_unit}').traveler, '{v:un_unit}', utils.tuple_sub(u('{v:un_unit}').position, {v:un_pos})]}",
+            "trigger_script;Global Unmove Deactivate;{e:u('{v:un_unit}').traveler}",
+            "trigger_script;Global Unmove Draw"
+        ],
+        "nid": "Global Unmove Piggyback Transfer"
+    }
+]

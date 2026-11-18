@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Unmove Death",
+        "trigger": "unit_death",
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "if;unit.get_skill('Unmove_grandchild')",
+            "    for;un_region;set(region.nid for region in game.level.regions if region.position == unit.position and region.nid.split('|')[0] == 'Unmove_Region')",
+            "        level_var;unmove_parameters;{e:'{un_region}'.split('|')[1:4]}",
+            "        trigger_script;Global Unmove Deactivate;{e:'{un_region}'.split('|')[1]}",
+            "        trigger_script;Global Unmove Draw",
+            "    endf",
+            "    ",
+            "elif;unit.get_skill('Unmove_child')",
+            "    trigger_script;Global Unmove Deactivate;{unit}",
+            "end"
+        ],
+        "nid": "Global Unmove Death"
+    }
+]

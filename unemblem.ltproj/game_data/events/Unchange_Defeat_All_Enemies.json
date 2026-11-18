@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Defeat All Enemies",
+        "trigger": "turn_change",
+        "level_nid": "Unchange",
+        "condition": "not game.get_enemy_units()",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "wait;1000",
+            "win_game"
+        ],
+        "nid": "Unchange Defeat All Enemies"
+    }
+]

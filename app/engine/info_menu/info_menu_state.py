@@ -125,7 +125,8 @@ class InfoMenuState(State):
         self.hint_pennant: Optional[banner.Pennant] = None
         self.info_multiple_pages: Optional[bool] = None
 
-        self.book_bg = engine.subsurface(SPRITES.get('book_flip_0'), (23, 14, 144, 160))
+        self.book_rect = (23, 14, 144, WINHEIGHT)
+        self.book_bg = engine.subsurface(SPRITES.get('book_flip_0'), self.book_rect)
         self.book_flip_sprite = None
 
         game.state.change('transition_in')
@@ -395,7 +396,7 @@ class InfoMenuState(State):
                 if book_flip_sprite := SPRITES.get('book_flip_%d' % counter, None):
                     if self.transition == 'RIGHT':
                         book_flip_sprite = engine.flip_horiz(book_flip_sprite)
-                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, (23, 14, 144, 160))
+                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, self.book_rect)
                 else:
                     self.book_flip_sprite = None
                     self.state = self.next_state

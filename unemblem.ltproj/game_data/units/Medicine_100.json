@@ -1,0 +1,71 @@
+[
+    {
+        "nid": "Medicine_100",
+        "name": "Medicine",
+        "desc": "<violet>Embodiment of Medication and Cure</>",
+        "variant": "_Medicine",
+        "level": 20,
+        "klass": "Lamia",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 48,
+            "STR": 10,
+            "MAG": 19,
+            "SKL": 17,
+            "SPD": 17,
+            "DEF": 11,
+            "RES": 20,
+            "LCK": 12,
+            "MOV": 6,
+            "CON": 7,
+            "CP": 1
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "starting_items": [
+            [
+                "Perish_Lullaby",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Medicine",
+        "affinity": "None",
+        "fields": []
+    }
+]

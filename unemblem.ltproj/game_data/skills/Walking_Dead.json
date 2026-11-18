@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Walking_Dead",
+        "name": "Walking Dead",
+        "desc": "Unit fully recovers HP after every round of combat.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "recoil",
+                -99
+            ]
+        ]
+    }
+]

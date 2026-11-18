@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Unluck Explode",
+        "trigger": null,
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "give_item;{unit};Meteor_Strike;no_banner",
+            "modify_item_component;{unit};Meteor_Strike;damage;(0 if not game.supports.get(unit.nid, initiator.nid) else len(game.supports.get(unit.nid, initiator.nid).unlocked_ranks)) * 10 + 20",
+            "interact_unit;{unit};{unit};hit1;Meteor_Strike"
+        ],
+        "nid": "Global Unluck Explode"
+    }
+]

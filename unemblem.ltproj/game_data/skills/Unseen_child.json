@@ -1,0 +1,42 @@
+[
+    {
+        "nid": "Unseen_child",
+        "name": "Unseen",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "has_tags",
+                [
+                    "Invisible"
+                ]
+            ],
+            [
+                "sight_range_bonus",
+                -99
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Unseen_1"
+                ]
+            ],
+            [
+                "modify_ai_priority",
+                0.0
+            ],
+            [
+                "change_variant",
+                "_Invisible"
+            ]
+        ]
+    }
+]

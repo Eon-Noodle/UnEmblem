@@ -6,7 +6,7 @@
 |-|-
 | **Lex Talionis Engine** | rainlash, mag, KD and others - [GitLab](https://gitlab.com/rainlash/lt-maker) / [Website](https://lex-talionis.net)
 | **Usenti** | Cearn - [gbadev.org](https://gbadev.org/tools.php?showinfo=1441)
-| **YTMP3** | [media.ytmp3.gg](https://media.ytmp3.gg/)
+| **yt-dlp** | [Github](https://github.com/yt-dlp/yt-dlp)
 | **Ezgif** | [ezgif.com](https://ezgif.com/)
 
 ---
@@ -105,7 +105,6 @@
 
 | Asset | Author / Source
 |-|-
-| **Loading Screen** | WickedSick - [Tumblr](https://www.tumblr.com/wickedsick/722200352304349184/horizontally-spinning-union-emblem-for-all-your)
 | **Locomotive** | Jake Branson - [News Article](https://www.trains.com/trn/videos-photos/photos/photo-galleries/final-days-of-steam-in-western-china/)
 | **Temple** | Fire Emblem 8 (Intelligent Systems); fixed by Struedelmuffin - [FE-Repo](https://github.com/Klokinator/FE-Repo/blob/main/BGs%2C%20Interface%20Elements/Background%20CGs/FE8%20BG's/Temple%20fixed%20%7BStruedelmuffin%7D.png)
 | **Default Background** | Fenrier - [FE-Repo](https://github.com/Klokinator/FE-Repo/blob/main/BGs%2C%20Interface%20Elements/Background%20CGs/Sailor%20Moon%20%7BFenreir%7D/Sailor%20Moon%20SNES%20Battle%20bg%2006.png)
@@ -155,7 +154,7 @@
 | Contribution | Author / Source
 |-|-
 | **Enemy Pass Skill Hook** | FE7Lex (beccarte) - [FE Universe](https://feuniverse.us/t/fe7lex-v1-70-released-36-chapters-so-far/22079)
-| **Dual Wield** | Luis - [Github](rmb to add his github link)
+| **Dual Wield** | Luis - [Github](https://github.com/LuisMadrigal-UNA)
 
 ---
 

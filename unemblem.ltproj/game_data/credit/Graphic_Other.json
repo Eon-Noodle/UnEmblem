@@ -1,0 +1,24 @@
+[
+    {
+        "nid": "Graphic_Other",
+        "sub_nid": "Other",
+        "credit_type": "List",
+        "category": "Graphics",
+        "custom_header": "Other",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Rasta",
+                "Unit Info Design"
+            ],
+            [
+                "Xilirite",
+                "Support Screen Design"
+            ],
+            [
+                "AdamCYounis",
+                "Book Flipping Animation"
+            ]
+        ]
+    }
+]

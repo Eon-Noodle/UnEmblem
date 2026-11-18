@@ -1,0 +1,74 @@
+[
+    {
+        "nid": "Sun",
+        "name": "Sun",
+        "desc": "Creator of the UMAs, Rules, and this World.",
+        "variant": "",
+        "level": 1,
+        "klass": "God",
+        "tags": [
+            "Boss"
+        ],
+        "bases": {
+            "HP": 120,
+            "MOV": 3,
+            "RES": 30,
+            "LCK": 24,
+            "STR": 17,
+            "CON": 999,
+            "SPD": 15,
+            "MAG": 15,
+            "SKL": 25,
+            "DEF": 20,
+            "CP": 1
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "stat_cap_modifiers": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "starting_items": [
+            [
+                "Solar_Flare",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Cruel_Sun"
+            ],
+            [
+                1,
+                "Titanic"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "Sun",
+        "affinity": "None",
+        "fields": []
+    }
+]

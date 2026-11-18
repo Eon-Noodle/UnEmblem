@@ -1,0 +1,149 @@
+[
+    {
+        "nid": "Assassin",
+        "name": "Assassin",
+        "desc": "Stealthy killers who possess ability to kill with a single strike.",
+        "tier": 2,
+        "movement_group": "Light Foot",
+        "promotes_from": "Looter",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 16,
+            "STR": 3,
+            "SKL": 1,
+            "SPD": 9,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 0,
+            "MAG": 0,
+            "MOV": 6,
+            "CON": 8,
+            "CP": 5
+        },
+        "growths": {
+            "HP": 50,
+            "STR": 5,
+            "MAG": 0,
+            "SKL": 45,
+            "SPD": 40,
+            "LCK": 40,
+            "DEF": 5,
+            "RES": 15,
+            "MOV": 0,
+            "CON": 0,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 3,
+            "STR": 1,
+            "MAG": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 2,
+            "MOV": -97,
+            "CON": -97,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 20,
+            "SKL": 30,
+            "SPD": 30,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 25,
+            "CP": 30
+        },
+        "learned_skills": [
+            [
+                1,
+                "Lethality"
+            ]
+        ],
+        "wexp_gain": {
+            "Sword": [
+                true,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Assassin",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Assassin",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

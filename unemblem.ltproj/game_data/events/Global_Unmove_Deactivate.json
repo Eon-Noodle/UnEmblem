@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Unmove Deactivate",
+        "trigger": null,
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "for;un_region;game.level.regions",
+            "    if;'{un_region}'.split('|')[0] == 'Unmove_Region' and '{un_region}'.split('|')[1] == '{unit}'",
+            "        remove_region;{eval:game.level.regions.get('{un_region}')}",
+            "    end",
+            "endf"
+        ],
+        "nid": "Global Unmove Deactivate"
+    }
+]

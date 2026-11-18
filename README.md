@@ -1,8 +1,9 @@
 **UnEmblem** is a GBA Fire Emblem-style fangame based on the story of the manga series *Undead Unluck*.
 
 ![TitleScreen](/utilities/unemblem_readme/title_screen.png)
-![AOE](/utilities/unemblem_readme/greyscale.png)
-![ActivatedSkill](/utilities/unemblem_readme/roundtable.png)
+![Greyscale](/utilities/unemblem_readme/greyscale.png)
+![Roundtable](/utilities/unemblem_readme/roundtable.png)
+![InfoMenu](/utilities/unemblem_readme/info_menu.png)
 
 ## Game Engine - Lex Talionis
 
@@ -12,7 +13,7 @@
 
 **Lex Talionis** is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. This repository is based on [LT-maker](https://gitlab.com/rainlash/lt-maker) by rainlash.
 
-Any modifications I made to the engine is available as `.patch` files in [engine hacks](engine_hacks) folder (will add soon...)
+Any modifications I made to the engine will be available as `.patch` files in [engine hacks](engine_hacks) folder.
 
 **Website:** <a href="https://lex-talionis.net/"><img src="https://img.shields.io/badge/Lex%20Talionis-Visit-0f1533?logo=dotnet"></a><br>
 **Repository:** <a href="https://gitlab.com/rainlash/lt-maker"><img src="https://img.shields.io/badge/Gitlab-Explore-FC6D26?logo=gitlab&logoColor=white"></a><br>
@@ -21,7 +22,10 @@ Any modifications I made to the engine is available as `.patch` files in [engine
 
 ---
 
-## Installation Guides
+## How to Play
+
+UnEmblem is available to be played **in browser** on [itch.io](https://eon-noodle.itch.io/unemblem), as well as to be **downloaded and played locally** on Windows, Linux, MacOS and Android devices, with the installation instructions given below.
+
 <details>
   <summary>For WINDOWS</summary> 
 
@@ -64,12 +68,11 @@ Any modifications I made to the engine is available as `.patch` files in [engine
 
 1) Install the following programs (preferred versions if possible);
     ```
-    python==3.11*
+    python==3.12
     python3pip
-    pygame-ce==2.3.2
+    pygame-ce==2.5.7
     pyinstaller==6.2.0
-    typing-extensions==4.8.0
-    PyQt5==5.15.10**
+    PyQt5==5.15.10
     mypy==1.8.0
     mypy-extensions==1.0.0
     ```
@@ -109,21 +112,20 @@ Any modifications I made to the engine is available as `.patch` files in [engine
 6) Perform the following steps before first boot;
     ```
     cd unemblem
-    conda create -n fe-i-lt python=3.11.7
+    conda create -n fe-i-lt python=3.12.10
     conda activate fe-i-lt
     ```
 7) Setup Windows Python;
     ```
-    curl -O https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe
-    wine python-3.11.7-amd64.exe
+    curl -O https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe
+    wine python-3.12.10-amd64.exe
     ```
 8) Install the following requirements **in Wine Python**;
     ```
     wine pip install -r
     python3pip
-    pygame-ce==2.3.2
+    pygame-ce==2.5.7
     pyinstaller==6.2.0
-    typing-extensions==4.8.0
     PyQt5==5.15.10
     mypy==1.8.0
     mypy-extensions==1.0.0

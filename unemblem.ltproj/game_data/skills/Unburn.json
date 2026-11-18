@@ -1,0 +1,42 @@
+[
+    {
+        "nid": "Unburn",
+        "name": "Unburn",
+        "desc": "Protect all units within 5 tiles from <red>Burnt</> status and fiery tiles.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "immunity",
+                [
+                    "Burnt"
+                ]
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Burnt"
+                ]
+            ],
+            [
+                "aura",
+                "Unburn_child"
+            ],
+            [
+                "aura_range",
+                5
+            ],
+            [
+                "aura_target",
+                "unit"
+            ]
+        ]
+    }
+]

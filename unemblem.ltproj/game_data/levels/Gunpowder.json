@@ -1,0 +1,380 @@
+[
+    {
+        "nid": "Gunpowder",
+        "name": "Prologue II: Here It Comes",
+        "tilemap": "Gunpowder",
+        "bg_tilemap": null,
+        "party": "Roundtable",
+        "music": {
+            "player_phase": "Start of Action",
+            "enemy_phase": "Start of Action"
+        },
+        "objective": {
+            "simple": "Defeat Boss",
+            "win": "Defeat Boss",
+            "loss": "Any player unit dies"
+        },
+        "roam": false,
+        "roam_unit": null,
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "Gunpowder",
+                "team": "enemy",
+                "ai": "Guard",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    2,
+                    2
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Fuuko",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    12,
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Andy",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Shen",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    14
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Mui",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    14,
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Isshin",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    14,
+                    14
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "101",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    4,
+                    3
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "102",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    0,
+                    4
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "103",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    5,
+                    4
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "104",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    3,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "105",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    8,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "106",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    0,
+                    14
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "107",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    9,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "108",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "FollowEnemies",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    8,
+                    13
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "109",
+                "variant": null,
+                "level": 1,
+                "klass": "Bonewalker",
+                "faction": "UMA_Junior",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ],
+                    [
+                        "Dynamite",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Guard",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    13,
+                    5
+                ],
+                "starting_traveler": null,
+                "generic": true
+            }
+        ],
+        "regions": [
+            {
+                "nid": "House",
+                "region_type": "event",
+                "position": [
+                    13,
+                    4
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "Visit",
+                "highlight": null,
+                "condition": "v('visit_count') < 2",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            }
+        ],
+        "unit_groups": [],
+        "ai_groups": []
+    }
+]

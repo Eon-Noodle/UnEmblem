@@ -1,0 +1,28 @@
+[
+    {
+        "nid": "Unluck",
+        "name": "Unluck",
+        "desc": "Inflict an ally with <red>Unluck Touch</>, results in a massive friendly-fire AoE attack.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "ability",
+                "Unluck"
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Unluck_child"
+                ]
+            ]
+        ]
+    }
+]

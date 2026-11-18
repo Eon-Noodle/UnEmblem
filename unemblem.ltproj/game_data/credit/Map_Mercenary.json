@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Mercenary",
+        "sub_nid": "Soldier_Echoes",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by Nuramon, Feier and flasuban",
+                null
+            ]
+        ]
+    }
+]

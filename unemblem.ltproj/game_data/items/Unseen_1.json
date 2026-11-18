@@ -1,0 +1,38 @@
+[
+    {
+        "nid": "Unseen_1",
+        "name": "Deactivate Unseen",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "spell",
+                null
+            ],
+            [
+                "target_tile",
+                null
+            ],
+            [
+                "map_hit_sub_blend",
+                [
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "no_map_hp_display",
+                null
+            ],
+            [
+                "restore_specific",
+                "Unseen_child"
+            ]
+        ]
+    }
+]

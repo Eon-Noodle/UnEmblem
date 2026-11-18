@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Initialize Game Vars",
+        "trigger": "level_start",
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": true,
+        "priority": 30,
+        "_source": [
+            "gvar;location_list;['Uk', 'France', 'Romania', 'Moscow', 'Turkey', 'Siberia', 'Japan', 'Taiwan', 'HongKong', 'Buroja', 'Aus', 'Vancouver', 'Vegas', 'Nyc', 'Rio']",
+            "gvar;pos_map;(15, 5)",
+            "gvar;pos_apoccy;(7,9)",
+            "gvar;pos_roundtable;[(0,-3),(-2,-3),(2,-3),(-3,-2),(3,-2),(-4,0),(4,0),(-3,2),(3,2),(-2,3),(2,3),(0,3)]",
+            "gvar;pos_torch;[(1,5), (3,2), (11,2), (13,5)]",
+            "gvar;roundtable_seat;4",
+            "gvar;union_torch_lit;False",
+            "gvar;version;4",
+            "",
+            "speak_style;Tutorial;Narrator;0,116;240;;;text;bg_black;;;;0.2",
+            "speak_style;Narrator;;0,116;240;;;text;None",
+            "",
+            "change_tilemap;Void",
+            "load_unit;Narrator",
+            "add;Narrator;7,4",
+            "flicker_cursor;7,4",
+            "",
+            "choice;choice_tutorial;<yellow>Neutralize UMA Tutorial?</>;True|Not yet. I've never played UnEmblem, False|Sure. I've beaten UMA Gunpowder before;;vert;bottom",
+            "gvar;choice_tutorial;{v:choice_tutorial}",
+            "if;not {v:choice_tutorial}",
+            "    kill;Narrator",
+            "    wait;800",
+            "end",
+            "",
+            "t;close",
+            "change_tilemap;{e:DB.levels.get(game.level.nid).tilemap};;{e:DB.levels.get(game.level.nid).tilemap};reload"
+        ],
+        "nid": "Global Initialize Game Vars"
+    }
+]

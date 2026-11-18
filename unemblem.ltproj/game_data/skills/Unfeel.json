@@ -1,0 +1,24 @@
+[
+    {
+        "nid": "Unfeel",
+        "name": "Unfeel",
+        "desc": "Immune to mental statuses.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "immunity",
+                [
+                    "Mental"
+                ]
+            ]
+        ]
+    }
+]

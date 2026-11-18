@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Portraits_Isshin",
+        "sub_nid": "Isshin",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Isshin"
+            ]
+        ]
+    }
+]

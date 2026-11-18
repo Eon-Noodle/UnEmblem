@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Luo Defeated",
+        "trigger": "combat_death",
+        "level_nid": "Untruth",
+        "condition": "unit.nid == 'Luo'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "t;close",
+            "win_game"
+        ],
+        "nid": "Untruth Luo Defeated"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Swordmaster",
+        "sub_nid": "Samurai",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "GabrielKnight",
+                null
+            ]
+        ]
+    }
+]

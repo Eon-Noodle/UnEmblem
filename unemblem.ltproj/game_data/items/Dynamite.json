@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Dynamite",
+        "name": "Dynamite",
+        "desc": "Deal damages to adjacent enemies when detonated.",
+        "icon_nid": "Enemies_Only",
+        "icon_index": [
+            0,
+            3
+        ],
+        "components": [
+            [
+                "locked",
+                null
+            ],
+            [
+                "status_on_hold",
+                "Dynamite"
+            ]
+        ]
+    }
+]

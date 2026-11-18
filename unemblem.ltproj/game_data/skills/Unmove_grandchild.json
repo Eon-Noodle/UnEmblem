@@ -1,0 +1,53 @@
+[
+    {
+        "nid": "Unmove_grandchild",
+        "name": "Unmove",
+        "desc": "Cannot move. Enemy attacks won't miss and unit suffers <red>-30 Crit avoid</>.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            6
+        ],
+        "components": [
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "unit_tint",
+                [
+                    0,
+                    80,
+                    120
+                ]
+            ],
+            [
+                "stat_multiplier",
+                [
+                    [
+                        "MOV",
+                        0
+                    ]
+                ]
+            ],
+            [
+                "avoid",
+                -999
+            ],
+            [
+                "crit_avoid",
+                -30
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Eclipse"
+                ]
+            ],
+            [
+                "condition",
+                "'Invisible' not in unit.tags"
+            ]
+        ]
+    }
+]

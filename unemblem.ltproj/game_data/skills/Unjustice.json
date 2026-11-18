@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Unjustice",
+        "name": "Unjustice",
+        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')}%</></> chance to make enemies hit themselves. Doesn't work on God.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            2
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "defense_proc",
+                "Unjustice_child"
+            ],
+            [
+                "proc_rate",
+                "SKILL"
+            ],
+            [
+                "combat_condition",
+                "target.klass != 'God'"
+            ]
+        ]
+    }
+]

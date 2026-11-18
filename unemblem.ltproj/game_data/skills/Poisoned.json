@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Poisoned",
+        "name": "Poisoned",
+        "desc": "Loses <red>3 HP</> each turn. Non-lethal.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            2
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "upkeep_damage",
+                3
+            ],
+            [
+                "upkeep_sound",
+                "Poison"
+            ],
+            [
+                "upkeep_animation",
+                "MapPoison"
+            ]
+        ]
+    }
+]

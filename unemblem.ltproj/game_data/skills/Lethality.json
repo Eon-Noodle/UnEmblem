@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Lethality",
+        "name": "Lethality",
+        "desc": "Has <orange><sin y_amplitude=1>{e:unit.get_stat('SKL')//4}%</></> chance to instantly kill enemies. Doesn't work on boss.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            10,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "attack_proc",
+                "Lethality_child"
+            ],
+            [
+                "proc_rate",
+                "LETHALITY"
+            ],
+            [
+                "combat_condition",
+                "'Boss' not in target.tags"
+            ]
+        ]
+    }
+]

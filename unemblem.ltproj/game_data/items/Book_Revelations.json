@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Book_Revelations",
+        "name": "Book of Revelations",
+        "desc": "The first <violet>Artifact</> found. Also known as Apocalypse.",
+        "icon_nid": "Artifact",
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "status_on_hold",
+                "Artifact"
+            ]
+        ]
+    }
+]

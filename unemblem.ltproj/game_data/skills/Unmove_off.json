@@ -1,0 +1,26 @@
+[
+    {
+        "nid": "Unmove_off",
+        "name": "Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unmove_1"
+            ],
+            [
+                "condition",
+                "unit.get_skill(\"Unmove_child\")"
+            ]
+        ]
+    }
+]

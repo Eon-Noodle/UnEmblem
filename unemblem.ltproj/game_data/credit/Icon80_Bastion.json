@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Icon80_Bastion",
+        "sub_nid": "General_Shield",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Pushwall and SamirPlayz",
+                "Bastion"
+            ]
+        ]
+    }
+]

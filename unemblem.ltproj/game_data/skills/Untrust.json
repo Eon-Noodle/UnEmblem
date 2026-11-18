@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Untrust",
+        "name": "Untrust",
+        "desc": "Protect unit and adjacent allies from direct damages.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            4,
+            5
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "aura",
+                "Untrust_child"
+            ],
+            [
+                "aura_range",
+                1
+            ],
+            [
+                "aura_target",
+                "ally"
+            ]
+        ]
+    }
+]

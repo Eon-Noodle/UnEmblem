@@ -1,0 +1,802 @@
+[
+    {
+        "nid": "Untruth",
+        "name": "Prologue I: The Truth is",
+        "tilemap": "Tenraisai",
+        "bg_tilemap": null,
+        "party": "Roundtable",
+        "music": {
+            "player_phase": "Start of Action",
+            "enemy_phase": "Start of Action",
+            "enemy3_phase": "Start of Action"
+        },
+        "objective": {
+            "simple": "Defeat all Enemies",
+            "win": "Defeat all Enemies",
+            "loss": "Any player unit dies"
+        },
+        "roam": false,
+        "roam_unit": null,
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "Andy",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Fuuko",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Shen",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    10,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Mui",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    12,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Luo",
+                "team": "player2",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "101",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Defend",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    15,
+                    9
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "102",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Defend",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    7,
+                    6
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "103",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Defend",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    18,
+                    5
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "104",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    11,
+                    15
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "105",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    7,
+                    18
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "106",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    16,
+                    17
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "107",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Guard",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    6,
+                    11
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "108",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "109",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "110",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "111",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "112",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "124",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "125",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "126",
+                "variant": null,
+                "level": 2,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Gauntlet",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "Attack",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "113",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    21,
+                    3
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "114",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    21,
+                    9
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "115",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    22,
+                    11
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "116",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    21,
+                    17
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "117",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    0,
+                    17
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "118",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    22,
+                    16
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "119",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    1,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "120",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    1,
+                    11
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "121",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    0,
+                    8
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "122",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Audience",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "other",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    1,
+                    4
+                ],
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "123",
+                "variant": null,
+                "level": 1,
+                "klass": "Martial_Artist",
+                "faction": "Contender",
+                "starting_items": [
+                    [
+                        "Iron_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "enemy",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": [
+                    11,
+                    12
+                ],
+                "starting_traveler": null,
+                "generic": true
+            }
+        ],
+        "regions": [],
+        "unit_groups": [
+            {
+                "nid": "ShenMui",
+                "units": [
+                    "Shen",
+                    "Mui"
+                ],
+                "positions": {
+                    "Shen": [
+                        10,
+                        6
+                    ],
+                    "Mui": [
+                        12,
+                        6
+                    ]
+                }
+            },
+            {
+                "nid": "AndyFuuko",
+                "units": [
+                    "Andy",
+                    "Fuuko"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        5
+                    ],
+                    "Fuuko": [
+                        11,
+                        7
+                    ]
+                }
+            },
+            {
+                "nid": "Reinforcement",
+                "units": [
+                    "108",
+                    "109",
+                    "110",
+                    "111",
+                    "112",
+                    "124",
+                    "125",
+                    "126"
+                ],
+                "positions": {
+                    "108": [
+                        11,
+                        19
+                    ],
+                    "109": [
+                        10,
+                        19
+                    ],
+                    "110": [
+                        13,
+                        18
+                    ],
+                    "111": [
+                        10,
+                        17
+                    ],
+                    "112": [
+                        6,
+                        14
+                    ],
+                    "124": [
+                        15,
+                        15
+                    ],
+                    "125": [
+                        5,
+                        8
+                    ],
+                    "126": [
+                        17,
+                        10
+                    ]
+                }
+            },
+            {
+                "nid": "Luo",
+                "units": [
+                    "Luo"
+                ],
+                "positions": {
+                    "Luo": [
+                        11,
+                        4
+                    ]
+                }
+            },
+            {
+                "nid": "Union",
+                "units": [
+                    "Andy",
+                    "Fuuko",
+                    "Shen",
+                    "Mui"
+                ],
+                "positions": {
+                    "Andy": [
+                        10,
+                        8
+                    ],
+                    "Fuuko": [
+                        11,
+                        8
+                    ],
+                    "Shen": [
+                        11,
+                        7
+                    ],
+                    "Mui": [
+                        12,
+                        7
+                    ]
+                }
+            },
+            {
+                "nid": "Union_Retreat",
+                "units": [
+                    "Andy",
+                    "Fuuko",
+                    "Shen",
+                    "Mui"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        14
+                    ],
+                    "Fuuko": [
+                        10,
+                        15
+                    ],
+                    "Shen": [
+                        12,
+                        14
+                    ],
+                    "Mui": [
+                        11,
+                        15
+                    ]
+                }
+            },
+            {
+                "nid": "AndyShen",
+                "units": [
+                    "Andy",
+                    "Shen"
+                ],
+                "positions": {
+                    "Andy": [
+                        11,
+                        7
+                    ],
+                    "Shen": [
+                        10,
+                        7
+                    ]
+                }
+            }
+        ],
+        "ai_groups": []
+    }
+]

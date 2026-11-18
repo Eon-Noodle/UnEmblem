@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Region Setup",
+        "trigger": "level_start",
+        "level_nid": "Overworld",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "add;MapEntity;{v:pos_map};immediate",
+            "",
+            "for;looper;game.quest_manager.get_location()",
+            "    region_condition;{looper};True",
+            "endf",
+            "",
+            "lvar;un_id;0",
+            "for;looper;game.quest_manager.get_pin()",
+            "    region_condition;{looper};True",
+            "    make_generic;map_{v:un_id};Pin;1;enemy",
+            "    add;map_{v:un_id};{eval:game.get_region('{looper}').position};immediate;stack",
+            "    linc;un_id;1",
+            "endf"
+        ],
+        "nid": "Overworld Region Setup"
+    }
+]

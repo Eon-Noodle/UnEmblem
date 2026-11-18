@@ -1,0 +1,54 @@
+[
+    {
+        "nid": "Unchange",
+        "name": "Unchange",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "spell",
+                null
+            ],
+            [
+                "target_tile",
+                null
+            ],
+            [
+                "map_hit_sub_blend",
+                [
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "no_map_hp_display",
+                null
+            ],
+            [
+                "event_on_hit",
+                "Global Unchange Barrier Spawn"
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "empty_tile_target_restrict",
+                null
+            ],
+            [
+                "traversable_tile_target_restrict",
+                null
+            ]
+        ]
+    }
+]

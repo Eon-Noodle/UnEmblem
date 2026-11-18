@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Death Fuuko",
+        "trigger": "unit_death",
+        "level_nid": null,
+        "condition": "unit.nid == 'Fuuko'",
+        "commands": [],
+        "only_once": false,
+        "priority": 50,
+        "_source": [
+            "m;{e:DB.constants.get('music_game_over')};800",
+            "u;Fuuko;Right",
+            "bop;Fuuko;no_block",
+            "s;Fuuko;No... It's not...|{c:e;Fuuko;CloseEyes}I'm sorry, Andy...|Everyone...forgive me...",
+            "lose_game"
+        ],
+        "nid": "Global Death Fuuko"
+    }
+]

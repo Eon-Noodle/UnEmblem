@@ -1,0 +1,26 @@
+[
+    {
+        "nid": "Unchaste_on",
+        "name": "Unchaste",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "ability",
+                "Unchaste_0"
+            ],
+            [
+                "condition",
+                "not unit.get_skill(\"Unchaste_child\")"
+            ]
+        ]
+    }
+]

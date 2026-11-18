@@ -86,10 +86,6 @@ class SettingsMenuState(State):
         self.state = 'top_menu'
 
         ignores = ['animation']
-        if game.game_vars.get('silent'):
-            ignores.append('music_volume')
-        if game.game_vars.get('no_objective'):
-            ignores.append('show_objective')
 
         config_options = [(c[0], c[1]) for c in config if c[0] not in ignores]
         self.config_menu = settings_menu.Config(None, config_options, 'menu_bg_base', config_icons)
@@ -316,7 +312,7 @@ class SettingsMenuState(State):
         game.state.change('transition_pop')
 
     def update_sound(self):
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'] if not game.game_vars.get('silent') else 0)
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
         get_sound_thread().set_sfx_volume(cf.SETTINGS['sound_volume'])
 
     def update_rumble(self):

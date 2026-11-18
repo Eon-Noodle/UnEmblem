@@ -1,0 +1,20 @@
+[
+    {
+        "nid": "Music",
+        "sub_nid": "Music",
+        "credit_type": "List",
+        "category": "Musics",
+        "custom_header": "Music",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Shiyui",
+                "Love Call"
+            ],
+            [
+                "Kenichiro Suehiro",
+                "Undead Unluck OST"
+            ]
+        ]
+    }
+]

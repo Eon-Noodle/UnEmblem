@@ -1,0 +1,1224 @@
+[
+    {
+        "nid": "Sandbox",
+        "size": [
+            15,
+            10
+        ],
+        "autotile_fps": 29,
+        "layers": [
+            {
+                "nid": "base",
+                "visible": true,
+                "foreground": false,
+                "terrain_grid": {
+                    "0,0": "Floor",
+                    "1,0": "Floor",
+                    "2,1": "Floor",
+                    "3,2": "Floor",
+                    "4,2": "Floor",
+                    "4,3": "Floor",
+                    "5,3": "Floor",
+                    "5,4": "Floor",
+                    "6,4": "Floor",
+                    "7,5": "Floor",
+                    "8,5": "Floor",
+                    "9,6": "Floor",
+                    "10,6": "Floor",
+                    "10,7": "Floor",
+                    "11,7": "Floor",
+                    "11,8": "Floor",
+                    "12,8": "Floor",
+                    "12,9": "Floor",
+                    "13,9": "Floor",
+                    "14,9": "Floor",
+                    "2,0": "Floor",
+                    "10,1": "Floor",
+                    "3,0": "Floor",
+                    "3,1": "Floor",
+                    "4,1": "Floor",
+                    "5,2": "Floor",
+                    "6,2": "Floor",
+                    "7,2": "Floor",
+                    "7,1": "Floor",
+                    "8,1": "Floor",
+                    "9,1": "Floor",
+                    "6,1": "Floor",
+                    "6,0": "Floor",
+                    "5,0": "Floor",
+                    "4,0": "Floor",
+                    "7,0": "Floor",
+                    "8,0": "Floor",
+                    "9,0": "Floor",
+                    "11,1": "Floor",
+                    "12,1": "Floor",
+                    "13,1": "Floor",
+                    "14,1": "Floor",
+                    "14,0": "Floor",
+                    "13,0": "Floor",
+                    "12,0": "Floor",
+                    "11,0": "Floor",
+                    "10,0": "Floor",
+                    "5,1": "Floor",
+                    "1,1": "Floor",
+                    "1,2": "Floor",
+                    "0,2": "Floor",
+                    "0,3": "Floor",
+                    "0,4": "Floor",
+                    "0,5": "Floor",
+                    "0,6": "Floor",
+                    "0,7": "Floor",
+                    "0,8": "Floor",
+                    "0,9": "Floor",
+                    "1,5": "Floor",
+                    "1,4": "Floor",
+                    "1,3": "Floor",
+                    "0,1": "Floor",
+                    "1,6": "Floor",
+                    "1,7": "Floor",
+                    "1,8": "Floor",
+                    "1,9": "Floor",
+                    "2,7": "Floor",
+                    "2,6": "Floor",
+                    "2,5": "Floor",
+                    "2,4": "Floor",
+                    "2,3": "Floor",
+                    "2,2": "Floor",
+                    "3,7": "Floor",
+                    "3,8": "Floor",
+                    "3,9": "Floor",
+                    "3,6": "Floor",
+                    "3,5": "Floor",
+                    "2,8": "Floor",
+                    "2,9": "Floor",
+                    "3,3": "Floor",
+                    "3,4": "Floor",
+                    "4,7": "Floor",
+                    "4,8": "Floor",
+                    "4,9": "Floor",
+                    "4,6": "Floor",
+                    "4,5": "Floor",
+                    "4,4": "Floor",
+                    "5,6": "Floor",
+                    "5,7": "Floor",
+                    "5,8": "Floor",
+                    "5,9": "Floor",
+                    "5,5": "Floor",
+                    "6,3": "Floor",
+                    "6,5": "Floor",
+                    "6,6": "Floor",
+                    "6,7": "Floor",
+                    "6,8": "Floor",
+                    "6,9": "Floor",
+                    "7,8": "Floor",
+                    "7,7": "Floor",
+                    "7,6": "Floor",
+                    "8,6": "Floor",
+                    "8,4": "Floor",
+                    "8,3": "Floor",
+                    "8,2": "Floor",
+                    "7,3": "Floor",
+                    "7,4": "Floor",
+                    "7,9": "Floor",
+                    "8,9": "Floor",
+                    "8,8": "Floor",
+                    "8,7": "Floor",
+                    "9,7": "Floor",
+                    "9,5": "Floor",
+                    "9,4": "Floor",
+                    "9,3": "Floor",
+                    "9,2": "Floor",
+                    "9,8": "Floor",
+                    "9,9": "Floor",
+                    "10,9": "Floor",
+                    "10,8": "Floor",
+                    "11,6": "Floor",
+                    "11,5": "Floor",
+                    "11,4": "Floor",
+                    "12,4": "Floor",
+                    "12,3": "Floor",
+                    "11,3": "Floor",
+                    "11,2": "Floor",
+                    "10,2": "Floor",
+                    "10,3": "Floor",
+                    "10,4": "Floor",
+                    "10,5": "Floor",
+                    "11,9": "Floor",
+                    "12,5": "Floor",
+                    "13,3": "Floor",
+                    "13,2": "Floor",
+                    "12,2": "Floor",
+                    "12,6": "Floor",
+                    "13,6": "Floor",
+                    "13,7": "Floor",
+                    "13,8": "Floor",
+                    "14,7": "Floor",
+                    "14,6": "Floor",
+                    "14,5": "Floor",
+                    "14,2": "Floor",
+                    "14,3": "Floor",
+                    "14,4": "Floor",
+                    "13,5": "Floor",
+                    "13,4": "Floor",
+                    "12,7": "Floor",
+                    "14,8": "Floor"
+                },
+                "sprite_grid": {
+                    "0,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,0": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "0,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "1,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "2,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "3,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "4,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "5,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "6,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "7,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "8,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "9,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "10,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "11,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,8": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "12,9": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,3": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,2": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "13,1": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,4": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,5": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,6": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "14,7": [
+                        "RoundtableTileset",
+                        [
+                            7,
+                            10
+                        ]
+                    ]
+                }
+            }
+        ],
+        "tilesets": [
+            "RoundtableTileset"
+        ]
+    }
+]

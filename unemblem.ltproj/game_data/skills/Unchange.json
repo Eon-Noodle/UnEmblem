@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Unchange",
+        "name": "Unchange",
+        "desc": "Place barriers to block enemies, or keep them for <green>-1 Dmg taken</> each.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            7,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "ability",
+                "Unchange"
+            ],
+            [
+                "dynamic_resist",
+                "skill.data.get('charge')"
+            ],
+            [
+                "drain_charge_expression",
+                "1 + (unit.get_internal_level() // 10)"
+            ]
+        ]
+    }
+]

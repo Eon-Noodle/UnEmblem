@@ -1,0 +1,144 @@
+[
+    {
+        "nid": "God",
+        "name": "God",
+        "desc": "The Almighty One. He who validates this world.",
+        "tier": 1,
+        "movement_group": "Flier",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 1,
+        "bases": {
+            "HP": 120,
+            "STR": 17,
+            "MAG": 15,
+            "SKL": 25,
+            "SPD": 15,
+            "LCK": 24,
+            "DEF": 20,
+            "RES": 30,
+            "MOV": 8,
+            "CON": 999,
+            "CP": 1
+        },
+        "growths": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 128,
+            "STR": 30,
+            "MAG": 20,
+            "SKL": 28,
+            "SPD": 25,
+            "LCK": 30,
+            "DEF": 27,
+            "RES": 30,
+            "MOV": 15,
+            "CON": 999,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Sun",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

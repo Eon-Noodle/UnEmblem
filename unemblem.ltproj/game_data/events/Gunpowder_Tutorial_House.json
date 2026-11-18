@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Tutorial House",
+        "trigger": "unit_select",
+        "level_nid": "Gunpowder",
+        "condition": "v('choice_tutorial') and game.turncount > 2",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "s;;Hey! Over there!{c:wait;200} That door is open!;;;Tutorial",
+            "flicker_cursor;13,4",
+            "s;;<blue>Houses</> like that always give a free item to visitors.{c:wait;200} You should send a unit to <yellow>visit</> it.;;;Tutorial"
+        ],
+        "nid": "Gunpowder Tutorial House"
+    }
+]

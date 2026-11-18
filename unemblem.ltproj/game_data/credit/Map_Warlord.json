@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Warlord",
+        "sub_nid": "Sergeant",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Spud",
+                null
+            ]
+        ]
+    }
+]

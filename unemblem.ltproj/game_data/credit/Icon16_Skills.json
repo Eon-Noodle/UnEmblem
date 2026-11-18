@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Icon16_Skills",
+        "sub_nid": "Skills_specials",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "ZessDynamite, rainlash, LordGlenn, suneohair, and others",
+                "Skill Icons"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Unchange Barrier Spawn",
+        "trigger": null,
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "add_region;{eval:'Unchange_Barrier|' + str(target_pos)};{target_pos};1,1;terrain;Unchange_Barrier;3",
+            "map_anim;BlueDot;{target_pos};permanent"
+        ],
+        "nid": "Global Unchange Barrier Spawn"
+    }
+]

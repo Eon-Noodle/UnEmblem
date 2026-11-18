@@ -1,0 +1,76 @@
+[
+    {
+        "nid": "Narrator",
+        "name": "Tutorial",
+        "desc": "For normal units, their descriptions are written here. Not for me! Press <blue>{eval:engine.get_key_name(cf.SETTINGS['key_BACK']).upper()}</> to go back.",
+        "variant": "_Tutorial",
+        "level": 1,
+        "klass": "Sludge",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 52,
+            "STR": 23,
+            "SPD": 15,
+            "SKL": 21,
+            "DEF": 24,
+            "LCK": 22,
+            "RES": 9,
+            "CON": 25,
+            "MOV": 6,
+            "MAG": 12,
+            "CP": 1
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "starting_items": [],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Magic": [
+                false,
+                151,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "",
+        "affinity": "None",
+        "fields": []
+    }
+]

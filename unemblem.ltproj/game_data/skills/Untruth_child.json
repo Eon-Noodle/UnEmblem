@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Untruth_child",
+        "name": "Untruth",
+        "desc": "",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            14,
+            1
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "item_override",
+                "Untruth"
+            ]
+        ]
+    }
+]

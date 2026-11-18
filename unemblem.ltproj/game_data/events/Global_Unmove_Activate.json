@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Unmove Activate",
+        "trigger": null,
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "level_var;unmove_parameters;{e:[unit.nid, unit.nid, utils.tuple_sub(target_pos, position)]}",
+            "trigger_script;Global Unmove Draw"
+        ],
+        "nid": "Global Unmove Activate"
+    }
+]

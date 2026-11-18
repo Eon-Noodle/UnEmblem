@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Unbreakable Weapon",
+        "trigger": "level_end",
+        "level_nid": null,
+        "condition": "game.level_nid != 'Union'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "for;un_unit;[_unit.nid for _unit in game.get_all_units() if _unit.get_skill(\"Unbreakable\")]",
+            "    level_var;un_item;[_item.uid for _item in u('{un_unit}').items if item_funcs.is_weapon_recursive(u('{un_unit}'), _item) and _item.components.get('uses')]    ",
+            "    if;{v:un_item}   ",
+            "        remove_item_component;{un_unit};{eval:{v:un_item}[-1]};uses",
+            "        alert;<blue>{eval:game.get_item({v:un_item}[-1]).name}</> upgraded successfully!;{eval:game.get_item({v:un_item}[-1]).nid}",
+            "    end",
+            "    if;u(\"{un_unit}\").klass == \"Blacksmith\" and u(\"{un_unit}\").level < 20",
+            "        autolevel_to;{un_unit};{eval: u(\"{un_unit}\").level + 1}",
+            "        alert;<blue>{un_unit}</> leveled up!",
+            "    end",
+            "endf"
+        ],
+        "nid": "Global Unbreakable Weapon"
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "nid": "Rebellion_child",
+        "name": "Rebellion",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "lifelink",
+                -0.5
+            ],
+            [
+                "inc_damage_on_hit",
+                {
+                    "amount": 1,
+                    "class": [
+                        "God"
+                    ]
+                }
+            ],
+            [
+                "damage",
+                10
+            ]
+        ]
+    }
+]

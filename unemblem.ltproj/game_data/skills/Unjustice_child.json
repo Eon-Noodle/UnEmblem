@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Unjustice_child",
+        "name": "Unjustice",
+        "desc": "",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            2
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "devil_axe_gba",
+                "Affect attacks done by enemy"
+            ]
+        ]
+    }
+]

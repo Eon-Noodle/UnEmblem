@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Gold_1",
+        "name": "2,500 G",
+        "desc": "A bag of gold coins worth 2,500 G.",
+        "icon_nid": "Consumable_2",
+        "icon_index": [
+            0,
+            5
+        ],
+        "components": [
+            [
+                "value",
+                5000
+            ]
+        ]
+    }
+]

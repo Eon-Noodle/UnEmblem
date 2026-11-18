@@ -1,0 +1,147 @@
+[
+    {
+        "nid": "Militia",
+        "name": "Militia",
+        "desc": "Maskmen with reliable aims. Can attack from a distance.",
+        "tier": 1,
+        "movement_group": "Infantry",
+        "promotes_from": null,
+        "turns_into": [
+            "Vigilante",
+            "Sharpshooter"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 4,
+            "SKL": 3,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 3,
+            "MOV": 5,
+            "CON": 7,
+            "RES": 0,
+            "MAG": 1,
+            "CP": 1
+        },
+        "growths": {
+            "HP": 70,
+            "STR": 35,
+            "SKL": 40,
+            "SPD": 32,
+            "LCK": 35,
+            "DEF": 15,
+            "RES": 20,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 35,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "MOV": 15,
+            "CON": 20,
+            "MAG": 20,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                true,
+                31,
+                181
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Deserter",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Soldier_Flintlock",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

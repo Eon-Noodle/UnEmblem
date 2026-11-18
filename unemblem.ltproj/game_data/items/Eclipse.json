@@ -1,0 +1,38 @@
+[
+    {
+        "nid": "Eclipse",
+        "name": "Eclipse",
+        "desc": "Instant kill. Can only use when unit cannot move.",
+        "icon_nid": "Neutral",
+        "icon_index": [
+            0,
+            2
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                7
+            ],
+            [
+                "damage",
+                99
+            ],
+            [
+                "eval_available",
+                "unit.get_stat('MOV') <= 0"
+            ]
+        ]
+    }
+]

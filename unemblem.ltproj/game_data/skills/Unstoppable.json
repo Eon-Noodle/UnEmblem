@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Unstoppable",
+        "name": "Unstoppable",
+        "desc": "Move extra spaces at the cost of half current HP.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            9,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    }
+]

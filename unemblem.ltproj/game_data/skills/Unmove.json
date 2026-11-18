@@ -1,0 +1,25 @@
+[
+    {
+        "nid": "Unmove",
+        "name": "Unmove",
+        "desc": "<pink>Toggleable.</> Freeze unit and others in line of sight.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            4,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unmove_on",
+                    "Unmove_off"
+                ]
+            ]
+        ]
+    }
+]

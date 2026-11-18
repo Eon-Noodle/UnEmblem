@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Icon16_Basho_Glove",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            6
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Basho Glove"
+            ]
+        ]
+    }
+]

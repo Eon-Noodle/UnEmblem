@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Artifact",
+        "name": "Artifact",
+        "desc": "Each <violet>Artifacts</> in inventory <red>halves the unit's Composure</>.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            3,
+            13
+        ],
+        "components": [
+            [
+                "stack",
+                2
+            ]
+        ]
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Tutorial Weapon Triangle",
+        "trigger": "unit_select",
+        "level_nid": "Untruth",
+        "condition": "unit.nid == 'Shen' and v('cp_depleted_count') == 2 and unit.get_mana() > 1",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "uu;Fuuko;Left;Mui;Right",
+            "s;Fuuko;Mui, is it okay for Shen to lead the charge like that?|He only has an Iron Spear on him.",
+            "e;Mui;Smile",
+            "s;Mui;Miss Fuuko, are you worried about how enemies are all Gauntlet-wielders?|It's fine, because Master Shen's <violet>negation</> allows him to reverse the Weapon Triangle.",
+            "e;Fuuko;Smile",
+            "bop;Fuuko;no_block",
+            "s;Fuuko;Ah, so that's his interpretation of Untruth this loop.",
+            "rrr",
+            "",
+            "if;v('choice_tutorial')",
+            "    s;;I should teach you about Weapon Triangle first: Physical weapons possess a unique hierachy.|<red>Swords</><icon>Swords</> best <green>Gauntlets</><icon>Brutes</>.|<green>Gauntlets</><icon>Brutes</> best <blue>Spears</><icon>Spears</>.|<blue>Spears</><icon>Spears</> best <red>Swords</><icon>Swords</>.|This is called the Weapon Triangle.|Using the correct weapons against the enemy will grant damage and accuracy boost.|Using the wrong weapons, however, then your damage and accuracy will suffer.|<orange>Guns</><icon>Firearms</> are not affected by the Weapon Triangle.;;;Tutorial",
+            "end"
+        ],
+        "nid": "Untruth Tutorial Weapon Triangle"
+    }
+]

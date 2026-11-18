@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Chapter Clean up",
+        "trigger": "level_end",
+        "level_nid": null,
+        "condition": "'TechnicalLevel' not in DB.levels.get(game.level_nid).tags",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "set_next_chapter;Overworld"
+        ],
+        "nid": "Global Chapter Clean up"
+    }
+]

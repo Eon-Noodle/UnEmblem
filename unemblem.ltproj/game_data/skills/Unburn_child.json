@@ -1,0 +1,20 @@
+[
+    {
+        "nid": "Unburn_child",
+        "name": "Unburn",
+        "desc": "Immune from <red>Burnt</> status and fiery tiles.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            0
+        ],
+        "components": [
+            [
+                "immunity",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    }
+]

@@ -223,9 +223,7 @@ class UIView():
         self.update()
 
         # Objective info handling
-        if game.state.current() in self.legal_states and \
-                cf.SETTINGS['show_objective'] and \
-                not game.game_vars.get('no_objective'):
+        if game.state.current() in self.legal_states and cf.SETTINGS['show_objective']:
             if not self.obj_info_disp:
                 self.obj_info_disp = self.create_obj_info()
         elif self.obj_info_disp:

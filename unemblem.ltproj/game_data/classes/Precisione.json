@@ -1,0 +1,146 @@
+[
+    {
+        "nid": "Precisione",
+        "name": "Precisione",
+        "desc": "Advanced craftmen known for their efficient combating.",
+        "tier": 2,
+        "movement_group": "Flier",
+        "promotes_from": "Tinkerer",
+        "turns_into": [],
+        "tags": [
+            "Flying"
+        ],
+        "max_level": 20,
+        "bases": {
+            "HP": 20,
+            "STR": 0,
+            "SKL": 4,
+            "SPD": 4,
+            "LCK": 0,
+            "DEF": 5,
+            "RES": 5,
+            "MAG": 5,
+            "MOV": 7,
+            "CON": 7,
+            "CP": 5
+        },
+        "growths": {
+            "HP": 45,
+            "STR": 0,
+            "MAG": 45,
+            "SKL": 30,
+            "SPD": 25,
+            "LCK": 15,
+            "DEF": 10,
+            "RES": 40,
+            "MOV": 0,
+            "CON": 0,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 0,
+            "MAG": 1,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "MAG": 28,
+            "SKL": 30,
+            "SPD": 26,
+            "LCK": 30,
+            "DEF": 21,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                true,
+                40,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Angel",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

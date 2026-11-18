@@ -1,0 +1,26 @@
+[
+    {
+        "nid": "Flying_Slash",
+        "name": "Flying Slash",
+        "desc": "Range +1 when equipping swords",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            8,
+            0
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "condition",
+                "unit.get_weapon() and item_system.weapon_type(unit, unit.get_weapon()) == 'Sword'"
+            ],
+            [
+                "eval_max_range",
+                "1"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "nid": "Unchaste",
+        "name": "Unchaste",
+        "desc": "<pink>Toggleable.</> Attract all enemies attention.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            14
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unchaste_on",
+                    "Unchaste_off"
+                ]
+            ]
+        ]
+    }
+]

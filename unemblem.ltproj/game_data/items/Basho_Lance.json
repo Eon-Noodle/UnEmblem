@@ -1,0 +1,77 @@
+[
+    {
+        "nid": "Basho_Lance",
+        "name": "Basho Lance",
+        "desc": "Push target on hit, if possible.",
+        "icon_nid": "Lance",
+        "icon_index": [
+            0,
+            17
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "value",
+                2000
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "damage",
+                14
+            ],
+            [
+                "hit",
+                80
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "weight",
+                9
+            ],
+            [
+                "uses",
+                20
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Spear"
+            ],
+            [
+                "weapon_rank",
+                "A"
+            ],
+            [
+                "shove",
+                1
+            ]
+        ]
+    }
+]

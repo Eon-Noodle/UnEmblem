@@ -1,0 +1,70 @@
+[
+    {
+        "nid": "Perish_Lullaby",
+        "name": "Perish Lullaby",
+        "desc": "Only usuable before moving.",
+        "icon_nid": "Enemies_Only",
+        "icon_index": [
+            0,
+            1
+        ],
+        "components": [
+            [
+                "siege_weapon",
+                null
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                3
+            ],
+            [
+                "max_range",
+                10
+            ],
+            [
+                "damage",
+                13
+            ],
+            [
+                "hit",
+                70
+            ],
+            [
+                "weapon_type",
+                "Arcane"
+            ],
+            [
+                "magic",
+                null
+            ],
+            [
+                "weight",
+                20
+            ],
+            [
+                "locked",
+                null
+            ],
+            [
+                "wexp",
+                0
+            ],
+            [
+                "crit",
+                5
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "no_attack_after_move",
+                null
+            ]
+        ]
+    }
+]

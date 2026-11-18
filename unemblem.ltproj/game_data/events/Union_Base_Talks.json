@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Base Talks",
+        "trigger": "Talk",
+        "level_nid": "Union",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "if;region.nid == 'Talk_Andy'",
+            "    u;Andy;Right",
+            "    e;Andy;Smile",
+            "    s;Andy;I'm ready when you are!",
+            "    r;Andy",
+            "elif;region.nid == 'Talk_Nico'",
+            "    shop;{unit};Laser_Core,Medical_Pod;lab",
+            "elif;region.nid == 'Talk_Haruka'",
+            "    shop;{unit};Iron_Sword,Iron_Spear,Iron_Gauntlet,Iron_Musket;forge",
+            "end"
+        ],
+        "nid": "Union Base Talks"
+    }
+]

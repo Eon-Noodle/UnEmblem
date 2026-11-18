@@ -1,4 +1,5 @@
 <!-- AUTO-GENERATED-IMAGE-GALLERY -->
+![battle_info.png](battle_info.png)
 ![chapter_select_blue.png](chapter_select_blue.png)
 ![chapter_select_blue_flicker.png](chapter_select_blue_flicker.png)
 ![chapter_select_blue_highlight.png](chapter_select_blue_highlight.png)
@@ -29,4 +30,5 @@
 ![title_menu_dark_highlight.png](title_menu_dark_highlight.png)
 ![turnbanner_player2.png](turnbanner_player2.png)
 ![unit_info_bg.png](unit_info_bg.png)
+![unit_info_bg_God.png](unit_info_bg_God.png)
 ![unit_info_bg_player.png](unit_info_bg_player.png)

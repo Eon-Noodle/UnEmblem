@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Seafarer",
+        "name": "Seafarer",
+        "desc": "Can walk on water surface.",
+        "icon_nid": "Movement",
+        "icon_index": [
+            0,
+            4
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "movement_type",
+                "Mariner"
+            ]
+        ]
+    }
+]

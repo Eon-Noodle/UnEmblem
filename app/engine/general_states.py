@@ -73,7 +73,7 @@ class LoadingState(State):
         # unload used assets
         # unload music
         get_sound_thread().flush()
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'] if not game.game_vars.get('silent') else 0)
+        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
         get_sound_thread().set_sfx_volume(cf.SETTINGS['sound_volume'])
         self.level_nid = game.level_nid
 

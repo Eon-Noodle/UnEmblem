@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Clean Up",
+        "trigger": "level_end",
+        "level_nid": "Gunpowder",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 15,
+        "_source": [
+            "#pyev1",
+            "",
+            "for un_item in game.get_convoy_inventory():",
+            "    if un_item.nid.endswith('_Gunpowder'):",
+            "        $remove_item \"convoy\" un_item.uid, no_banner",
+            "        $give_item \"convoy\" un_item.nid[:-10], no_banner",
+            "        $set_item_uses \"convoy\" un_item.nid[:-10] un_item.data['uses']",
+            "",
+            "for un_unit in game.get_player_units():",
+            "    for un_item in un_unit.items:",
+            "        if un_item.nid.endswith('_Gunpowder'):",
+            "            $remove_item un_unit.nid un_item.uid, no_banner",
+            "            $give_item un_unit.nid un_item.nid[:-10], no_banner",
+            "            $set_item_uses un_unit.nid un_item.nid[:-10] un_item.data['uses']"
+        ],
+        "nid": "Gunpowder Clean Up"
+    }
+]

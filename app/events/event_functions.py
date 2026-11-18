@@ -4180,14 +4180,6 @@ def change_team_palette(self: Event, team, map_sprite_palette = None, combat_var
 
     action.do(action.ChangeTeamPalette(team, (map_sprite_palette, combat_variant_palette, combat_color)))
 
-def mute_music(self: Event, flags=None):
-    action.do(action.MuteMusic())
-    action.do(action.SetGameVar('silent', True))
-
-def unmute_music(self: Event, flags=None):
-    action.do(action.SetGameVar('silent', False))
-    action.do(action.UnmuteMusic())
-
 def dump_vars(self: Event, flags:Optional[set[str]]=None):
     def is_json_serializable(obj: Any) -> bool:
         """

@@ -1,0 +1,53 @@
+[
+    {
+        "nid": "Tea",
+        "name": "Tea",
+        "desc": "Restores 3 CP.",
+        "icon_nid": "Consumable_2",
+        "icon_index": [
+            0,
+            9
+        ],
+        "components": [
+            [
+                "usable",
+                null
+            ],
+            [
+                "value",
+                1500
+            ],
+            [
+                "target_ally",
+                null
+            ],
+            [
+                "uses",
+                3
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "mana_restore",
+                3
+            ],
+            [
+                "map_hit_add_blend",
+                [
+                    96,
+                    144,
+                    232
+                ]
+            ],
+            [
+                "map_cast_pose",
+                null
+            ]
+        ]
+    }
+]

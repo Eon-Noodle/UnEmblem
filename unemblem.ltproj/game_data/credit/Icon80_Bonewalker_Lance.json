@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Icon80_Bonewalker_Lance",
+        "sub_nid": "Bonewalker_Lance",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Epicer",
+                "Bonewalker Lance"
+            ]
+        ]
+    }
+]

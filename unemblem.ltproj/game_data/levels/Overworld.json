@@ -1,0 +1,342 @@
+[
+    {
+        "nid": "Overworld",
+        "name": "Overworld",
+        "tilemap": "Overworld",
+        "bg_tilemap": null,
+        "party": "MapEntity",
+        "music": {},
+        "objective": {
+            "simple": "",
+            "win": "",
+            "loss": ""
+        },
+        "roam": true,
+        "roam_unit": "MapEntity",
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "MapEntity",
+                "team": "enemy",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            }
+        ],
+        "regions": [
+            {
+                "nid": "Union",
+                "region_type": "event",
+                "position": [
+                    15,
+                    5
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "True",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Uk",
+                "region_type": "event",
+                "position": [
+                    16,
+                    5
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "France",
+                "region_type": "event",
+                "position": [
+                    16,
+                    6
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Romania",
+                "region_type": "event",
+                "position": [
+                    18,
+                    6
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Moscow",
+                "region_type": "event",
+                "position": [
+                    19,
+                    5
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Turkey",
+                "region_type": "event",
+                "position": [
+                    19,
+                    7
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Siberia",
+                "region_type": "event",
+                "position": [
+                    25,
+                    5
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Japan",
+                "region_type": "event",
+                "position": [
+                    29,
+                    7
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Taiwan",
+                "region_type": "event",
+                "position": [
+                    28,
+                    8
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "HongKong",
+                "region_type": "event",
+                "position": [
+                    27,
+                    9
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Buroja",
+                "region_type": "event",
+                "position": [
+                    26,
+                    10
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Aus",
+                "region_type": "event",
+                "position": [
+                    29,
+                    14
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Vancouver",
+                "region_type": "event",
+                "position": [
+                    4,
+                    5
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Vegas",
+                "region_type": "event",
+                "position": [
+                    4,
+                    7
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Nyc",
+                "region_type": "event",
+                "position": [
+                    9,
+                    6
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Rio",
+                "region_type": "event",
+                "position": [
+                    11,
+                    14
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "None",
+                "highlight": null,
+                "condition": "False",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            }
+        ],
+        "unit_groups": [],
+        "ai_groups": []
+    }
+]

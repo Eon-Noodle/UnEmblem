@@ -1,0 +1,49 @@
+[
+    {
+        "nid": "Burnt",
+        "name": "Burnt",
+        "desc": "Loses <red>3 HP</> each turn. Non-lethal. Can spread to adjacent allies.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            0,
+            3
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "upkeep_damage_in_sync",
+                3
+            ],
+            [
+                "spread",
+                [
+                    [
+                        0,
+                        -1
+                    ],
+                    [
+                        -1,
+                        0
+                    ],
+                    [
+                        0,
+                        1
+                    ],
+                    [
+                        1,
+                        0
+                    ]
+                ]
+            ],
+            [
+                "immunity_check",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    }
+]

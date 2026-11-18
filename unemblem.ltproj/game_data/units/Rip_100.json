@@ -1,0 +1,79 @@
+[
+    {
+        "nid": "Rip_100",
+        "name": "Rip",
+        "desc": "<violet>Negator of Repair</>. Playful and methodical.",
+        "variant": "_Rip",
+        "level": 20,
+        "klass": "Assassin",
+        "tags": [],
+        "bases": {
+            "MOV": 6,
+            "CON": 8,
+            "HP": 32,
+            "STR": 18,
+            "SKL": 24,
+            "SPD": 22,
+            "LCK": 9,
+            "DEF": 14,
+            "RES": 10,
+            "MAG": 0,
+            "CP": 20
+        },
+        "growths": {
+            "HP": 65,
+            "STR": 15,
+            "SKL": 40,
+            "SPD": 35,
+            "LCK": 20,
+            "DEF": 30,
+            "RES": 30,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0,
+            "CP": 50
+        },
+        "stat_cap_modifiers": {
+            "DEF": 0,
+            "MOV": 0,
+            "STR": 0,
+            "SKL": 0,
+            "HP": 0,
+            "MAG": 0,
+            "CON": 0,
+            "RES": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "CP": 0
+        },
+        "starting_items": [
+            [
+                "Basho_Sword",
+                false
+            ]
+        ],
+        "learned_skills": [
+            [
+                1,
+                "Unrepair"
+            ]
+        ],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Spear": [
+                false,
+                0,
+                null
+            ],
+            "Sword": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Rip",
+        "affinity": "None",
+        "fields": []
+    }
+]

@@ -1,0 +1,199 @@
+[
+    {
+        "nid": "Monk",
+        "name": "Monk",
+        "desc": "Protectors of the mystic arts. Powerful, but very slow.",
+        "tier": 1,
+        "movement_group": "Wanderer",
+        "promotes_from": null,
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 18,
+            "STR": 1,
+            "SKL": 1,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 3,
+            "RES": 5,
+            "CON": 6,
+            "MOV": 6,
+            "MAG": 1,
+            "CP": 1
+        },
+        "growths": {
+            "HP": 60,
+            "STR": 35,
+            "SKL": 32,
+            "SPD": 30,
+            "LCK": 20,
+            "DEF": 15,
+            "RES": 30,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 50,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "CON": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "RES": 20,
+            "CON": 20,
+            "MOV": 15,
+            "MAG": 20,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                false,
+                0,
+                251
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                181
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                true,
+                31,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                false,
+                0,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                true,
+                31,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Citizen",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Monk",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

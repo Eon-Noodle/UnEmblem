@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Undraw",
+        "name": "Undraw",
+        "desc": "After initiate combat, disable enemies from using their current weapon until next turn.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            9,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "give_status_after_attack",
+                "Undraw_child"
+            ]
+        ]
+    }
+]

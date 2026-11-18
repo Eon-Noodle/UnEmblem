@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Bargain",
+        "name": "Bargain",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "change_buy_price",
+                0.5
+            ]
+        ]
+    }
+]

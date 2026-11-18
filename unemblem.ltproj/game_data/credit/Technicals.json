@@ -1,0 +1,24 @@
+[
+    {
+        "nid": "Technicals",
+        "sub_nid": "Technicals",
+        "credit_type": "List",
+        "category": "Technicals",
+        "custom_header": "Technicals",
+        "icon_index": [],
+        "contrib": [
+            [
+                "beccarte",
+                "Enemy Pass Skill Hook"
+            ],
+            [
+                "PKLucky and muddak",
+                "README Template"
+            ],
+            [
+                "Luis",
+                "Dual Wield Mechanic"
+            ]
+        ]
+    }
+]

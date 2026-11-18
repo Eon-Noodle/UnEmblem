@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Unluck Speech",
+        "trigger": "combat_start",
+        "level_nid": "Gunpowder",
+        "condition": "item.nid == 'Meteor_Strike'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "u;Fuuko;Right;;CloseEyes",
+            "s;Fuuko;Here it comes.{c:wait;400}{c:e;Fuuko;OpenEyes}{c:bop;Fuuko;no_block} My Unluck!",
+            "rrr"
+        ],
+        "nid": "Gunpowder Unluck Speech"
+    }
+]

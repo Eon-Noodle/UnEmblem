@@ -1,0 +1,61 @@
+[
+    {
+        "nid": "Cruel_Sun",
+        "name": "Cruel Sun",
+        "desc": "Inflicts <red>Burnt</> to all enemies on the map.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            13,
+            10
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "aura",
+                "Burnt"
+            ],
+            [
+                "aura_range",
+                99
+            ],
+            [
+                "aura_target",
+                "enemy"
+            ],
+            [
+                "hide_aura",
+                null
+            ],
+            [
+                "stat_change",
+                [
+                    [
+                        "STR",
+                        10
+                    ],
+                    [
+                        "SKL",
+                        10
+                    ],
+                    [
+                        "DEF",
+                        20
+                    ],
+                    [
+                        "RES",
+                        10
+                    ]
+                ]
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    }
+]

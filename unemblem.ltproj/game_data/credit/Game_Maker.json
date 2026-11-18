@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Game_Maker",
+        "sub_nid": "Game Maker",
+        "credit_type": "Text",
+        "category": "Tools",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "Lex Talionis is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. It's created by <purple>rainlash</> and developed by <red>mag</> and <blue>KD</>."
+            ]
+        ]
+    }
+]

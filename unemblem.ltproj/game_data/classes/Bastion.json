@@ -1,0 +1,144 @@
+[
+    {
+        "nid": "Bastion",
+        "name": "Bastion",
+        "desc": "Lordly knights in heavy armours who boast tremendous strength and defense.",
+        "tier": 2,
+        "movement_group": "Armour",
+        "promotes_from": "Defender",
+        "turns_into": [],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 21,
+            "STR": 8,
+            "SKL": 4,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 13,
+            "RES": 5,
+            "MAG": 0,
+            "MOV": 5,
+            "CON": 15,
+            "CP": 5
+        },
+        "growths": {
+            "HP": 75,
+            "STR": 30,
+            "MAG": 5,
+            "SKL": 20,
+            "SPD": 10,
+            "LCK": 20,
+            "DEF": 23,
+            "RES": 25,
+            "MOV": 0,
+            "CON": 0,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "MOV": 0,
+            "RES": 0,
+            "LCK": 0,
+            "STR": 0,
+            "HP": 0,
+            "DEF": 0,
+            "CON": 0,
+            "SPD": 0,
+            "SKL": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 4,
+            "STR": 2,
+            "MAG": 0,
+            "SKL": 2,
+            "SPD": 3,
+            "LCK": 0,
+            "DEF": 2,
+            "RES": 3,
+            "MOV": -97,
+            "CON": -97,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 29,
+            "MAG": 20,
+            "SKL": 27,
+            "SPD": 24,
+            "LCK": 30,
+            "DEF": 30,
+            "RES": 25,
+            "MOV": 15,
+            "CON": 25,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                null
+            ],
+            "Spear": [
+                true,
+                40,
+                null
+            ],
+            "Brute": [
+                false,
+                0,
+                null
+            ],
+            "Firearm": [
+                false,
+                0,
+                null
+            ],
+            "Medipod": [
+                false,
+                0,
+                null
+            ],
+            "Techno": [
+                false,
+                0,
+                null
+            ],
+            "Arcane": [
+                false,
+                0,
+                null
+            ],
+            "Soul": [
+                false,
+                0,
+                null
+            ],
+            "Default": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ]
+        },
+        "icon_nid": "General_Shield",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "General",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

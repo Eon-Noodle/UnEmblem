@@ -1,0 +1,202 @@
+[
+    {
+        "nid": "Defender",
+        "name": "Defender",
+        "desc": "Heavily armored knights. Superior defense outweighs their poor movement and speed.",
+        "tier": 1,
+        "movement_group": "Armour",
+        "promotes_from": null,
+        "turns_into": [
+            "Warlord",
+            "Bastion"
+        ],
+        "tags": [],
+        "max_level": 20,
+        "bases": {
+            "HP": 17,
+            "STR": 7,
+            "SKL": 4,
+            "SPD": 2,
+            "LCK": 0,
+            "DEF": 9,
+            "CON": 13,
+            "MOV": 4,
+            "RES": 1,
+            "MAG": 0,
+            "CP": 1
+        },
+        "growths": {
+            "HP": 80,
+            "STR": 55,
+            "SKL": 30,
+            "SPD": 25,
+            "LCK": 25,
+            "DEF": 28,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 20,
+            "MAG": 10,
+            "CP": 0
+        },
+        "growth_bonus": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "promotion": {
+            "HP": 0,
+            "STR": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "CON": 0,
+            "MOV": 0,
+            "RES": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "max_stats": {
+            "HP": 60,
+            "STR": 20,
+            "SKL": 20,
+            "SPD": 20,
+            "LCK": 30,
+            "DEF": 20,
+            "CON": 20,
+            "MOV": 15,
+            "RES": 20,
+            "MAG": 20,
+            "CP": 30
+        },
+        "learned_skills": [],
+        "wexp_gain": {
+            "Sword": [
+                false,
+                0,
+                251
+            ],
+            "Spear": [
+                true,
+                31,
+                181
+            ],
+            "Brute": [
+                false,
+                0,
+                251
+            ],
+            "Firearm": [
+                false,
+                0,
+                251
+            ],
+            "Medipod": [
+                false,
+                0,
+                251
+            ],
+            "Techno": [
+                false,
+                0,
+                251
+            ],
+            "Arcane": [
+                false,
+                0,
+                251
+            ],
+            "Soul": [
+                false,
+                0,
+                251
+            ],
+            "Default": [
+                false,
+                0,
+                251
+            ],
+            "Anti_Magic": [
+                false,
+                0,
+                null
+            ],
+            "Anti_Melee": [
+                false,
+                0,
+                null
+            ],
+            "Lance": [
+                true,
+                31,
+                251
+            ],
+            "Staff": [
+                false,
+                0,
+                251
+            ],
+            "Gun": [
+                false,
+                0,
+                251
+            ],
+            "Magic": [
+                false,
+                0,
+                251
+            ],
+            "Nurse": [
+                false,
+                0,
+                251
+            ],
+            "Axe": [
+                false,
+                0,
+                251
+            ],
+            "Bow": [
+                false,
+                0,
+                251
+            ],
+            "Light": [
+                false,
+                0,
+                251
+            ],
+            "Anima": [
+                false,
+                0,
+                251
+            ],
+            "Dark": [
+                false,
+                0,
+                251
+            ],
+            "MedPod": [
+                false,
+                0,
+                251
+            ]
+        },
+        "icon_nid": "Generic_Portrait_Knight",
+        "icon_index": [
+            0,
+            0
+        ],
+        "map_sprite_nid": "Knight",
+        "combat_anim_nid": null,
+        "fields": []
+    }
+]

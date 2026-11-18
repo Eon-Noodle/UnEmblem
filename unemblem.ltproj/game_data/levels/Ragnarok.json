@@ -1,0 +1,373 @@
+[
+    {
+        "nid": "Ragnarok",
+        "name": "Ragnarok",
+        "tilemap": "Ragnarok",
+        "bg_tilemap": null,
+        "party": "Loop_100",
+        "music": {
+            "player_phase": "Battle with the Final Boss",
+            "enemy_phase": "Battle with the Final Boss"
+        },
+        "objective": {
+            "simple": "Defend Fuuko,{e:'<green>%d</> / 12 turns left' % turn if (turn:=13-game.turncount) > 1 else '<green>Last Turn</>'}",
+            "win": "Fuuko survives",
+            "loss": "Fuuko dies"
+        },
+        "roam": false,
+        "roam_unit": null,
+        "go_to_overworld": false,
+        "should_record": true,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "Sun",
+                "team": "enemy",
+                "ai": "PursueFuuko",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Fuuko",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Andy",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Juiz_100",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Shen_100",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Mui_100",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Phil_100",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Rip_100",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "101",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Silver_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "102",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Silver_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "103",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Basho_Lance",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "104",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Basho_Lance",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "105",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Silver_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "106",
+                "variant": null,
+                "level": 1,
+                "klass": "Bastion",
+                "faction": "Union_Guard",
+                "starting_items": [
+                    [
+                        "Silver_Spear",
+                        false
+                    ]
+                ],
+                "starting_skills": [],
+                "team": "player",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "Colour_100",
+                "team": "enemy",
+                "ai": "AttackRagnarok",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Medicine_100",
+                "team": "enemy",
+                "ai": "AttackRagnarok",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Justice_100",
+                "team": "enemy",
+                "ai": "AttackRagnarok",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            }
+        ],
+        "regions": [],
+        "unit_groups": [
+            {
+                "nid": "Sun",
+                "units": [
+                    "Sun"
+                ],
+                "positions": {
+                    "Sun": [
+                        7,
+                        4
+                    ]
+                }
+            },
+            {
+                "nid": "UMA",
+                "units": [
+                    "Justice_100",
+                    "Colour_100",
+                    "Medicine_100"
+                ],
+                "positions": {}
+            },
+            {
+                "nid": "Union",
+                "units": [
+                    "Shen_100",
+                    "Mui_100",
+                    "Phil_100",
+                    "Rip_100"
+                ],
+                "positions": {
+                    "Shen_100": [
+                        2,
+                        10
+                    ],
+                    "Mui_100": [
+                        12,
+                        10
+                    ],
+                    "Phil_100": [
+                        13,
+                        13
+                    ],
+                    "Rip_100": [
+                        1,
+                        13
+                    ]
+                }
+            },
+            {
+                "nid": "AndyJuiz",
+                "units": [
+                    "Andy",
+                    "Juiz_100"
+                ],
+                "positions": {
+                    "Fuuko": [
+                        7,
+                        22
+                    ],
+                    "Andy": [
+                        6,
+                        22
+                    ],
+                    "Juiz_100": [
+                        8,
+                        22
+                    ]
+                }
+            },
+            {
+                "nid": "Guards",
+                "units": [
+                    "101",
+                    "102",
+                    "103",
+                    "104",
+                    "105",
+                    "106"
+                ],
+                "positions": {
+                    "101": [
+                        5,
+                        8
+                    ],
+                    "102": [
+                        9,
+                        8
+                    ],
+                    "103": [
+                        2,
+                        10
+                    ],
+                    "104": [
+                        12,
+                        10
+                    ],
+                    "105": [
+                        1,
+                        13
+                    ],
+                    "106": [
+                        13,
+                        13
+                    ]
+                }
+            }
+        ],
+        "ai_groups": []
+    }
+]

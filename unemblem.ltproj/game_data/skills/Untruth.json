@@ -1,0 +1,28 @@
+[
+    {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "desc": "Reverse <blue>Weapon Triangle Advantage</>.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            14,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "combat_art",
+                "Untruth_child"
+            ],
+            [
+                "multi_desc_lore",
+                [
+                    "Weapon_Triangle"
+                ]
+            ]
+        ]
+    }
+]

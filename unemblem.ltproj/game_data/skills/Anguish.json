@@ -1,0 +1,44 @@
+[
+    {
+        "nid": "Anguish",
+        "name": "Anguish",
+        "desc": "Unit is uncontrollable and can attack allies.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            12,
+            3
+        ],
+        "components": [
+            [
+                "global",
+                null
+            ],
+            [
+                "hidden_if_inactive",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "change_ai",
+                "Berserk"
+            ],
+            [
+                "unit_anim",
+                "MapBerserk"
+            ],
+            [
+                "immunity_check",
+                [
+                    "Mental"
+                ]
+            ],
+            [
+                "condition",
+                "unit.team.startswith('player') and unit.get_mana() <= 0"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,31 @@
+[
+    {
+        "nid": "Unseen",
+        "name": "Unseen",
+        "desc": "<pink>Toggleable.</> Become invisible, but cant use items.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            2,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "multi_skill",
+                [
+                    "Unseen_on",
+                    "Unseen_off"
+                ]
+            ],
+            [
+                "has_tags",
+                [
+                    "Blip"
+                ]
+            ]
+        ]
+    }
+]

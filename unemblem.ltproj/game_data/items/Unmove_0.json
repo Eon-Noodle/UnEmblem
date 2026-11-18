@@ -1,0 +1,50 @@
+[
+    {
+        "nid": "Unmove_0",
+        "name": "Activate Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "spell",
+                null
+            ],
+            [
+                "target_tile",
+                null
+            ],
+            [
+                "map_hit_sub_blend",
+                [
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "no_map_hp_display",
+                null
+            ],
+            [
+                "self_status_on_hit",
+                "Unmove_child"
+            ],
+            [
+                "event_on_hit",
+                "Global Unmove Activate"
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ]
+        ]
+    }
+]

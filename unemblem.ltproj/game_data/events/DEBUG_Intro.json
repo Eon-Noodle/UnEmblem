@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Intro",
+        "trigger": "level_start",
+        "level_nid": "DEBUG",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "game_var;_supports;True",
+            "",
+            "for;lore;[lore.nid for lore in DB.lore]",
+            "    add_lore;{lore}",
+            "endf",
+            "",
+            "offhand_item;Andy;Steel_Musket",
+            "",
+            "unlock_support_rank;Andy;Fuuko;S",
+            "unlock_support_rank;Andy;Gina;B"
+        ],
+        "nid": "DEBUG Intro"
+    }
+]

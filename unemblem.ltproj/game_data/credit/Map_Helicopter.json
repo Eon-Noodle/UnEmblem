@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Helicopter",
+        "sub_nid": "Helicopter",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Advanced Wars (IS), ported by Amyd",
+                null
+            ]
+        ]
+    }
+]

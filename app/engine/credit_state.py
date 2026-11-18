@@ -108,6 +108,8 @@ class CreditState(State):
         directions = self.fluid.get_directions()
 
         self.menu.handle_mouse()
+        if self.display.transition:
+            return
         if not self.display.current or self.display.current != self.menu.get_current_index():
             self.display.update_entry(self.menu.get_current_index())
 
@@ -140,6 +142,8 @@ class CreditState(State):
     def update(self):
         if self.menu:
             self.menu.update()
+        if self.display:
+            self.display.update()
 
     def draw(self, surf):
         if game.game_vars.get('_base_transparent'):
@@ -167,18 +171,19 @@ class CreditDisplay():
         self.page_num = 0
         self.font = 'text'
 
-        self.topleft = (84, 4)
-        self.width = WINWIDTH - 84
-        self.height = WINHEIGHT - 8
+        self.topleft = (84, 0)
+        self.width = 132
+        self.height = WINHEIGHT
 
-        self.bg_surf = base_surf.create_base_surf(self.width, self.height, 'menu_bg_brown')
-        shimmer = SPRITES.get('menu_shimmer3')
-        self.bg_surf.blit(shimmer, (
-            self.bg_surf.get_width() - shimmer.get_width() - 1, self.bg_surf.get_height() - shimmer.get_height() - 5))
-        self.bg_surf = image_mods.make_translucent(self.bg_surf, .1)
+        self.book_rect = (23, 8, WINWIDTH - 84, self.height)
+        self.bg_surf = engine.subsurface(SPRITES.get('book_flip_0'), self.book_rect)
+        self.book_flip_sprite = None
+
+        self.transition = None  # 'RIGHT' or 'LEFT'
+        self.transition_counter = 0
 
         self.left_arrow = gui.ScrollArrow('left', (self.topleft[0] + 4, 8))
-        self.right_arrow = gui.ScrollArrow('right', (self.topleft[0] + self.width - 17, 8), 0.5)
+        self.right_arrow = gui.ScrollArrow('right', (self.topleft[0] + self.width, 8), 0.5)
 
         self.clear_display()
 
@@ -187,6 +192,20 @@ class CreditDisplay():
         self.dlg = None
         self.portrait = None
         self.static_surf = None
+
+    def update(self):
+        if self.transition:
+            self.transition_counter += 1
+            if self.transition_counter % 4 == 0:
+                counter = self.transition_counter // 4
+                if book_flip_sprite := SPRITES.get('book_flip_%d' % counter, None):
+                    if self.transition == 'RIGHT':
+                        book_flip_sprite = engine.flip_horiz(book_flip_sprite)
+                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, self.book_rect)
+                else:
+                    self.book_flip_sprite = None
+                    self.transition = None
+                    self.transition_counter = 0
 
     def update_entry(self, idx):
         if self.current == idx:
@@ -237,7 +256,7 @@ class CreditDisplay():
                         for line in text:
                             dlg = dialog.Dialog(line, font_type=self.font, font_color="white", num_lines=8, draw_cursor=False)
                             dlg.position = self.topleft[0], self.topleft[1] + 12
-                            dlg.text_width = WINWIDTH - 100
+                            dlg.text_width = self.width
                             dlg.reformat()
                             self.contents.append(dlg)
                             self.pages.append([credit])
@@ -274,11 +293,15 @@ class CreditDisplay():
             self.page_num += 1
             self.right_arrow.pulse()
             self.clear_display()
+            if self.pages[0][0].credit_type != ResourceType.PANORAMAS:
+                self.transition = 'RIGHT'
             return True
         elif first_push:
             self.page_num = (self.page_num + 1) % self.num_pages
             self.right_arrow.pulse()
             self.clear_display()
+            if self.pages[0][0].credit_type != ResourceType.PANORAMAS:
+                self.transition = 'RIGHT'
             return True
         return False
 
@@ -289,11 +312,15 @@ class CreditDisplay():
             self.page_num -= 1
             self.left_arrow.pulse()
             self.clear_display()
+            if self.pages[0][0].credit_type != ResourceType.PANORAMAS:
+                self.transition = 'LEFT'
             return True
         elif first_push:
             self.page_num = (self.page_num - 1) % self.num_pages
             self.left_arrow.pulse()
             self.clear_display()
+            if self.pages[0][0].credit_type != ResourceType.PANORAMAS:
+                self.transition = 'LEFT'
             return True
         return False
 
@@ -313,18 +340,31 @@ class CreditDisplay():
             lines = 0
             if credit.contrib and credit.contrib[0]:
                 c = credit.contrib[0]
-                lines = text_funcs.line_wrap(self.font, "%s by %s" % (c[1], c[0]), self.width - 16)
-            temp_menu = base_surf.create_base_surf(self.width, 28 + len(lines) * FONT[self.font].height, 'menu_bg_clear')
-            surf.blit(temp_menu, self.topleft)
-        else:
-            surf.blit(self.bg_surf, self.topleft)
+                lines = text_funcs.line_wrap(self.font, "%s by %s" % (c[1], c[0]), WINWIDTH - 84)
+            temp_menu = base_surf.create_base_surf(WINWIDTH - 84, 28 + len(lines) * FONT[self.font].height, 'menu_bg_clear')
+            surf.blit(temp_menu, (self.topleft[0], 4))
+
+            if not self.static_surf:
+                self.static_surf = self.create_static_surf(lst)
+            surf.blit(self.static_surf, (0, 0))
+
+            if self.num_pages > 1:
+                self.left_arrow.draw(surf)
+                self.right_arrow.draw(surf)
+            return
+
+        surf.blit(self.bg_surf, self.topleft)
+        if self.transition:
+            if self.book_flip_sprite:
+                surf.blit(self.book_flip_sprite, self.topleft)
+            return
 
         if credit.credit_type == ResourceType.PORTRAITS and not self.portrait:
             portrait = RESOURCES.portraits.get(credit.sub_nid)
             self.portrait = InfoMenuPortrait(portrait, DB.constants.value('info_menu_blink')) if portrait else None
 
         if self.portrait:
-            width, height = (self.width - 8, WINHEIGHT - 12)
+            width, height = (self.width, WINHEIGHT)
             self.portrait.update()
             im = self.portrait.create_image()
             prefab = self.portrait.portrait
@@ -355,7 +395,7 @@ class CreditDisplay():
                 if c.contrib and c.contrib[0]:
                     lines = text_funcs.line_wrap(self.font, "by %s" % c.contrib[0][0], self.width - 16 - icon_size)
                     for idx, line in enumerate(lines):
-                        render_text(surf, [self.font], [line], [], 
+                        render_text(surf, [self.font], [line], [],
                                     utils.tuple_add((8 + icon_size, y_pos + idx * FONT[self.font].height), self.topleft))
                 y_pos += max(len(lines) * FONT[self.font].height, icon_size)
 
@@ -386,7 +426,7 @@ class CreditDisplay():
         if credit.credit_type == ResourceType.ICONS80:
             im = self.get_icon_by_credit(credit)
             if im:
-                surf.blit(im, utils.tuple_add((self.width - 8 - 80, WINHEIGHT - 12 - 72), self.topleft))
+                surf.blit(im, utils.tuple_add((self.width - 8 - 80, WINHEIGHT - 72), self.topleft))
 
         lines = []
         if credit.credit_type in (ResourceType.ICONS16, ResourceType.ICONS32, ResourceType.MAP_ICONS):
@@ -408,12 +448,13 @@ class CreditDisplay():
 
         elif credit.credit_type in (ResourceType.ICONS80, ResourceType.PORTRAITS, ResourceType.PANORAMAS) and \
                 credit.contrib and credit.contrib[0]:
+            length_limit = WINWIDTH - 84 if credit.credit_type == ResourceType.PANORAMAS else self.width - 16
             c = credit.contrib[0]
-            lines = text_funcs.line_wrap(self.font, c[1], self.width - 16)
+            lines = text_funcs.line_wrap(self.font, c[1], length_limit)
             st = lines.pop()
             highlight_lines = range(len(lines))
 
-            lines += text_funcs.line_wrap(self.font, "<orange>%s</> by %s" % (st, c[0]), self.width - 16)
+            lines += text_funcs.line_wrap(self.font, "<orange>%s</> by %s" % (st, c[0]), length_limit)
             for idx, line in enumerate(lines):
                 render_text(surf, [self.font], [line], ['orange' if idx in highlight_lines else None], 
                             utils.tuple_add((8, 20 + idx * FONT[self.font].height), self.topleft))
@@ -434,7 +475,7 @@ class CreditDisplay():
 
         if self.num_pages > 1:
             text = '%d / %d' % (self.page_num + 1, self.num_pages)
-            render_text(surf, ['text'], [text], ['yellow'], utils.tuple_add((self.width - 8, WINHEIGHT - 12 - 16), self.topleft), HAlignment.RIGHT)
+            render_text(surf, ['text'], [text], ['yellow'], utils.tuple_add((self.width + 8, WINHEIGHT - 12 - 8), self.topleft), HAlignment.RIGHT)
 
         return surf
 

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Elevator",
+        "trigger": "Switch Floor",
+        "level_nid": "Union",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "choice;choice_floor;<yellow>Which floor do you want to go to?</>;0|G (Overworld),1|B1 (Laboratory{comma} Archive),2|B2 (Armoury{comma} Item Storage),-1|B13 (Roundtable);;vert;;;Union Switch Floor",
+            "",
+            "t;open",
+            "add;Fuuko;9,4;warp",
+            "if;{v:choice_floor} > 0",
+            "    add_region;Elevator;Fuuko;1,1;event;Switch Floor",
+            "    add_weather;event_tile;9,4",
+            "    add_weather;switch_tile;9,4",
+            "end"
+        ],
+        "nid": "Union Elevator"
+    }
+]

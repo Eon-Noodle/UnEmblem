@@ -1,0 +1,19 @@
+[
+    {
+        "name": "No Unluck",
+        "trigger": "combat_start",
+        "level_nid": "Untruth",
+        "condition": "unit.nid == 'Fuuko' and item.nid == 'Unluck'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "#pyev1",
+            "",
+            "$u \"Fuuko\" \"Right\"",
+            "$s \"Fuuko\" \"Now is not the time.\"",
+            "game.state.back()"
+        ],
+        "nid": "Untruth No Unluck"
+    }
+]

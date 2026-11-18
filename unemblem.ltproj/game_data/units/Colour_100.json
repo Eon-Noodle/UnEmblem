@@ -1,0 +1,71 @@
+[
+    {
+        "nid": "Colour_100",
+        "name": "Colour",
+        "desc": "<violet>Embodiment of Hue and Saturation</>",
+        "variant": "_Colour",
+        "level": 20,
+        "klass": "Banshee",
+        "tags": [
+            "UMA"
+        ],
+        "bases": {
+            "HP": 56,
+            "SKL": 24,
+            "RES": 24,
+            "CON": 10,
+            "DEF": 9,
+            "STR": 7,
+            "SPD": 13,
+            "LCK": 6,
+            "MOV": 6,
+            "MAG": 18,
+            "CP": 1
+        },
+        "growths": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "stat_cap_modifiers": {
+            "SKL": 0,
+            "HP": 0,
+            "RES": 0,
+            "CON": 0,
+            "DEF": 0,
+            "STR": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "MOV": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "starting_items": [
+            [
+                "Baleful_Brush",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {
+            "Arcane": [
+                false,
+                251,
+                null
+            ]
+        },
+        "alternate_classes": [],
+        "portrait_nid": "Colour",
+        "affinity": "None",
+        "fields": []
+    }
+]

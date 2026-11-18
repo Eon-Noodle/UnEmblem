@@ -1,0 +1,85 @@
+[
+    {
+        "nid": "Fierbois_Sabre",
+        "name": "Fierbois Sabre",
+        "desc": "A sword imbued with the power of <violet>UMA Burn</>. For Juiz only.\nInflicts <red>Burnt</> to target on hit.",
+        "icon_nid": "Sword",
+        "icon_index": [
+            0,
+            22
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "value",
+                15000
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "damage",
+                9
+            ],
+            [
+                "hit",
+                85
+            ],
+            [
+                "crit",
+                30
+            ],
+            [
+                "weight",
+                7
+            ],
+            [
+                "uses",
+                30
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Sword"
+            ],
+            [
+                "prf_unit",
+                [
+                    "Juiz_100"
+                ]
+            ],
+            [
+                "status_on_hit",
+                "Burnt"
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Burnt"
+                ]
+            ]
+        ]
+    }
+]

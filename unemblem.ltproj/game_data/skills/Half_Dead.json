@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Half_Dead",
+        "name": "Half Dead",
+        "desc": "Cannot move. Enemies will ignore and can slip through this unit.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "time",
+                2
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "enemy_pass",
+                null
+            ],
+            [
+                "modify_ai_priority",
+                0.0
+            ]
+        ]
+    }
+]

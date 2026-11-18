@@ -1,0 +1,63 @@
+[
+    {
+        "nid": "Nico",
+        "name": "Nico",
+        "desc": "Head engineer of the Union. He trusts only scientific facts, and can be a bit cynical.",
+        "variant": "_Nico",
+        "level": 1,
+        "klass": "Citizen",
+        "tags": [],
+        "bases": {
+            "HP": 33,
+            "STR": 8,
+            "SKL": 21,
+            "SPD": 17,
+            "LCK": 14,
+            "DEF": 11,
+            "RES": 16,
+            "MOV": 6,
+            "CON": 8,
+            "MAG": 18,
+            "CP": 20
+        },
+        "growths": {
+            "HP": 0,
+            "SKL": 0,
+            "CON": 0,
+            "LCK": 0,
+            "STR": 0,
+            "DEF": 0,
+            "MOV": 0,
+            "RES": 0,
+            "SPD": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "stat_cap_modifiers": {
+            "HP": 0,
+            "SKL": 0,
+            "SPD": 0,
+            "LCK": 0,
+            "DEF": 0,
+            "RES": 0,
+            "STR": 0,
+            "MOV": 0,
+            "CON": 0,
+            "MAG": 0,
+            "CP": 0
+        },
+        "starting_items": [
+            [
+                "Book_Revelations",
+                false
+            ]
+        ],
+        "learned_skills": [],
+        "unit_notes": [],
+        "wexp_gain": {},
+        "alternate_classes": [],
+        "portrait_nid": "Nico",
+        "affinity": "None",
+        "fields": []
+    }
+]

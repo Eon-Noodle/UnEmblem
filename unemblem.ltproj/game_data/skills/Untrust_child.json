@@ -1,0 +1,13 @@
+[
+    {
+        "nid": "Untrust_child",
+        "name": "Untrust",
+        "desc": "Can only take damage from splash attacks, dual attacks or statuses.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            4,
+            5
+        ],
+        "components": []
+    }
+]

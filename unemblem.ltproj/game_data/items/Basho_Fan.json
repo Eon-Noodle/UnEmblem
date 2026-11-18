@@ -1,0 +1,77 @@
+[
+    {
+        "nid": "Basho_Fan",
+        "name": "Basho Fan",
+        "desc": "An <violet>Artifact</>. Push target on hit, if possible.",
+        "icon_nid": "Artifact",
+        "icon_index": [
+            0,
+            1
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "status_on_hold",
+                "Artifact"
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "damage",
+                4
+            ],
+            [
+                "hit",
+                85
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "weight",
+                5
+            ],
+            [
+                "uses",
+                40
+            ],
+            [
+                "uses_options",
+                {
+                    "lose_uses_on_miss": false,
+                    "one_loss_per_combat": false
+                }
+            ],
+            [
+                "level_exp",
+                null
+            ],
+            [
+                "weapon_type",
+                "Brute"
+            ],
+            [
+                "weapon_rank",
+                "D"
+            ],
+            [
+                "shove",
+                1
+            ]
+        ]
+    }
+]

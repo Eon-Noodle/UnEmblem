@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Gold_2",
+        "name": "5,000 G",
+        "desc": "A gold ingot worth 5,000 G.",
+        "icon_nid": "Consumable_2",
+        "icon_index": [
+            0,
+            6
+        ],
+        "components": [
+            [
+                "value",
+                10000
+            ]
+        ]
+    }
+]

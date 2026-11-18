@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Portraits_Juiz",
+        "sub_nid": "Juiz",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Juiz"
+            ]
+        ]
+    }
+]

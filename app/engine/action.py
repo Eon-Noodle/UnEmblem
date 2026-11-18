@@ -3843,18 +3843,6 @@ class ChangeTeamPalette(Action):
         for unit in game.get_team_units(self.team):
             unit.sprite.load_sprites()
 
-class MuteMusic(Action):
-    def do(self):
-        get_sound_thread().set_music_volume(0)
-    def reverse(self):
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
-
-class UnmuteMusic(Action):
-    def do(self):
-        get_sound_thread().set_music_volume(cf.SETTINGS['music_volume'])
-    def reverse(self):
-        get_sound_thread().set_music_volume(0)
-
 
 # === Master Functions for adding to the action log ===
 def do(action):

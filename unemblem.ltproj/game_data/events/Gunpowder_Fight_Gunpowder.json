@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Fight Gunpowder",
+        "trigger": "combat_start",
+        "level_nid": "Gunpowder",
+        "condition": "'Gunpowder' in (unit.nid, unit2.nid)",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "u;Gunpowder;{e:'Right' if unit.nid == 'Gunpowder' else 'Left'}",
+            "s;Gunpowder;Smell that?{w} The smell of gunpowder is the smell of justice in the West!",
+            "r;Gunpowder"
+        ],
+        "nid": "Gunpowder Fight Gunpowder"
+    }
+]

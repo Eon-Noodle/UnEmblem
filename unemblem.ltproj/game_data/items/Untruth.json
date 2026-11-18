@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "desc": "",
+        "icon_nid": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "custom_triangle_multiplier",
+                -1.0
+            ]
+        ]
+    }
+]

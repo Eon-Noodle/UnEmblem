@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Athlete",
+        "sub_nid": "Boxer",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "ShadowAllyX",
+                null
+            ]
+        ]
+    }
+]

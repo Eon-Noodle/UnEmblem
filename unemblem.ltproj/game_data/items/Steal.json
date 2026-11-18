@@ -1,0 +1,38 @@
+[
+    {
+        "nid": "Steal",
+        "name": "Steal",
+        "desc": "Steal items from enemies.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "spell",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "exp",
+                11
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "gba_steal",
+                null
+            ]
+        ]
+    }
+]

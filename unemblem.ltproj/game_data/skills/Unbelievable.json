@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Unbelievable",
+        "name": "Unbelievable",
+        "desc": "Missed attacks still deal half the damage.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            10,
+            8
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    }
+]

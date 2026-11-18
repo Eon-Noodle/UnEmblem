@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Death Player Units",
+        "trigger": "unit_death",
+        "level_nid": null,
+        "condition": "not unit.generic and unit.team == 'player'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "m;Destruction and Rebirth;400",
+            "u;{unit};Right",
+            "",
+            "if;unit.nid == 'Shen'",
+            "    s;Shen;Oh, lorem ipsum...",
+            "elif;unit.nid == 'Mui'",
+            "    s;Mui;Oh, lorem ipsum...",
+            "end",
+            "r;{unit}",
+            ""
+        ],
+        "nid": "Global Death Player Units"
+    }
+]

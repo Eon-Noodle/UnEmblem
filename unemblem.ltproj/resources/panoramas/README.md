@@ -37,6 +37,7 @@
 ![Locomotive.png](Locomotive.png)
 ![Plains.png](Plains.png)
 ![Ruins.png](Ruins.png)
+![scuffed_win.png](scuffed_win.png)
 ![Temple.png](Temple.png)
 ![title_background.png](title_background.png)
 ![Town.png](Town.png)

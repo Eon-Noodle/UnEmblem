@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Death Gunpowder",
+        "trigger": "unit_death",
+        "level_nid": "Gunpowder",
+        "condition": "unit.nid == 'Gunpowder'",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "if;v('phase_two')",
+            "    u;Gunpowder;Right",
+            "    s;Gunpowder;Dang it all...",
+            "    r;Gunpowder",
+            "    win_game",
+            "else",
+            "    for;enemy;game.get_enemy_units()",
+            "        kill;{enemy}",
+            "    endf",
+            "    resurrect;Gunpowder",
+            "    flicker_cursor;Gunpowder",
+            "    u;Gunpowder;Left",
+            "    s;Gunpowder;Ya plumb messed up, partners.{c:wait;400} All these scuffles done is letting me reach ma Phase Two.|Ya puny little attacks ain't got the grit to overcome ma regeneration no more.",
+            "    give_skill;Gunpowder;Walking_Dead",
+            "    remove_item;Gunpowder;Detonator;no_banner",
+            "    give_item;Gunpowder;Steel_Musket_Gunpowder",
+            "    change_ai;Gunpowder;Pursue",
+            "    lvar;phase_two;game.turncount + 2",
+            "    end_turn;player",
+            "end"
+        ],
+        "nid": "Gunpowder Death Gunpowder"
+    }
+]

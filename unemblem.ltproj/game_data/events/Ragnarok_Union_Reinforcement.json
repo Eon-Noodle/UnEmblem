@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Union Reinforcement",
+        "trigger": "turn_change",
+        "level_nid": "Ragnarok",
+        "condition": "game.turncount == 5",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "center_cursor;7,13",
+            "add_group;Union;Union;swoosh;closest",
+            "wait;1200",
+            "",
+            "uu;Shen;CenterRight;Mui;FarRight",
+            "s;Shen;Reinforcement has arrived!",
+            "s;Mui;Master Shen,{c:wait;400} a-are we all that's left?",
+            "s;Shen;My dear Mui,{c:wait;400} I'm afraid we don't have much time either.|Let us not worry about death and ensure Fuuko make it to the next loop!",
+            "move_portrait;Shen;OffscreenLeft;2",
+            "wait;800",
+            "",
+            "s;Mui;Even then, I remain hopeful...{c:wait;800} that the seven of us survive,{c:wait;400} just for these last few minutes.",
+            "rrr"
+        ],
+        "nid": "Ragnarok Union Reinforcement"
+    }
+]

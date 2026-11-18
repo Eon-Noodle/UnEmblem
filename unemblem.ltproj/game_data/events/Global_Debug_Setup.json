@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Debug Setup",
+        "trigger": "level_start",
+        "level_nid": null,
+        "condition": "cf.SETTINGS['debug']",
+        "commands": [],
+        "only_once": false,
+        "priority": 99,
+        "_source": [
+            "#pyev1",
+            "",
+            "$enable_convoy True",
+            "$enable_supports True",
+            "",
+            "for prefab in DB.support_pairs.values():",
+            "    if prefab.nid not in game.supports.support_pairs:",
+            "        game.supports.create_pair(prefab.nid)",
+            "    pair = game.supports.support_pairs[prefab.nid]",
+            "    pair.locked_ranks += [req.support_rank for req in prefab.requirements]",
+            "",
+            "for lore in DB.lore:",
+            "    $add_lore lore.nid",
+            ""
+        ],
+        "nid": "Global Debug Setup"
+    }
+]

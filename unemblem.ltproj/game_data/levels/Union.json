@@ -1,0 +1,250 @@
+[
+    {
+        "nid": "Union",
+        "name": "UNION HQ",
+        "tilemap": "Hallway",
+        "bg_tilemap": null,
+        "party": "Roundtable",
+        "music": {
+            "player_phase": null
+        },
+        "objective": {
+            "simple": "",
+            "win": "",
+            "loss": ""
+        },
+        "roam": true,
+        "roam_unit": "Fuuko",
+        "go_to_overworld": false,
+        "should_record": false,
+        "tags": [
+            "TechnicalLevel"
+        ],
+        "units": [
+            {
+                "nid": "Andy",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": "None",
+                "ai_group": "",
+                "starting_position": [
+                    8,
+                    7
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Fuuko",
+                "team": "player",
+                "ai": "None",
+                "roam_ai": "None",
+                "ai_group": "",
+                "starting_position": [
+                    7,
+                    7
+                ],
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Apoccy",
+                "team": "enemy",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Nico",
+                "team": "staff",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "Haruka",
+                "team": "staff",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": false
+            },
+            {
+                "nid": "101",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Union_Guard",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "staff",
+                "ai": "None",
+                "roam_ai": "RoamLab1",
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "102",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Union_Guard",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "staff",
+                "ai": "None",
+                "roam_ai": "RoamLab2",
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            },
+            {
+                "nid": "103",
+                "variant": null,
+                "level": 1,
+                "klass": "Citizen",
+                "faction": "Union_Guard",
+                "starting_items": [],
+                "starting_skills": [],
+                "team": "staff",
+                "ai": "None",
+                "roam_ai": null,
+                "ai_group": "",
+                "starting_position": null,
+                "starting_traveler": null,
+                "generic": true
+            }
+        ],
+        "regions": [
+            {
+                "nid": "Entrance_Roundtable",
+                "region_type": "event",
+                "position": [
+                    7,
+                    4
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "",
+                "highlight": null,
+                "condition": "True",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Seat_Reset",
+                "region_type": "event",
+                "position": [
+                    5,
+                    4
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "Reset",
+                "highlight": null,
+                "condition": "True",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Talk_Andy",
+                "region_type": "event",
+                "position": [
+                    8,
+                    7
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "Talk",
+                "highlight": null,
+                "condition": "True",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            },
+            {
+                "nid": "Elevator",
+                "region_type": "event",
+                "position": [
+                    9,
+                    4
+                ],
+                "size": [
+                    1,
+                    1
+                ],
+                "sub_nid": "Switch Floor",
+                "highlight": null,
+                "condition": "True",
+                "time_left": null,
+                "only_once": false,
+                "interrupt_move": false,
+                "hide_time": false
+            }
+        ],
+        "unit_groups": [
+            {
+                "nid": "Lab",
+                "units": [
+                    "Nico",
+                    "101",
+                    "102",
+                    "103"
+                ],
+                "positions": {
+                    "Nico": [
+                        11,
+                        9
+                    ],
+                    "101": [
+                        1,
+                        5
+                    ],
+                    "102": [
+                        7,
+                        5
+                    ],
+                    "103": [
+                        8,
+                        8
+                    ]
+                }
+            },
+            {
+                "nid": "Forge",
+                "units": [
+                    "Haruka"
+                ],
+                "positions": {
+                    "Haruka": [
+                        3,
+                        6
+                    ]
+                }
+            }
+        ],
+        "ai_groups": []
+    }
+]

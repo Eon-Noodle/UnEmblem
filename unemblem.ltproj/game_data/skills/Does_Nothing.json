@@ -1,0 +1,13 @@
+[
+    {
+        "nid": "Does_Nothing",
+        "name": "Does Nothing",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": []
+    }
+]

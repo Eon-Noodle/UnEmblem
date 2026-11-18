@@ -1,0 +1,44 @@
+[
+    {
+        "nid": "Berserk",
+        "name": "Berserk",
+        "desc": "Unit is confused and can no longer tell friend from foe.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            5,
+            0
+        ],
+        "components": [
+            [
+                "negative",
+                null
+            ],
+            [
+                "time",
+                5
+            ],
+            [
+                "ignore_alliances",
+                null
+            ],
+            [
+                "unselectable",
+                null
+            ],
+            [
+                "change_ai",
+                "Berserk"
+            ],
+            [
+                "unit_anim",
+                "MapBerserk"
+            ],
+            [
+                "immunity_check",
+                [
+                    "Mental"
+                ]
+            ]
+        ]
+    }
+]

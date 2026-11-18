@@ -1,0 +1,21 @@
+[
+    {
+        "name": "UMA Spawn",
+        "trigger": "enemy_turn_change",
+        "level_nid": "Ragnarok",
+        "condition": "game.turncount == 1",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "center_cursor;Sun",
+            "wait;400",
+            "for;un_unit;game.level.unit_groups.get('UMA').units",
+            "    add;{un_unit};Sun;warp;closest",
+            "endf",
+            "wait;1200",
+            "end_turn"
+        ],
+        "nid": "Ragnarok UMA Spawn"
+    }
+]

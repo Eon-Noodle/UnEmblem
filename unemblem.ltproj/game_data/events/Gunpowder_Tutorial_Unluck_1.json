@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Tutorial Unluck 1",
+        "trigger": "turn_change",
+        "level_nid": "Gunpowder",
+        "condition": "v('phase_two') == game.turncount",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "uu;Mui;FarLeft;Shen;CenterLeft;Andy;CenterRight;Fuuko;FarRight",
+            "bop;Mui;no_block",
+            "s;Mui;It's no use.{c:wait;400} The UMA is regenerating faster than the damages we dealt.",
+            "s;Shen;At this point, the only way for us to defeat it is with a single strong hit.",
+            "s;Fuuko;...Thank you, you two.|Andy and I can take it from here. Go check on Isshin for me, please.",
+            "bop;Shen;no_block",
+            "bop;Mui;no_block",
+            "s;Shen;Zhidaole!;no_block;hold",
+            "s;Mui;Zhidaole!",
+            "unhold;Shen",
+            "rr;Shen;Mui",
+            "",
+            "mirror;Andy;no_block",
+            "move_portrait;Andy;Left",
+            "s;Andy;So what's the plan?",
+            "e;Fuuko;Smile",
+            "s;Fuuko;Let's end this with Unluck.",
+            "e;Andy;Smile",
+            "bop;Andy;no_block",
+            "s;Andy;Haha!{c:wait;200} Lead the way, boss!",
+            "rrr",
+            "",
+            "if;v('choice_tutorial')",
+            "    s;;Andy and Fuuko is preparing for an <purple>Unluck</> special move.|To do so, first <yellow>move Fuuko next to Andy</> and <yellow>use Unluck</> on him.;;;Tutorial",
+            "",
+            "    move;Shen;Isshin;;closest;no_block;no_follow",
+            "    move;Mui;Isshin;;closest;no_block;no_follow",
+            "    lvar;tutorial;True",
+            "end"
+        ],
+        "nid": "Gunpowder Tutorial Unluck 1"
+    }
+]

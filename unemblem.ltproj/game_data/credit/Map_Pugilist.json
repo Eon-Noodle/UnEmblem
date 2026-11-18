@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Map_Pugilist",
+        "sub_nid": "Berserker",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "ZoramineFae",
+                null
+            ]
+        ]
+    }
+]

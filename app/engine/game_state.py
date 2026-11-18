@@ -601,9 +601,6 @@ class GameState():
 
         self.quest_manager = quest.QuestManager.restore(s_dict.get('quest_manager'))
 
-        if self.game_vars.get('silent'):
-            action.MuteMusic().execute()
-
     def clean_up(self, full: bool = True):
         '''
         A `full` cleanup does everything associated with cleaning up

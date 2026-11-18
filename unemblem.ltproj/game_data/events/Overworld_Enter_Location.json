@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Enter Location",
+        "trigger": "on_region_interact",
+        "level_nid": "Overworld",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "#pyev1",
+            "",
+            "$gvar 'pos_map' u('MapEntity').position",
+            "",
+            "if region.nid == 'Union':",
+            "    $set_next_chapter 'Union'",
+            "    $skip_save True",
+            "    ",
+            "else:",
+            "    $s None 'Sorry, demo stopped here.' StyleNid='Tutorial'",
+            "    $finish",
+            "",
+            "    options = game.quest_manager.get_options_from_location(region.nid)",
+            "    if options:",
+            "        $choice 'quest_choice' '<yellow>Choose your mission!</>' options None 'vert' 'center'",
+            "        game.quest_manager.set_current(v('quest_choice'))    ",
+            "    $set_next_chapter game.quest_manager.current",
+            "    ",
+            "$win_game"
+        ],
+        "nid": "Overworld Enter Location"
+    }
+]

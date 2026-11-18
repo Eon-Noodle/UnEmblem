@@ -1,0 +1,59 @@
+[
+    {
+        "nid": "Unmove_child",
+        "name": "Unmove",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unit_tint",
+                [
+                    0,
+                    80,
+                    120
+                ]
+            ],
+            [
+                "stat_multiplier",
+                [
+                    [
+                        "MOV",
+                        0
+                    ]
+                ]
+            ],
+            [
+                "avoid",
+                -999
+            ],
+            [
+                "crit_avoid",
+                -30
+            ],
+            [
+                "cannot_use_items_except",
+                [
+                    "Unmove_1"
+                ]
+            ],
+            [
+                "cannot_trade",
+                null
+            ],
+            [
+                "has_tags",
+                [
+                    "CannotRescue"
+                ]
+            ]
+        ]
+    }
+]

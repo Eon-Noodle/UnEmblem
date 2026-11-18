@@ -1,0 +1,36 @@
+[
+    {
+        "name": "House",
+        "trigger": "Visit",
+        "level_nid": "Gunpowder",
+        "condition": "v('visit_count') < 2",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "t;close",
+            "b;House",
+            "t;open",
+            "",
+            "if;v('visit_count')",
+            "    uu;Dev;Left;{unit};Right",
+            "    s;Dev;Robber? There's a robber in my house! Help!",
+            "    r;Dev",
+            "    s;{unit};Weirdo.{w} Ooh, free gauntlets on the table.",
+            "    give_item;{unit};Iron_Gauntlet",
+            "else",
+            "    u;Dev;Right",
+            "    s;Dev;Hi, I'm the game dev.|Everytime you visit a house like this, there is supposed to be a cutscene.|But I'm lazy to write a cutscene.|So if you have an idea or want to insert yourself into this game as a cameo,|hit me up on Discord.|Please visit this house again for the sample custscene, and free item.",
+            "end",
+            "",
+            "rrr",
+            "t;close",
+            "b",
+            "t;open",
+            "",
+            "linc;visit_count",
+            "has_traded;{unit}"
+        ],
+        "nid": "Gunpowder House"
+    }
+]

@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Chapter Setup",
+        "trigger": "level_start",
+        "level_nid": null,
+        "condition": "'TechnicalLevel' not in DB.levels.get(game.level_nid).tags",
+        "commands": [],
+        "only_once": false,
+        "priority": 25,
+        "_source": [
+            "#pyev1",
+            "",
+            "current_quest = game.quest_manager.current",
+            "if current_quest:",
+            "    $lvar '_prep_slots' game.quest_manager.quests[current_quest].limit-1",
+            "",
+            "$prep True, gba"
+        ],
+        "nid": "Global Chapter Setup"
+    }
+]

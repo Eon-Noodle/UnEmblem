@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Shen Fights Luo",
+        "trigger": "combat_start",
+        "level_nid": "Untruth",
+        "condition": "unit.nid == 'Shen' and unit2.nid == 'Luo'",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "u;Luo;Left;;CloseEyes;low_saturation",
+            "u;Shen;Right",
+            "s;Shen;Luo...{c:wait;800}{c:e;Shen;CloseEyes} The truth is...{c:wait;400} all I'm focusing on right now is protecting others.|{c:e;Shen;HalfCloseEyes}But I'm positive,{c:wait;400} as it stands,{c:wait;400}{c:e;Shen;OpenEyes}{c:bop;Shen;no_block} that I'm the strongest I've ever been.",
+            "rrr"
+        ],
+        "nid": "Untruth Shen Fights Luo"
+    }
+]

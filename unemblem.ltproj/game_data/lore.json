@@ -4,7 +4,7 @@
         "name": "Weapon Triangle",
         "title": "Weapon Triangle",
         "category": "Guide",
-        "text": "Physical weapons possess a unique hierachy.{br}<icon>Swords</><red>Swords</> best <icon>Brutes</><green>Gauntlets</>.{br}<icon>Brutes</><green>Gauntlets</> best <icon>Spears</><blue>Spears</>.{br}<icon>Spears</><blue>Spears</> best <icon>Swords</><red>Swords</>.{br}<icon>Firearms</><orange>Guns</> are not affected by the Weapon Triangle."
+        "text": "Physical weapons possess a unique hierachy.{br}<icon>Swords</><red>Sword</> best <icon>Brutes</><green>Gauntlet</>.{br}<icon>Brutes</><green>Gauntlet</> best <icon>Spears</><blue>Spear</>.{br}<icon>Spears</><blue>Spear</> best <icon>Swords</><red>Sword</>.{br}<icon>Firearms</><orange>Guns</> are not affected by the Weapon Triangle."
     },
     {
         "nid": "Composure",
@@ -18,7 +18,7 @@
         "name": "Dual Wield",
         "title": "Dual Wield",
         "category": "Guide",
-        "text": "All units can choose to equip a second weapon as offhand weapon, at the cost of Attack Speed, as both weapon's weights contribute towards the calculation.\nThis allows unit to make follow-up attack with offhand weapon after the attack with main weapon. Unit can also counterattack with offhand weapon, if enemy is out of main weapon's range, but within offhand weapon's range."
+        "text": "All units can choose to equip a second weapon as offhand weapon, at the cost of Attack Speed, as both weapon's weights contribute towards the calculation.\nThis allows unit to make follow-up attack with offhand weapon after the attack with main weapon.\nUnit can also counterattack with offhand weapon, if enemy is out of main weapon's range, but within offhand weapon's range."
     },
     {
         "nid": "Undead",

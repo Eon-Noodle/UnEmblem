@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Countdown",
+        "trigger": "turn_change",
+        "level_nid": "Ragnarok",
+        "condition": "game.turncount > 1",
+        "commands": [],
+        "only_once": false,
+        "priority": 10,
+        "_source": [
+            "#pyev1",
+            "",
+            "center_pos = (7, 19)",
+            "pos = utils.tuple_add(center_pos, tuple(map(lambda x: min(x-1, 2) if x > 0 else max(x+1, -2) if x < 0 else x, v('pos_roundtable')[game.turncount - 2])))",
+            "",
+            "$center_cursor center_pos",
+            "$highlight pos",
+            "$sound 'Rally'",
+            "$map_anim 'AOE_Rally' pos",
+            "$show_layer ('seat_%d' % (game.turncount - 1))",
+            "$wait 800",
+            "",
+            "if game.turncount == 13:",
+            "    $win_game"
+        ],
+        "nid": "Ragnarok Countdown"
+    }
+]

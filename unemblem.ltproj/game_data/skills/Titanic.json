@@ -1,0 +1,26 @@
+[
+    {
+        "nid": "Titanic",
+        "name": "Titanic",
+        "desc": "Can walk past enemy units and terrains with ease. Immune to all status effects.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            3,
+            1
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "pass",
+                null
+            ],
+            [
+                "immune_status",
+                null
+            ]
+        ]
+    }
+]

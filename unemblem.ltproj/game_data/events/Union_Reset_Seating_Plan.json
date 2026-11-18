@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Reset Seating Plan",
+        "trigger": "Reset",
+        "level_nid": "Union",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "if;game.quest_manager.is_quest_phase()",
+            "    alert;Cannot swap seats during quests.",
+            "else",
+            "    party_transfer;Roundtable;Union;'Fuuko','Nico';Roundtable Members;;{v:roundtable_seat}",
+            "end"
+        ],
+        "nid": "Union Reset Seating Plan"
+    }
+]

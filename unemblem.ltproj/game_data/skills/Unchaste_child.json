@@ -1,0 +1,30 @@
+[
+    {
+        "nid": "Unchaste_child",
+        "name": "Unchaste",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    255,
+                    0,
+                    255
+                ]
+            ],
+            [
+                "modify_ai_priority",
+                99.0
+            ]
+        ]
+    }
+]

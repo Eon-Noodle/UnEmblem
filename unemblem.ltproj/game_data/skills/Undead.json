@@ -1,0 +1,32 @@
+[
+    {
+        "nid": "Undead",
+        "name": "Undead",
+        "desc": "Survives on 1 HP then gains <red>Half Dead</> for 2 turn. Regenerate <orange><sin y_amplitude=1>{e:unit.get_max_hp() // 10}</></> HP every turn.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            11,
+            17
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ],
+            [
+                "regeneration",
+                0.1
+            ],
+            [
+                "multi_desc_skill",
+                [
+                    "Half_Dead"
+                ]
+            ],
+            [
+                "true_miracle_give_status",
+                "Half_Dead"
+            ]
+        ]
+    }
+]

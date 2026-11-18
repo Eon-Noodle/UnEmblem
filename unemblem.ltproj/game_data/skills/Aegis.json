@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Aegis",
+        "name": "Aegis",
+        "desc": "Completely fends off any attack, even an attack from God.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            7,
+            17
+        ],
+        "components": [
+            [
+                "ignore_damage",
+                null
+            ],
+            [
+                "shield",
+                null
+            ]
+        ]
+    }
+]

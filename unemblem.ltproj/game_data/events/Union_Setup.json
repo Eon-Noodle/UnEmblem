@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Setup",
+        "trigger": "level_start",
+        "level_nid": "Union",
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "m;Brief Recess",
+            "change_music;player_phase;Brief Recess",
+            "",
+            "show_layer;sconce;immediate",
+            "show_layer;baseboard;immediate",
+            "",
+            "add_weather;purple",
+            "add_weather;event_tile;5,4",
+            "add_weather;event_tile;9,4",
+            "add_weather;switch_tile;5,4",
+            "add_weather;switch_tile;9,4",
+            "",
+            "lvar;current_floor;-1"
+        ],
+        "nid": "Union Setup"
+    }
+]

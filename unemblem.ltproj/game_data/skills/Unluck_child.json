@@ -1,0 +1,49 @@
+[
+    {
+        "nid": "Unluck_child",
+        "name": "Unluck Touch",
+        "desc": "Cursed to be hit by a meteor soon, dealing <orange><sin y_amplitude=1>{e:(0 if not game.supports.get(unit.nid, self.initiator_nid) else len(game.supports.get(unit.nid, self.initiator_nid).unlocked_ranks)) * 10 + 20}</></> AoE damage within the range of 3.",
+        "icon_nid": "Skills_actions",
+        "icon_index": [
+            11,
+            1
+        ],
+        "components": [
+            [
+                "lost_on_endstep",
+                null
+            ],
+            [
+                "event_on_remove_with_args",
+                {
+                    "event_on_remove": "Global Unluck Explode",
+                    "extra_args": "initiator, u(skill.initiator_nid)"
+                }
+            ],
+            [
+                "aura",
+                "Does_Nothing"
+            ],
+            [
+                "aura_range",
+                2
+            ],
+            [
+                "aura_target",
+                "unit"
+            ],
+            [
+                "unit_flickering_tint",
+                [
+                    170,
+                    0,
+                    0
+                ]
+            ],
+            [
+                "stack",
+                999
+            ]
+        ]
+    }
+]

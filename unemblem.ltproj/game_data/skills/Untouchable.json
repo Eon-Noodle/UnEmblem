@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Untouchable",
+        "name": "Untouchable",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    }
+]

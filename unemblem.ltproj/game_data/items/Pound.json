@@ -1,0 +1,58 @@
+[
+    {
+        "nid": "Pound",
+        "name": "Pound",
+        "desc": "",
+        "icon_nid": "Enemies_Only",
+        "icon_index": [
+            0,
+            0
+        ],
+        "components": [
+            [
+                "weapon",
+                null
+            ],
+            [
+                "wexp",
+                0
+            ],
+            [
+                "target_enemy",
+                null
+            ],
+            [
+                "min_range",
+                1
+            ],
+            [
+                "max_range",
+                1
+            ],
+            [
+                "damage",
+                7
+            ],
+            [
+                "hit",
+                80
+            ],
+            [
+                "crit",
+                0
+            ],
+            [
+                "weight",
+                8
+            ],
+            [
+                "weapon_type",
+                "Brute"
+            ],
+            [
+                "level_exp",
+                null
+            ]
+        ]
+    }
+]

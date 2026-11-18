@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Rebellion",
+        "name": "Rebellion",
+        "desc": "A <violet>Sacred Spirit Treasure</>.\nGrants bonus damage, which increases permanently for each attacks on God.\nWielder takes half the damage dealt.",
+        "icon_nid": "Artifact",
+        "icon_index": [
+            0,
+            7
+        ],
+        "components": [
+            [
+                "status_on_hold",
+                "Rebellion"
+            ]
+        ]
+    }
+]

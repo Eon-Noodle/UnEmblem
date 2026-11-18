@@ -1,0 +1,1565 @@
+[
+    {
+        "nid": "Armoury",
+        "size": [
+            15,
+            10
+        ],
+        "autotile_fps": 29,
+        "layers": [
+            {
+                "nid": "base",
+                "visible": true,
+                "foreground": false,
+                "terrain_grid": {
+                    "12,4": "Floor",
+                    "4,0": "Wall",
+                    "4,9": "Floor",
+                    "5,1": "Wall",
+                    "8,0": "Wall",
+                    "8,9": "Floor",
+                    "10,6": "Floor",
+                    "9,8": "Floor",
+                    "2,2": "Machinery",
+                    "11,5": "Floor",
+                    "13,8": "Floor",
+                    "7,1": "Wall",
+                    "4,2": "Machinery",
+                    "3,6": "Floor",
+                    "5,3": "Wall",
+                    "8,2": "Wall",
+                    "9,1": "Wall",
+                    "0,7": "Floor",
+                    "2,4": "Machinery",
+                    "11,7": "Floor",
+                    "13,1": "Wall",
+                    "1,8": "Floor",
+                    "7,3": "Wall",
+                    "3,8": "Floor",
+                    "5,5": "Floor",
+                    "8,4": "Floor",
+                    "14,8": "Floor",
+                    "9,3": "Wall",
+                    "11,0": "Wall",
+                    "0,9": "Floor",
+                    "11,9": "Floor",
+                    "13,3": "Wall",
+                    "6,6": "Floor",
+                    "7,5": "Floor",
+                    "3,1": "Machinery",
+                    "5,7": "Floor",
+                    "9,5": "Floor",
+                    "11,2": "Wall",
+                    "1,3": "Wall",
+                    "13,5": "Floor",
+                    "7,7": "Floor",
+                    "12,6": "Floor",
+                    "3,3": "Machinery",
+                    "5,0": "Wall",
+                    "5,9": "Floor",
+                    "9,7": "Floor",
+                    "11,4": "Floor",
+                    "10,8": "Floor",
+                    "13,7": "Floor",
+                    "7,0": "Wall",
+                    "7,9": "Floor",
+                    "12,8": "Floor",
+                    "3,5": "Machinery",
+                    "5,2": "Wall",
+                    "4,4": "Machinery",
+                    "14,5": "Floor",
+                    "9,0": "Wall",
+                    "9,9": "Floor",
+                    "10,1": "Wall",
+                    "13,0": "Wall",
+                    "1,7": "Floor",
+                    "13,9": "Floor",
+                    "7,2": "Wall",
+                    "12,1": "Wall",
+                    "3,7": "Floor",
+                    "5,4": "Floor",
+                    "4,6": "Floor",
+                    "14,7": "Floor",
+                    "9,2": "Wall",
+                    "8,6": "Floor",
+                    "10,3": "Wall",
+                    "1,0": "Wall",
+                    "13,2": "Wall",
+                    "1,9": "Floor",
+                    "2,8": "Floor",
+                    "7,4": "Wall",
+                    "6,8": "Floor",
+                    "12,3": "Wall",
+                    "3,0": "Machinery",
+                    "3,9": "Floor",
+                    "5,6": "Floor",
+                    "4,8": "Floor",
+                    "14,9": "Floor",
+                    "8,8": "Floor",
+                    "10,5": "Floor",
+                    "1,2": "Wall",
+                    "2,1": "Wall",
+                    "13,4": "Wall",
+                    "12,5": "Floor",
+                    "3,2": "Machinery",
+                    "4,1": "Wall",
+                    "8,1": "Wall",
+                    "10,7": "Floor",
+                    "1,4": "Floor",
+                    "2,3": "Machinery",
+                    "11,6": "Floor",
+                    "12,7": "Floor",
+                    "3,4": "Machinery",
+                    "4,3": "Machinery",
+                    "8,3": "Wall",
+                    "10,0": "Wall",
+                    "10,9": "Floor",
+                    "0,8": "Floor",
+                    "2,5": "Machinery",
+                    "11,8": "Floor",
+                    "6,5": "Floor",
+                    "12,0": "Wall",
+                    "12,9": "Floor",
+                    "14,6": "Floor",
+                    "4,5": "Machinery",
+                    "8,5": "Floor",
+                    "10,2": "Wall",
+                    "9,4": "Floor",
+                    "11,1": "Wall",
+                    "2,7": "Floor",
+                    "6,7": "Floor",
+                    "7,6": "Floor",
+                    "12,2": "Wall",
+                    "4,7": "Floor",
+                    "5,8": "Floor",
+                    "8,7": "Floor",
+                    "10,4": "Wall",
+                    "9,6": "Floor",
+                    "1,1": "Wall",
+                    "2,0": "Wall",
+                    "11,3": "Wall",
+                    "2,9": "Floor",
+                    "13,6": "Floor",
+                    "6,9": "Floor",
+                    "7,8": "Floor",
+                    "1,5": "Floor",
+                    "0,5": "Floor",
+                    "0,6": "Floor",
+                    "1,6": "Floor",
+                    "2,6": "Floor",
+                    "0,0": "Wall",
+                    "0,1": "Wall",
+                    "0,2": "Wall",
+                    "0,3": "Wall",
+                    "0,4": "Wall",
+                    "6,4": "Wall",
+                    "6,3": "Wall",
+                    "6,2": "Wall",
+                    "6,1": "Wall",
+                    "6,0": "Wall",
+                    "14,0": "Wall",
+                    "14,1": "Wall",
+                    "14,2": "Wall",
+                    "14,3": "Wall",
+                    "14,4": "Wall"
+                },
+                "sprite_grid": {
+                    "0,0": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            1
+                        ]
+                    ],
+                    "0,1": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "0,2": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "0,3": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "0,4": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            3
+                        ]
+                    ],
+                    "0,5": [
+                        "FinalStronghold",
+                        [
+                            0,
+                            21
+                        ]
+                    ],
+                    "0,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            21
+                        ]
+                    ],
+                    "0,7": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            18
+                        ]
+                    ],
+                    "0,8": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            17
+                        ]
+                    ],
+                    "0,9": [
+                        "FinalStronghold",
+                        [
+                            0,
+                            16
+                        ]
+                    ],
+                    "1,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "1,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "1,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "1,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "1,4": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            19
+                        ]
+                    ],
+                    "1,5": [
+                        "FinalStronghold",
+                        [
+                            0,
+                            21
+                        ]
+                    ],
+                    "1,6": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "1,7": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            16
+                        ]
+                    ],
+                    "1,8": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "1,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "2,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "2,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "2,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "2,5": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "2,6": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "2,7": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "2,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "2,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "3,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "3,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "3,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "3,4": [
+                        "FinalStronghold",
+                        [
+                            26,
+                            28
+                        ]
+                    ],
+                    "3,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "3,6": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "3,7": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "3,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "3,9": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "4,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "4,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "4,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "4,5": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "4,6": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            16
+                        ]
+                    ],
+                    "4,7": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "4,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "4,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "5,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "5,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "5,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "5,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "5,4": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            16
+                        ]
+                    ],
+                    "5,5": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            16
+                        ]
+                    ],
+                    "5,6": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "5,7": [
+                        "FinalStronghold",
+                        [
+                            4,
+                            21
+                        ]
+                    ],
+                    "5,8": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            21
+                        ]
+                    ],
+                    "5,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "6,0": [
+                        "FinalStronghold",
+                        [
+                            10,
+                            1
+                        ]
+                    ],
+                    "6,1": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "6,2": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "6,3": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "6,4": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            3
+                        ]
+                    ],
+                    "6,5": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "6,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "6,7": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "6,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "6,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "7,0": [
+                        "FinalStronghold",
+                        [
+                            27,
+                            29
+                        ]
+                    ],
+                    "7,1": [
+                        "FinalStronghold",
+                        [
+                            27,
+                            30
+                        ]
+                    ],
+                    "7,2": [
+                        "FinalStronghold",
+                        [
+                            27,
+                            31
+                        ]
+                    ],
+                    "7,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "7,4": [
+                        "FinalStronghold",
+                        [
+                            0,
+                            16
+                        ]
+                    ],
+                    "7,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "7,6": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "7,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "7,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "7,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "8,0": [
+                        "FinalStronghold",
+                        [
+                            28,
+                            29
+                        ]
+                    ],
+                    "8,1": [
+                        "FinalStronghold",
+                        [
+                            28,
+                            30
+                        ]
+                    ],
+                    "8,2": [
+                        "FinalStronghold",
+                        [
+                            28,
+                            31
+                        ]
+                    ],
+                    "8,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "8,4": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "8,5": [
+                        "FinalStronghold",
+                        [
+                            1,
+                            18
+                        ]
+                    ],
+                    "8,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "8,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            17
+                        ]
+                    ],
+                    "8,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "8,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "9,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "9,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "9,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "9,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "9,4": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "9,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "9,6": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "9,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            17
+                        ]
+                    ],
+                    "9,8": [
+                        "FinalStronghold",
+                        [
+                            5,
+                            17
+                        ]
+                    ],
+                    "9,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "10,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "10,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "10,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "10,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "10,4": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "10,5": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "10,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "10,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            17
+                        ]
+                    ],
+                    "10,8": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            17
+                        ]
+                    ],
+                    "10,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "11,0": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "11,1": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "11,2": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            24
+                        ]
+                    ],
+                    "11,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "11,4": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "11,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "11,6": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "11,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "11,8": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "11,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "12,0": [
+                        "FinalStronghold",
+                        [
+                            29,
+                            29
+                        ]
+                    ],
+                    "12,1": [
+                        "FinalStronghold",
+                        [
+                            29,
+                            30
+                        ]
+                    ],
+                    "12,2": [
+                        "FinalStronghold",
+                        [
+                            29,
+                            31
+                        ]
+                    ],
+                    "12,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "12,4": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "12,5": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "12,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "12,7": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "12,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "12,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "13,0": [
+                        "FinalStronghold",
+                        [
+                            30,
+                            29
+                        ]
+                    ],
+                    "13,1": [
+                        "FinalStronghold",
+                        [
+                            30,
+                            30
+                        ]
+                    ],
+                    "13,2": [
+                        "FinalStronghold",
+                        [
+                            30,
+                            31
+                        ]
+                    ],
+                    "13,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "13,4": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            21
+                        ]
+                    ],
+                    "13,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "13,6": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "13,7": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            21
+                        ]
+                    ],
+                    "13,8": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "13,9": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "14,0": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            1
+                        ]
+                    ],
+                    "14,1": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "14,2": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "14,3": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "14,4": [
+                        "FinalStronghold",
+                        [
+                            9,
+                            3
+                        ]
+                    ],
+                    "14,5": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "14,6": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "14,7": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "14,8": [
+                        "FinalStronghold",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "14,9": [
+                        "FinalStronghold",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "2,4": [
+                        "FinalStronghold",
+                        [
+                            22,
+                            27
+                        ]
+                    ],
+                    "4,4": [
+                        "FinalStronghold",
+                        [
+                            23,
+                            27
+                        ]
+                    ],
+                    "3,3": [
+                        "FinalStronghold",
+                        [
+                            24,
+                            27
+                        ]
+                    ],
+                    "4,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ],
+                    "2,3": [
+                        "FinalStronghold",
+                        [
+                            13,
+                            29
+                        ]
+                    ]
+                }
+            },
+            {
+                "nid": "forge",
+                "visible": true,
+                "foreground": false,
+                "terrain_grid": {},
+                "sprite_grid": {
+                    "3,1": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "3,4": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            5
+                        ]
+                    ],
+                    "2,2": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            3
+                        ]
+                    ],
+                    "4,5": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            6
+                        ]
+                    ],
+                    "2,5": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            6
+                        ]
+                    ],
+                    "4,2": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            3
+                        ]
+                    ],
+                    "5,4": [
+                        "ForgeTileset",
+                        [
+                            11,
+                            5
+                        ]
+                    ],
+                    "1,3": [
+                        "ForgeTileset",
+                        [
+                            7,
+                            4
+                        ]
+                    ],
+                    "2,1": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            2
+                        ]
+                    ],
+                    "3,0": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            1
+                        ]
+                    ],
+                    "2,4": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            5
+                        ]
+                    ],
+                    "4,1": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            2
+                        ]
+                    ],
+                    "3,3": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            4
+                        ]
+                    ],
+                    "5,3": [
+                        "ForgeTileset",
+                        [
+                            11,
+                            4
+                        ]
+                    ],
+                    "4,4": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            5
+                        ]
+                    ],
+                    "1,2": [
+                        "ForgeTileset",
+                        [
+                            7,
+                            3
+                        ]
+                    ],
+                    "1,5": [
+                        "ForgeTileset",
+                        [
+                            7,
+                            6
+                        ]
+                    ],
+                    "2,3": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            4
+                        ]
+                    ],
+                    "3,2": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            3
+                        ]
+                    ],
+                    "2,0": [
+                        "ForgeTileset",
+                        [
+                            8,
+                            1
+                        ]
+                    ],
+                    "4,3": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            4
+                        ]
+                    ],
+                    "3,5": [
+                        "ForgeTileset",
+                        [
+                            9,
+                            6
+                        ]
+                    ],
+                    "5,2": [
+                        "ForgeTileset",
+                        [
+                            11,
+                            3
+                        ]
+                    ],
+                    "4,0": [
+                        "ForgeTileset",
+                        [
+                            10,
+                            1
+                        ]
+                    ],
+                    "5,5": [
+                        "ForgeTileset",
+                        [
+                            11,
+                            6
+                        ]
+                    ],
+                    "1,4": [
+                        "ForgeTileset",
+                        [
+                            7,
+                            5
+                        ]
+                    ],
+                    "10,2": [
+                        "RoundtableTileset",
+                        [
+                            11,
+                            7
+                        ]
+                    ],
+                    "9,0": [
+                        "RoundtableTileset",
+                        [
+                            10,
+                            5
+                        ]
+                    ],
+                    "11,2": [
+                        "RoundtableTileset",
+                        [
+                            12,
+                            7
+                        ]
+                    ],
+                    "9,3": [
+                        "RoundtableTileset",
+                        [
+                            10,
+                            8
+                        ]
+                    ],
+                    "9,2": [
+                        "RoundtableTileset",
+                        [
+                            10,
+                            7
+                        ]
+                    ],
+                    "10,1": [
+                        "RoundtableTileset",
+                        [
+                            11,
+                            6
+                        ]
+                    ],
+                    "11,1": [
+                        "RoundtableTileset",
+                        [
+                            12,
+                            6
+                        ]
+                    ],
+                    "9,1": [
+                        "RoundtableTileset",
+                        [
+                            10,
+                            6
+                        ]
+                    ],
+                    "10,0": [
+                        "RoundtableTileset",
+                        [
+                            11,
+                            5
+                        ]
+                    ],
+                    "11,0": [
+                        "RoundtableTileset",
+                        [
+                            12,
+                            5
+                        ]
+                    ],
+                    "10,3": [
+                        "RoundtableTileset",
+                        [
+                            11,
+                            8
+                        ]
+                    ],
+                    "11,3": [
+                        "RoundtableTileset",
+                        [
+                            12,
+                            8
+                        ]
+                    ],
+                    "1,1": [
+                        "FF6",
+                        [
+                            25,
+                            110
+                        ]
+                    ],
+                    "5,1": [
+                        "FF6",
+                        [
+                            25,
+                            110
+                        ]
+                    ]
+                }
+            },
+            {
+                "nid": "deco",
+                "visible": true,
+                "foreground": false,
+                "terrain_grid": {},
+                "sprite_grid": {
+                    "7,4": [
+                        "FF6",
+                        [
+                            16,
+                            118
+                        ]
+                    ],
+                    "10,4": [
+                        "FF6",
+                        [
+                            16,
+                            118
+                        ]
+                    ],
+                    "13,4": [
+                        "FF6",
+                        [
+                            16,
+                            118
+                        ]
+                    ],
+                    "7,3": [
+                        "FF6",
+                        [
+                            30,
+                            105
+                        ]
+                    ],
+                    "10,3": [
+                        "FF6",
+                        [
+                            30,
+                            105
+                        ]
+                    ],
+                    "13,3": [
+                        "FF6",
+                        [
+                            30,
+                            105
+                        ]
+                    ]
+                }
+            }
+        ],
+        "tilesets": [
+            "FinalStronghold",
+            "ForgeTileset",
+            "RoundtableTileset",
+            "FF6"
+        ]
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "nid": "Portraits_Gunpowder",
+        "sub_nid": "Gunpowder",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": "Portraits",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Glaceo",
+                "Gunpowder"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "nid": "Unfade",
+        "name": "Unfade",
+        "desc": "Unit won't get any older.",
+        "icon_nid": "Skills_specials",
+        "icon_index": [
+            1,
+            13
+        ],
+        "components": [
+            [
+                "class_skill",
+                null
+            ]
+        ]
+    }
+]

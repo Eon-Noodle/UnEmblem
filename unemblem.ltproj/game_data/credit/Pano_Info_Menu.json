@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Pano_Info_Menu",
+        "sub_nid": "info_menu_background",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "JiroPaiPai",
+                "Info Menu Background"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,5736 @@
+[
+    {
+        "nid": "Overworld",
+        "size": [
+            34,
+            21
+        ],
+        "autotile_fps": 29,
+        "layers": [
+            {
+                "nid": "base",
+                "visible": true,
+                "foreground": false,
+                "terrain_grid": {
+                    "7,17": "Plain",
+                    "18,17": "Plain",
+                    "27,4": "Plain",
+                    "8,0": "Plain",
+                    "19,0": "Plain",
+                    "27,13": "Plain",
+                    "30,0": "Plain",
+                    "8,9": "Plain",
+                    "19,9": "Plain",
+                    "30,9": "Plain",
+                    "0,5": "Plain",
+                    "11,5": "Plain",
+                    "8,18": "Plain",
+                    "19,18": "Plain",
+                    "30,18": "Plain",
+                    "0,14": "Plain",
+                    "11,14": "Plain",
+                    "33,20": "Plain",
+                    "4,2": "Plain",
+                    "22,10": "Plain",
+                    "3,6": "Plain",
+                    "22,19": "Plain",
+                    "3,15": "Plain",
+                    "14,15": "Plain",
+                    "15,7": "Plain",
+                    "26,7": "Plain",
+                    "7,3": "Plain",
+                    "18,3": "Plain",
+                    "15,16": "Plain",
+                    "26,16": "Plain",
+                    "7,12": "Plain",
+                    "18,12": "Plain",
+                    "27,8": "Plain",
+                    "8,4": "Plain",
+                    "19,4": "Plain",
+                    "30,4": "Plain",
+                    "0,0": "Plain",
+                    "11,0": "Plain",
+                    "30,13": "Plain",
+                    "0,9": "Plain",
+                    "11,9": "Plain",
+                    "33,6": "Plain",
+                    "33,15": "Plain",
+                    "25,11": "Plain",
+                    "25,20": "Plain",
+                    "22,5": "Plain",
+                    "3,1": "Plain",
+                    "14,1": "Plain",
+                    "22,14": "Plain",
+                    "3,10": "Plain",
+                    "14,10": "Plain",
+                    "3,19": "Plain",
+                    "14,19": "Plain",
+                    "15,2": "Plain",
+                    "26,2": "Plain",
+                    "15,11": "Plain",
+                    "26,11": "Plain",
+                    "7,7": "Plain",
+                    "18,7": "Plain",
+                    "26,20": "Plain",
+                    "7,16": "Plain",
+                    "18,16": "Plain",
+                    "29,13": "Plain",
+                    "21,18": "Plain",
+                    "11,4": "Plain",
+                    "33,1": "Plain",
+                    "10,8": "Plain",
+                    "33,10": "Plain",
+                    "25,6": "Plain",
+                    "10,17": "Plain",
+                    "33,19": "Plain",
+                    "2,13": "Plain",
+                    "25,15": "Plain",
+                    "22,0": "Plain",
+                    "22,9": "Plain",
+                    "3,5": "Plain",
+                    "14,5": "Plain",
+                    "22,18": "Plain",
+                    "3,14": "Plain",
+                    "14,14": "Plain",
+                    "15,6": "Plain",
+                    "26,6": "Plain",
+                    "7,2": "Plain",
+                    "18,2": "Plain",
+                    "7,11": "Plain",
+                    "18,11": "Plain",
+                    "29,8": "Plain",
+                    "6,15": "Plain",
+                    "29,17": "Plain",
+                    "21,13": "Plain",
+                    "10,3": "Plain",
+                    "33,5": "Plain",
+                    "25,1": "Plain",
+                    "10,12": "Plain",
+                    "33,14": "Plain",
+                    "2,8": "Plain",
+                    "25,10": "Plain",
+                    "2,17": "Plain",
+                    "25,19": "Plain",
+                    "22,4": "Plain",
+                    "3,0": "Plain",
+                    "14,0": "Plain",
+                    "22,13": "Plain",
+                    "3,9": "Plain",
+                    "14,9": "Plain",
+                    "3,18": "Plain",
+                    "14,18": "Plain",
+                    "26,1": "Plain",
+                    "17,20": "Plain",
+                    "28,20": "Plain",
+                    "29,3": "Plain",
+                    "6,10": "Plain",
+                    "29,12": "Plain",
+                    "21,8": "Plain",
+                    "6,19": "Plain",
+                    "21,17": "Plain",
+                    "33,0": "Plain",
+                    "10,7": "Plain",
+                    "33,9": "Plain",
+                    "2,3": "Plain",
+                    "25,5": "Plain",
+                    "10,16": "Plain",
+                    "33,18": "Plain",
+                    "2,12": "Plain",
+                    "25,14": "Plain",
+                    "22,8": "Plain",
+                    "3,4": "Plain",
+                    "14,4": "Plain",
+                    "17,6": "Plain",
+                    "28,6": "Plain",
+                    "17,15": "Plain",
+                    "28,15": "Plain",
+                    "9,11": "Plain",
+                    "9,20": "Plain",
+                    "6,5": "Plain",
+                    "29,7": "Plain",
+                    "21,3": "Plain",
+                    "6,14": "Plain",
+                    "29,16": "Plain",
+                    "21,12": "Plain",
+                    "10,2": "Plain",
+                    "33,4": "Plain",
+                    "25,0": "Plain",
+                    "10,11": "Plain",
+                    "2,7": "Plain",
+                    "25,9": "Plain",
+                    "32,8": "Plain",
+                    "2,16": "Plain",
+                    "32,17": "Plain",
+                    "13,13": "Plain",
+                    "24,13": "Plain",
+                    "16,18": "Plain",
+                    "17,1": "Plain",
+                    "28,1": "Plain",
+                    "5,8": "Plain",
+                    "17,10": "Plain",
+                    "28,10": "Plain",
+                    "9,6": "Plain",
+                    "5,17": "Plain",
+                    "17,19": "Plain",
+                    "28,19": "Plain",
+                    "9,15": "Plain",
+                    "6,0": "Plain",
+                    "29,2": "Plain",
+                    "6,9": "Plain",
+                    "29,11": "Plain",
+                    "21,7": "Plain",
+                    "6,18": "Plain",
+                    "21,16": "Plain",
+                    "20,20": "Plain",
+                    "10,6": "Plain",
+                    "2,2": "Plain",
+                    "32,3": "Plain",
+                    "2,11": "Plain",
+                    "32,12": "Plain",
+                    "13,8": "Plain",
+                    "24,8": "Plain",
+                    "1,15": "Plain",
+                    "13,17": "Plain",
+                    "24,17": "Plain",
+                    "16,13": "Plain",
+                    "5,3": "Plain",
+                    "17,5": "Plain",
+                    "28,5": "Plain",
+                    "9,1": "Plain",
+                    "5,12": "Plain",
+                    "17,14": "Plain",
+                    "28,14": "Plain",
+                    "9,10": "Plain",
+                    "9,19": "Plain",
+                    "6,4": "Plain",
+                    "29,6": "Plain",
+                    "21,2": "Plain",
+                    "6,13": "Plain",
+                    "20,15": "Plain",
+                    "31,15": "Plain",
+                    "12,20": "Plain",
+                    "23,20": "Plain",
+                    "32,7": "Plain",
+                    "13,3": "Plain",
+                    "24,3": "Plain",
+                    "32,16": "Plain",
+                    "1,10": "Plain",
+                    "13,12": "Plain",
+                    "24,12": "Plain",
+                    "16,8": "Plain",
+                    "1,19": "Plain",
+                    "16,17": "Plain",
+                    "17,0": "Plain",
+                    "28,0": "Plain",
+                    "5,7": "Plain",
+                    "17,9": "Plain",
+                    "28,9": "Plain",
+                    "9,5": "Plain",
+                    "5,16": "Plain",
+                    "28,18": "Plain",
+                    "9,14": "Plain",
+                    "20,1": "Plain",
+                    "31,1": "Plain",
+                    "20,10": "Plain",
+                    "31,10": "Plain",
+                    "12,6": "Plain",
+                    "23,6": "Plain",
+                    "20,19": "Plain",
+                    "31,19": "Plain",
+                    "12,15": "Plain",
+                    "23,15": "Plain",
+                    "4,11": "Plain",
+                    "4,20": "Plain",
+                    "32,2": "Plain",
+                    "32,11": "Plain",
+                    "1,5": "Plain",
+                    "13,7": "Plain",
+                    "24,7": "Plain",
+                    "16,3": "Plain",
+                    "32,20": "Plain",
+                    "1,14": "Plain",
+                    "13,16": "Plain",
+                    "24,16": "Plain",
+                    "16,12": "Plain",
+                    "5,2": "Plain",
+                    "17,4": "Plain",
+                    "28,4": "Plain",
+                    "9,0": "Plain",
+                    "5,11": "Plain",
+                    "9,9": "Plain",
+                    "30,7": "Plain",
+                    "27,17": "Plain",
+                    "8,13": "Plain",
+                    "19,13": "Plain",
+                    "0,18": "Plain",
+                    "11,18": "Plain",
+                    "20,5": "Plain",
+                    "31,5": "Plain",
+                    "12,1": "Plain",
+                    "23,1": "Plain",
+                    "20,14": "Plain",
+                    "31,14": "Plain",
+                    "12,10": "Plain",
+                    "23,10": "Plain",
+                    "4,6": "Plain",
+                    "12,19": "Plain",
+                    "23,19": "Plain",
+                    "4,15": "Plain",
+                    "32,6": "Plain",
+                    "1,0": "Plain",
+                    "13,2": "Plain",
+                    "24,2": "Plain",
+                    "1,9": "Plain",
+                    "13,11": "Plain",
+                    "24,11": "Plain",
+                    "16,7": "Plain",
+                    "1,18": "Plain",
+                    "16,16": "Plain",
+                    "15,20": "Plain",
+                    "5,6": "Plain",
+                    "18,8": "Plain",
+                    "27,3": "Plain",
+                    "27,12": "Plain",
+                    "8,8": "Plain",
+                    "19,8": "Plain",
+                    "30,8": "Plain",
+                    "0,4": "Plain",
+                    "8,17": "Plain",
+                    "19,17": "Plain",
+                    "30,17": "Plain",
+                    "0,13": "Plain",
+                    "11,13": "Plain",
+                    "20,0": "Plain",
+                    "31,0": "Plain",
+                    "20,9": "Plain",
+                    "31,9": "Plain",
+                    "12,5": "Plain",
+                    "23,5": "Plain",
+                    "20,18": "Plain",
+                    "4,1": "Plain",
+                    "31,18": "Plain",
+                    "12,14": "Plain",
+                    "23,14": "Plain",
+                    "4,10": "Plain",
+                    "4,19": "Plain",
+                    "32,1": "Plain",
+                    "1,4": "Plain",
+                    "24,6": "Plain",
+                    "16,2": "Plain",
+                    "1,13": "Plain",
+                    "15,15": "Plain",
+                    "26,15": "Plain",
+                    "7,20": "Plain",
+                    "18,20": "Plain",
+                    "27,7": "Plain",
+                    "8,3": "Plain",
+                    "19,3": "Plain",
+                    "27,16": "Plain",
+                    "30,3": "Plain",
+                    "8,12": "Plain",
+                    "19,12": "Plain",
+                    "30,12": "Plain",
+                    "0,8": "Plain",
+                    "11,8": "Plain",
+                    "0,17": "Plain",
+                    "11,17": "Plain",
+                    "20,4": "Plain",
+                    "31,4": "Plain",
+                    "12,0": "Plain",
+                    "23,0": "Plain",
+                    "20,13": "Plain",
+                    "31,13": "Plain",
+                    "12,9": "Plain",
+                    "23,9": "Plain",
+                    "4,5": "Plain",
+                    "23,18": "Plain",
+                    "4,14": "Plain",
+                    "15,1": "Plain",
+                    "15,10": "Plain",
+                    "26,10": "Plain",
+                    "7,6": "Plain",
+                    "18,6": "Plain",
+                    "15,19": "Plain",
+                    "26,19": "Plain",
+                    "7,15": "Plain",
+                    "18,15": "Plain",
+                    "27,2": "Plain",
+                    "27,11": "Plain",
+                    "8,7": "Plain",
+                    "19,7": "Plain",
+                    "27,20": "Plain",
+                    "11,3": "Plain",
+                    "0,3": "Plain",
+                    "8,16": "Plain",
+                    "19,16": "Plain",
+                    "30,16": "Plain",
+                    "0,12": "Plain",
+                    "11,12": "Plain",
+                    "12,4": "Plain",
+                    "23,4": "Plain",
+                    "4,0": "Plain",
+                    "4,9": "Plain",
+                    "22,17": "Plain",
+                    "3,13": "Plain",
+                    "14,13": "Plain",
+                    "15,5": "Plain",
+                    "26,5": "Plain",
+                    "7,1": "Plain",
+                    "18,1": "Plain",
+                    "15,14": "Plain",
+                    "26,14": "Plain",
+                    "7,10": "Plain",
+                    "18,10": "Plain",
+                    "7,19": "Plain",
+                    "18,19": "Plain",
+                    "27,6": "Plain",
+                    "8,2": "Plain",
+                    "19,2": "Plain",
+                    "30,2": "Plain",
+                    "8,11": "Plain",
+                    "19,11": "Plain",
+                    "30,11": "Plain",
+                    "0,7": "Plain",
+                    "11,7": "Plain",
+                    "0,16": "Plain",
+                    "11,16": "Plain",
+                    "33,13": "Plain",
+                    "10,20": "Plain",
+                    "25,18": "Plain",
+                    "22,3": "Plain",
+                    "22,12": "Plain",
+                    "3,8": "Plain",
+                    "14,8": "Plain",
+                    "3,17": "Plain",
+                    "14,17": "Plain",
+                    "15,0": "Plain",
+                    "26,0": "Plain",
+                    "15,9": "Plain",
+                    "26,9": "Plain",
+                    "7,5": "Plain",
+                    "18,5": "Plain",
+                    "15,18": "Plain",
+                    "26,18": "Plain",
+                    "7,14": "Plain",
+                    "18,14": "Plain",
+                    "27,1": "Plain",
+                    "29,20": "Plain",
+                    "19,6": "Plain",
+                    "30,6": "Plain",
+                    "0,2": "Plain",
+                    "11,2": "Plain",
+                    "33,8": "Plain",
+                    "25,4": "Plain",
+                    "10,15": "Plain",
+                    "33,17": "Plain",
+                    "25,13": "Plain",
+                    "2,20": "Plain",
+                    "22,7": "Plain",
+                    "3,3": "Plain",
+                    "14,3": "Plain",
+                    "22,16": "Plain",
+                    "3,12": "Plain",
+                    "14,12": "Plain",
+                    "15,4": "Plain",
+                    "26,4": "Plain",
+                    "7,0": "Plain",
+                    "18,0": "Plain",
+                    "15,13": "Plain",
+                    "26,13": "Plain",
+                    "7,9": "Plain",
+                    "18,9": "Plain",
+                    "18,18": "Plain",
+                    "29,15": "Plain",
+                    "21,11": "Plain",
+                    "21,20": "Plain",
+                    "10,1": "Plain",
+                    "33,3": "Plain",
+                    "10,10": "Plain",
+                    "33,12": "Plain",
+                    "2,6": "Plain",
+                    "25,8": "Plain",
+                    "10,19": "Plain",
+                    "2,15": "Plain",
+                    "25,17": "Plain",
+                    "22,2": "Plain",
+                    "22,11": "Plain",
+                    "3,7": "Plain",
+                    "14,7": "Plain",
+                    "22,20": "Plain",
+                    "3,16": "Plain",
+                    "14,16": "Plain",
+                    "17,18": "Plain",
+                    "7,4": "Plain",
+                    "18,4": "Plain",
+                    "29,1": "Plain",
+                    "26,12": "Plain",
+                    "6,8": "Plain",
+                    "29,10": "Plain",
+                    "21,6": "Plain",
+                    "6,17": "Plain",
+                    "29,19": "Plain",
+                    "21,15": "Plain",
+                    "10,5": "Plain",
+                    "33,7": "Plain",
+                    "2,1": "Plain",
+                    "25,3": "Plain",
+                    "10,14": "Plain",
+                    "33,16": "Plain",
+                    "2,10": "Plain",
+                    "25,12": "Plain",
+                    "2,19": "Plain",
+                    "22,6": "Plain",
+                    "3,2": "Plain",
+                    "14,2": "Plain",
+                    "3,11": "Plain",
+                    "14,11": "Plain",
+                    "17,13": "Plain",
+                    "28,13": "Plain",
+                    "5,20": "Plain",
+                    "9,18": "Plain",
+                    "6,3": "Plain",
+                    "29,5": "Plain",
+                    "21,1": "Plain",
+                    "6,12": "Plain",
+                    "29,14": "Plain",
+                    "21,10": "Plain",
+                    "21,19": "Plain",
+                    "10,0": "Plain",
+                    "33,2": "Plain",
+                    "10,9": "Plain",
+                    "33,11": "Plain",
+                    "2,5": "Plain",
+                    "25,7": "Plain",
+                    "10,18": "Plain",
+                    "2,14": "Plain",
+                    "25,16": "Plain",
+                    "32,15": "Plain",
+                    "22,1": "Plain",
+                    "13,20": "Plain",
+                    "24,20": "Plain",
+                    "14,6": "Plain",
+                    "17,8": "Plain",
+                    "28,8": "Plain",
+                    "9,4": "Plain",
+                    "5,15": "Plain",
+                    "17,17": "Plain",
+                    "28,17": "Plain",
+                    "9,13": "Plain",
+                    "29,0": "Plain",
+                    "6,7": "Plain",
+                    "29,9": "Plain",
+                    "21,5": "Plain",
+                    "6,16": "Plain",
+                    "29,18": "Plain",
+                    "21,14": "Plain",
+                    "10,4": "Plain",
+                    "2,0": "Plain",
+                    "25,2": "Plain",
+                    "10,13": "Plain",
+                    "30,5": "Plain",
+                    "2,9": "Plain",
+                    "32,10": "Plain",
+                    "13,6": "Plain",
+                    "2,18": "Plain",
+                    "32,19": "Plain",
+                    "13,15": "Plain",
+                    "24,15": "Plain",
+                    "16,11": "Plain",
+                    "16,20": "Plain",
+                    "5,1": "Plain",
+                    "17,3": "Plain",
+                    "28,3": "Plain",
+                    "5,10": "Plain",
+                    "17,12": "Plain",
+                    "28,12": "Plain",
+                    "9,8": "Plain",
+                    "5,19": "Plain",
+                    "9,17": "Plain",
+                    "6,2": "Plain",
+                    "29,4": "Plain",
+                    "21,0": "Plain",
+                    "6,11": "Plain",
+                    "21,9": "Plain",
+                    "6,20": "Plain",
+                    "12,18": "Plain",
+                    "2,4": "Plain",
+                    "32,5": "Plain",
+                    "13,1": "Plain",
+                    "24,1": "Plain",
+                    "32,14": "Plain",
+                    "1,8": "Plain",
+                    "13,10": "Plain",
+                    "24,10": "Plain",
+                    "16,6": "Plain",
+                    "1,17": "Plain",
+                    "13,19": "Plain",
+                    "24,19": "Plain",
+                    "16,15": "Plain",
+                    "5,5": "Plain",
+                    "17,7": "Plain",
+                    "28,7": "Plain",
+                    "9,3": "Plain",
+                    "5,14": "Plain",
+                    "17,16": "Plain",
+                    "28,16": "Plain",
+                    "9,12": "Plain",
+                    "6,6": "Plain",
+                    "21,4": "Plain",
+                    "20,8": "Plain",
+                    "31,8": "Plain",
+                    "20,17": "Plain",
+                    "31,17": "Plain",
+                    "12,13": "Plain",
+                    "23,13": "Plain",
+                    "4,18": "Plain",
+                    "32,0": "Plain",
+                    "32,9": "Plain",
+                    "1,3": "Plain",
+                    "13,5": "Plain",
+                    "24,5": "Plain",
+                    "16,1": "Plain",
+                    "32,18": "Plain",
+                    "1,12": "Plain",
+                    "13,14": "Plain",
+                    "24,14": "Plain",
+                    "16,10": "Plain",
+                    "16,19": "Plain",
+                    "5,0": "Plain",
+                    "17,2": "Plain",
+                    "28,2": "Plain",
+                    "5,9": "Plain",
+                    "17,11": "Plain",
+                    "28,11": "Plain",
+                    "9,7": "Plain",
+                    "5,18": "Plain",
+                    "9,16": "Plain",
+                    "27,15": "Plain",
+                    "6,1": "Plain",
+                    "8,20": "Plain",
+                    "19,20": "Plain",
+                    "30,20": "Plain",
+                    "20,3": "Plain",
+                    "31,3": "Plain",
+                    "20,12": "Plain",
+                    "31,12": "Plain",
+                    "12,8": "Plain",
+                    "23,8": "Plain",
+                    "4,4": "Plain",
+                    "12,17": "Plain",
+                    "23,17": "Plain",
+                    "4,13": "Plain",
+                    "32,4": "Plain",
+                    "13,0": "Plain",
+                    "24,0": "Plain",
+                    "32,13": "Plain",
+                    "1,7": "Plain",
+                    "13,9": "Plain",
+                    "24,9": "Plain",
+                    "16,5": "Plain",
+                    "1,16": "Plain",
+                    "13,18": "Plain",
+                    "24,18": "Plain",
+                    "16,14": "Plain",
+                    "5,4": "Plain",
+                    "9,2": "Plain",
+                    "5,13": "Plain",
+                    "27,10": "Plain",
+                    "8,6": "Plain",
+                    "27,19": "Plain",
+                    "8,15": "Plain",
+                    "19,15": "Plain",
+                    "30,15": "Plain",
+                    "0,11": "Plain",
+                    "11,11": "Plain",
+                    "0,20": "Plain",
+                    "11,20": "Plain",
+                    "20,7": "Plain",
+                    "31,7": "Plain",
+                    "12,3": "Plain",
+                    "23,3": "Plain",
+                    "20,16": "Plain",
+                    "31,16": "Plain",
+                    "12,12": "Plain",
+                    "23,12": "Plain",
+                    "4,8": "Plain",
+                    "4,17": "Plain",
+                    "1,2": "Plain",
+                    "13,4": "Plain",
+                    "24,4": "Plain",
+                    "16,0": "Plain",
+                    "1,11": "Plain",
+                    "16,9": "Plain",
+                    "1,20": "Plain",
+                    "7,18": "Plain",
+                    "27,5": "Plain",
+                    "8,1": "Plain",
+                    "19,1": "Plain",
+                    "27,14": "Plain",
+                    "30,1": "Plain",
+                    "8,10": "Plain",
+                    "19,10": "Plain",
+                    "30,10": "Plain",
+                    "0,6": "Plain",
+                    "11,6": "Plain",
+                    "8,19": "Plain",
+                    "19,19": "Plain",
+                    "30,19": "Plain",
+                    "0,15": "Plain",
+                    "11,15": "Plain",
+                    "20,2": "Plain",
+                    "31,2": "Plain",
+                    "20,11": "Plain",
+                    "31,11": "Plain",
+                    "12,7": "Plain",
+                    "23,7": "Plain",
+                    "31,20": "Plain",
+                    "4,3": "Plain",
+                    "12,16": "Plain",
+                    "23,16": "Plain",
+                    "4,12": "Plain",
+                    "1,6": "Plain",
+                    "16,4": "Plain",
+                    "15,8": "Plain",
+                    "26,8": "Plain",
+                    "15,17": "Plain",
+                    "26,17": "Plain",
+                    "7,13": "Plain",
+                    "18,13": "Plain",
+                    "27,0": "Plain",
+                    "27,9": "Plain",
+                    "8,5": "Plain",
+                    "19,5": "Plain",
+                    "27,18": "Plain",
+                    "0,1": "Plain",
+                    "11,1": "Plain",
+                    "8,14": "Plain",
+                    "19,14": "Plain",
+                    "30,14": "Plain",
+                    "0,10": "Plain",
+                    "11,10": "Plain",
+                    "0,19": "Plain",
+                    "11,19": "Plain",
+                    "20,6": "Plain",
+                    "31,6": "Plain",
+                    "12,2": "Plain",
+                    "23,2": "Plain",
+                    "12,11": "Plain",
+                    "23,11": "Plain",
+                    "4,7": "Plain",
+                    "4,16": "Plain",
+                    "22,15": "Plain",
+                    "1,1": "Plain",
+                    "14,20": "Plain",
+                    "3,20": "Plain",
+                    "15,3": "Plain",
+                    "26,3": "Plain",
+                    "15,12": "Plain",
+                    "7,8": "Plain"
+                },
+                "sprite_grid": {
+                    "7,17": [
+                        "OverworldMap",
+                        [
+                            7,
+                            17
+                        ]
+                    ],
+                    "18,17": [
+                        "OverworldMap",
+                        [
+                            18,
+                            17
+                        ]
+                    ],
+                    "27,4": [
+                        "OverworldMap",
+                        [
+                            27,
+                            4
+                        ]
+                    ],
+                    "8,0": [
+                        "OverworldMap",
+                        [
+                            8,
+                            0
+                        ]
+                    ],
+                    "19,0": [
+                        "OverworldMap",
+                        [
+                            19,
+                            0
+                        ]
+                    ],
+                    "27,13": [
+                        "OverworldMap",
+                        [
+                            27,
+                            13
+                        ]
+                    ],
+                    "30,0": [
+                        "OverworldMap",
+                        [
+                            30,
+                            0
+                        ]
+                    ],
+                    "8,9": [
+                        "OverworldMap",
+                        [
+                            8,
+                            9
+                        ]
+                    ],
+                    "19,9": [
+                        "OverworldMap",
+                        [
+                            19,
+                            9
+                        ]
+                    ],
+                    "30,9": [
+                        "OverworldMap",
+                        [
+                            30,
+                            9
+                        ]
+                    ],
+                    "0,5": [
+                        "OverworldMap",
+                        [
+                            0,
+                            5
+                        ]
+                    ],
+                    "11,5": [
+                        "OverworldMap",
+                        [
+                            11,
+                            5
+                        ]
+                    ],
+                    "8,18": [
+                        "OverworldMap",
+                        [
+                            8,
+                            18
+                        ]
+                    ],
+                    "19,18": [
+                        "OverworldMap",
+                        [
+                            19,
+                            18
+                        ]
+                    ],
+                    "30,18": [
+                        "OverworldMap",
+                        [
+                            30,
+                            18
+                        ]
+                    ],
+                    "0,14": [
+                        "OverworldMap",
+                        [
+                            0,
+                            14
+                        ]
+                    ],
+                    "11,14": [
+                        "OverworldMap",
+                        [
+                            11,
+                            14
+                        ]
+                    ],
+                    "33,20": [
+                        "OverworldMap",
+                        [
+                            33,
+                            20
+                        ]
+                    ],
+                    "4,2": [
+                        "OverworldMap",
+                        [
+                            4,
+                            2
+                        ]
+                    ],
+                    "22,10": [
+                        "OverworldMap",
+                        [
+                            22,
+                            10
+                        ]
+                    ],
+                    "3,6": [
+                        "OverworldMap",
+                        [
+                            3,
+                            6
+                        ]
+                    ],
+                    "22,19": [
+                        "OverworldMap",
+                        [
+                            22,
+                            19
+                        ]
+                    ],
+                    "3,15": [
+                        "OverworldMap",
+                        [
+                            3,
+                            15
+                        ]
+                    ],
+                    "14,15": [
+                        "OverworldMap",
+                        [
+                            14,
+                            15
+                        ]
+                    ],
+                    "15,7": [
+                        "OverworldMap",
+                        [
+                            15,
+                            7
+                        ]
+                    ],
+                    "26,7": [
+                        "OverworldMap",
+                        [
+                            26,
+                            7
+                        ]
+                    ],
+                    "7,3": [
+                        "OverworldMap",
+                        [
+                            7,
+                            3
+                        ]
+                    ],
+                    "18,3": [
+                        "OverworldMap",
+                        [
+                            18,
+                            3
+                        ]
+                    ],
+                    "15,16": [
+                        "OverworldMap",
+                        [
+                            15,
+                            16
+                        ]
+                    ],
+                    "26,16": [
+                        "OverworldMap",
+                        [
+                            26,
+                            16
+                        ]
+                    ],
+                    "7,12": [
+                        "OverworldMap",
+                        [
+                            7,
+                            12
+                        ]
+                    ],
+                    "18,12": [
+                        "OverworldMap",
+                        [
+                            18,
+                            12
+                        ]
+                    ],
+                    "27,8": [
+                        "OverworldMap",
+                        [
+                            27,
+                            8
+                        ]
+                    ],
+                    "8,4": [
+                        "OverworldMap",
+                        [
+                            8,
+                            4
+                        ]
+                    ],
+                    "19,4": [
+                        "OverworldMap",
+                        [
+                            19,
+                            4
+                        ]
+                    ],
+                    "30,4": [
+                        "OverworldMap",
+                        [
+                            30,
+                            4
+                        ]
+                    ],
+                    "0,0": [
+                        "OverworldMap",
+                        [
+                            0,
+                            0
+                        ]
+                    ],
+                    "11,0": [
+                        "OverworldMap",
+                        [
+                            11,
+                            0
+                        ]
+                    ],
+                    "30,13": [
+                        "OverworldMap",
+                        [
+                            30,
+                            13
+                        ]
+                    ],
+                    "0,9": [
+                        "OverworldMap",
+                        [
+                            0,
+                            9
+                        ]
+                    ],
+                    "11,9": [
+                        "OverworldMap",
+                        [
+                            11,
+                            9
+                        ]
+                    ],
+                    "33,6": [
+                        "OverworldMap",
+                        [
+                            33,
+                            6
+                        ]
+                    ],
+                    "33,15": [
+                        "OverworldMap",
+                        [
+                            33,
+                            15
+                        ]
+                    ],
+                    "25,11": [
+                        "OverworldMap",
+                        [
+                            25,
+                            11
+                        ]
+                    ],
+                    "25,20": [
+                        "OverworldMap",
+                        [
+                            25,
+                            20
+                        ]
+                    ],
+                    "22,5": [
+                        "OverworldMap",
+                        [
+                            22,
+                            5
+                        ]
+                    ],
+                    "3,1": [
+                        "OverworldMap",
+                        [
+                            3,
+                            1
+                        ]
+                    ],
+                    "14,1": [
+                        "OverworldMap",
+                        [
+                            14,
+                            1
+                        ]
+                    ],
+                    "22,14": [
+                        "OverworldMap",
+                        [
+                            22,
+                            14
+                        ]
+                    ],
+                    "3,10": [
+                        "OverworldMap",
+                        [
+                            3,
+                            10
+                        ]
+                    ],
+                    "14,10": [
+                        "OverworldMap",
+                        [
+                            14,
+                            10
+                        ]
+                    ],
+                    "3,19": [
+                        "OverworldMap",
+                        [
+                            3,
+                            19
+                        ]
+                    ],
+                    "14,19": [
+                        "OverworldMap",
+                        [
+                            14,
+                            19
+                        ]
+                    ],
+                    "15,2": [
+                        "OverworldMap",
+                        [
+                            15,
+                            2
+                        ]
+                    ],
+                    "26,2": [
+                        "OverworldMap",
+                        [
+                            26,
+                            2
+                        ]
+                    ],
+                    "15,11": [
+                        "OverworldMap",
+                        [
+                            15,
+                            11
+                        ]
+                    ],
+                    "26,11": [
+                        "OverworldMap",
+                        [
+                            26,
+                            11
+                        ]
+                    ],
+                    "7,7": [
+                        "OverworldMap",
+                        [
+                            7,
+                            7
+                        ]
+                    ],
+                    "18,7": [
+                        "OverworldMap",
+                        [
+                            18,
+                            7
+                        ]
+                    ],
+                    "26,20": [
+                        "OverworldMap",
+                        [
+                            26,
+                            20
+                        ]
+                    ],
+                    "7,16": [
+                        "OverworldMap",
+                        [
+                            7,
+                            16
+                        ]
+                    ],
+                    "18,16": [
+                        "OverworldMap",
+                        [
+                            18,
+                            16
+                        ]
+                    ],
+                    "29,13": [
+                        "OverworldMap",
+                        [
+                            29,
+                            13
+                        ]
+                    ],
+                    "21,18": [
+                        "OverworldMap",
+                        [
+                            21,
+                            18
+                        ]
+                    ],
+                    "11,4": [
+                        "OverworldMap",
+                        [
+                            11,
+                            4
+                        ]
+                    ],
+                    "33,1": [
+                        "OverworldMap",
+                        [
+                            33,
+                            1
+                        ]
+                    ],
+                    "10,8": [
+                        "OverworldMap",
+                        [
+                            10,
+                            8
+                        ]
+                    ],
+                    "33,10": [
+                        "OverworldMap",
+                        [
+                            33,
+                            10
+                        ]
+                    ],
+                    "25,6": [
+                        "OverworldMap",
+                        [
+                            25,
+                            6
+                        ]
+                    ],
+                    "10,17": [
+                        "OverworldMap",
+                        [
+                            10,
+                            17
+                        ]
+                    ],
+                    "33,19": [
+                        "OverworldMap",
+                        [
+                            33,
+                            19
+                        ]
+                    ],
+                    "2,13": [
+                        "OverworldMap",
+                        [
+                            2,
+                            13
+                        ]
+                    ],
+                    "25,15": [
+                        "OverworldMap",
+                        [
+                            25,
+                            15
+                        ]
+                    ],
+                    "22,0": [
+                        "OverworldMap",
+                        [
+                            22,
+                            0
+                        ]
+                    ],
+                    "22,9": [
+                        "OverworldMap",
+                        [
+                            22,
+                            9
+                        ]
+                    ],
+                    "3,5": [
+                        "OverworldMap",
+                        [
+                            3,
+                            5
+                        ]
+                    ],
+                    "14,5": [
+                        "OverworldMap",
+                        [
+                            14,
+                            5
+                        ]
+                    ],
+                    "22,18": [
+                        "OverworldMap",
+                        [
+                            22,
+                            18
+                        ]
+                    ],
+                    "3,14": [
+                        "OverworldMap",
+                        [
+                            3,
+                            14
+                        ]
+                    ],
+                    "14,14": [
+                        "OverworldMap",
+                        [
+                            14,
+                            14
+                        ]
+                    ],
+                    "15,6": [
+                        "OverworldMap",
+                        [
+                            15,
+                            6
+                        ]
+                    ],
+                    "26,6": [
+                        "OverworldMap",
+                        [
+                            26,
+                            6
+                        ]
+                    ],
+                    "7,2": [
+                        "OverworldMap",
+                        [
+                            7,
+                            2
+                        ]
+                    ],
+                    "18,2": [
+                        "OverworldMap",
+                        [
+                            18,
+                            2
+                        ]
+                    ],
+                    "7,11": [
+                        "OverworldMap",
+                        [
+                            7,
+                            11
+                        ]
+                    ],
+                    "18,11": [
+                        "OverworldMap",
+                        [
+                            18,
+                            11
+                        ]
+                    ],
+                    "29,8": [
+                        "OverworldMap",
+                        [
+                            29,
+                            8
+                        ]
+                    ],
+                    "6,15": [
+                        "OverworldMap",
+                        [
+                            6,
+                            15
+                        ]
+                    ],
+                    "29,17": [
+                        "OverworldMap",
+                        [
+                            29,
+                            17
+                        ]
+                    ],
+                    "21,13": [
+                        "OverworldMap",
+                        [
+                            21,
+                            13
+                        ]
+                    ],
+                    "10,3": [
+                        "OverworldMap",
+                        [
+                            10,
+                            3
+                        ]
+                    ],
+                    "33,5": [
+                        "OverworldMap",
+                        [
+                            33,
+                            5
+                        ]
+                    ],
+                    "25,1": [
+                        "OverworldMap",
+                        [
+                            25,
+                            1
+                        ]
+                    ],
+                    "10,12": [
+                        "OverworldMap",
+                        [
+                            10,
+                            12
+                        ]
+                    ],
+                    "33,14": [
+                        "OverworldMap",
+                        [
+                            33,
+                            14
+                        ]
+                    ],
+                    "2,8": [
+                        "OverworldMap",
+                        [
+                            2,
+                            8
+                        ]
+                    ],
+                    "25,10": [
+                        "OverworldMap",
+                        [
+                            25,
+                            10
+                        ]
+                    ],
+                    "2,17": [
+                        "OverworldMap",
+                        [
+                            2,
+                            17
+                        ]
+                    ],
+                    "25,19": [
+                        "OverworldMap",
+                        [
+                            25,
+                            19
+                        ]
+                    ],
+                    "22,4": [
+                        "OverworldMap",
+                        [
+                            22,
+                            4
+                        ]
+                    ],
+                    "3,0": [
+                        "OverworldMap",
+                        [
+                            3,
+                            0
+                        ]
+                    ],
+                    "14,0": [
+                        "OverworldMap",
+                        [
+                            14,
+                            0
+                        ]
+                    ],
+                    "22,13": [
+                        "OverworldMap",
+                        [
+                            22,
+                            13
+                        ]
+                    ],
+                    "3,9": [
+                        "OverworldMap",
+                        [
+                            3,
+                            9
+                        ]
+                    ],
+                    "14,9": [
+                        "OverworldMap",
+                        [
+                            14,
+                            9
+                        ]
+                    ],
+                    "3,18": [
+                        "OverworldMap",
+                        [
+                            3,
+                            18
+                        ]
+                    ],
+                    "14,18": [
+                        "OverworldMap",
+                        [
+                            14,
+                            18
+                        ]
+                    ],
+                    "26,1": [
+                        "OverworldMap",
+                        [
+                            26,
+                            1
+                        ]
+                    ],
+                    "17,20": [
+                        "OverworldMap",
+                        [
+                            17,
+                            20
+                        ]
+                    ],
+                    "28,20": [
+                        "OverworldMap",
+                        [
+                            28,
+                            20
+                        ]
+                    ],
+                    "29,3": [
+                        "OverworldMap",
+                        [
+                            29,
+                            3
+                        ]
+                    ],
+                    "6,10": [
+                        "OverworldMap",
+                        [
+                            6,
+                            10
+                        ]
+                    ],
+                    "29,12": [
+                        "OverworldMap",
+                        [
+                            29,
+                            12
+                        ]
+                    ],
+                    "21,8": [
+                        "OverworldMap",
+                        [
+                            21,
+                            8
+                        ]
+                    ],
+                    "6,19": [
+                        "OverworldMap",
+                        [
+                            6,
+                            19
+                        ]
+                    ],
+                    "21,17": [
+                        "OverworldMap",
+                        [
+                            21,
+                            17
+                        ]
+                    ],
+                    "33,0": [
+                        "OverworldMap",
+                        [
+                            33,
+                            0
+                        ]
+                    ],
+                    "10,7": [
+                        "OverworldMap",
+                        [
+                            10,
+                            7
+                        ]
+                    ],
+                    "33,9": [
+                        "OverworldMap",
+                        [
+                            33,
+                            9
+                        ]
+                    ],
+                    "2,3": [
+                        "OverworldMap",
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "25,5": [
+                        "OverworldMap",
+                        [
+                            25,
+                            5
+                        ]
+                    ],
+                    "10,16": [
+                        "OverworldMap",
+                        [
+                            10,
+                            16
+                        ]
+                    ],
+                    "33,18": [
+                        "OverworldMap",
+                        [
+                            33,
+                            18
+                        ]
+                    ],
+                    "2,12": [
+                        "OverworldMap",
+                        [
+                            2,
+                            12
+                        ]
+                    ],
+                    "25,14": [
+                        "OverworldMap",
+                        [
+                            25,
+                            14
+                        ]
+                    ],
+                    "22,8": [
+                        "OverworldMap",
+                        [
+                            22,
+                            8
+                        ]
+                    ],
+                    "3,4": [
+                        "OverworldMap",
+                        [
+                            3,
+                            4
+                        ]
+                    ],
+                    "14,4": [
+                        "OverworldMap",
+                        [
+                            14,
+                            4
+                        ]
+                    ],
+                    "17,6": [
+                        "OverworldMap",
+                        [
+                            17,
+                            6
+                        ]
+                    ],
+                    "28,6": [
+                        "OverworldMap",
+                        [
+                            28,
+                            6
+                        ]
+                    ],
+                    "17,15": [
+                        "OverworldMap",
+                        [
+                            17,
+                            15
+                        ]
+                    ],
+                    "28,15": [
+                        "OverworldMap",
+                        [
+                            28,
+                            15
+                        ]
+                    ],
+                    "9,11": [
+                        "OverworldMap",
+                        [
+                            9,
+                            11
+                        ]
+                    ],
+                    "9,20": [
+                        "OverworldMap",
+                        [
+                            9,
+                            20
+                        ]
+                    ],
+                    "6,5": [
+                        "OverworldMap",
+                        [
+                            6,
+                            5
+                        ]
+                    ],
+                    "29,7": [
+                        "OverworldMap",
+                        [
+                            29,
+                            7
+                        ]
+                    ],
+                    "21,3": [
+                        "OverworldMap",
+                        [
+                            21,
+                            3
+                        ]
+                    ],
+                    "6,14": [
+                        "OverworldMap",
+                        [
+                            6,
+                            14
+                        ]
+                    ],
+                    "29,16": [
+                        "OverworldMap",
+                        [
+                            29,
+                            16
+                        ]
+                    ],
+                    "21,12": [
+                        "OverworldMap",
+                        [
+                            21,
+                            12
+                        ]
+                    ],
+                    "10,2": [
+                        "OverworldMap",
+                        [
+                            10,
+                            2
+                        ]
+                    ],
+                    "33,4": [
+                        "OverworldMap",
+                        [
+                            33,
+                            4
+                        ]
+                    ],
+                    "25,0": [
+                        "OverworldMap",
+                        [
+                            25,
+                            0
+                        ]
+                    ],
+                    "10,11": [
+                        "OverworldMap",
+                        [
+                            10,
+                            11
+                        ]
+                    ],
+                    "2,7": [
+                        "OverworldMap",
+                        [
+                            2,
+                            7
+                        ]
+                    ],
+                    "25,9": [
+                        "OverworldMap",
+                        [
+                            25,
+                            9
+                        ]
+                    ],
+                    "32,8": [
+                        "OverworldMap",
+                        [
+                            32,
+                            8
+                        ]
+                    ],
+                    "2,16": [
+                        "OverworldMap",
+                        [
+                            2,
+                            16
+                        ]
+                    ],
+                    "32,17": [
+                        "OverworldMap",
+                        [
+                            32,
+                            17
+                        ]
+                    ],
+                    "13,13": [
+                        "OverworldMap",
+                        [
+                            13,
+                            13
+                        ]
+                    ],
+                    "24,13": [
+                        "OverworldMap",
+                        [
+                            24,
+                            13
+                        ]
+                    ],
+                    "16,18": [
+                        "OverworldMap",
+                        [
+                            16,
+                            18
+                        ]
+                    ],
+                    "17,1": [
+                        "OverworldMap",
+                        [
+                            17,
+                            1
+                        ]
+                    ],
+                    "28,1": [
+                        "OverworldMap",
+                        [
+                            28,
+                            1
+                        ]
+                    ],
+                    "5,8": [
+                        "OverworldMap",
+                        [
+                            5,
+                            8
+                        ]
+                    ],
+                    "17,10": [
+                        "OverworldMap",
+                        [
+                            17,
+                            10
+                        ]
+                    ],
+                    "28,10": [
+                        "OverworldMap",
+                        [
+                            28,
+                            10
+                        ]
+                    ],
+                    "9,6": [
+                        "OverworldMap",
+                        [
+                            9,
+                            6
+                        ]
+                    ],
+                    "5,17": [
+                        "OverworldMap",
+                        [
+                            5,
+                            17
+                        ]
+                    ],
+                    "17,19": [
+                        "OverworldMap",
+                        [
+                            17,
+                            19
+                        ]
+                    ],
+                    "28,19": [
+                        "OverworldMap",
+                        [
+                            28,
+                            19
+                        ]
+                    ],
+                    "9,15": [
+                        "OverworldMap",
+                        [
+                            9,
+                            15
+                        ]
+                    ],
+                    "6,0": [
+                        "OverworldMap",
+                        [
+                            6,
+                            0
+                        ]
+                    ],
+                    "29,2": [
+                        "OverworldMap",
+                        [
+                            29,
+                            2
+                        ]
+                    ],
+                    "6,9": [
+                        "OverworldMap",
+                        [
+                            6,
+                            9
+                        ]
+                    ],
+                    "29,11": [
+                        "OverworldMap",
+                        [
+                            29,
+                            11
+                        ]
+                    ],
+                    "21,7": [
+                        "OverworldMap",
+                        [
+                            21,
+                            7
+                        ]
+                    ],
+                    "6,18": [
+                        "OverworldMap",
+                        [
+                            6,
+                            18
+                        ]
+                    ],
+                    "21,16": [
+                        "OverworldMap",
+                        [
+                            21,
+                            16
+                        ]
+                    ],
+                    "20,20": [
+                        "OverworldMap",
+                        [
+                            20,
+                            20
+                        ]
+                    ],
+                    "10,6": [
+                        "OverworldMap",
+                        [
+                            10,
+                            6
+                        ]
+                    ],
+                    "2,2": [
+                        "OverworldMap",
+                        [
+                            2,
+                            2
+                        ]
+                    ],
+                    "32,3": [
+                        "OverworldMap",
+                        [
+                            32,
+                            3
+                        ]
+                    ],
+                    "2,11": [
+                        "OverworldMap",
+                        [
+                            2,
+                            11
+                        ]
+                    ],
+                    "32,12": [
+                        "OverworldMap",
+                        [
+                            32,
+                            12
+                        ]
+                    ],
+                    "13,8": [
+                        "OverworldMap",
+                        [
+                            13,
+                            8
+                        ]
+                    ],
+                    "24,8": [
+                        "OverworldMap",
+                        [
+                            24,
+                            8
+                        ]
+                    ],
+                    "1,15": [
+                        "OverworldMap",
+                        [
+                            1,
+                            15
+                        ]
+                    ],
+                    "13,17": [
+                        "OverworldMap",
+                        [
+                            13,
+                            17
+                        ]
+                    ],
+                    "24,17": [
+                        "OverworldMap",
+                        [
+                            24,
+                            17
+                        ]
+                    ],
+                    "16,13": [
+                        "OverworldMap",
+                        [
+                            16,
+                            13
+                        ]
+                    ],
+                    "5,3": [
+                        "OverworldMap",
+                        [
+                            5,
+                            3
+                        ]
+                    ],
+                    "17,5": [
+                        "OverworldMap",
+                        [
+                            17,
+                            5
+                        ]
+                    ],
+                    "28,5": [
+                        "OverworldMap",
+                        [
+                            28,
+                            5
+                        ]
+                    ],
+                    "9,1": [
+                        "OverworldMap",
+                        [
+                            9,
+                            1
+                        ]
+                    ],
+                    "5,12": [
+                        "OverworldMap",
+                        [
+                            5,
+                            12
+                        ]
+                    ],
+                    "17,14": [
+                        "OverworldMap",
+                        [
+                            17,
+                            14
+                        ]
+                    ],
+                    "28,14": [
+                        "OverworldMap",
+                        [
+                            28,
+                            14
+                        ]
+                    ],
+                    "9,10": [
+                        "OverworldMap",
+                        [
+                            9,
+                            10
+                        ]
+                    ],
+                    "9,19": [
+                        "OverworldMap",
+                        [
+                            9,
+                            19
+                        ]
+                    ],
+                    "6,4": [
+                        "OverworldMap",
+                        [
+                            6,
+                            4
+                        ]
+                    ],
+                    "29,6": [
+                        "OverworldMap",
+                        [
+                            29,
+                            6
+                        ]
+                    ],
+                    "21,2": [
+                        "OverworldMap",
+                        [
+                            21,
+                            2
+                        ]
+                    ],
+                    "6,13": [
+                        "OverworldMap",
+                        [
+                            6,
+                            13
+                        ]
+                    ],
+                    "20,15": [
+                        "OverworldMap",
+                        [
+                            20,
+                            15
+                        ]
+                    ],
+                    "31,15": [
+                        "OverworldMap",
+                        [
+                            31,
+                            15
+                        ]
+                    ],
+                    "12,20": [
+                        "OverworldMap",
+                        [
+                            12,
+                            20
+                        ]
+                    ],
+                    "23,20": [
+                        "OverworldMap",
+                        [
+                            23,
+                            20
+                        ]
+                    ],
+                    "32,7": [
+                        "OverworldMap",
+                        [
+                            32,
+                            7
+                        ]
+                    ],
+                    "13,3": [
+                        "OverworldMap",
+                        [
+                            13,
+                            3
+                        ]
+                    ],
+                    "24,3": [
+                        "OverworldMap",
+                        [
+                            24,
+                            3
+                        ]
+                    ],
+                    "32,16": [
+                        "OverworldMap",
+                        [
+                            32,
+                            16
+                        ]
+                    ],
+                    "1,10": [
+                        "OverworldMap",
+                        [
+                            1,
+                            10
+                        ]
+                    ],
+                    "13,12": [
+                        "OverworldMap",
+                        [
+                            13,
+                            12
+                        ]
+                    ],
+                    "24,12": [
+                        "OverworldMap",
+                        [
+                            24,
+                            12
+                        ]
+                    ],
+                    "16,8": [
+                        "OverworldMap",
+                        [
+                            16,
+                            8
+                        ]
+                    ],
+                    "1,19": [
+                        "OverworldMap",
+                        [
+                            1,
+                            19
+                        ]
+                    ],
+                    "16,17": [
+                        "OverworldMap",
+                        [
+                            16,
+                            17
+                        ]
+                    ],
+                    "17,0": [
+                        "OverworldMap",
+                        [
+                            17,
+                            0
+                        ]
+                    ],
+                    "28,0": [
+                        "OverworldMap",
+                        [
+                            28,
+                            0
+                        ]
+                    ],
+                    "5,7": [
+                        "OverworldMap",
+                        [
+                            5,
+                            7
+                        ]
+                    ],
+                    "17,9": [
+                        "OverworldMap",
+                        [
+                            17,
+                            9
+                        ]
+                    ],
+                    "28,9": [
+                        "OverworldMap",
+                        [
+                            28,
+                            9
+                        ]
+                    ],
+                    "9,5": [
+                        "OverworldMap",
+                        [
+                            9,
+                            5
+                        ]
+                    ],
+                    "5,16": [
+                        "OverworldMap",
+                        [
+                            5,
+                            16
+                        ]
+                    ],
+                    "28,18": [
+                        "OverworldMap",
+                        [
+                            28,
+                            18
+                        ]
+                    ],
+                    "9,14": [
+                        "OverworldMap",
+                        [
+                            9,
+                            14
+                        ]
+                    ],
+                    "20,1": [
+                        "OverworldMap",
+                        [
+                            20,
+                            1
+                        ]
+                    ],
+                    "31,1": [
+                        "OverworldMap",
+                        [
+                            31,
+                            1
+                        ]
+                    ],
+                    "20,10": [
+                        "OverworldMap",
+                        [
+                            20,
+                            10
+                        ]
+                    ],
+                    "31,10": [
+                        "OverworldMap",
+                        [
+                            31,
+                            10
+                        ]
+                    ],
+                    "12,6": [
+                        "OverworldMap",
+                        [
+                            12,
+                            6
+                        ]
+                    ],
+                    "23,6": [
+                        "OverworldMap",
+                        [
+                            23,
+                            6
+                        ]
+                    ],
+                    "20,19": [
+                        "OverworldMap",
+                        [
+                            20,
+                            19
+                        ]
+                    ],
+                    "31,19": [
+                        "OverworldMap",
+                        [
+                            31,
+                            19
+                        ]
+                    ],
+                    "12,15": [
+                        "OverworldMap",
+                        [
+                            12,
+                            15
+                        ]
+                    ],
+                    "23,15": [
+                        "OverworldMap",
+                        [
+                            23,
+                            15
+                        ]
+                    ],
+                    "4,11": [
+                        "OverworldMap",
+                        [
+                            4,
+                            11
+                        ]
+                    ],
+                    "4,20": [
+                        "OverworldMap",
+                        [
+                            4,
+                            20
+                        ]
+                    ],
+                    "32,2": [
+                        "OverworldMap",
+                        [
+                            32,
+                            2
+                        ]
+                    ],
+                    "32,11": [
+                        "OverworldMap",
+                        [
+                            32,
+                            11
+                        ]
+                    ],
+                    "1,5": [
+                        "OverworldMap",
+                        [
+                            1,
+                            5
+                        ]
+                    ],
+                    "13,7": [
+                        "OverworldMap",
+                        [
+                            13,
+                            7
+                        ]
+                    ],
+                    "24,7": [
+                        "OverworldMap",
+                        [
+                            24,
+                            7
+                        ]
+                    ],
+                    "16,3": [
+                        "OverworldMap",
+                        [
+                            16,
+                            3
+                        ]
+                    ],
+                    "32,20": [
+                        "OverworldMap",
+                        [
+                            32,
+                            20
+                        ]
+                    ],
+                    "1,14": [
+                        "OverworldMap",
+                        [
+                            1,
+                            14
+                        ]
+                    ],
+                    "13,16": [
+                        "OverworldMap",
+                        [
+                            13,
+                            16
+                        ]
+                    ],
+                    "24,16": [
+                        "OverworldMap",
+                        [
+                            24,
+                            16
+                        ]
+                    ],
+                    "16,12": [
+                        "OverworldMap",
+                        [
+                            16,
+                            12
+                        ]
+                    ],
+                    "5,2": [
+                        "OverworldMap",
+                        [
+                            5,
+                            2
+                        ]
+                    ],
+                    "17,4": [
+                        "OverworldMap",
+                        [
+                            17,
+                            4
+                        ]
+                    ],
+                    "28,4": [
+                        "OverworldMap",
+                        [
+                            28,
+                            4
+                        ]
+                    ],
+                    "9,0": [
+                        "OverworldMap",
+                        [
+                            9,
+                            0
+                        ]
+                    ],
+                    "5,11": [
+                        "OverworldMap",
+                        [
+                            5,
+                            11
+                        ]
+                    ],
+                    "9,9": [
+                        "OverworldMap",
+                        [
+                            9,
+                            9
+                        ]
+                    ],
+                    "27,17": [
+                        "OverworldMap",
+                        [
+                            27,
+                            17
+                        ]
+                    ],
+                    "8,13": [
+                        "OverworldMap",
+                        [
+                            8,
+                            13
+                        ]
+                    ],
+                    "19,13": [
+                        "OverworldMap",
+                        [
+                            19,
+                            13
+                        ]
+                    ],
+                    "0,18": [
+                        "OverworldMap",
+                        [
+                            0,
+                            18
+                        ]
+                    ],
+                    "11,18": [
+                        "OverworldMap",
+                        [
+                            11,
+                            18
+                        ]
+                    ],
+                    "20,5": [
+                        "OverworldMap",
+                        [
+                            20,
+                            5
+                        ]
+                    ],
+                    "31,5": [
+                        "OverworldMap",
+                        [
+                            31,
+                            5
+                        ]
+                    ],
+                    "12,1": [
+                        "OverworldMap",
+                        [
+                            12,
+                            1
+                        ]
+                    ],
+                    "23,1": [
+                        "OverworldMap",
+                        [
+                            23,
+                            1
+                        ]
+                    ],
+                    "20,14": [
+                        "OverworldMap",
+                        [
+                            20,
+                            14
+                        ]
+                    ],
+                    "31,14": [
+                        "OverworldMap",
+                        [
+                            31,
+                            14
+                        ]
+                    ],
+                    "12,10": [
+                        "OverworldMap",
+                        [
+                            12,
+                            10
+                        ]
+                    ],
+                    "23,10": [
+                        "OverworldMap",
+                        [
+                            23,
+                            10
+                        ]
+                    ],
+                    "4,6": [
+                        "OverworldMap",
+                        [
+                            4,
+                            6
+                        ]
+                    ],
+                    "12,19": [
+                        "OverworldMap",
+                        [
+                            12,
+                            19
+                        ]
+                    ],
+                    "23,19": [
+                        "OverworldMap",
+                        [
+                            23,
+                            19
+                        ]
+                    ],
+                    "4,15": [
+                        "OverworldMap",
+                        [
+                            4,
+                            15
+                        ]
+                    ],
+                    "32,6": [
+                        "OverworldMap",
+                        [
+                            32,
+                            6
+                        ]
+                    ],
+                    "1,0": [
+                        "OverworldMap",
+                        [
+                            1,
+                            0
+                        ]
+                    ],
+                    "13,2": [
+                        "OverworldMap",
+                        [
+                            13,
+                            2
+                        ]
+                    ],
+                    "24,2": [
+                        "OverworldMap",
+                        [
+                            24,
+                            2
+                        ]
+                    ],
+                    "1,9": [
+                        "OverworldMap",
+                        [
+                            1,
+                            9
+                        ]
+                    ],
+                    "13,11": [
+                        "OverworldMap",
+                        [
+                            13,
+                            11
+                        ]
+                    ],
+                    "24,11": [
+                        "OverworldMap",
+                        [
+                            24,
+                            11
+                        ]
+                    ],
+                    "16,7": [
+                        "OverworldMap",
+                        [
+                            16,
+                            7
+                        ]
+                    ],
+                    "1,18": [
+                        "OverworldMap",
+                        [
+                            1,
+                            18
+                        ]
+                    ],
+                    "16,16": [
+                        "OverworldMap",
+                        [
+                            16,
+                            16
+                        ]
+                    ],
+                    "15,20": [
+                        "OverworldMap",
+                        [
+                            15,
+                            20
+                        ]
+                    ],
+                    "5,6": [
+                        "OverworldMap",
+                        [
+                            5,
+                            6
+                        ]
+                    ],
+                    "18,8": [
+                        "OverworldMap",
+                        [
+                            18,
+                            8
+                        ]
+                    ],
+                    "27,3": [
+                        "OverworldMap",
+                        [
+                            27,
+                            3
+                        ]
+                    ],
+                    "27,12": [
+                        "OverworldMap",
+                        [
+                            27,
+                            12
+                        ]
+                    ],
+                    "8,8": [
+                        "OverworldMap",
+                        [
+                            8,
+                            8
+                        ]
+                    ],
+                    "19,8": [
+                        "OverworldMap",
+                        [
+                            19,
+                            8
+                        ]
+                    ],
+                    "30,8": [
+                        "OverworldMap",
+                        [
+                            30,
+                            8
+                        ]
+                    ],
+                    "0,4": [
+                        "OverworldMap",
+                        [
+                            0,
+                            4
+                        ]
+                    ],
+                    "8,17": [
+                        "OverworldMap",
+                        [
+                            8,
+                            17
+                        ]
+                    ],
+                    "19,17": [
+                        "OverworldMap",
+                        [
+                            19,
+                            17
+                        ]
+                    ],
+                    "30,17": [
+                        "OverworldMap",
+                        [
+                            30,
+                            17
+                        ]
+                    ],
+                    "0,13": [
+                        "OverworldMap",
+                        [
+                            0,
+                            13
+                        ]
+                    ],
+                    "11,13": [
+                        "OverworldMap",
+                        [
+                            11,
+                            13
+                        ]
+                    ],
+                    "20,0": [
+                        "OverworldMap",
+                        [
+                            20,
+                            0
+                        ]
+                    ],
+                    "31,0": [
+                        "OverworldMap",
+                        [
+                            31,
+                            0
+                        ]
+                    ],
+                    "20,9": [
+                        "OverworldMap",
+                        [
+                            20,
+                            9
+                        ]
+                    ],
+                    "31,9": [
+                        "OverworldMap",
+                        [
+                            31,
+                            9
+                        ]
+                    ],
+                    "12,5": [
+                        "OverworldMap",
+                        [
+                            12,
+                            5
+                        ]
+                    ],
+                    "23,5": [
+                        "OverworldMap",
+                        [
+                            23,
+                            5
+                        ]
+                    ],
+                    "20,18": [
+                        "OverworldMap",
+                        [
+                            20,
+                            18
+                        ]
+                    ],
+                    "4,1": [
+                        "OverworldMap",
+                        [
+                            4,
+                            1
+                        ]
+                    ],
+                    "31,18": [
+                        "OverworldMap",
+                        [
+                            31,
+                            18
+                        ]
+                    ],
+                    "12,14": [
+                        "OverworldMap",
+                        [
+                            12,
+                            14
+                        ]
+                    ],
+                    "23,14": [
+                        "OverworldMap",
+                        [
+                            23,
+                            14
+                        ]
+                    ],
+                    "4,10": [
+                        "OverworldMap",
+                        [
+                            4,
+                            10
+                        ]
+                    ],
+                    "4,19": [
+                        "OverworldMap",
+                        [
+                            4,
+                            19
+                        ]
+                    ],
+                    "32,1": [
+                        "OverworldMap",
+                        [
+                            32,
+                            1
+                        ]
+                    ],
+                    "1,4": [
+                        "OverworldMap",
+                        [
+                            1,
+                            4
+                        ]
+                    ],
+                    "24,6": [
+                        "OverworldMap",
+                        [
+                            24,
+                            6
+                        ]
+                    ],
+                    "16,2": [
+                        "OverworldMap",
+                        [
+                            16,
+                            2
+                        ]
+                    ],
+                    "1,13": [
+                        "OverworldMap",
+                        [
+                            1,
+                            13
+                        ]
+                    ],
+                    "15,15": [
+                        "OverworldMap",
+                        [
+                            15,
+                            15
+                        ]
+                    ],
+                    "26,15": [
+                        "OverworldMap",
+                        [
+                            26,
+                            15
+                        ]
+                    ],
+                    "7,20": [
+                        "OverworldMap",
+                        [
+                            7,
+                            20
+                        ]
+                    ],
+                    "18,20": [
+                        "OverworldMap",
+                        [
+                            18,
+                            20
+                        ]
+                    ],
+                    "27,7": [
+                        "OverworldMap",
+                        [
+                            27,
+                            7
+                        ]
+                    ],
+                    "8,3": [
+                        "OverworldMap",
+                        [
+                            8,
+                            3
+                        ]
+                    ],
+                    "19,3": [
+                        "OverworldMap",
+                        [
+                            19,
+                            3
+                        ]
+                    ],
+                    "27,16": [
+                        "OverworldMap",
+                        [
+                            27,
+                            16
+                        ]
+                    ],
+                    "30,3": [
+                        "OverworldMap",
+                        [
+                            30,
+                            3
+                        ]
+                    ],
+                    "8,12": [
+                        "OverworldMap",
+                        [
+                            8,
+                            12
+                        ]
+                    ],
+                    "19,12": [
+                        "OverworldMap",
+                        [
+                            19,
+                            12
+                        ]
+                    ],
+                    "30,12": [
+                        "OverworldMap",
+                        [
+                            30,
+                            12
+                        ]
+                    ],
+                    "0,8": [
+                        "OverworldMap",
+                        [
+                            0,
+                            8
+                        ]
+                    ],
+                    "11,8": [
+                        "OverworldMap",
+                        [
+                            11,
+                            8
+                        ]
+                    ],
+                    "0,17": [
+                        "OverworldMap",
+                        [
+                            0,
+                            17
+                        ]
+                    ],
+                    "11,17": [
+                        "OverworldMap",
+                        [
+                            11,
+                            17
+                        ]
+                    ],
+                    "20,4": [
+                        "OverworldMap",
+                        [
+                            20,
+                            4
+                        ]
+                    ],
+                    "31,4": [
+                        "OverworldMap",
+                        [
+                            31,
+                            4
+                        ]
+                    ],
+                    "12,0": [
+                        "OverworldMap",
+                        [
+                            12,
+                            0
+                        ]
+                    ],
+                    "23,0": [
+                        "OverworldMap",
+                        [
+                            23,
+                            0
+                        ]
+                    ],
+                    "20,13": [
+                        "OverworldMap",
+                        [
+                            20,
+                            13
+                        ]
+                    ],
+                    "31,13": [
+                        "OverworldMap",
+                        [
+                            31,
+                            13
+                        ]
+                    ],
+                    "12,9": [
+                        "OverworldMap",
+                        [
+                            12,
+                            9
+                        ]
+                    ],
+                    "23,9": [
+                        "OverworldMap",
+                        [
+                            23,
+                            9
+                        ]
+                    ],
+                    "4,5": [
+                        "OverworldMap",
+                        [
+                            4,
+                            5
+                        ]
+                    ],
+                    "23,18": [
+                        "OverworldMap",
+                        [
+                            23,
+                            18
+                        ]
+                    ],
+                    "4,14": [
+                        "OverworldMap",
+                        [
+                            4,
+                            14
+                        ]
+                    ],
+                    "15,1": [
+                        "OverworldMap",
+                        [
+                            15,
+                            1
+                        ]
+                    ],
+                    "15,10": [
+                        "OverworldMap",
+                        [
+                            15,
+                            10
+                        ]
+                    ],
+                    "26,10": [
+                        "OverworldMap",
+                        [
+                            26,
+                            10
+                        ]
+                    ],
+                    "7,6": [
+                        "OverworldMap",
+                        [
+                            7,
+                            6
+                        ]
+                    ],
+                    "18,6": [
+                        "OverworldMap",
+                        [
+                            18,
+                            6
+                        ]
+                    ],
+                    "15,19": [
+                        "OverworldMap",
+                        [
+                            15,
+                            19
+                        ]
+                    ],
+                    "26,19": [
+                        "OverworldMap",
+                        [
+                            26,
+                            19
+                        ]
+                    ],
+                    "7,15": [
+                        "OverworldMap",
+                        [
+                            7,
+                            15
+                        ]
+                    ],
+                    "18,15": [
+                        "OverworldMap",
+                        [
+                            18,
+                            15
+                        ]
+                    ],
+                    "27,2": [
+                        "OverworldMap",
+                        [
+                            27,
+                            2
+                        ]
+                    ],
+                    "27,11": [
+                        "OverworldMap",
+                        [
+                            27,
+                            11
+                        ]
+                    ],
+                    "8,7": [
+                        "OverworldMap",
+                        [
+                            8,
+                            7
+                        ]
+                    ],
+                    "19,7": [
+                        "OverworldMap",
+                        [
+                            19,
+                            7
+                        ]
+                    ],
+                    "27,20": [
+                        "OverworldMap",
+                        [
+                            27,
+                            20
+                        ]
+                    ],
+                    "11,3": [
+                        "OverworldMap",
+                        [
+                            11,
+                            3
+                        ]
+                    ],
+                    "0,3": [
+                        "OverworldMap",
+                        [
+                            0,
+                            3
+                        ]
+                    ],
+                    "8,16": [
+                        "OverworldMap",
+                        [
+                            8,
+                            16
+                        ]
+                    ],
+                    "19,16": [
+                        "OverworldMap",
+                        [
+                            19,
+                            16
+                        ]
+                    ],
+                    "30,7": [
+                        "OverworldMap",
+                        [
+                            30,
+                            7
+                        ]
+                    ],
+                    "0,12": [
+                        "OverworldMap",
+                        [
+                            0,
+                            12
+                        ]
+                    ],
+                    "11,12": [
+                        "OverworldMap",
+                        [
+                            11,
+                            12
+                        ]
+                    ],
+                    "30,16": [
+                        "OverworldMap",
+                        [
+                            30,
+                            16
+                        ]
+                    ],
+                    "12,4": [
+                        "OverworldMap",
+                        [
+                            12,
+                            4
+                        ]
+                    ],
+                    "23,4": [
+                        "OverworldMap",
+                        [
+                            23,
+                            4
+                        ]
+                    ],
+                    "4,0": [
+                        "OverworldMap",
+                        [
+                            4,
+                            0
+                        ]
+                    ],
+                    "4,9": [
+                        "OverworldMap",
+                        [
+                            4,
+                            9
+                        ]
+                    ],
+                    "22,17": [
+                        "OverworldMap",
+                        [
+                            22,
+                            17
+                        ]
+                    ],
+                    "3,13": [
+                        "OverworldMap",
+                        [
+                            3,
+                            13
+                        ]
+                    ],
+                    "14,13": [
+                        "OverworldMap",
+                        [
+                            14,
+                            13
+                        ]
+                    ],
+                    "15,5": [
+                        "OverworldMap",
+                        [
+                            15,
+                            5
+                        ]
+                    ],
+                    "26,5": [
+                        "OverworldMap",
+                        [
+                            26,
+                            5
+                        ]
+                    ],
+                    "7,1": [
+                        "OverworldMap",
+                        [
+                            7,
+                            1
+                        ]
+                    ],
+                    "18,1": [
+                        "OverworldMap",
+                        [
+                            18,
+                            1
+                        ]
+                    ],
+                    "15,14": [
+                        "OverworldMap",
+                        [
+                            15,
+                            14
+                        ]
+                    ],
+                    "26,14": [
+                        "OverworldMap",
+                        [
+                            26,
+                            14
+                        ]
+                    ],
+                    "7,10": [
+                        "OverworldMap",
+                        [
+                            7,
+                            10
+                        ]
+                    ],
+                    "18,10": [
+                        "OverworldMap",
+                        [
+                            18,
+                            10
+                        ]
+                    ],
+                    "7,19": [
+                        "OverworldMap",
+                        [
+                            7,
+                            19
+                        ]
+                    ],
+                    "18,19": [
+                        "OverworldMap",
+                        [
+                            18,
+                            19
+                        ]
+                    ],
+                    "27,6": [
+                        "OverworldMap",
+                        [
+                            27,
+                            6
+                        ]
+                    ],
+                    "8,2": [
+                        "OverworldMap",
+                        [
+                            8,
+                            2
+                        ]
+                    ],
+                    "19,2": [
+                        "OverworldMap",
+                        [
+                            19,
+                            2
+                        ]
+                    ],
+                    "30,2": [
+                        "OverworldMap",
+                        [
+                            30,
+                            2
+                        ]
+                    ],
+                    "8,11": [
+                        "OverworldMap",
+                        [
+                            8,
+                            11
+                        ]
+                    ],
+                    "19,11": [
+                        "OverworldMap",
+                        [
+                            19,
+                            11
+                        ]
+                    ],
+                    "30,11": [
+                        "OverworldMap",
+                        [
+                            30,
+                            11
+                        ]
+                    ],
+                    "0,7": [
+                        "OverworldMap",
+                        [
+                            0,
+                            7
+                        ]
+                    ],
+                    "11,7": [
+                        "OverworldMap",
+                        [
+                            11,
+                            7
+                        ]
+                    ],
+                    "0,16": [
+                        "OverworldMap",
+                        [
+                            0,
+                            16
+                        ]
+                    ],
+                    "11,16": [
+                        "OverworldMap",
+                        [
+                            11,
+                            16
+                        ]
+                    ],
+                    "33,13": [
+                        "OverworldMap",
+                        [
+                            33,
+                            13
+                        ]
+                    ],
+                    "10,20": [
+                        "OverworldMap",
+                        [
+                            10,
+                            20
+                        ]
+                    ],
+                    "25,18": [
+                        "OverworldMap",
+                        [
+                            25,
+                            18
+                        ]
+                    ],
+                    "22,3": [
+                        "OverworldMap",
+                        [
+                            22,
+                            3
+                        ]
+                    ],
+                    "22,12": [
+                        "OverworldMap",
+                        [
+                            22,
+                            12
+                        ]
+                    ],
+                    "3,8": [
+                        "OverworldMap",
+                        [
+                            3,
+                            8
+                        ]
+                    ],
+                    "14,8": [
+                        "OverworldMap",
+                        [
+                            14,
+                            8
+                        ]
+                    ],
+                    "3,17": [
+                        "OverworldMap",
+                        [
+                            3,
+                            17
+                        ]
+                    ],
+                    "14,17": [
+                        "OverworldMap",
+                        [
+                            14,
+                            17
+                        ]
+                    ],
+                    "15,0": [
+                        "OverworldMap",
+                        [
+                            15,
+                            0
+                        ]
+                    ],
+                    "26,0": [
+                        "OverworldMap",
+                        [
+                            26,
+                            0
+                        ]
+                    ],
+                    "15,9": [
+                        "OverworldMap",
+                        [
+                            15,
+                            9
+                        ]
+                    ],
+                    "26,9": [
+                        "OverworldMap",
+                        [
+                            26,
+                            9
+                        ]
+                    ],
+                    "7,5": [
+                        "OverworldMap",
+                        [
+                            7,
+                            5
+                        ]
+                    ],
+                    "18,5": [
+                        "OverworldMap",
+                        [
+                            18,
+                            5
+                        ]
+                    ],
+                    "15,18": [
+                        "OverworldMap",
+                        [
+                            15,
+                            18
+                        ]
+                    ],
+                    "26,18": [
+                        "OverworldMap",
+                        [
+                            26,
+                            18
+                        ]
+                    ],
+                    "7,14": [
+                        "OverworldMap",
+                        [
+                            7,
+                            14
+                        ]
+                    ],
+                    "18,14": [
+                        "OverworldMap",
+                        [
+                            18,
+                            14
+                        ]
+                    ],
+                    "27,1": [
+                        "OverworldMap",
+                        [
+                            27,
+                            1
+                        ]
+                    ],
+                    "29,20": [
+                        "OverworldMap",
+                        [
+                            29,
+                            20
+                        ]
+                    ],
+                    "19,6": [
+                        "OverworldMap",
+                        [
+                            19,
+                            6
+                        ]
+                    ],
+                    "30,6": [
+                        "OverworldMap",
+                        [
+                            30,
+                            6
+                        ]
+                    ],
+                    "0,2": [
+                        "OverworldMap",
+                        [
+                            0,
+                            2
+                        ]
+                    ],
+                    "11,2": [
+                        "OverworldMap",
+                        [
+                            11,
+                            2
+                        ]
+                    ],
+                    "33,8": [
+                        "OverworldMap",
+                        [
+                            33,
+                            8
+                        ]
+                    ],
+                    "25,4": [
+                        "OverworldMap",
+                        [
+                            25,
+                            4
+                        ]
+                    ],
+                    "10,15": [
+                        "OverworldMap",
+                        [
+                            10,
+                            15
+                        ]
+                    ],
+                    "33,17": [
+                        "OverworldMap",
+                        [
+                            33,
+                            17
+                        ]
+                    ],
+                    "25,13": [
+                        "OverworldMap",
+                        [
+                            25,
+                            13
+                        ]
+                    ],
+                    "2,20": [
+                        "OverworldMap",
+                        [
+                            2,
+                            20
+                        ]
+                    ],
+                    "22,7": [
+                        "OverworldMap",
+                        [
+                            22,
+                            7
+                        ]
+                    ],
+                    "3,3": [
+                        "OverworldMap",
+                        [
+                            3,
+                            3
+                        ]
+                    ],
+                    "14,3": [
+                        "OverworldMap",
+                        [
+                            14,
+                            3
+                        ]
+                    ],
+                    "22,16": [
+                        "OverworldMap",
+                        [
+                            22,
+                            16
+                        ]
+                    ],
+                    "3,12": [
+                        "OverworldMap",
+                        [
+                            3,
+                            12
+                        ]
+                    ],
+                    "14,12": [
+                        "OverworldMap",
+                        [
+                            14,
+                            12
+                        ]
+                    ],
+                    "15,4": [
+                        "OverworldMap",
+                        [
+                            15,
+                            4
+                        ]
+                    ],
+                    "26,4": [
+                        "OverworldMap",
+                        [
+                            26,
+                            4
+                        ]
+                    ],
+                    "7,0": [
+                        "OverworldMap",
+                        [
+                            7,
+                            0
+                        ]
+                    ],
+                    "18,0": [
+                        "OverworldMap",
+                        [
+                            18,
+                            0
+                        ]
+                    ],
+                    "15,13": [
+                        "OverworldMap",
+                        [
+                            15,
+                            13
+                        ]
+                    ],
+                    "26,13": [
+                        "OverworldMap",
+                        [
+                            26,
+                            13
+                        ]
+                    ],
+                    "7,9": [
+                        "OverworldMap",
+                        [
+                            7,
+                            9
+                        ]
+                    ],
+                    "18,9": [
+                        "OverworldMap",
+                        [
+                            18,
+                            9
+                        ]
+                    ],
+                    "18,18": [
+                        "OverworldMap",
+                        [
+                            18,
+                            18
+                        ]
+                    ],
+                    "29,15": [
+                        "OverworldMap",
+                        [
+                            29,
+                            15
+                        ]
+                    ],
+                    "21,11": [
+                        "OverworldMap",
+                        [
+                            21,
+                            11
+                        ]
+                    ],
+                    "21,20": [
+                        "OverworldMap",
+                        [
+                            21,
+                            20
+                        ]
+                    ],
+                    "10,1": [
+                        "OverworldMap",
+                        [
+                            10,
+                            1
+                        ]
+                    ],
+                    "33,3": [
+                        "OverworldMap",
+                        [
+                            33,
+                            3
+                        ]
+                    ],
+                    "10,10": [
+                        "OverworldMap",
+                        [
+                            10,
+                            10
+                        ]
+                    ],
+                    "33,12": [
+                        "OverworldMap",
+                        [
+                            33,
+                            12
+                        ]
+                    ],
+                    "2,6": [
+                        "OverworldMap",
+                        [
+                            2,
+                            6
+                        ]
+                    ],
+                    "25,8": [
+                        "OverworldMap",
+                        [
+                            25,
+                            8
+                        ]
+                    ],
+                    "10,19": [
+                        "OverworldMap",
+                        [
+                            10,
+                            19
+                        ]
+                    ],
+                    "2,15": [
+                        "OverworldMap",
+                        [
+                            2,
+                            15
+                        ]
+                    ],
+                    "25,17": [
+                        "OverworldMap",
+                        [
+                            25,
+                            17
+                        ]
+                    ],
+                    "22,2": [
+                        "OverworldMap",
+                        [
+                            22,
+                            2
+                        ]
+                    ],
+                    "22,11": [
+                        "OverworldMap",
+                        [
+                            22,
+                            11
+                        ]
+                    ],
+                    "3,7": [
+                        "OverworldMap",
+                        [
+                            3,
+                            7
+                        ]
+                    ],
+                    "14,7": [
+                        "OverworldMap",
+                        [
+                            14,
+                            7
+                        ]
+                    ],
+                    "22,20": [
+                        "OverworldMap",
+                        [
+                            22,
+                            20
+                        ]
+                    ],
+                    "3,16": [
+                        "OverworldMap",
+                        [
+                            3,
+                            16
+                        ]
+                    ],
+                    "14,16": [
+                        "OverworldMap",
+                        [
+                            14,
+                            16
+                        ]
+                    ],
+                    "17,18": [
+                        "OverworldMap",
+                        [
+                            17,
+                            18
+                        ]
+                    ],
+                    "7,4": [
+                        "OverworldMap",
+                        [
+                            7,
+                            4
+                        ]
+                    ],
+                    "18,4": [
+                        "OverworldMap",
+                        [
+                            18,
+                            4
+                        ]
+                    ],
+                    "29,1": [
+                        "OverworldMap",
+                        [
+                            29,
+                            1
+                        ]
+                    ],
+                    "26,12": [
+                        "OverworldMap",
+                        [
+                            26,
+                            12
+                        ]
+                    ],
+                    "6,8": [
+                        "OverworldMap",
+                        [
+                            6,
+                            8
+                        ]
+                    ],
+                    "29,10": [
+                        "OverworldMap",
+                        [
+                            29,
+                            10
+                        ]
+                    ],
+                    "21,6": [
+                        "OverworldMap",
+                        [
+                            21,
+                            6
+                        ]
+                    ],
+                    "6,17": [
+                        "OverworldMap",
+                        [
+                            6,
+                            17
+                        ]
+                    ],
+                    "29,19": [
+                        "OverworldMap",
+                        [
+                            29,
+                            19
+                        ]
+                    ],
+                    "21,15": [
+                        "OverworldMap",
+                        [
+                            21,
+                            15
+                        ]
+                    ],
+                    "10,5": [
+                        "OverworldMap",
+                        [
+                            10,
+                            5
+                        ]
+                    ],
+                    "33,7": [
+                        "OverworldMap",
+                        [
+                            33,
+                            7
+                        ]
+                    ],
+                    "2,1": [
+                        "OverworldMap",
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "25,3": [
+                        "OverworldMap",
+                        [
+                            25,
+                            3
+                        ]
+                    ],
+                    "10,14": [
+                        "OverworldMap",
+                        [
+                            10,
+                            14
+                        ]
+                    ],
+                    "33,16": [
+                        "OverworldMap",
+                        [
+                            33,
+                            16
+                        ]
+                    ],
+                    "2,10": [
+                        "OverworldMap",
+                        [
+                            2,
+                            10
+                        ]
+                    ],
+                    "25,12": [
+                        "OverworldMap",
+                        [
+                            25,
+                            12
+                        ]
+                    ],
+                    "2,19": [
+                        "OverworldMap",
+                        [
+                            2,
+                            19
+                        ]
+                    ],
+                    "22,6": [
+                        "OverworldMap",
+                        [
+                            22,
+                            6
+                        ]
+                    ],
+                    "3,2": [
+                        "OverworldMap",
+                        [
+                            3,
+                            2
+                        ]
+                    ],
+                    "14,2": [
+                        "OverworldMap",
+                        [
+                            14,
+                            2
+                        ]
+                    ],
+                    "3,11": [
+                        "OverworldMap",
+                        [
+                            3,
+                            11
+                        ]
+                    ],
+                    "14,11": [
+                        "OverworldMap",
+                        [
+                            14,
+                            11
+                        ]
+                    ],
+                    "17,13": [
+                        "OverworldMap",
+                        [
+                            17,
+                            13
+                        ]
+                    ],
+                    "28,13": [
+                        "OverworldMap",
+                        [
+                            28,
+                            13
+                        ]
+                    ],
+                    "5,20": [
+                        "OverworldMap",
+                        [
+                            5,
+                            20
+                        ]
+                    ],
+                    "9,18": [
+                        "OverworldMap",
+                        [
+                            9,
+                            18
+                        ]
+                    ],
+                    "6,3": [
+                        "OverworldMap",
+                        [
+                            6,
+                            3
+                        ]
+                    ],
+                    "29,5": [
+                        "OverworldMap",
+                        [
+                            29,
+                            5
+                        ]
+                    ],
+                    "21,1": [
+                        "OverworldMap",
+                        [
+                            21,
+                            1
+                        ]
+                    ],
+                    "6,12": [
+                        "OverworldMap",
+                        [
+                            6,
+                            12
+                        ]
+                    ],
+                    "29,14": [
+                        "OverworldMap",
+                        [
+                            29,
+                            14
+                        ]
+                    ],
+                    "21,10": [
+                        "OverworldMap",
+                        [
+                            21,
+                            10
+                        ]
+                    ],
+                    "21,19": [
+                        "OverworldMap",
+                        [
+                            21,
+                            19
+                        ]
+                    ],
+                    "10,0": [
+                        "OverworldMap",
+                        [
+                            10,
+                            0
+                        ]
+                    ],
+                    "33,2": [
+                        "OverworldMap",
+                        [
+                            33,
+                            2
+                        ]
+                    ],
+                    "10,9": [
+                        "OverworldMap",
+                        [
+                            10,
+                            9
+                        ]
+                    ],
+                    "33,11": [
+                        "OverworldMap",
+                        [
+                            33,
+                            11
+                        ]
+                    ],
+                    "2,5": [
+                        "OverworldMap",
+                        [
+                            2,
+                            5
+                        ]
+                    ],
+                    "25,7": [
+                        "OverworldMap",
+                        [
+                            25,
+                            7
+                        ]
+                    ],
+                    "10,18": [
+                        "OverworldMap",
+                        [
+                            10,
+                            18
+                        ]
+                    ],
+                    "2,14": [
+                        "OverworldMap",
+                        [
+                            2,
+                            14
+                        ]
+                    ],
+                    "25,16": [
+                        "OverworldMap",
+                        [
+                            25,
+                            16
+                        ]
+                    ],
+                    "32,15": [
+                        "OverworldMap",
+                        [
+                            32,
+                            15
+                        ]
+                    ],
+                    "22,1": [
+                        "OverworldMap",
+                        [
+                            22,
+                            1
+                        ]
+                    ],
+                    "13,20": [
+                        "OverworldMap",
+                        [
+                            13,
+                            20
+                        ]
+                    ],
+                    "24,20": [
+                        "OverworldMap",
+                        [
+                            24,
+                            20
+                        ]
+                    ],
+                    "14,6": [
+                        "OverworldMap",
+                        [
+                            14,
+                            6
+                        ]
+                    ],
+                    "17,8": [
+                        "OverworldMap",
+                        [
+                            17,
+                            8
+                        ]
+                    ],
+                    "28,8": [
+                        "OverworldMap",
+                        [
+                            28,
+                            8
+                        ]
+                    ],
+                    "9,4": [
+                        "OverworldMap",
+                        [
+                            9,
+                            4
+                        ]
+                    ],
+                    "5,15": [
+                        "OverworldMap",
+                        [
+                            5,
+                            15
+                        ]
+                    ],
+                    "17,17": [
+                        "OverworldMap",
+                        [
+                            17,
+                            17
+                        ]
+                    ],
+                    "28,17": [
+                        "OverworldMap",
+                        [
+                            28,
+                            17
+                        ]
+                    ],
+                    "9,13": [
+                        "OverworldMap",
+                        [
+                            9,
+                            13
+                        ]
+                    ],
+                    "29,0": [
+                        "OverworldMap",
+                        [
+                            29,
+                            0
+                        ]
+                    ],
+                    "6,7": [
+                        "OverworldMap",
+                        [
+                            6,
+                            7
+                        ]
+                    ],
+                    "29,9": [
+                        "OverworldMap",
+                        [
+                            29,
+                            9
+                        ]
+                    ],
+                    "21,5": [
+                        "OverworldMap",
+                        [
+                            21,
+                            5
+                        ]
+                    ],
+                    "6,16": [
+                        "OverworldMap",
+                        [
+                            6,
+                            16
+                        ]
+                    ],
+                    "29,18": [
+                        "OverworldMap",
+                        [
+                            29,
+                            18
+                        ]
+                    ],
+                    "21,14": [
+                        "OverworldMap",
+                        [
+                            21,
+                            14
+                        ]
+                    ],
+                    "10,4": [
+                        "OverworldMap",
+                        [
+                            10,
+                            4
+                        ]
+                    ],
+                    "2,0": [
+                        "OverworldMap",
+                        [
+                            2,
+                            0
+                        ]
+                    ],
+                    "25,2": [
+                        "OverworldMap",
+                        [
+                            25,
+                            2
+                        ]
+                    ],
+                    "10,13": [
+                        "OverworldMap",
+                        [
+                            10,
+                            13
+                        ]
+                    ],
+                    "2,9": [
+                        "OverworldMap",
+                        [
+                            2,
+                            9
+                        ]
+                    ],
+                    "32,10": [
+                        "OverworldMap",
+                        [
+                            32,
+                            10
+                        ]
+                    ],
+                    "13,6": [
+                        "OverworldMap",
+                        [
+                            13,
+                            6
+                        ]
+                    ],
+                    "2,18": [
+                        "OverworldMap",
+                        [
+                            2,
+                            18
+                        ]
+                    ],
+                    "32,19": [
+                        "OverworldMap",
+                        [
+                            32,
+                            19
+                        ]
+                    ],
+                    "13,15": [
+                        "OverworldMap",
+                        [
+                            13,
+                            15
+                        ]
+                    ],
+                    "24,15": [
+                        "OverworldMap",
+                        [
+                            24,
+                            15
+                        ]
+                    ],
+                    "16,11": [
+                        "OverworldMap",
+                        [
+                            16,
+                            11
+                        ]
+                    ],
+                    "16,20": [
+                        "OverworldMap",
+                        [
+                            16,
+                            20
+                        ]
+                    ],
+                    "5,1": [
+                        "OverworldMap",
+                        [
+                            5,
+                            1
+                        ]
+                    ],
+                    "17,3": [
+                        "OverworldMap",
+                        [
+                            17,
+                            3
+                        ]
+                    ],
+                    "28,3": [
+                        "OverworldMap",
+                        [
+                            28,
+                            3
+                        ]
+                    ],
+                    "5,10": [
+                        "OverworldMap",
+                        [
+                            5,
+                            10
+                        ]
+                    ],
+                    "17,12": [
+                        "OverworldMap",
+                        [
+                            17,
+                            12
+                        ]
+                    ],
+                    "28,12": [
+                        "OverworldMap",
+                        [
+                            28,
+                            12
+                        ]
+                    ],
+                    "9,8": [
+                        "OverworldMap",
+                        [
+                            9,
+                            8
+                        ]
+                    ],
+                    "5,19": [
+                        "OverworldMap",
+                        [
+                            5,
+                            19
+                        ]
+                    ],
+                    "9,17": [
+                        "OverworldMap",
+                        [
+                            9,
+                            17
+                        ]
+                    ],
+                    "6,2": [
+                        "OverworldMap",
+                        [
+                            6,
+                            2
+                        ]
+                    ],
+                    "29,4": [
+                        "OverworldMap",
+                        [
+                            29,
+                            4
+                        ]
+                    ],
+                    "21,0": [
+                        "OverworldMap",
+                        [
+                            21,
+                            0
+                        ]
+                    ],
+                    "6,11": [
+                        "OverworldMap",
+                        [
+                            6,
+                            11
+                        ]
+                    ],
+                    "21,9": [
+                        "OverworldMap",
+                        [
+                            21,
+                            9
+                        ]
+                    ],
+                    "6,20": [
+                        "OverworldMap",
+                        [
+                            6,
+                            20
+                        ]
+                    ],
+                    "12,18": [
+                        "OverworldMap",
+                        [
+                            12,
+                            18
+                        ]
+                    ],
+                    "2,4": [
+                        "OverworldMap",
+                        [
+                            2,
+                            4
+                        ]
+                    ],
+                    "32,5": [
+                        "OverworldMap",
+                        [
+                            32,
+                            5
+                        ]
+                    ],
+                    "13,1": [
+                        "OverworldMap",
+                        [
+                            13,
+                            1
+                        ]
+                    ],
+                    "24,1": [
+                        "OverworldMap",
+                        [
+                            24,
+                            1
+                        ]
+                    ],
+                    "32,14": [
+                        "OverworldMap",
+                        [
+                            32,
+                            14
+                        ]
+                    ],
+                    "1,8": [
+                        "OverworldMap",
+                        [
+                            1,
+                            8
+                        ]
+                    ],
+                    "13,10": [
+                        "OverworldMap",
+                        [
+                            13,
+                            10
+                        ]
+                    ],
+                    "24,10": [
+                        "OverworldMap",
+                        [
+                            24,
+                            10
+                        ]
+                    ],
+                    "16,6": [
+                        "OverworldMap",
+                        [
+                            16,
+                            6
+                        ]
+                    ],
+                    "1,17": [
+                        "OverworldMap",
+                        [
+                            1,
+                            17
+                        ]
+                    ],
+                    "13,19": [
+                        "OverworldMap",
+                        [
+                            13,
+                            19
+                        ]
+                    ],
+                    "24,19": [
+                        "OverworldMap",
+                        [
+                            24,
+                            19
+                        ]
+                    ],
+                    "16,15": [
+                        "OverworldMap",
+                        [
+                            16,
+                            15
+                        ]
+                    ],
+                    "5,5": [
+                        "OverworldMap",
+                        [
+                            5,
+                            5
+                        ]
+                    ],
+                    "17,7": [
+                        "OverworldMap",
+                        [
+                            17,
+                            7
+                        ]
+                    ],
+                    "28,7": [
+                        "OverworldMap",
+                        [
+                            28,
+                            7
+                        ]
+                    ],
+                    "9,3": [
+                        "OverworldMap",
+                        [
+                            9,
+                            3
+                        ]
+                    ],
+                    "5,14": [
+                        "OverworldMap",
+                        [
+                            5,
+                            14
+                        ]
+                    ],
+                    "17,16": [
+                        "OverworldMap",
+                        [
+                            17,
+                            16
+                        ]
+                    ],
+                    "28,16": [
+                        "OverworldMap",
+                        [
+                            28,
+                            16
+                        ]
+                    ],
+                    "9,12": [
+                        "OverworldMap",
+                        [
+                            9,
+                            12
+                        ]
+                    ],
+                    "6,6": [
+                        "OverworldMap",
+                        [
+                            6,
+                            6
+                        ]
+                    ],
+                    "21,4": [
+                        "OverworldMap",
+                        [
+                            21,
+                            4
+                        ]
+                    ],
+                    "20,8": [
+                        "OverworldMap",
+                        [
+                            20,
+                            8
+                        ]
+                    ],
+                    "31,8": [
+                        "OverworldMap",
+                        [
+                            31,
+                            8
+                        ]
+                    ],
+                    "20,17": [
+                        "OverworldMap",
+                        [
+                            20,
+                            17
+                        ]
+                    ],
+                    "31,17": [
+                        "OverworldMap",
+                        [
+                            31,
+                            17
+                        ]
+                    ],
+                    "12,13": [
+                        "OverworldMap",
+                        [
+                            12,
+                            13
+                        ]
+                    ],
+                    "23,13": [
+                        "OverworldMap",
+                        [
+                            23,
+                            13
+                        ]
+                    ],
+                    "4,18": [
+                        "OverworldMap",
+                        [
+                            4,
+                            18
+                        ]
+                    ],
+                    "32,0": [
+                        "OverworldMap",
+                        [
+                            32,
+                            0
+                        ]
+                    ],
+                    "32,9": [
+                        "OverworldMap",
+                        [
+                            32,
+                            9
+                        ]
+                    ],
+                    "1,3": [
+                        "OverworldMap",
+                        [
+                            1,
+                            3
+                        ]
+                    ],
+                    "13,5": [
+                        "OverworldMap",
+                        [
+                            13,
+                            5
+                        ]
+                    ],
+                    "24,5": [
+                        "OverworldMap",
+                        [
+                            24,
+                            5
+                        ]
+                    ],
+                    "16,1": [
+                        "OverworldMap",
+                        [
+                            16,
+                            1
+                        ]
+                    ],
+                    "32,18": [
+                        "OverworldMap",
+                        [
+                            32,
+                            18
+                        ]
+                    ],
+                    "1,12": [
+                        "OverworldMap",
+                        [
+                            1,
+                            12
+                        ]
+                    ],
+                    "13,14": [
+                        "OverworldMap",
+                        [
+                            13,
+                            14
+                        ]
+                    ],
+                    "24,14": [
+                        "OverworldMap",
+                        [
+                            24,
+                            14
+                        ]
+                    ],
+                    "16,10": [
+                        "OverworldMap",
+                        [
+                            16,
+                            10
+                        ]
+                    ],
+                    "16,19": [
+                        "OverworldMap",
+                        [
+                            16,
+                            19
+                        ]
+                    ],
+                    "5,0": [
+                        "OverworldMap",
+                        [
+                            5,
+                            0
+                        ]
+                    ],
+                    "17,2": [
+                        "OverworldMap",
+                        [
+                            17,
+                            2
+                        ]
+                    ],
+                    "28,2": [
+                        "OverworldMap",
+                        [
+                            28,
+                            2
+                        ]
+                    ],
+                    "5,9": [
+                        "OverworldMap",
+                        [
+                            5,
+                            9
+                        ]
+                    ],
+                    "17,11": [
+                        "OverworldMap",
+                        [
+                            17,
+                            11
+                        ]
+                    ],
+                    "28,11": [
+                        "OverworldMap",
+                        [
+                            28,
+                            11
+                        ]
+                    ],
+                    "9,7": [
+                        "OverworldMap",
+                        [
+                            9,
+                            7
+                        ]
+                    ],
+                    "5,18": [
+                        "OverworldMap",
+                        [
+                            5,
+                            18
+                        ]
+                    ],
+                    "9,16": [
+                        "OverworldMap",
+                        [
+                            9,
+                            16
+                        ]
+                    ],
+                    "27,15": [
+                        "OverworldMap",
+                        [
+                            27,
+                            15
+                        ]
+                    ],
+                    "6,1": [
+                        "OverworldMap",
+                        [
+                            6,
+                            1
+                        ]
+                    ],
+                    "8,20": [
+                        "OverworldMap",
+                        [
+                            8,
+                            20
+                        ]
+                    ],
+                    "19,20": [
+                        "OverworldMap",
+                        [
+                            19,
+                            20
+                        ]
+                    ],
+                    "30,20": [
+                        "OverworldMap",
+                        [
+                            30,
+                            20
+                        ]
+                    ],
+                    "20,3": [
+                        "OverworldMap",
+                        [
+                            20,
+                            3
+                        ]
+                    ],
+                    "31,3": [
+                        "OverworldMap",
+                        [
+                            31,
+                            3
+                        ]
+                    ],
+                    "20,12": [
+                        "OverworldMap",
+                        [
+                            20,
+                            12
+                        ]
+                    ],
+                    "31,12": [
+                        "OverworldMap",
+                        [
+                            31,
+                            12
+                        ]
+                    ],
+                    "12,8": [
+                        "OverworldMap",
+                        [
+                            12,
+                            8
+                        ]
+                    ],
+                    "23,8": [
+                        "OverworldMap",
+                        [
+                            23,
+                            8
+                        ]
+                    ],
+                    "4,4": [
+                        "OverworldMap",
+                        [
+                            4,
+                            4
+                        ]
+                    ],
+                    "12,17": [
+                        "OverworldMap",
+                        [
+                            12,
+                            17
+                        ]
+                    ],
+                    "23,17": [
+                        "OverworldMap",
+                        [
+                            23,
+                            17
+                        ]
+                    ],
+                    "4,13": [
+                        "OverworldMap",
+                        [
+                            4,
+                            13
+                        ]
+                    ],
+                    "32,4": [
+                        "OverworldMap",
+                        [
+                            32,
+                            4
+                        ]
+                    ],
+                    "13,0": [
+                        "OverworldMap",
+                        [
+                            13,
+                            0
+                        ]
+                    ],
+                    "24,0": [
+                        "OverworldMap",
+                        [
+                            24,
+                            0
+                        ]
+                    ],
+                    "32,13": [
+                        "OverworldMap",
+                        [
+                            32,
+                            13
+                        ]
+                    ],
+                    "1,7": [
+                        "OverworldMap",
+                        [
+                            1,
+                            7
+                        ]
+                    ],
+                    "13,9": [
+                        "OverworldMap",
+                        [
+                            13,
+                            9
+                        ]
+                    ],
+                    "24,9": [
+                        "OverworldMap",
+                        [
+                            24,
+                            9
+                        ]
+                    ],
+                    "16,5": [
+                        "OverworldMap",
+                        [
+                            16,
+                            5
+                        ]
+                    ],
+                    "1,16": [
+                        "OverworldMap",
+                        [
+                            1,
+                            16
+                        ]
+                    ],
+                    "13,18": [
+                        "OverworldMap",
+                        [
+                            13,
+                            18
+                        ]
+                    ],
+                    "24,18": [
+                        "OverworldMap",
+                        [
+                            24,
+                            18
+                        ]
+                    ],
+                    "16,14": [
+                        "OverworldMap",
+                        [
+                            16,
+                            14
+                        ]
+                    ],
+                    "5,4": [
+                        "OverworldMap",
+                        [
+                            5,
+                            4
+                        ]
+                    ],
+                    "9,2": [
+                        "OverworldMap",
+                        [
+                            9,
+                            2
+                        ]
+                    ],
+                    "5,13": [
+                        "OverworldMap",
+                        [
+                            5,
+                            13
+                        ]
+                    ],
+                    "27,10": [
+                        "OverworldMap",
+                        [
+                            27,
+                            10
+                        ]
+                    ],
+                    "8,6": [
+                        "OverworldMap",
+                        [
+                            8,
+                            6
+                        ]
+                    ],
+                    "27,19": [
+                        "OverworldMap",
+                        [
+                            27,
+                            19
+                        ]
+                    ],
+                    "8,15": [
+                        "OverworldMap",
+                        [
+                            8,
+                            15
+                        ]
+                    ],
+                    "19,15": [
+                        "OverworldMap",
+                        [
+                            19,
+                            15
+                        ]
+                    ],
+                    "30,15": [
+                        "OverworldMap",
+                        [
+                            30,
+                            15
+                        ]
+                    ],
+                    "0,11": [
+                        "OverworldMap",
+                        [
+                            0,
+                            11
+                        ]
+                    ],
+                    "11,11": [
+                        "OverworldMap",
+                        [
+                            11,
+                            11
+                        ]
+                    ],
+                    "0,20": [
+                        "OverworldMap",
+                        [
+                            0,
+                            20
+                        ]
+                    ],
+                    "11,20": [
+                        "OverworldMap",
+                        [
+                            11,
+                            20
+                        ]
+                    ],
+                    "20,7": [
+                        "OverworldMap",
+                        [
+                            20,
+                            7
+                        ]
+                    ],
+                    "31,7": [
+                        "OverworldMap",
+                        [
+                            31,
+                            7
+                        ]
+                    ],
+                    "12,3": [
+                        "OverworldMap",
+                        [
+                            12,
+                            3
+                        ]
+                    ],
+                    "23,3": [
+                        "OverworldMap",
+                        [
+                            23,
+                            3
+                        ]
+                    ],
+                    "20,16": [
+                        "OverworldMap",
+                        [
+                            20,
+                            16
+                        ]
+                    ],
+                    "31,16": [
+                        "OverworldMap",
+                        [
+                            31,
+                            16
+                        ]
+                    ],
+                    "12,12": [
+                        "OverworldMap",
+                        [
+                            12,
+                            12
+                        ]
+                    ],
+                    "23,12": [
+                        "OverworldMap",
+                        [
+                            23,
+                            12
+                        ]
+                    ],
+                    "4,8": [
+                        "OverworldMap",
+                        [
+                            4,
+                            8
+                        ]
+                    ],
+                    "4,17": [
+                        "OverworldMap",
+                        [
+                            4,
+                            17
+                        ]
+                    ],
+                    "1,2": [
+                        "OverworldMap",
+                        [
+                            1,
+                            2
+                        ]
+                    ],
+                    "13,4": [
+                        "OverworldMap",
+                        [
+                            13,
+                            4
+                        ]
+                    ],
+                    "24,4": [
+                        "OverworldMap",
+                        [
+                            24,
+                            4
+                        ]
+                    ],
+                    "16,0": [
+                        "OverworldMap",
+                        [
+                            16,
+                            0
+                        ]
+                    ],
+                    "1,11": [
+                        "OverworldMap",
+                        [
+                            1,
+                            11
+                        ]
+                    ],
+                    "16,9": [
+                        "OverworldMap",
+                        [
+                            16,
+                            9
+                        ]
+                    ],
+                    "1,20": [
+                        "OverworldMap",
+                        [
+                            1,
+                            20
+                        ]
+                    ],
+                    "7,18": [
+                        "OverworldMap",
+                        [
+                            7,
+                            18
+                        ]
+                    ],
+                    "27,5": [
+                        "OverworldMap",
+                        [
+                            27,
+                            5
+                        ]
+                    ],
+                    "8,1": [
+                        "OverworldMap",
+                        [
+                            8,
+                            1
+                        ]
+                    ],
+                    "19,1": [
+                        "OverworldMap",
+                        [
+                            19,
+                            1
+                        ]
+                    ],
+                    "27,14": [
+                        "OverworldMap",
+                        [
+                            27,
+                            14
+                        ]
+                    ],
+                    "30,1": [
+                        "OverworldMap",
+                        [
+                            30,
+                            1
+                        ]
+                    ],
+                    "8,10": [
+                        "OverworldMap",
+                        [
+                            8,
+                            10
+                        ]
+                    ],
+                    "19,10": [
+                        "OverworldMap",
+                        [
+                            19,
+                            10
+                        ]
+                    ],
+                    "30,10": [
+                        "OverworldMap",
+                        [
+                            30,
+                            10
+                        ]
+                    ],
+                    "0,6": [
+                        "OverworldMap",
+                        [
+                            0,
+                            6
+                        ]
+                    ],
+                    "11,6": [
+                        "OverworldMap",
+                        [
+                            11,
+                            6
+                        ]
+                    ],
+                    "8,19": [
+                        "OverworldMap",
+                        [
+                            8,
+                            19
+                        ]
+                    ],
+                    "19,19": [
+                        "OverworldMap",
+                        [
+                            19,
+                            19
+                        ]
+                    ],
+                    "30,19": [
+                        "OverworldMap",
+                        [
+                            30,
+                            19
+                        ]
+                    ],
+                    "0,15": [
+                        "OverworldMap",
+                        [
+                            0,
+                            15
+                        ]
+                    ],
+                    "11,15": [
+                        "OverworldMap",
+                        [
+                            11,
+                            15
+                        ]
+                    ],
+                    "20,2": [
+                        "OverworldMap",
+                        [
+                            20,
+                            2
+                        ]
+                    ],
+                    "31,2": [
+                        "OverworldMap",
+                        [
+                            31,
+                            2
+                        ]
+                    ],
+                    "20,11": [
+                        "OverworldMap",
+                        [
+                            20,
+                            11
+                        ]
+                    ],
+                    "31,11": [
+                        "OverworldMap",
+                        [
+                            31,
+                            11
+                        ]
+                    ],
+                    "12,7": [
+                        "OverworldMap",
+                        [
+                            12,
+                            7
+                        ]
+                    ],
+                    "23,7": [
+                        "OverworldMap",
+                        [
+                            23,
+                            7
+                        ]
+                    ],
+                    "31,20": [
+                        "OverworldMap",
+                        [
+                            31,
+                            20
+                        ]
+                    ],
+                    "4,3": [
+                        "OverworldMap",
+                        [
+                            4,
+                            3
+                        ]
+                    ],
+                    "12,16": [
+                        "OverworldMap",
+                        [
+                            12,
+                            16
+                        ]
+                    ],
+                    "23,16": [
+                        "OverworldMap",
+                        [
+                            23,
+                            16
+                        ]
+                    ],
+                    "4,12": [
+                        "OverworldMap",
+                        [
+                            4,
+                            12
+                        ]
+                    ],
+                    "1,6": [
+                        "OverworldMap",
+                        [
+                            1,
+                            6
+                        ]
+                    ],
+                    "16,4": [
+                        "OverworldMap",
+                        [
+                            16,
+                            4
+                        ]
+                    ],
+                    "15,8": [
+                        "OverworldMap",
+                        [
+                            15,
+                            8
+                        ]
+                    ],
+                    "26,8": [
+                        "OverworldMap",
+                        [
+                            26,
+                            8
+                        ]
+                    ],
+                    "15,17": [
+                        "OverworldMap",
+                        [
+                            15,
+                            17
+                        ]
+                    ],
+                    "26,17": [
+                        "OverworldMap",
+                        [
+                            26,
+                            17
+                        ]
+                    ],
+                    "7,13": [
+                        "OverworldMap",
+                        [
+                            7,
+                            13
+                        ]
+                    ],
+                    "18,13": [
+                        "OverworldMap",
+                        [
+                            18,
+                            13
+                        ]
+                    ],
+                    "27,0": [
+                        "OverworldMap",
+                        [
+                            27,
+                            0
+                        ]
+                    ],
+                    "27,9": [
+                        "OverworldMap",
+                        [
+                            27,
+                            9
+                        ]
+                    ],
+                    "8,5": [
+                        "OverworldMap",
+                        [
+                            8,
+                            5
+                        ]
+                    ],
+                    "19,5": [
+                        "OverworldMap",
+                        [
+                            19,
+                            5
+                        ]
+                    ],
+                    "27,18": [
+                        "OverworldMap",
+                        [
+                            27,
+                            18
+                        ]
+                    ],
+                    "0,1": [
+                        "OverworldMap",
+                        [
+                            0,
+                            1
+                        ]
+                    ],
+                    "11,1": [
+                        "OverworldMap",
+                        [
+                            11,
+                            1
+                        ]
+                    ],
+                    "8,14": [
+                        "OverworldMap",
+                        [
+                            8,
+                            14
+                        ]
+                    ],
+                    "19,14": [
+                        "OverworldMap",
+                        [
+                            19,
+                            14
+                        ]
+                    ],
+                    "30,5": [
+                        "OverworldMap",
+                        [
+                            30,
+                            5
+                        ]
+                    ],
+                    "0,10": [
+                        "OverworldMap",
+                        [
+                            0,
+                            10
+                        ]
+                    ],
+                    "11,10": [
+                        "OverworldMap",
+                        [
+                            11,
+                            10
+                        ]
+                    ],
+                    "30,14": [
+                        "OverworldMap",
+                        [
+                            30,
+                            14
+                        ]
+                    ],
+                    "0,19": [
+                        "OverworldMap",
+                        [
+                            0,
+                            19
+                        ]
+                    ],
+                    "11,19": [
+                        "OverworldMap",
+                        [
+                            11,
+                            19
+                        ]
+                    ],
+                    "20,6": [
+                        "OverworldMap",
+                        [
+                            20,
+                            6
+                        ]
+                    ],
+                    "31,6": [
+                        "OverworldMap",
+                        [
+                            31,
+                            6
+                        ]
+                    ],
+                    "12,2": [
+                        "OverworldMap",
+                        [
+                            12,
+                            2
+                        ]
+                    ],
+                    "23,2": [
+                        "OverworldMap",
+                        [
+                            23,
+                            2
+                        ]
+                    ],
+                    "12,11": [
+                        "OverworldMap",
+                        [
+                            12,
+                            11
+                        ]
+                    ],
+                    "23,11": [
+                        "OverworldMap",
+                        [
+                            23,
+                            11
+                        ]
+                    ],
+                    "4,7": [
+                        "OverworldMap",
+                        [
+                            4,
+                            7
+                        ]
+                    ],
+                    "4,16": [
+                        "OverworldMap",
+                        [
+                            4,
+                            16
+                        ]
+                    ],
+                    "22,15": [
+                        "OverworldMap",
+                        [
+                            22,
+                            15
+                        ]
+                    ],
+                    "1,1": [
+                        "OverworldMap",
+                        [
+                            1,
+                            1
+                        ]
+                    ],
+                    "3,20": [
+                        "OverworldMap",
+                        [
+                            3,
+                            20
+                        ]
+                    ],
+                    "14,20": [
+                        "OverworldMap",
+                        [
+                            14,
+                            20
+                        ]
+                    ],
+                    "15,3": [
+                        "OverworldMap",
+                        [
+                            15,
+                            3
+                        ]
+                    ],
+                    "26,3": [
+                        "OverworldMap",
+                        [
+                            26,
+                            3
+                        ]
+                    ],
+                    "15,12": [
+                        "OverworldMap",
+                        [
+                            15,
+                            12
+                        ]
+                    ],
+                    "7,8": [
+                        "OverworldMap",
+                        [
+                            7,
+                            8
+                        ]
+                    ]
+                }
+            }
+        ],
+        "tilesets": [
+            "OverworldMap"
+        ]
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "No Unluck",
+        "trigger": "combat_start",
+        "level_nid": "Gunpowder",
+        "condition": "unit.nid == 'Fuuko' and item.nid == 'Unluck' and not v('phase_two')",
+        "commands": [],
+        "only_once": false,
+        "priority": 20,
+        "_source": [
+            "#pyev1",
+            "",
+            "$u \"Fuuko\" \"Right\"",
+            "$s \"Fuuko\" \"Now is not the time.\"",
+            "$r \"Fuuko\"",
+            "game.state.back()"
+        ],
+        "nid": "Gunpowder No Unluck"
+    }
+]

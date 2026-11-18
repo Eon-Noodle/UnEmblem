@@ -1,0 +1,16 @@
+[
+    {
+        "nid": "Pano_Temple",
+        "sub_nid": "Temple",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": "Panoramas",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Struedelmuffin",
+                "Temple"
+            ]
+        ]
+    }
+]

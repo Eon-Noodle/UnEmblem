@@ -1,8 +1,8 @@
 {
-    "date": "2026-11-18 02:49:29.589248",
+    "date": "2026-11-18 15:19:39.800712",
     "engine_version": "2026.10.18a",
     "serialization_version": 1,
     "project": "UNEM",
     "has_fatal_errors": false,
-    "as_chunks": false
+    "as_chunks": true
 }

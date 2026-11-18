@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Neutralization",
+        "trigger": null,
+        "level_nid": null,
+        "condition": "True",
+        "commands": [],
+        "only_once": false,
+        "priority": 25,
+        "_source": [
+            "# Trigger: unit_death",
+            "",
+            "if;unit.skills and unit.skills[0].nid[0:2] == 'Un'",
+            "    game_var;quest_success;[looper for looper in {v:quest_success} if {v:quest_name}[looper] != unit.skills[0].nid]",
+            "    ",
+            "elif;unit.klass == 'UMA'",
+            "    game_var;quest_success;{v:quest_success} + [looper for looper in range(len({v:quest_name})) if {v:quest_name}[looper] == unit.nid and {v:quest_goal}[looper] == 'Neutralization']",
+            "    ",
+            "    if;unit.nid == 'Colour'",
+            "        game_var;grayscale;True",
+            "    end",
+            "end",
+            ""
+        ],
+        "nid": "Global Neutralization"
+    }
+]

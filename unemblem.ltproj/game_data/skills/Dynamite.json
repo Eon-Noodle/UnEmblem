@@ -1,0 +1,28 @@
+[
+    {
+        "nid": "Dynamite",
+        "name": "Dynamite",
+        "desc": "",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "eval_ai_priority",
+                "len(get_units_within_distance(unit.position, team=\"player\"))"
+            ],
+            [
+                "hidden",
+                null
+            ],
+            [
+                "has_tags",
+                [
+                    "Dynamite"
+                ]
+            ]
+        ]
+    }
+]

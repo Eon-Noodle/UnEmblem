@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Tutorial Unluck 2",
+        "trigger": "combat_end",
+        "level_nid": "Gunpowder",
+        "condition": "v('tutorial') and unit.nid == 'Fuuko' and unit2.nid == 'Andy' and unit2.get_skill('Unluck_child')",
+        "commands": [],
+        "only_once": true,
+        "priority": 20,
+        "_source": [
+            "s;;Now Andy is a <red>ticking time bomb</>! Move Fuuko safely away from him.\";;;Tutorial"
+        ],
+        "nid": "Gunpowder Tutorial Unluck 2"
+    }
+]

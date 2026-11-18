@@ -1,0 +1,22 @@
+[
+    {
+        "nid": "Rebellion",
+        "name": "Rebellion",
+        "desc": "Grants bonus damage.\nTakes half the damage dealt.",
+        "icon_nid": "Skills_attributes",
+        "icon_index": [
+            15,
+            3
+        ],
+        "components": [
+            [
+                "hidden",
+                null
+            ],
+            [
+                "combat_art",
+                "Rebellion_child"
+            ]
+        ]
+    }
+]
