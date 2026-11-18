@@ -1,15 +1,11 @@
 from __future__ import annotations
 from functools import lru_cache
 
-import sys
-import traceback
-
 from typing import Optional
 from app.engine.game_state import GameState
 
 from app.events import event_commands
 from app.events.python_eventing.compiler import Compiler
-from app.events.python_eventing.errors import InvalidPythonError
 from app.events.python_eventing.utils import DO_NOT_EXECUTE_SENTINEL
 from app.utilities.typing import NID
 
@@ -42,24 +38,7 @@ class PythonEventProcessor():
             return None
         except Exception as e:
             # exception occured in python script
-            _, _, exc_tb = sys.exc_info()
-            tbs = traceback.extract_tb(exc_tb)
-            # Proceed backwards through the stack trace until we find a "<string>"
-            for tb in reversed(tbs):
-                exception_fname, exception_lineno = tb[:2]
-                if exception_fname == "<string>":
-                    # This means that we failed in the python script itself and
-                    # can therefore figure out exactly what line in the python script is wrong
-                    diff_lines = self._compiled_script._num_diff_lines()
-                    true_lineno = exception_lineno - diff_lines
-                    failing_line = self.get_source_line(true_lineno - 1)
-                    exc = InvalidPythonError(self.nid, true_lineno, failing_line)
-                    exc.what = str(e)
-                    exc.original_exception = e
-                    raise exc from e
-            else:
-                # Unable to handle the error correctly, so just raise it up
-                raise e
+            raise self._compiled_script.python_error(e) from e
 
     def finished(self):
         return self.is_finished
