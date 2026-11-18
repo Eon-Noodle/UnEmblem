@@ -369,7 +369,11 @@ class ComponentValidationTests(ValidationTestCase):
 
 
 class EventValidationTests(ValidationTestCase):
-    '''Only events written in Python are checked'''
+    '''
+    A Python event's mistakes are errors. One in the event language is a
+    warning, since the engine runs a line it can't read as a comment, as it
+    does one left behind by an older version of the engine
+    '''
 
     def add_event(self, *lines):
         event = EventPrefab('Checked')
@@ -388,9 +392,43 @@ class EventValidationTests(ValidationTestCase):
         self.add_event('#pyev1', '$not_a_real_command 100')
         self.assertEqual(1, len(self.errors()))
 
-    def test_an_event_in_the_plain_event_language_is_not_checked(self):
-        self.add_event('not_a_real_command;100')
+    def test_a_sound_event_has_nothing_to_report(self):
+        self.add_event('# A comment', '', 'if;True', 'wait;100', 'elif;False', 'else', 'end',
+                       'for;x;[1, 2]', 'wait;{x}', 'endf', 's;Seth;Hello|nid=hi')
+        self.assertEqual([], self.warnings())
+
+    def test_a_command_that_does_not_exist_is_a_warning_not_an_error(self):
+        self.add_event('wait;100', 'not_a_real_command;100')
         self.assertEqual([], self.errors())
+        self.assert_one(self.warnings(), "Event:'Global Checked'", 'Line 2: not_a_real_command;100',
+                        '"not_a_real_command" is not an event command')
+
+    def test_a_command_missing_an_argument(self):
+        self.add_event('give_item;Seth')
+        self.assert_one(self.warnings(), 'Line 1: give_item;Seth', 'The arguments do not fit give_item')
+
+    def test_a_command_given_too_many_arguments(self):
+        self.add_event('wait;100;200')
+        self.assert_one(self.warnings(), 'Line 1: wait;100;200', 'The arguments do not fit wait')
+
+    def test_an_if_without_its_end(self):
+        self.add_event('if;True', 'wait;100')
+        self.assert_one(self.warnings(), 'Line 1: if;True', 'if has no end to close it')
+
+    def test_an_end_without_its_if(self):
+        self.add_event('wait;100', 'end')
+        self.assert_one(self.warnings(), 'Line 2: end', 'end has no if before it to close')
+
+    def test_an_else_without_its_if(self):
+        self.add_event('else', 'wait;100')
+        self.assert_one(self.warnings(), 'Line 1: else', 'else has no if before it')
+
+    def test_an_end_closing_a_for(self):
+        self.add_event('for;x;[1, 2]', 'end')
+        reports = self.warnings()
+        self.assertEqual(2, len(reports), reports)
+        self.assertIn('end has no if before it to close', reports[1])
+        self.assertIn('for has no endf to close it', reports[0])
 
 
 if __name__ == '__main__':

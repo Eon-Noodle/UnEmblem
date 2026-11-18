@@ -18,7 +18,7 @@ from app.data.validation.utils import LTType
 import app.data.validation.validation_errors as ltdb
 from app.events.event_version import EventVersion
 from app.events.python_eventing.analyzer import PyEventAnalyzer
-from app.events import event_commands
+from app.events import event_checks, event_commands
 from app.events.regions import Region
 from app.utilities.typing import NID
 
@@ -207,10 +207,17 @@ class DBChecker():
     def validate_events(self) -> ValidationResult:
         alz = PyEventAnalyzer(self.db.events)
         all_errors = []
+        all_warnings = []
         for event in self.db.events:
             if event.version() != EventVersion.EVENT:
                 all_errors += alz.verify_event(event.nid, event.source)
-        return ValidationResult(all_errors)
+            else:
+                # Warnings, not errors: a line the engine can't read runs as a
+                # comment, as one left behind by an older engine version does
+                e_err = ltdb.Error(DType.EVENTS, event.nid).to_warn()
+                for line_num, line, problem in event_checks.event_problems(event.source):
+                    all_warnings.append(e_err.msg('Line %d: %s\n    %s' % (line_num, line.strip(), problem)))
+        return ValidationResult(all_errors, all_warnings)
 
     def validate_references(self) -> ValidationResult:
         """Every reference the reference schema declares that names nothing, as a
