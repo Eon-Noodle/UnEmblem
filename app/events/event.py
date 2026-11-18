@@ -40,6 +40,10 @@ from app.utilities.typing import NID, Color3, Point
 class EvaluateException(EventError):
     what = "Could not evaluate expression."
 
+class CommandFailedError(EventError):
+    '''An event command raised: names the event and line, and what went wrong'''
+    what = "Event command failed."
+
 class Event():
     skippable = {"wait", "bop_portrait", "sound",
                  "location_card", "credits", "ending"}
@@ -368,7 +372,10 @@ class Event():
             except EventError as e:
                 raise e
             except Exception as e:
-                raise Exception("Event execution failed with error in command %s" % self.processor.get_source_line(self.processor.get_current_line())) from e
+                line = self.processor.get_current_line()
+                exc = CommandFailedError(self.nid, line + 1, self.processor.get_source_line(line))
+                exc.what = '%s: %s' % (type(e).__name__, e)
+                raise exc from e
 
     def skip(self, super_skip: bool = False):
         self.do_skip = True
