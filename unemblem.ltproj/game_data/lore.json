@@ -1,0 +1,44 @@
+[
+    {
+        "nid": "Weapon_Triangle",
+        "name": "Weapon Triangle",
+        "title": "Weapon Triangle",
+        "category": "Guide",
+        "text": "Physical weapons possess a unique hierachy.{br}<icon>Swords</><red>Sword</> best <icon>Brutes</><green>Gauntlet</>.{br}<icon>Brutes</><green>Gauntlet</> best <icon>Spears</><blue>Spear</>.{br}<icon>Spears</><blue>Spear</> best <icon>Swords</><red>Sword</>.{br}<icon>Firearms</><orange>Guns</> are not affected by the Weapon Triangle."
+    },
+    {
+        "nid": "Composure",
+        "name": "Composure",
+        "title": "Composure",
+        "category": "Guide",
+        "text": "Each playable unit has a Composure gauge that decreases everytime unit defeat an enemy, and reset at the end of each chapter.\nThe unit falls into <red>Anguish</> if Composure reaches 0.{br}When in <red>Anguish</>, unit is uncontrollable and will indiscriminately attack everyone, even allies.{br}"
+    },
+    {
+        "nid": "Dual_Wield",
+        "name": "Dual Wield",
+        "title": "Dual Wield",
+        "category": "Guide",
+        "text": "All units can choose to equip a second weapon as offhand weapon, at the cost of Attack Speed, as both weapon's weights contribute towards the calculation.\nThis allows unit to make follow-up attack with offhand weapon after the attack with main weapon.\nUnit can also counterattack with offhand weapon, if enemy is out of main weapon's range, but within offhand weapon's range."
+    },
+    {
+        "nid": "Undead",
+        "name": "Undead",
+        "title": "Undead",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Andy{br}<yellow>Type:</> Self-targeting Compulsory-activation{br}<yellow>Detail:</> Negates any and everything that puts him near death. He still has a sense of pain."
+    },
+    {
+        "nid": "Unluck",
+        "name": "Unluck",
+        "title": "Unluck",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Fuuko Izumo{br}<yellow>Type:</> External-targeting Compulsory-activation{br}<yellow>Detail:</> Brings an unlucky event to any target that directly touches her bare skin. The scale of the event is determined by likability."
+    },
+    {
+        "nid": "Untruth",
+        "name": "Untruth",
+        "title": "Untruth",
+        "category": "Negation",
+        "text": "<yellow>Negator:</> Shen Xiang{br}<yellow>Type:</> External-targeting Compulsory-activation{br}<yellow>Detail:</> Once he looks at his target, it forces the target to reverse their thoughts and actions.\n<yellow>Detail:</> Shen's often seen winking because blinking with both eyes cuts off the distribution of his ability, so he makes it a habit to only close one eye at a time."
+    }
+]

@@ -1,0 +1,933 @@
+[
+    {
+        "nid": "Game_Maker",
+        "sub_nid": "Game Maker",
+        "credit_type": "Text",
+        "category": "Tools",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "Lex Talionis is a powerful game maker for producing pixel art games in the style of GBA Fire Emblem. It's created by <purple>rainlash</> and developed by <red>mag</> and <blue>KD</>."
+            ]
+        ]
+    },
+    {
+        "nid": "FE_Repo",
+        "sub_nid": "Graphics Repo",
+        "credit_type": "Text",
+        "category": "Tools",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                null,
+                "Fire Emblem Fangame Essentials is a public repository of free assets for creating Fire Emblem fangames."
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Andy",
+        "sub_nid": "Andy",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": "Portraits",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Andy"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Chikara",
+        "sub_nid": "Chikara",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Chikara"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Enjin",
+        "sub_nid": "Enjin",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Enjin"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Fuuko",
+        "sub_nid": "Fuuko",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Fuuko"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Isshin",
+        "sub_nid": "Isshin",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Isshin"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Juiz",
+        "sub_nid": "Juiz",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Juiz"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Sean",
+        "sub_nid": "Sean",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey and The total squid",
+                "Sean"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Shen",
+        "sub_nid": "Shen",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Slimey",
+                "Shen"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Gunpowder",
+        "sub_nid": "Gunpowder",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": "Portraits",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Glaceo",
+                "UMA Gunpowder"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Medicine",
+        "sub_nid": "Medicine",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": "Portraits",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "SaintRubenio",
+                "UMA Medicine"
+            ]
+        ]
+    },
+    {
+        "nid": "Portraits_Justice",
+        "sub_nid": "Justice",
+        "credit_type": 4,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "WhatIsAnAubin and Kingcrimson",
+                "UMA Justice"
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Helicopter",
+        "sub_nid": "Helicopter",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Advanced Wars (IS), ported by Amyd",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Slime",
+        "sub_nid": "Oozium",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Advanced Wars (IS), ported by Amyd",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Lamia",
+        "sub_nid": "Lamia",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Dutch Introvert",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Bonewalker_Lance",
+        "sub_nid": "Lance_Bonewalker",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Epicer",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Swordmaster",
+        "sub_nid": "Samurai",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "GabrielKnight",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Vigilante",
+        "sub_nid": "Cowboy",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "MeatofJustice",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Bastion",
+        "sub_nid": "General",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Nuramon",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Hero",
+        "sub_nid": "Hero",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Pikmin",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Martial_Artist",
+        "sub_nid": "Lancer",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "SALVAGED",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Athlete",
+        "sub_nid": "Boxer",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "ShadowAllyX",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Assassin",
+        "sub_nid": "Assassin",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "SkidMarc25",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Banshee",
+        "sub_nid": "Banshee",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Sphealnuke",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Warlord",
+        "sub_nid": "Sergeant",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Spud",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Pugilist",
+        "sub_nid": "Berserker",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "ZoramineFae",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Caregiver",
+        "sub_nid": "Caregiver_Chikara",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by HyperGammaSpaces",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Mercenary",
+        "sub_nid": "Soldier_Echoes",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by Nuramon, Feier and flasuban",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Grandmaster",
+        "sub_nid": "Swordmaster_FE10",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by L95",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Precisione",
+        "sub_nid": "Angel",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by Unknown",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Map_Conqueror",
+        "sub_nid": "Conqueror",
+        "credit_type": 8,
+        "category": "Graphics",
+        "custom_header": "Map sprites",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Eon, inspired by ZoramineFae",
+                null
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Brute",
+        "sub_nid": "wexp_icons_2",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Alice",
+                "Brute Weapon Type"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Core",
+        "sub_nid": "Techno",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            1
+        ],
+        "contrib": [
+            [
+                "Batima",
+                "Basho Core"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Elixir",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            6
+        ],
+        "contrib": [
+            [
+                "Rootrick and Zarg",
+                "Elixir"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Whip_Knuckle",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            5
+        ],
+        "contrib": [
+            [
+                "SMITHYGCN",
+                "Whip Knuckle"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Sword",
+        "sub_nid": "Sword",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            21
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and Indogutsu Tenbuki",
+                "Basho Sword"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Glove",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            6
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Basho Glove"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Basho_Spear",
+        "sub_nid": "Lance",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            17
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Basho Spear"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Musket",
+        "sub_nid": "Firearm",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Musket"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Revolver",
+        "sub_nid": "Firearm",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            8
+        ],
+        "contrib": [
+            [
+                "Tactics Orge (QC), ported by EldritchAbo and serebii01",
+                "Revolver"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Iron_Gauntlet",
+        "sub_nid": "Knuckle",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "VelvetKitsune and LordGlenn",
+                "Iron Gauntlet"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Rebellion",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            7
+        ],
+        "contrib": [
+            [
+                "Zarg",
+                "Rebellion"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Laser_Core",
+        "sub_nid": "Techno",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Zelix",
+                "Laser Core"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_She_Mao",
+        "sub_nid": "Lance",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            18
+        ],
+        "contrib": [
+            [
+                "Zelix",
+                "She Mao"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Skills",
+        "sub_nid": "Skills_specials",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "ZessDynamite, rainlash, LordGlenn, suneohair, and others",
+                "Skill Icons"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Apoccy",
+        "sub_nid": "Artifact",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Eon, inspired by Celice",
+                "Apocalypse"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon16_Fierbois_Saber",
+        "sub_nid": "Sword",
+        "credit_type": 1,
+        "category": "Graphics",
+        "custom_header": "Icons",
+        "icon_index": [
+            0,
+            22
+        ],
+        "contrib": [
+            [
+                "Eon, inspired by LordGlenn and Orihara Saki",
+                "Fierbois Saber"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon80_Bonewalker_Lance",
+        "sub_nid": "Bonewalker_Lance",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Epicer",
+                "Bonewalker Lance"
+            ]
+        ]
+    },
+    {
+        "nid": "Icon80_Bastion",
+        "sub_nid": "General_Shield",
+        "credit_type": 3,
+        "category": "Graphics",
+        "custom_header": "Class Cards",
+        "icon_index": [
+            0,
+            0
+        ],
+        "contrib": [
+            [
+                "Pushwall and SamirPlayz",
+                "Bastion"
+            ]
+        ]
+    },
+    {
+        "nid": "Pano_Temple",
+        "sub_nid": "Temple",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": "Panoramas",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Struedelmuffin",
+                "Temple"
+            ]
+        ]
+    },
+    {
+        "nid": "Pano_Locomotive",
+        "sub_nid": "Locomotive",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Jake Branson",
+                "Locomotive"
+            ]
+        ]
+    },
+    {
+        "nid": "Pano_Default",
+        "sub_nid": "default_background_stars",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "Fenrier",
+                "Sailor Moon SNES"
+            ]
+        ]
+    },
+    {
+        "nid": "Pano_Info_Menu",
+        "sub_nid": "info_menu_background",
+        "credit_type": 6,
+        "category": "Graphics",
+        "custom_header": null,
+        "icon_index": [],
+        "contrib": [
+            [
+                "JiroPaiPai",
+                "Info Menu Background"
+            ]
+        ]
+    },
+    {
+        "nid": "Tileset",
+        "sub_nid": "Tileset",
+        "credit_type": "List",
+        "category": "Graphics",
+        "custom_header": "Tileset",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Red orange juice",
+                "Overworld Map"
+            ],
+            [
+                "ChipPlays",
+                "Forge"
+            ],
+            [
+                "marceles",
+                "Laboratory"
+            ],
+            [
+                "Cynon",
+                "Metro Suburb"
+            ]
+        ]
+    },
+    {
+        "nid": "Graphic_Other",
+        "sub_nid": "Other",
+        "credit_type": "List",
+        "category": "Graphics",
+        "custom_header": "Other",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Rasta",
+                "Unit Info Design"
+            ],
+            [
+                "Xilirite",
+                "Support Screen Design"
+            ],
+            [
+                "AdamCYounis",
+                "Book Flipping Animation"
+            ]
+        ]
+    },
+    {
+        "nid": "Music",
+        "sub_nid": "Music",
+        "credit_type": "List",
+        "category": "Musics",
+        "custom_header": "Music",
+        "icon_index": [],
+        "contrib": [
+            [
+                "Shiyui",
+                "Love Call"
+            ],
+            [
+                "Kenichiro Suehiro",
+                "Undead Unluck OST"
+            ]
+        ]
+    },
+    {
+        "nid": "Technicals",
+        "sub_nid": "Technicals",
+        "credit_type": "List",
+        "category": "Technicals",
+        "custom_header": "Technicals",
+        "icon_index": [],
+        "contrib": [
+            [
+                "beccarte",
+                "Enemy Pass Skill Hook"
+            ],
+            [
+                "PKLucky and muddak",
+                "README Template"
+            ],
+            [
+                "Luis",
+                "Dual Wield Mechanic"
+            ]
+        ]
+    }
+]

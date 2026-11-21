@@ -1,0 +1,198 @@
+[
+    {
+        "nid": "min_quest",
+        "dtype": "str",
+        "svalue": "2",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "max_quest",
+        "dtype": "str",
+        "svalue": "4",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "pref_quest",
+        "dtype": "str",
+        "svalue": "1.0",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "pref_artifact",
+        "dtype": "str",
+        "svalue": "1.0",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "penalties",
+        "dtype": "kv",
+        "svalue": "",
+        "kvvalue": [
+            [
+                "Fog",
+                "0"
+            ]
+        ],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "artifacts",
+        "dtype": "kv",
+        "svalue": "",
+        "kvvalue": [
+            [
+                "Turnwheel",
+                "0"
+            ]
+        ],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "quests",
+        "dtype": "list",
+        "svalue": "",
+        "kvvalue": [],
+        "oattrs": [
+            "nid",
+            "negator",
+            "location",
+            "weight",
+            "point"
+        ],
+        "lovalue": [
+            {
+                "nid": "Unchange",
+                "negator": "Gina",
+                "location": "Siberia",
+                "weight": "0",
+                "point": "1"
+            },
+            {
+                "nid": "Unseen",
+                "negator": "Sean",
+                "location": "Rio",
+                "weight": "0",
+                "point": "1"
+            },
+            {
+                "nid": "Unmove",
+                "negator": "Chikara",
+                "location": "Rio",
+                "weight": "0",
+                "point": "1"
+            }
+        ]
+    },
+    {
+        "nid": "reward_locations",
+        "dtype": "list",
+        "svalue": "",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": [
+            {
+                "nid": "Siberia"
+            }
+        ]
+    },
+    {
+        "nid": "penalty_limit",
+        "dtype": "str",
+        "svalue": "3",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    },
+    {
+        "nid": "init_quests",
+        "dtype": "list",
+        "svalue": "",
+        "kvvalue": [],
+        "oattrs": [
+            "nid",
+            "goal",
+            "done",
+            "limit",
+            "reward"
+        ],
+        "lovalue": [
+            {
+                "nid": "Untruth",
+                "goal": "Capture",
+                "done": "True",
+                "limit": "2",
+                "reward": "Location of Artifact Turnwheel"
+            },
+            {
+                "nid": "Gunpowder",
+                "goal": "Neutralisation",
+                "done": "True",
+                "limit": "4",
+                "reward": "Addition of a Roundtable Seat"
+            },
+            {
+                "nid": "Kindness",
+                "goal": "Neutralisation",
+                "done": "False",
+                "limit": "1",
+                "reward": "Location of Unknown"
+            }
+        ]
+    },
+    {
+        "nid": "init_attempts",
+        "dtype": "list",
+        "svalue": "",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": [
+            {
+                "nid": "Kindness"
+            },
+            {
+                "nid": "Untruth"
+            },
+            {
+                "nid": "Gunpowder"
+            }
+        ]
+    },
+    {
+        "nid": "init_penalty",
+        "dtype": "str",
+        "svalue": "Galaxy",
+        "kvvalue": [],
+        "oattrs": [
+            "nid"
+        ],
+        "lovalue": []
+    }
+]
