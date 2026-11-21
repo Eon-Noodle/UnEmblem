@@ -62,7 +62,7 @@ def build_display(size):
             "Display creation failed. Falling back to windowed resizable mode."
         )
         return pygame.display.set_mode(size, pygame.RESIZABLE)
-    
+
 def get_screen_size():
     return pygame.display.get_surface().get_size()
 
@@ -479,3 +479,6 @@ def write_system_msg(surf, msg: str):
         y += SYSTEM_FONT_SIZE
         x = 0
     return surf
+
+def apply_grayscale(surf):
+    pygame.transform.grayscale(surf, surf)

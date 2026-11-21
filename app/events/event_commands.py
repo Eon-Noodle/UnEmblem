@@ -1802,6 +1802,23 @@ in the unit's inventory, and then if no matching item is found, check the sub-it
     keywords = ["GlobalUnit", "Item"]
     _flags = ['recursive']
 
+class OffhandItem(EventCommand):
+    nid = 'offhand_item'
+    tag = Tags.MODIFY_UNIT_PROPERTIES
+    desc = \
+        """
+Forces *GlobalUnit* to offhand *Item*.
+
+The event will produce no effect if the item does not exist in the unit's inventory yet.
+It will also produce no effect if the item cannot be equipped by that unit.
+If the item chosen is a multi-item, the top-most valid option will be equipped.
+If the *recursive* flag is set, the event will first attempt to equip items directly
+in the unit's inventory, and then if no matching item is found, check the sub-items of multi-items.
+        """
+
+    keywords = ["GlobalUnit", "Item"]
+    _flags = ['recursive']
+
 class RemoveItem(EventCommand):
     nid = 'remove_item'
     tag = Tags.MODIFY_UNIT_PROPERTIES
@@ -3875,6 +3892,7 @@ Example: change_team_palette;player;map_sprite_green;GenericGreen;green
     keywords = ["Team"]
     optional_keywords = ['MapSpritePalette', 'CombatVariantPalette', 'CombatColor']
     keyword_types = ['Team', 'Palette', 'String', 'String']
+
 
 def get_commands():
     return EventCommand.__subclasses__()

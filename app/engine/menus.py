@@ -52,6 +52,8 @@ def make_bg_surf(shimmer):
     bg_surf = image_mods.make_translucent(bg_surf, 0.1)
     return bg_surf
 
+unit_items_bg_surf_dict = {}
+
 def draw_unit_face(surf, topleft, unit, right):
     x, y = topleft
     topleft_pad = (2, 4)     # Paddings from the bg sprite
@@ -76,7 +78,9 @@ def draw_unit_items(surf, topleft, unit, include_top=False, include_bottom=True,
         draw_unit_top(surf, topleft, unit)
 
     if include_bottom:
-        bg_surf = make_bg_surf(shimmer)
+        if not unit_items_bg_surf_dict.get(shimmer):
+            unit_items_bg_surf_dict[shimmer] = make_bg_surf(shimmer)
+        bg_surf = unit_items_bg_surf_dict.get(shimmer)
         surf.blit(bg_surf, (x, y))
 
         if include_face:
@@ -620,7 +624,7 @@ class Choice(Simple):
 
         if self.horizontal:
             width = self.get_menu_width()
-            if self._bg_surf and self._bg_surf.get_width() == width:
+            if self._bg_surf and self._bg_surf.get_width() // 8 == width // 8:
                 pass
             else:
                 self._bg_surf = create_base_surf(width, 24, self.background)
@@ -1144,6 +1148,7 @@ class Table(Simple):
         self.fake_cursor_idx = None
         # Whether left and right go on round to the row before or after
         self.wrap_rows = True
+        self.bg_surf = None
 
     def get_scroll(self):
         return self.scroll
@@ -1171,6 +1176,7 @@ class Table(Simple):
             else:
                 option = menu_options.BasicOption(idx, option)
             self.options.append(option)
+        self.bg_surf = None
 
     def move_to(self, idx):
         scroll = self.scroll
@@ -1393,8 +1399,9 @@ class Table(Simple):
 
     def draw(self, surf):
         topleft = self.get_topleft()
-        bg_surf = self.create_bg_surf()
-        surf.blit(bg_surf, (topleft[0] - 2, topleft[1] - 4))
+        if not self.bg_surf:
+            self.bg_surf = self.create_bg_surf()
+        surf.blit(self.bg_surf, (topleft[0] - 2, topleft[1] - 4))
 
         draw_scroll_bar = False
         if len(self.options) > self.rows * self.columns:
@@ -1433,7 +1440,7 @@ class Table(Simple):
                             FONT['text-yellow'].blit("Loss Conditions", surf, (topleft[0] + 4, topleft[1] + 4 + (win_count - self.scroll + 2) * 16))
                     choice.draw(surf, left, top)
         else:
-            FONT['text-grey'].blit("Nothing", bg_surf, (topleft[0] + 16, topleft[1] + 4))
+            FONT['text-grey'].blit("Nothing", self.bg_surf, (topleft[0] + 16, topleft[1] + 4))
 
     def _scroll_distance(self, old_scroll: int, new_scroll: int) -> int:
         return (new_scroll - old_scroll) * max(option.height() for option in self.options)

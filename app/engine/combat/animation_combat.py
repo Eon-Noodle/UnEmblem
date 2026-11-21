@@ -40,11 +40,12 @@ class AnimationCombat(BaseCombat, MockCombat):
     # it does finalize a turn -- override BaseCombat's False.
     finalizes_turn: bool = True
 
-    def __init__(self, attacker: UnitObject, main_item: ItemObject, defender: UnitObject, def_item: ItemObject,
+    def __init__(self, attacker: UnitObject, main_item: ItemObject, offhand_item: ItemObject, defender: UnitObject, def_item: ItemObject,
                  script: list, total_rounds: int = 1, arena_combat: bool = False):
         self.attacker = attacker
         self.defender = defender
         self.main_item = main_item
+        self.offhand_item = offhand_item
         self.def_item = def_item
         self.attack_partner_weapon: Optional[ItemObject] = resolve_weapon(self.attacker.strike_partner)
         if self.defender:
@@ -82,8 +83,8 @@ class AnimationCombat(BaseCombat, MockCombat):
             self.view_pos = (0, 0)
 
         self.state_machine = CombatPhaseSolver(
-            self.attacker, self.main_item, [self.main_item],
-            [self.defender], [[]], [self.defender.position],
+            self.attacker, self.main_item, self.offhand_item, [self.main_item], [self.offhand_item],
+            [self.defender], [[]], [[]], [self.defender.position],
             self.defender, self.def_item, script, total_rounds,
             update_stats=self._set_stats)
 
@@ -158,6 +159,8 @@ class AnimationCombat(BaseCombat, MockCombat):
                 self.right_partner = pp
                 self.rp_battle_anim = battle_animation.get_battle_anim(pp, pp.get_weapon(), self.distance, allow_transform=True)
 
+        self.is_offhand = False
+
         self.current_battle_anim = None
 
         self.initial_paint_setup()
@@ -217,6 +220,15 @@ class AnimationCombat(BaseCombat, MockCombat):
                 attacker, defender = self.right, self.left
                 item, d_item = self.right_item, self.left_item
                 current_battle_anim = self.right_battle_anim
+        elif self.get_from_playback('attacker_offhand_phase'):
+            if self.attacker is self.left:
+                attacker, defender = self.left, self.right
+                item, d_item = self.offhand_item, self.right_item
+                current_battle_anim = self.left_battle_anim
+            else:
+                attacker, defender = self.right, self.left
+                item, d_item = self.offhand_item, self.left_item
+                current_battle_anim = self.right_battle_anim
         else:
             if self.attacker is self.left:
                 attacker, defender = self.left, self.right
@@ -227,6 +239,24 @@ class AnimationCombat(BaseCombat, MockCombat):
                 item, d_item = self.right_item, self.left_item
                 current_battle_anim = self.right_battle_anim
         return attacker, item, defender, d_item, current_battle_anim
+
+    def swap_to_mainhand(self):
+        main_hand_battle_anim = battle_animation.get_battle_anim(self.attacker, self.main_item, self.distance)
+        if self.left is self.attacker:
+            self.left_battle_anim = main_hand_battle_anim
+        else:
+            self.right_battle_anim = main_hand_battle_anim
+        self.is_offhand = False
+        self.pair_battle_animations(0)
+
+    def swap_to_offhand(self):
+        offhand_battle_anim = battle_animation.get_battle_anim(self.attacker, self.offhand_item, self.distance)
+        if self.left is self.attacker:
+            self.left_battle_anim = offhand_battle_anim
+        else:
+            self.right_battle_anim = offhand_battle_anim
+        self.is_offhand = True
+        self.pair_battle_animations(0)
 
     def pair_battle_animations(self, entrance_frames=14):
         left_pos = (self.left.position[0] - game.camera.get_x()) * TILEWIDTH, \
@@ -397,7 +427,7 @@ class AnimationCombat(BaseCombat, MockCombat):
                 logging.debug("Set Up Next State")
                 self.state_machine.setup_next_state()
                 return False
-            # self._set_stats()
+            self._set_stats(self.playback)
 
             # Set up combat effects (legendary)
             attacker, item, defender, d_item, self.current_battle_anim = self.get_actors()
@@ -417,6 +447,10 @@ class AnimationCombat(BaseCombat, MockCombat):
                 self.set_up_proc_animation('attack_proc')
             elif self.get_from_playback('defense_proc'):
                 self.set_up_proc_animation('defense_proc')
+            elif self.get_from_playback('attacker_offhand_phase'):
+                self.add_proc_icon.memory.clear()
+                self.swap_to_offhand()
+                self.set_up_combat_animation()
             else:
                 self.add_proc_icon.memory.clear()
                 self.set_up_combat_animation()
@@ -656,13 +690,6 @@ class AnimationCombat(BaseCombat, MockCombat):
             self.left_bar = SPRITES.get('combat_main_crit_left_' + left_color).copy()
         else:
             self.left_bar = SPRITES.get('combat_main_left_' + left_color).copy()
-        if self.left_item:
-            name = self.left_item.name
-            if text_width('text', name) > 56:
-                font = 'narrow'
-            else:
-                font = 'text'
-            render_text(self.left_bar, [font], [name], ['brown'], (WINWIDTH//4 + 31, 5 + (8 if crit_flag else 0)), HAlignment.CENTER)
 
         # Right
         right_color = self.get_color(self.right.team)
@@ -689,13 +716,6 @@ class AnimationCombat(BaseCombat, MockCombat):
             self.right_bar = SPRITES.get('combat_main_crit_right_' + right_color).copy()
         else:
             self.right_bar = SPRITES.get('combat_main_right_' + right_color).copy()
-        if self.right_item:
-            name = self.right_item.name
-            if text_width('text', name) > 56:
-                font = 'narrow'
-            else:
-                font = 'text'
-            render_text(self.right_bar, [font], [name], ['brown'], (WINWIDTH//4 - 13, 5 + (8 if crit_flag else 0)), HAlignment.CENTER)
 
         # Platforms
         if self.left.position:
@@ -819,6 +839,9 @@ class AnimationCombat(BaseCombat, MockCombat):
         else:
             self.rlast_gauge += self.right.get_gauge_inc()
 
+        if self.is_offhand:
+            self.swap_to_mainhand()
+
     def finish(self):
         # Fade back music if and only if it was faded in
         from_start = DB.constants.value('restart_battle_music')
@@ -905,6 +928,17 @@ class AnimationCombat(BaseCombat, MockCombat):
         else:
             ap_stats = 0, 0, 0
 
+        if self.offhand_item:
+            ao_hit = combat_calcs.compute_hit(self.attacker, self.defender, self.offhand_item, self.def_item, 'attack', self.state_machine.get_attack_info())
+            ao_mt = combat_calcs.compute_damage(self.attacker, self.defender, self.offhand_item, self.def_item, 'attack', self.state_machine.get_attack_info(), offhand=True)
+            if DB.constants.value('crit'):
+                ao_crit = combat_calcs.compute_crit(self.attacker, self.defender, self.offhand_item, self.def_item, 'attack', self.state_machine.get_attack_info())
+            else:
+                ao_crit = 0
+            ao_stats = ao_hit, ao_mt, ao_crit
+        else:
+            ao_stats = 0, 0, 0
+
         if self.def_item and combat_calcs.can_counterattack(self.attacker, self.main_item, self.defender, self.def_item):
             d_hit = combat_calcs.compute_hit(self.defender, self.attacker, self.def_item, self.main_item, 'defense', self.state_machine.get_defense_info())
             d_mt = combat_calcs.compute_damage(self.defender, self.attacker, self.def_item, self.main_item, 'defense', self.state_machine.get_defense_info())
@@ -931,6 +965,8 @@ class AnimationCombat(BaseCombat, MockCombat):
 
         if any(brush.nid == 'attacker_partner_phase' for brush in playback):
             ta_stats = ap_stats
+        elif any(brush.nid == 'attacker_offhand_phase' for brush in playback):
+            ta_stats = ao_stats
         else:
             ta_stats = a_stats
 
@@ -993,12 +1029,15 @@ class AnimationCombat(BaseCombat, MockCombat):
         if skill.nid in self.add_proc_icon.memory.get(unit.nid, []):
             return False
 
-        c = False
-        if (unit is self.right or unit is self.right.strike_partner) and self.rp_battle_anim:
-            c = True
-        elif (unit is self.left or unit is self.left.strike_partner) and self.lp_battle_anim:
-            c = True
-        new_icon = gui.SkillIcon(skill, unit is self.right, center=c)
+        if skill.name.startswith('Un'):
+            new_icon = gui.NegationBanner(skill, unit is self.right)
+        else:
+            c = False
+            if (unit is self.right or unit is self.right.strike_partner) and self.rp_battle_anim:
+                c = True
+            elif (unit is self.left or unit is self.left.strike_partner) and self.lp_battle_anim:
+                c = True
+            new_icon = gui.SkillIcon(skill, unit is self.right, center=c)
         self.proc_icons.append(new_icon)
 
         # Make sure the same proc icon never shows up twice in the same phase
@@ -1161,16 +1200,22 @@ class AnimationCombat(BaseCombat, MockCombat):
                     anim_order = [(self.left_battle_anim, left_range_offset, self.lp_battle_anim, lp_range_offset),
                                   (self.right_battle_anim, right_range_offset, self.rp_battle_anim, rp_range_offset)]
                 self.draw_battle_anims(surf, shake, anim_order, y_offset)
+                left_item = self.left_item
+                right_item = self.right_item
             # Right partner is main boi
             elif self.rp_battle_anim and self.current_battle_anim is self.rp_battle_anim:
                 anim_order = [(self.left_battle_anim, left_range_offset, self.lp_battle_anim, lp_range_offset),
                               (self.rp_battle_anim, right_range_offset, self.right_battle_anim, rp_range_offset)]
                 self.draw_battle_anims(surf, shake, anim_order, y_offset)
+                left_item = self.left_item
+                right_item = self.right_partner.get_weapon()
             # Left partner is main boi
             elif self.lp_battle_anim and self.current_battle_anim is self.lp_battle_anim:
                 anim_order = [(self.right_battle_anim, right_range_offset, self.rp_battle_anim, rp_range_offset),
                               (self.lp_battle_anim, left_range_offset, self.left_battle_anim, lp_range_offset)]
                 self.draw_battle_anims(surf, shake, anim_order, y_offset)
+                left_item = self.left_partner.get_weapon()
+                right_item = self.right_item
             # Left is main boi
             else:
                 # Right unit is being guarded right now!
@@ -1181,10 +1226,20 @@ class AnimationCombat(BaseCombat, MockCombat):
                     anim_order = [(self.right_battle_anim, right_range_offset, self.rp_battle_anim, rp_range_offset),
                                   (self.left_battle_anim, left_range_offset, self.lp_battle_anim, lp_range_offset)]
                 self.draw_battle_anims(surf, shake, anim_order, y_offset)
+                left_item = self.left_item
+                right_item = self.right_item
         else:  # When battle hasn't started yet
             anim_order = [(self.left_battle_anim, left_range_offset, self.lp_battle_anim, lp_range_offset),
                           (self.right_battle_anim, right_range_offset, self.rp_battle_anim, rp_range_offset)]
             self.draw_battle_anims(surf, shake, anim_order, y_offset)
+            left_item = self.left_item
+            right_item = self.right_item
+
+        if self.is_offhand:
+            if self.left is self.attacker:
+                left_item = self.offhand_item
+            else:
+                right_item = self.offhand_item
 
         # Animations
         self.draw_anims(surf)
@@ -1220,10 +1275,10 @@ class AnimationCombat(BaseCombat, MockCombat):
         self.left_hp_bar.draw(left_bar, 27, 30 + crit)
         self.right_hp_bar.draw(right_bar, 25, 30 + crit)
         # Item
-        if self.left_item:
-            self.draw_item(left_bar, self.left_item, self.right_item, self.left, self.right, (45, 2 + crit))
-        if self.right_item:
-            self.draw_item(right_bar, self.right_item, self.left_item, self.right, self.left, (1, 2 + crit))
+        if left_item:
+            self.draw_item(left_bar, left_item, right_item, self.left, self.right, (45, 2 + crit))
+        if right_item:
+            self.draw_item(right_bar, right_item, left_item, self.right, self.left, (1, 2 + crit))
         # Stats
         self.draw_stats(left_bar, self.left_stats, (42, 0))
         self.draw_stats(right_bar, self.right_stats, (WINWIDTH//2 - 3, 0))
@@ -1276,6 +1331,13 @@ class AnimationCombat(BaseCombat, MockCombat):
             surf.blit(bg_black, (0, 0))
 
     def draw_item(self, surf, item, other_item, unit, other, topleft):
+        name = item.name
+        if text_width('text', name) > 56:
+            font = 'narrow'
+        else:
+            font = 'text'
+        render_text(surf, [font], [name], ['brown'], utils.tuple_add(topleft, (46, 3)), HAlignment.CENTER)
+
         icon = icons.get_icon(item)
         if icon:
             icon = item_system.item_icon_mod(unit, item, other, other_item, icon)

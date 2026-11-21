@@ -13,7 +13,7 @@ def base_config() -> OrderedDict:
                         ('screen_size', 2),
                         ('fullscreen', 0),
                         ('sound_buffer_size', 2),
-                        ('animation', 'Always'),
+                        ('animation', 'Never'),
                         ('display_fps', 0),
                         ('battle_bg', 0),
                         ('unit_speed', 133),  # ms a tile: 8 frames, as on the GBA
@@ -32,8 +32,8 @@ def base_config() -> OrderedDict:
                         ('autoend_turn', 1),
                         ('confirm_end', 1),
                         ('hp_map_team', 'All'),
-                        ('hp_map_cull', 'All'),
-                        ('display_hints', 0),
+                        ('hp_map_cull', 'Wounded'),
+                        ('display_hints', 1),
                         ('rumble', 1),
                         ('key_SELECT', 'K_x'),
                         ('key_BACK', 'K_z'),
@@ -79,7 +79,7 @@ def convert_setting(k, v):
 
 def read_config_file():
     config = base_config()
-    
+
     def parse_ini(fn):
         with open(fn) as fp:
             for line in fp:

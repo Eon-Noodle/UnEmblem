@@ -85,7 +85,9 @@ class SettingsMenuState(State):
         # top_menu, menu, reset_button, reset_confirm, get_input
         self.state = 'top_menu'
 
-        config_options = [(c[0], c[1]) for c in config]
+        ignores = ['animation']
+
+        config_options = [(c[0], c[1]) for c in config if c[0] not in ignores]
         self.config_menu = settings_menu.Config(None, config_options, 'menu_bg_base', config_icons)
         self.config_menu.takes_input = False
 
@@ -102,6 +104,9 @@ class SettingsMenuState(State):
 
         self.top_cursor = menus.Cursor()
         self.reset_cursor = menus.Cursor()
+
+        self.reset_bg = base_surf.create_base_surf(
+            RESET_BUTTON_RECT[-2], RESET_BUTTON_RECT[-1], 'menu_bg_green')
 
         self.confirm_menu = menus.Choice(None, ['Yes', 'No'], 'center', None)  # Clear background
         self.confirm_menu.set_horizontal(True)
@@ -338,7 +343,7 @@ class SettingsMenuState(State):
 
     def draw_reset_button(self, surf):
         x, y, width, height = RESET_BUTTON_RECT
-        surf.blit(base_surf.create_base_surf(width, height, 'menu_bg_green'), (x, y))
+        surf.blit(self.reset_bg, (x, y))
         text = text_funcs.translate('Reset to Defaults')
         focused = self.state in ('reset_button', 'reset_confirm')
         font = FONT['text-yellow'] if focused else FONT['text']
@@ -365,8 +370,7 @@ class SettingsMenuState(State):
             if self.state == 'top_menu':
                 text = 'config_desc'
             else:
-                idx = self.config_menu.get_current_index()
-                text = config[idx][0] + '_desc'
+                text = self.config_menu.get_current() + '_desc'
         elif self.tab == 'keyboard':
             text = 'keymap_desc'
         else:

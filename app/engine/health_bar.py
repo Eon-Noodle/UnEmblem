@@ -348,16 +348,16 @@ class MapCombatBar(MultiGenericBar):
 class MapCombatInfo():
     blind_speed = 1/8.  # 8 frames to fade in
 
-    def __init__(self, draw_method, unit, item, target, stats, bars = None):
+    def __init__(self, draw_method, unit, item, target, def_item, stats, bars = None):
         self.skill_icons = []
         self.ordering = None
         self.stat_bars = bars if bars is not None else [BarType.HP]
 
         self.reset()
-        self.change_unit(unit, item, target, stats, draw_method)
+        self.change_unit(unit, item, target, def_item, stats, draw_method)
         # self.fade_in()
 
-    def change_unit(self, unit, item, target=None, stats=None, draw_method=None):
+    def change_unit(self, unit, item, target=None, def_item=None, stats=None, draw_method=None):
         if draw_method:
             self.draw_method = draw_method
             self.true_position = None
@@ -371,6 +371,8 @@ class MapCombatInfo():
         self.item = item
         if target:
             self.target = target
+        if def_item:
+            self.def_item = def_item
         if stats:
             self.hit = stats[0]
             self.mt = stats[1]
@@ -399,6 +401,7 @@ class MapCombatInfo():
         self.unit = None
         self.item = None
         self.target = None
+        self.def_item = None
 
         self.hit = None
         self.mt = None
@@ -569,6 +572,9 @@ class MapCombatInfo():
         self.hit, self.mt, self.crt, self.grd = stats
         self.stats_surf = None
 
+    def set_item(self, item):
+        self.item = item
+
     def update(self):
         # Make blinds wider
         self.blinds = utils.clamp(self.blinds, self.blinds + self.blind_speed, 1)
@@ -600,13 +606,13 @@ class MapCombatInfo():
             # Determine effectiveness
             icon = icons.get_icon(self.item)
             if icon:
-                icon = item_system.item_icon_mod(self.unit, self.item, self.target, self.target.get_weapon() if self.target else None, icon)
+                icon = item_system.item_icon_mod(self.unit, self.item, self.target, self.def_item, icon)
                 bg_surf.blit(icon, (2, 3))
 
             # Blit advantage
             if skill_system.check_enemy(self.unit, self.target):
-                adv = combat_calcs.compute_advantage(self.unit, self.target, self.item, self.target.get_weapon())
-                disadv = combat_calcs.compute_advantage(self.unit, self.target, self.item, self.target.get_weapon(), False)
+                adv = combat_calcs.compute_advantage(self.unit, self.target, self.item, self.def_item)
+                disadv = combat_calcs.compute_advantage(self.unit, self.target, self.item, self.def_item, False)
 
                 up_arrow = engine.subsurface(SPRITES.get('arrow_advantage'), (ANIMATION_COUNTERS.arrow_counter.count * 7, 0, 7, 10))
                 down_arrow = engine.subsurface(SPRITES.get('arrow_advantage'), (ANIMATION_COUNTERS.arrow_counter.count * 7, 10, 7, 10))

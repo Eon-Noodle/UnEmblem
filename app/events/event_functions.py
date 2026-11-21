@@ -476,6 +476,7 @@ def unpause(self: Event, nid=None, flags=None):
         pass
     else:
         self.state = 'dialog'
+    self.draw_hint = False
 
 def transition(self: Event, direction=None, speed=None, color3=None, panorama=None, flags=None):
     flags = flags or set()
@@ -766,6 +767,10 @@ def set_fog_of_war(self: Event, fog_of_war_type: str, radius: int, ai_radius: Op
         fowt = FogOfWarType.THRACIA
     elif fowt == 'hybrid':
         fowt = FogOfWarType.HYBRID
+    elif fowt == 'fancy':
+        fowt = FogOfWarType.FANCY
+    elif fowt == 'fancy_thracia':
+        fowt = FogOfWarType.FANCY_THRACIA
     else:
         fowt = FogOfWarType.GBA_DEPRECATED
     action.do(action.SetLevelVar('_fog_of_war_type', fowt))
@@ -1708,6 +1713,31 @@ def equip_item(self: Event, global_unit, item, flags=None):
         action.do(equip_action)
     else:
         self.logger.error("equip_item: %s is not an item that can be equipped" % item.nid)
+
+def offhand_item(self: Event, global_unit, item, flags=None):
+    flags = flags or set()
+    recursive_flag = 'recursive' in flags
+    item_input = item
+    unit = self._get_unit(global_unit)
+    if not unit:
+        self.logger.error("offhand_item: Couldn't find unit with nid %s" % global_unit)
+        return
+    unit, item = self._get_item_in_inventory(global_unit, item, recursive=recursive_flag)
+    if not unit or not item:
+        self.logger.error("offhand_item: Item %s was invalid, see above" % item_input)
+        return
+    if item.multi_item:
+        for subitem in item.subitems:
+            if unit.can_offhand(subitem):
+                equip_action = action.OffhandItem(unit, subitem)
+                action.do(equip_action)
+                return
+        self.logger.error("offhand_item: No valid subitem to equip in %s" % item.nid)
+    elif unit.can_offhand(item):
+        equip_action = action.OffhandItem(unit, item)
+        action.do(equip_action)
+    else:
+        self.logger.error("offhand_item: %s is not an item that can be equipped" % item.nid)
 
 def remove_item(self: Event, global_unit_or_convoy, item, party=None, flags=None):
     flags = flags or set()
@@ -3712,7 +3742,7 @@ def soundroom(self: Event, panorama = "default_background", flags=None):
         self.game.state.change('transition_to')
 
 def location_card(self: Event, string, flags=None):
-    new_location_card = dialog.LocationCard(string)
+    new_location_card = dialog.LocationCard(string, "menu_bg_parchment")
     self.other_boxes.append((None, new_location_card))
 
     self.wait_time = engine.get_time() + new_location_card.exist_time

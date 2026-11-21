@@ -93,6 +93,7 @@ class StateMachine():
              'trade': trade.TradeState,
              'combat_trade': trade.CombatTradeState,
              'weapon_choice': general_states.WeaponChoiceState,
+             'offhand_choice': general_states.OffhandChoiceState,
              'spell_choice': general_states.SpellChoiceState,
              'ability_multi_item_choice': general_states.AbilityMultiItemChoiceState,
              'ability_submenu_choice': general_states.AbilitySubmenuChoiceState,
@@ -170,7 +171,8 @@ class StateMachine():
              'dialog_log': dialog_log.DialogLogState,
              'party_transfer': party_transfer.PartyTransferState,
              'party_transfer_confirm': party_transfer.PartyTransferConfirmState,
-             'credit': credit_state.CreditState
+             'credit': credit_state.CreditState,
+             'keymap_guide': title_screen.KeymapGuideState
              }
 
         if starting_states:

@@ -11,3 +11,8 @@ def resolve_weapon(unit: UnitObject) -> Optional[ItemObject]:
     if unit:
         return unit.get_weapon()
     return None
+
+def resolve_offhand(unit: UnitObject) -> Optional[ItemObject]:
+    if unit:
+        return unit.get_offhand()
+    return None

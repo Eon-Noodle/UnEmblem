@@ -794,7 +794,7 @@ class ExpBar():
         return surf
 
 class ManaBar(ExpBar):
-    background = engine.subsurface(SPRITES.get('manabar'), (0, 0, 136, 24))
+    background = engine.subsurface(SPRITES.get('manabar'), (0, 0, 144, 24))
     begin = engine.subsurface(SPRITES.get('manabar'), (0, 24, 3, 7))
     middle = engine.subsurface(SPRITES.get('manabar'), (3, 24, 1, 7))
     end = engine.subsurface(SPRITES.get('manabar'), (4, 24, 2, 7))

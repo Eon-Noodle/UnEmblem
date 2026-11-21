@@ -27,6 +27,7 @@ class BaseCombat(SimpleCombat):
         self.attacker = attacker
         self.defender = main_target
         self.main_item = main_item
+        self.offhand_item = None
         self.def_item = None
         if self.defender:
             self.def_item = resolve_weapon(self.defender)

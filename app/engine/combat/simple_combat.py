@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Optional
 
 from app.data.database.database import DB
-from app.engine import (action, banner, engine, exp_funcs, item_system, skill_system,
+from app.engine import (action, banner, combat_calcs, engine, exp_funcs, item_system, skill_system,
                         supports)
 from app.engine.combat.playback import PlaybackBrush
 from app.engine.combat.solver import CombatPhaseSolver
@@ -40,10 +40,13 @@ class SimpleCombat():
         hurried = get_input_manager().is_pressed('SELECT') or get_input_manager().is_pressed('START')
         return hurried or engine.get_time() - self.target_cursor_start > self.target_cursor_time
 
-    def _full_setup(self, attacker: UnitObject, main_item: ItemObject, items: list,
-                    positions: list, main_target_positions: list, splash_positions: list):
+    def _full_setup(self, attacker: UnitObject, main_item: ItemObject, offhand_item: Optional[ItemObject],
+                    items: List[ItemObject], offhand_items: List[ItemObject],
+                    positions: List[List[Tuple[int, int]]], main_target_positions: List[Tuple[int, int]],
+                    splash_positions: List[List[Tuple[int, int]]], offhand_splash_postions: List[List[Tuple[int, int]]]):
         self.attacker: UnitObject = attacker
         self.main_item: ItemObject = main_item
+        self.offhand_item: ItemObject = offhand_item
         self.target_positions: list = positions
 
         # Load in the defenders
@@ -69,22 +72,37 @@ class SimpleCombat():
         all_splash = [a for sublist in self.splashes for a in sublist]  # Flatten list
         self.all_splash = list(set([s for s in all_splash if s]))
 
+        # Load in the splash units (list of list of UnitObjects)
+        self.offhand_splashes = []
+        for splash in splash_positions:
+            s = []
+            for splash_pos in splash:
+                unit = game.board.get_unit(splash_pos)
+                if unit:
+                    s.append(unit)
+            self.offhand_splashes.append(s)
+
+        # All splash is the flattened version of self.splashes with no duplicates
+        all_offhand_splash = [a for sublist in self.offhand_splashes for a in sublist]  # Flatten list
+        self.all_offhand_splash = list(set([s for s in all_offhand_splash if s]))
+
         self.items = items
+        self.offhand_items = offhand_items
         self.def_items = [resolve_weapon(defender) for defender in self.defenders]
-        self.def_item: Optional[ItemObject] = None
-        if self.defender:
-            self.def_item = resolve_weapon(self.defender)
+        self.def_item: Optional[ItemObject] = combat_calcs.resolve_counter_weapon(self.attacker, self.main_item, self.defender)
         self.attack_partner_weapon: Optional[ItemObject] = resolve_weapon(self.attacker.strike_partner)
         if self.defender:
             self.defense_partner_weapon: Optional[ItemObject] = resolve_weapon(self.defender.strike_partner)
         else:
             self.defense_partner_weapon: Optional[ItemObject] = None
 
-    def __init__(self, attacker, main_item, items, positions, main_target_positions, splash_positions, script, total_rounds=1):
-        self._full_setup(attacker, main_item, items, positions, main_target_positions, splash_positions)
+    def __init__(self, attacker, main_item, offhand_item, items, offhand_items, positions, main_target_positions,
+                 splash_positions, offhand_splash_positions, script, total_rounds=1):
+        self._full_setup(attacker, main_item, offhand_item, items, offhand_items, positions,
+                         main_target_positions, splash_positions, offhand_splash_positions)
         self.state_machine = CombatPhaseSolver(
-            attacker, self.main_item, self.items,
-            self.defenders, self.splashes, self.target_positions,
+            attacker, self.main_item, self.offhand_item, self.items, self.offhand_items,
+            self.defenders, self.splashes, self.offhand_splashes, self.target_positions,
             self.defender, self.def_item, script, total_rounds)
 
         self.full_playback: List[PlaybackBrush] = []

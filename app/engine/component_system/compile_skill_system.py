@@ -9,6 +9,7 @@ SKILL_HOOKS: Dict[str, HookInfo] = {
     'can_counter':                          HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_TRUE),
     # false priority (set to False if result is False in any component, False if not defined)
     'pass_through':                         HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
+    'enemy_pass_through':                   HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
     'vantage':                              HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
     'desperation':                          HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
     'ignore_terrain':                       HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),

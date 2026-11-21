@@ -491,7 +491,7 @@ class SupportDisplay():
         ranks = {}
         prefabs = DB.support_pairs.get_pairs(self.unit_nid, other_unit_nid)
         if prefabs:
-            prefab = prefabs[0] 
+            prefab = prefabs[0]
             pair = game.supports.create_pair(prefab.nid)
             for bonus in prefab.requirements:
                 rank = bonus.support_rank
@@ -910,18 +910,34 @@ class BaseCodexChildState(State):
 class LoreDisplay():
     def __init__(self):
         self.lore = None
-        self.topleft = (84, 4)
+        self.topleft = (84, 0)
         self.width = WINWIDTH - 84
-        self.bg_surf = base_surf.create_base_surf(self.width, WINHEIGHT - 8, 'menu_bg_brown')
-        shimmer = SPRITES.get('menu_shimmer3')
-        self.bg_surf.blit(shimmer, (
-            self.bg_surf.get_width() - shimmer.get_width() - 1, self.bg_surf.get_height() - shimmer.get_height() - 5))
-        self.bg_surf = image_mods.make_translucent(self.bg_surf, .1)
+
+        self.book_rect = (23, 8, self.width, WINHEIGHT)
+        self.bg_surf = engine.subsurface(SPRITES.get('book_flip_0'), self.book_rect)
+        self.book_flip_sprite = None
+
+        self.transition = None  # 'RIGHT' or 'LEFT'
+        self.transition_counter = 0
 
         self.left_arrow = gui.ScrollArrow('left', (self.topleft[0] + 4, 8))
-        self.right_arrow = gui.ScrollArrow('right', (self.topleft[0] + self.width - 11, 8), 0.5)
+        self.right_arrow = gui.ScrollArrow('right', (self.topleft[0] + 132, 8), 0.5)
 
         self.dialogs = []
+
+    def update(self):
+        if self.transition:
+            self.transition_counter += 1
+            if self.transition_counter % 4 == 0:
+                counter = self.transition_counter // 4
+                if book_flip_sprite := SPRITES.get('book_flip_%d' % counter, None):
+                    if self.transition == 'RIGHT':
+                        book_flip_sprite = engine.flip_horiz(book_flip_sprite)
+                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, self.book_rect)
+                else:
+                    self.book_flip_sprite = None
+                    self.transition = None
+                    self.transition_counter = 0
 
     def update_entry(self, lore_nid):
         from app.engine import dialog
@@ -936,7 +952,7 @@ class LoreDisplay():
         for line in text:
             dlg = dialog.Dialog(line, font_type="text", font_color="white", num_lines=8, draw_cursor=False, speed=0)
             dlg.position = self.topleft[0], self.topleft[1] + 12
-            dlg.text_width = WINWIDTH - 100
+            dlg.text_width = 132
             dlg.reformat()
             self.dialogs.append(dlg)
         self.num_pages = len(text)
@@ -945,10 +961,12 @@ class LoreDisplay():
         if self.page_num < self.num_pages - 1:
             self.page_num += 1
             self.right_arrow.pulse()
+            self.transition = 'RIGHT'
             return True
         elif first_push:
             self.page_num = (self.page_num + 1) % self.num_pages
             self.right_arrow.pulse()
+            self.transition = 'RIGHT'
             return True
         return False
 
@@ -956,10 +974,12 @@ class LoreDisplay():
         if self.page_num > 0:
             self.page_num -= 1
             self.left_arrow.pulse()
+            self.transition = 'LEFT'
             return True
         elif first_push:
             self.page_num = (self.page_num - 1) % self.num_pages
             self.left_arrow.pulse()
+            self.transition = 'LEFT'
             return True
         return False
 
@@ -969,6 +989,12 @@ class LoreDisplay():
         bottomright_pad = (1, 5)
         if self.lore:
             image = self.bg_surf.copy()
+            if self.transition:
+                if self.book_flip_sprite:
+                    image.blit(self.book_flip_sprite, (0, 0))
+                surf.blit(image, self.topleft)
+                return
+
             width, height = utils.tuple_sub(image.get_size(), topleft_pad, bottomright_pad)
             unit = None
             if game.get_unit(self.lore.nid):
@@ -980,11 +1006,11 @@ class LoreDisplay():
                 portrait = image_mods.make_translucent(portrait.convert_alpha(), 0.5)
                 image.blit(portrait, (utils.tuple_sub(image.get_size(), portrait.get_size(), bottomright_pad)))
 
-            render_text(image, ['text'], [self.lore.title], ['blue'], (self.width // 2, 4), HAlignment.CENTER)
+            render_text(image, ['text'], [self.lore.title], ['blue'], (72, 4), HAlignment.CENTER)
 
             if self.num_pages > 1:
                 text = '%d / %d' % (self.page_num + 1, self.num_pages)
-                render_text(image, ['text'], [text], ['yellow'], (self.width - 8, WINHEIGHT - 12 - 16), HAlignment.RIGHT)
+                render_text(image, ['text'], [text], ['yellow'], (self.width - 16, WINHEIGHT - 12 - 8), HAlignment.RIGHT)
 
             surf.blit(image, self.topleft)
 
@@ -1051,6 +1077,9 @@ class BaseLibraryState(State):
         directions = self.fluid.get_directions()
 
         self.menu.handle_mouse()
+        if self.display.transition:
+            return
+
         if not self.display.lore or self.display.lore.nid != self.menu.get_current().nid:
             self.display.update_entry(self.menu.get_current().nid)
 
@@ -1064,10 +1093,10 @@ class BaseLibraryState(State):
             self.display.update_entry(self.menu.get_current().nid)
         elif 'RIGHT' in directions:
             if self.display.page_right():
-                get_sound_thread().play_sfx('Status_Page_Change')
+                get_sound_thread().play_sfx('Status_Character')
         elif 'LEFT' in directions:
             if self.display.page_left():
-                get_sound_thread().play_sfx('Status_Page_Change')
+                get_sound_thread().play_sfx('Status_Character')
 
         if event == 'BACK':
             get_sound_thread().play_sfx('Select 4')
@@ -1109,6 +1138,8 @@ class BaseLibraryState(State):
     def update(self):
         if self.menu:
             self.menu.update()
+        if self.display:
+            self.display.update()
 
     def draw(self, surf):
         if self.bg:

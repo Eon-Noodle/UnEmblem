@@ -109,7 +109,7 @@ class StatusUpkeepState(MapState):
                     game.cursor.set_pos(self.cur_unit.position)
                     game.state.change('move_camera')
                     self.cur_unit.sprite.change_state('selected')
-                    self.health_bar = health_bar.MapCombatInfo('splash', self.cur_unit, None, None, None)
+                    self.health_bar = health_bar.MapCombatInfo('splash', self.cur_unit, None, None, None, None)
                     self.state = 'start'
                     self.last_update = engine.get_time()
                 elif self.actions and self.can_process(self.cur_unit):

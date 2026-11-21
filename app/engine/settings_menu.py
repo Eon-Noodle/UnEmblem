@@ -274,6 +274,7 @@ class Controls(menus.Simple):
         self.icons = icons
         super().__init__(owner, options, None, background, info)
         self.set_limit((WINHEIGHT - 64)// 16)
+        self.bg_surf = None
 
     def create_options(self, options, info_descs=None):
         self.options.clear()
@@ -282,6 +283,7 @@ class Controls(menus.Simple):
             if info_descs:
                 option.help_box = help_menu.HelpDialog(info_descs[idx])
             self.options.append(option)
+        self.bg_surf = None
 
     def move_left(self):
         pass
@@ -297,9 +299,10 @@ class Controls(menus.Simple):
 
     def draw(self, surf, get_input=False):
         topleft = self.get_topleft()
-        bg_surf = base_surf.create_base_surf(self.get_menu_width(), self.get_menu_height(), self.background)
-        bg_surf = image_mods.make_translucent(bg_surf, .1)
-        surf.blit(bg_surf, topleft)
+        if not self.bg_surf:
+            bg_surf = base_surf.create_base_surf(self.get_menu_width(), self.get_menu_height(), self.background)
+            self.bg_surf = image_mods.make_translucent(bg_surf, .1)
+        surf.blit(self.bg_surf, topleft)
 
         if len(self.options) > self.limit:
             self.draw_scroll_bar(surf, topleft)
