@@ -232,3 +232,37 @@ class TileEditorUndoTests(TilemapEditorSaveTests):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TilemapFillTests(TilemapEditorSaveTests):
+    """The bucket fills with the tile a right click picked off the map, as with one
+    picked from the tileset"""
+    def click(self, editor, button, coord):
+        from PyQt5.QtCore import Qt
+        from PyQt5.QtTest import QTest
+        from app.constants import TILEWIDTH, TILEHEIGHT
+        pos = editor.view.mapFromScene(coord[0] * TILEWIDTH + TILEWIDTH // 2, coord[1] * TILEHEIGHT + TILEHEIGHT // 2)
+        QTest.mousePress(editor.view.viewport(), button, Qt.NoModifier, pos)
+        QTest.mouseRelease(editor.view.viewport(), button, Qt.NoModifier, pos)
+
+    def test_the_bucket_fills_with_a_tile_picked_by_right_click(self):
+        from PyQt5.QtCore import Qt
+        from app.data.resources.resources import RESOURCES
+        from app.editor.tilemap_editor import MapEditor, PaintTool
+        tilemap = RESOURCES.tilemaps[0]
+        layer = tilemap.layers[0]
+        tileset_nid = tilemap.tilesets[0]
+        layer.sprite_grid.clear()
+        for x in range(tilemap.width):
+            for y in range(tilemap.height):
+                layer.set_sprite((x, y), tileset_nid, (0, 0))
+        layer.set_sprite((0, 0), tileset_nid, (1, 0))
+
+        editor = MapEditor(None, tilemap)
+        self.addCleanup(editor.deleteLater)
+        editor.current_tool = PaintTool.Brush
+        self.click(editor, Qt.RightButton, (0, 0))
+        editor.current_tool = PaintTool.Fill
+        self.click(editor, Qt.LeftButton, (2, 2))
+
+        self.assertEqual({(1, 0)}, {sprite.tileset_position for sprite in tilemap.layers[0].sprite_grid.values()})

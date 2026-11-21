@@ -408,8 +408,18 @@ class MapEditorView(DraggableTileImageView):
                 current_layer.terrain_grid[coord] = terrain_nid
 
     def flood_fill_tile(self, tile_pos):
-        tileset, coords = self.window.get_tileset_coords()
-        if not self.tilemap.check_bounds(tile_pos) or not coords or not tileset:
+        if not self.tilemap.check_bounds(tile_pos):
+            return
+        if self.right_selection:
+            # Only handles the topleft tile
+            _, tile_sprite = self.right_selection[min(self.right_selection.keys())]
+            if not tile_sprite:
+                return
+            tileset = RESOURCES.tilesets.get(tile_sprite.tileset_nid)
+            coords = [tile_sprite.tileset_position]
+        else:
+            tileset, coords = self.window.get_tileset_coords()
+        if not coords or not tileset:
             return
 
         current_layer = self.get_current_layer()
@@ -451,19 +461,7 @@ class MapEditorView(DraggableTileImageView):
             # Determine which coords should be flood-filled
             find_similar((tile_pos[0], tile_pos[1]), current_tile)
 
-            if self.right_selection:
-                # Only handles the topleft tile
-                coords = list(self.right_selection.keys())
-                topleft = min(coords)
-                true_coord, tile_sprite = self.right_selection[topleft]
-                coords = [true_coord]
-                tileset_nid = tile_sprite.tileset_nid
-                tileset = RESOURCES.tilesets.get(tileset_nid)
-            else:
-                tileset_nid = tileset.nid
-
-            if not coords:
-                return
+            tileset_nid = tileset.nid
             topleft = min(coords)
             w = max(coord[0] for coord in coords) - topleft[0] + 1
             h = max(coord[1] for coord in coords) - topleft[1] + 1
