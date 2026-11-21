@@ -2241,9 +2241,14 @@ class AddWexp(Action):
         if self.current_value > self.old_value:
             for weapon_rank in reversed(DB.weapon_ranks):
                 if self.old_value < weapon_rank.requirement and self.current_value >= weapon_rank.requirement:
-                    game.alerts.append(banner.GainWexp(self.unit, weapon_rank.rank, self.weapon_type))
+                    # A unit gains rank in weapon types it cannot use (yet) without being told of it
+                    usable = self.weapon_type in unit_funcs.usable_wtypes(self.unit)
+                    if usable:
+                        game.alerts.append(banner.GainWexp(self.unit, weapon_rank.rank, self.weapon_type))
                     game.events.trigger(triggers.UnitWeaponRankUp(self.unit, self.weapon_type, self.old_value, weapon_rank.rank))
-                    game.state.change('alert')
+                    # Above the event the trigger pushed, so the banner shows before it runs
+                    if usable:
+                        game.state.change('alert')
                     break
 
     def execute(self):
