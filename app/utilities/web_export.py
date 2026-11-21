@@ -335,6 +335,9 @@ def build(project: Path, web_dir: Path, progress: Optional[Progress] = None):
             advance()
         # main.py prints it, to tell which build a device ran
         archive.writestr('assets/built.txt', time.strftime('%Y-%m-%d %H:%M:%S'))
+        # The settings a player starts with, until they save their own to saves/config.ini:
+        # a released game has no debug mode, as a desktop build's preloaded config has none
+        archive.writestr('assets/data/config.ini', 'debug=0\n')
     _write_bundles(deferred, project, web_dir, advance)
     archive_size = (web_dir / (ARCHIVE + '.apk')).stat().st_size
     (web_dir / 'index.html').write_text(page_html(constants['title'], archive_size), encoding='utf-8')

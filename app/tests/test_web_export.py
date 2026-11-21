@@ -37,6 +37,11 @@ class WebExportTests(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertTrue(any(n == 'assets/' + name or n.startswith('assets/%s/' % name) for n in self.names))
 
+    def test_a_player_starts_without_debug_mode(self):
+        # config.read_config_file falls back on data/config.ini while saves/ has none
+        settings = dict(line.split('=') for line in self.archive.read('assets/data/config.ini').decode().splitlines())
+        self.assertEqual(settings['debug'], '0')
+
     def test_the_archive_holds_nothing_the_engine_never_imports(self):
         for excluded in web_export.APP_EXCLUDES:
             with self.subTest(excluded=excluded):
