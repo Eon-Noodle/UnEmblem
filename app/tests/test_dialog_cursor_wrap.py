@@ -50,7 +50,9 @@ class DialogCursorWrapTests(EngineTestCase):
         a line of its own and left the rest of the box empty
         '''
         for text in ("All right, back into the fray! Let's go, Franz!",
-                     'She seems very...sincere.'):
+                     'She seems very...sincere.',
+                     # Two spaces after a sentence, which the box measures as typed
+                     "I suppose you're right.  Let's go."):
             with self.subTest(text=text):
                 box = self._process(text, autosize=True)
                 widths = self._line_widths(box)
