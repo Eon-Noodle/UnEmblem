@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QSplitter, QFrame, QVBoxLayout, QDialogButtonBox, \
     QGraphicsView, QGraphicsScene, QAbstractItemView, QActionGroup, \
     QDesktopWidget, QFileDialog, QMessageBox, QHBoxLayout, QApplication
 from PyQt5.QtCore import Qt, QRect, QDateTime
-from PyQt5.QtGui import QImage, QPainter, QPixmap, QIcon, QColor, QPen, QBrush, QKeySequence
+from PyQt5.QtGui import QImage, QPainter, QPixmap, QIcon, QColor, QPen, QBrush
 from app import dark_theme
 
 from app.constants import TILEWIDTH, TILEHEIGHT
@@ -27,6 +27,7 @@ from app.extensions.custom_gui import ResourceListView, Dialog, PropertyBox
 from app.extensions.tiled_view import DraggableTileImageView
 
 from app.editor.settings import MainSettingsController
+from app.editor.undo_keys import set_undo_shortcuts
 from app.utilities import str_utils
 
 import logging
@@ -675,8 +676,9 @@ class MapEditor(QDialog):
         self.terrain_action.setCheckable(True)
 
         self.export_as_png_action = QAction(QIcon(f"{icon_folder}/export_as_png.png"), "E&xport Current Image as PNG", self, shortcut="X", triggered=self.export_as_png)
-        self.undo_action = QAction("Undo", self, shortcut=QKeySequence.Undo, triggered=self.undo)
-        self.redo_action = QAction("Redo", self, shortcut=QKeySequence.Redo, triggered=self.redo)
+        self.undo_action = QAction("Undo", self, triggered=self.undo)
+        self.redo_action = QAction("Redo", self, triggered=self.redo)
+        set_undo_shortcuts(self.undo_action, self.redo_action)
 
         self.show_autotiles_action = QAction(QIcon(f"{icon_folder}/wave.png"), "Show Autotiles", self, triggered=self.autotile_toggle)
         self.show_autotiles_action.setCheckable(True)

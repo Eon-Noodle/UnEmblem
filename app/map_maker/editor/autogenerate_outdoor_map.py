@@ -19,8 +19,9 @@ class AutogenerateOutdoorMap(AutogenerateMapDialog):
         world_tilemap = terrain_generation.generate_terrain(theme, self.random_seed_box.edit.value())
         if world_tilemap:
             # Update the current with the dungeon tilemap values
-            self.tilemap.set_new_terrain_grid(
+            self.window.current.set_new_terrain_grid(
                 (world_tilemap.width, world_tilemap.height), world_tilemap.terrain_grid)
+            self.window.commit('Autogenerate Map')
         else:
             QMessageBox.information(self, "Map Generation Failed", "Unable to generate a map. Check your connectivity rules!")
 

@@ -13,6 +13,7 @@ from PyQt5.QtGui import QKeySequence
 from app.data.database.database import DB
 from app.data.resources.resources import RESOURCES
 from app.editor.edit_history import CHECK_UNRECORDED, HISTORY, ChangeSet, UndoFailed
+from app.editor.undo_keys import handles_own_undo, held_in_text_field
 from app.editor.settings import MainSettingsController
 from app.editor.settings.preference_definitions import Preference
 
@@ -64,21 +65,6 @@ def check_shows_the_same(tab) -> None:
     if widget_state(tab) != before:
         logging.warning("LT_EDITOR_CHECK: %s skipped showing a map edit that changes what it shows; "
                         "it reads maps", type(tab).__name__)
-
-def handles_own_undo(widget, redo: bool) -> bool:
-    """Whether a focused text field has typing of its own to undo or redo"""
-    if isinstance(widget, QLineEdit):
-        return widget.isRedoAvailable() if redo else widget.isUndoAvailable()
-    if isinstance(widget, (QTextEdit, QPlainTextEdit)):
-        document = widget.document()
-        return document.isRedoAvailable() if redo else document.isUndoAvailable()
-    return False
-
-def held_in_text_field(widget, event: QtGui.QKeyEvent) -> bool:
-    """Whether the undo or redo keys are held down in a text field. Once its own typing
-    runs out they go no further, where held keys would run on through the history into
-    edits made in any window. A fresh press goes on to the history."""
-    return event.isAutoRepeat() and isinstance(widget, (QLineEdit, QTextEdit, QPlainTextEdit))
 
 def report_undo_failure(parent, failure: UndoFailed) -> None:
     """Tells the user an undo or redo could not be done, which left everything as it was"""

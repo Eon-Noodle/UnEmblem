@@ -48,6 +48,8 @@ class MapEditorView(QGraphicsView):
         self.old_middle_pos = None
 
         self.left_selecting = False
+        # What the brush or eraser stroke the left button is making is called, as an undo step
+        self.stroke_label: str = None
         self.right_selecting = False
         self.right_selection = {}  # Dictionary of tile_sprites
 
@@ -270,15 +272,16 @@ class MapEditorView(QGraphicsView):
         if event.button() == Qt.LeftButton:
             # Put a single terrain on location
             if self.window.current_tool == PaintTool.Brush:
+                self.start_stroke('Paint')
                 self.paint_terrain(tile_pos)
-                self.left_selecting = True
             # Erase the terrain on location
             elif self.window.current_tool == PaintTool.Erase:
+                self.start_stroke('Erase')
                 self.erase_terrain(tile_pos)
-                self.left_selecting = True
             # Flood-fill terrain on location
             elif self.window.current_tool == PaintTool.Fill:
                 self.flood_fill_terrain(tile_pos)
+                self.window.commit('Fill')
             # Add new cliff marker on location
             elif self.window.current_tool == PaintTool.CliffMarker:
                 self.window.cliff_marker_widget.add_new_marker(tile_pos)
@@ -337,18 +340,24 @@ class MapEditorView(QGraphicsView):
             self.update_view()
 
     def mouseReleaseEvent(self, event):
-        if self.window.current_tool == PaintTool.Brush:
-            if event.button() == Qt.LeftButton:
-                self.left_selecting = False
-            elif event.button() == Qt.RightButton:
-                if self.right_selecting:
-                    self.create_right_selection()
-                    self.right_selecting = False
-        elif self.window.current_tool == PaintTool.Erase:
-            if event.button() == Qt.LeftButton:
-                self.left_selecting = False
+        if event.button() == Qt.LeftButton:
+            self.end_stroke()
+        elif self.window.current_tool == PaintTool.Brush and event.button() == Qt.RightButton:
+            if self.right_selecting:
+                self.create_right_selection()
+                self.right_selecting = False
 
         self.update_view()
+
+    def start_stroke(self, label: str):
+        """Starts a brush or eraser stroke, one undo step until the left button is let go"""
+        self.left_selecting = True
+        self.stroke_label = label
+
+    def end_stroke(self):
+        if self.left_selecting:
+            self.left_selecting = False
+            self.window.commit(self.stroke_label)
 
     def zoom_in(self):
         if self.screen_scale < self.max_scale:

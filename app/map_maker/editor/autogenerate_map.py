@@ -30,7 +30,6 @@ class AutogenerateMapDialog(QDialog):
         self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
         self.window = parent
 
-        self.tilemap = parent.current
         self.theme_presets_getter = theme_presets_getter
         self.theme_parameters = theme_parameters
 

@@ -103,12 +103,20 @@ class MapPrefab(Prefab):
     def set_new_terrain_grid(self, size: Tuple[int, int], terrain_grid: Dict[Pos, Terrain]):
         self.width, self.height = size
         self.terrain_grid = terrain_grid
+        # A position left with no terrain has no sprite
+        for pos in [pos for pos in self.tile_grid if pos not in self.terrain_grid]:
+            del self.tile_grid[pos]
+            self.tile_grid_changed.add(pos)
         self.autotile_set.clear()
         self.autotile_coords.clear()
         for pos, terrain in self.terrain_grid.items():
             terrain_painter = PAINTERS.get(terrain)
             if terrain_painter.has_autotiles():
                 self.autotile_set.add(pos)
+        # As after a resize, what any painter solved for is stale
+        for painter in PAINTERS.values():
+            painter.quit_all_threads()
+        self.terrain_grid_to_update.clear()
         self.reset_all()
 
     def _update_adjacent(self, pos: Pos):
@@ -158,6 +166,17 @@ class MapPrefab(Prefab):
         old_terrain_painter = PAINTERS.get(old_terrain)
         if old_terrain and old_terrain_painter.check_flood_fill:
             self._update_flood_fill(pos, old_terrain_painter.check_flood_fill == 'diagonal')
+        self._remove_terrain(pos)
+
+    def erase_many(self, positions: Iterable[Pos]):
+        """erase_terrain() for every position at once, flood filling each blob
+        once, as set_many() does"""
+        positions = list(positions)
+        self._update_blobs_around(positions)
+        for pos in positions:
+            self._remove_terrain(pos)
+
+    def _remove_terrain(self, pos: Pos):
         if pos in self.terrain_grid:
             del self.terrain_grid[pos]
         self.autotile_set.discard(pos)
@@ -269,6 +288,39 @@ class MapPrefab(Prefab):
         s_dict['indoor_palette'] = self.current_indoor_palette
         s_dict['outdoor_palette'] = self.current_outdoor_palette
         return s_dict
+
+    def restore_in_place(self, s_dict):
+        """Changes this map into the one s_dict is the saved form of, as undo
+        does. Only the sprites the change can reach are drawn again, unless the
+        map changes size, seed or cliff markers, which every sprite may follow"""
+        size = tuple(s_dict['size'])
+        terrain_grid = {tuple(int(_) for _ in str_coord.split(',')): Terrain[terrain]
+                        for str_coord, terrain in s_dict['terrain_grid'].items()}
+        cliff_markers = [tuple(_) for _ in s_dict['cliff_markers']]
+        self.nid = s_dict['nid']
+        self.autotile_fps = s_dict['autotile_fps']
+        self.current_indoor_palette = s_dict['indoor_palette']
+        self.current_outdoor_palette = s_dict['outdoor_palette']
+
+        if size != (self.width, self.height):
+            self.set_new_terrain_grid(size, terrain_grid)
+        else:
+            erased = [pos for pos in self.terrain_grid if pos not in terrain_grid]
+            changed = {pos: terrain for pos, terrain in terrain_grid.items()
+                       if self.terrain_grid.get(pos) != terrain}
+            if erased:
+                self.erase_many(erased)
+            if changed:
+                self.set_many(changed)
+
+        if cliff_markers != self.cliff_markers:
+            self.cliff_markers = cliff_markers
+            self.reset_all()
+        # The painters read the seed from the map or from map_utils, so both follow it
+        if (self.seed, map_utils.get_random_seed()) != (s_dict['seed'], s_dict['seed']):
+            self.seed = s_dict['seed']
+            map_utils.set_random_seed(self.seed)
+            self.reset_all()
 
     @classmethod
     def restore(cls, s_dict):

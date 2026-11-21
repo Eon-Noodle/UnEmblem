@@ -7,9 +7,10 @@ from PyQt5.QtWidgets import QFrame, QVBoxLayout, \
     QToolBar, QSpinBox, QAction, QMenu, QDockWidget, \
     QActionGroup, QWidget, QMainWindow, QLabel, QSizePolicy, \
     QDesktopWidget, QFileDialog, QHBoxLayout, QMessageBox, \
-    QTabWidget
-from PyQt5.QtCore import Qt, QDir
-from PyQt5.QtGui import QIcon, QImage, QPainter, QColor
+    QTabWidget, QApplication
+from PyQt5 import sip
+from PyQt5.QtCore import Qt, QDir, QEvent, QTimer
+from PyQt5.QtGui import QIcon, QImage, QPainter, QColor, QKeySequence
 
 from app import dark_theme
 
@@ -17,6 +18,7 @@ from app.constants import TILEWIDTH, TILEHEIGHT, AUTOTILE_FRAMES
 
 from app.extensions.custom_gui import PropertyBox, ComboBox
 from app.editor.settings import MainSettingsController
+from app.editor.undo_keys import handles_own_undo, held_in_text_field, set_undo_shortcuts
 
 from .resize_dialog import ResizeDialog
 from .terrain_painter_menu import TerrainPainterMenu
@@ -28,6 +30,7 @@ from .autogenerate_indoor_map import AutogenerateIndoorMap
 from .autogenerate_outdoor_map import AutogenerateOutdoorMap
 
 from app.map_maker.map_prefab import MapPrefab
+from app.map_maker.map_history import MapHistory, MapStep
 import app.map_maker.utilities as map_utils
 from app.map_maker.palette_collection import PALETTES
 from app.map_maker.qt_renderers.renderer_database import RENDERERS
@@ -47,8 +50,7 @@ class CliffMarkerWidget(QWidget):
         self.main_box = PropertyBox("Cliff Markers", ComboBox, self)
         self.main_box.setMaximumWidth(100)
         self.main_box.setMinimumWidth(100)
-        for cliff_marker in self.tilemap.cliff_markers:
-            self.main_box.edit.addItem("%d, %d" % cliff_marker)
+        self.show_markers()
         # self.main_box.edit.activated.connect(self.main_box_activation)
 
         self.toolbar = QToolBar(self)
@@ -60,10 +62,14 @@ class CliffMarkerWidget(QWidget):
 
     def set_current(self, current):
         self.tilemap = current
+        self.show_markers()
+        self.reset()
+
+    def show_markers(self):
         self.main_box.edit.clear()
         for cliff_marker in self.tilemap.cliff_markers:
             self.main_box.edit.addItem("%d, %d" % cliff_marker)
-        self.reset()
+        self.toggle_remove_button()
 
     def reset(self):
         self.window.add_cliff_marker_action.setChecked(False)
@@ -75,9 +81,28 @@ class CliffMarkerWidget(QWidget):
         self.main_box.edit.addItem("%d, %d" % self.tilemap.cliff_markers[-1])
         self.tilemap.reset_all()
         self.toggle_remove_button()
+        self.window.commit('Add Cliff Marker')
 
     def toggle_remove_button(self):
         self.window.remove_cliff_marker_action.setEnabled(len(self.tilemap.cliff_markers) > 1)
+
+class UndoFeedback(QLabel):
+    """Says what an undo or redo just took back or put back, for a few seconds"""
+    SHOWN_FOR = 5000  # ms
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.clear_timer = QTimer(self)
+        self.clear_timer.setSingleShot(True)
+        self.clear_timer.timeout.connect(self.clear)
+
+    def show_step(self, history: MapHistory, step: Optional[MapStep], redo: bool) -> None:
+        """step is what history.undo or redo returned, None when there was nothing to do"""
+        if step is None:
+            self.setText("Nothing to redo" if redo else "Nothing to undo")
+        else:
+            self.setText(("Redid %s" if redo else "Undid %s") % history.describe(step))
+        self.clear_timer.start(self.SHOWN_FOR)
 
 class MapEditor(QMainWindow):
     title = "LT Map Maker"
@@ -143,22 +168,14 @@ class MapEditor(QMainWindow):
         self.outdoor_palette_selector.edit.setModel(outdoor_palette_model)
         self.outdoor_palette_selector.edit.currentIndexChanged.connect(self.outdoor_palette_changed)
 
-        if self.current.current_outdoor_palette:
-            idx = [p.nid for p in PALETTES.outdoor_palettes()].index(self.current.current_outdoor_palette)
-            self.outdoor_palette_changed(idx)
-        else:
-            self.outdoor_palette_changed(0)  # Apply it for the current palette
-
         self.indoor_palette_selector = PropertyBox("Palette", ComboBox, self)
         indoor_palette_model = PaletteModel(PALETTES.indoor_palettes(), self)
         self.indoor_palette_selector.edit.setModel(indoor_palette_model)
         self.indoor_palette_selector.edit.currentIndexChanged.connect(self.indoor_palette_changed)
 
-        if self.current.current_indoor_palette:
-            idx = [p.nid for p in PALETTES.indoor_palettes()].index(self.current.current_indoor_palette)
-            self.indoor_palette_changed(idx)
-        else:
-            self.indoor_palette_changed(0)  # Apply it for the current palette
+        # The palettes the renderers draw with, (indoor, outdoor)
+        self.drawn_palettes = (None, None)
+        self.show_palettes()
 
         self.terrain_tab = QTabWidget(self)
 
@@ -187,9 +204,17 @@ class MapEditor(QMainWindow):
         self.position_bar = QLabel("", self)
         self.position_bar.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self.position_bar.setMinimumWidth(100)
+        self.undo_feedback = UndoFeedback(self)
+        self.statusBar().addPermanentWidget(self.undo_feedback)
         self.statusBar().addPermanentWidget(self.position_bar)
 
         self.check_brush()
+
+        self.history = MapHistory(self.current)
+        self.update_undo_actions()
+        # The focused widget, watched for the undo keys
+        self.key_widget: Optional[QWidget] = None
+        QApplication.instance().focusChanged.connect(self.on_focus_changed)
 
         # Restore Geometry
         geometry = self.settings.component_controller.get_geometry(self._type())
@@ -239,6 +264,10 @@ class MapEditor(QMainWindow):
         self.remove_cliff_marker_action = QAction(QIcon(f"{icon_folder}/minus.png"), "Remove Cliff Marker", self, triggered=self.remove_cliff_marker)
         self.remove_cliff_marker_action.setEnabled(False)
 
+        self.undo_action = QAction("Undo", self, triggered=self.undo)
+        self.redo_action = QAction("Redo", self, triggered=self.redo)
+        set_undo_shortcuts(self.undo_action, self.redo_action)
+
         self.new_action = QAction("New Map...", self,
                                   shortcut="Ctrl+N", triggered=self.new)
         self.open_action = QAction("Open Map...", self,
@@ -278,6 +307,9 @@ class MapEditor(QMainWindow):
         file_menu.addAction(self.quit_action)
 
         edit_menu = QMenu("Edit", self)
+        edit_menu.addAction(self.undo_action)
+        edit_menu.addAction(self.redo_action)
+        edit_menu.addSeparator()
         edit_menu.addAction(self.brush_action)
         edit_menu.addAction(self.paint_action)
         edit_menu.addAction(self.erase_action)
@@ -373,24 +405,88 @@ class MapEditor(QMainWindow):
             self.current.cliff_markers.pop(idx)
             self.cliff_marker_widget.main_box.edit.removeItem(idx)
             self.current.reset_all()
+            self.commit('Remove Cliff Marker')
         else:
             QMessageBox.warning(self, "Warning", "Cannot remove last cliff marker!")
         self.cliff_marker_widget.toggle_remove_button()
 
     def set_current(self, current: MapPrefab):
+        """Shows a map just made or opened, with a history of its own"""
         self.current = current
+        self.current.reset_all()
         self.view.set_current(current)
-        self.autotile_fps_box.edit.setValue(current.autotile_fps)
         self.cliff_marker_widget.set_current(current)
+        self.show_fields()
+        self.history.clear(current)
+        self.update_undo_actions()
+
+    def show_fields(self):
+        """Shows the map's fields in the boxes and palette selectors, as after an undo"""
+        for box, value in ((self.autotile_fps_box, self.current.autotile_fps),
+                           (self.random_seed_box, map_utils.get_random_seed())):
+            box.edit.blockSignals(True)
+            box.edit.setValue(value)
+            box.edit.blockSignals(False)
+        self.show_palettes()
+        self.cliff_marker_widget.show_markers()
         self.view.update_view()
 
+    # === Undo ===
+    def commit(self, label: str = 'Edit', merge: bool = False):
+        """Records whatever the map changed since the last commit as one undo step"""
+        if self.history.commit(label, merge):
+            self.update_undo_actions()
+
+    def undo(self):
+        self.view.end_stroke()
+        self.undo_feedback.show_step(self.history, self.history.undo(), redo=False)
+        self.show_fields()
+        self.update_undo_actions()
+
+    def redo(self):
+        self.view.end_stroke()
+        self.undo_feedback.show_step(self.history, self.history.redo(), redo=True)
+        self.show_fields()
+        self.update_undo_actions()
+
+    def on_focus_changed(self, old, new):
+        """Watches the widget given focus for the undo keys in place of the one
+        watched before, if it is in this window. A text field, like the seed box's,
+        claims the keys ahead of the Undo action's shortcut, even with no typing of
+        its own to undo"""
+        if self.key_widget is not None and not sip.isdeleted(self.key_widget):
+            self.key_widget.removeEventFilter(self)
+        self.key_widget = new if new is not None and self.isAncestorOf(new) else None
+        if self.key_widget is not None:
+            self.key_widget.installEventFilter(self)
+
+    def eventFilter(self, obj, event):
+        if obj is self.key_widget and event.type() == QEvent.KeyPress:
+            for keys, redo in ((QKeySequence.Undo, False), (QKeySequence.Redo, True)):
+                if event.matches(keys) and not handles_own_undo(obj, redo):
+                    if not held_in_text_field(obj, event):
+                        step = self.redo if redo else self.undo
+                        step()
+                    return True
+        return super().eventFilter(obj, event)
+
+    def update_undo_actions(self):
+        """Names what Undo and Redo would change"""
+        last, next_redo = self.history.last_change(), self.history.next_redo()
+        self.undo_action.setEnabled(last is not None)
+        self.undo_action.setText("Undo %s" % self.history.describe(last) if last else "Undo")
+        self.redo_action.setEnabled(next_redo is not None)
+        self.redo_action.setText("Redo %s" % self.history.describe(next_redo) if next_redo else "Redo")
+
     def resize_map(self):
-        ResizeDialog.get_new_size(self.current, self)
+        if ResizeDialog.get_new_size(self.current, self):
+            self.commit('Resize')
 
     def clear_map(self):
         self.current.clear()
         self.current.reset_all()
         self.view.update_view()
+        self.commit('Clear All')
 
     def gridline_toggle(self, val):
         self.view.draw_gridlines = val
@@ -398,29 +494,49 @@ class MapEditor(QMainWindow):
 
     def autotile_fps_changed(self, val):
         self.current.autotile_fps = val
+        # Each value typed or spun to joins one step
+        self.commit('Change Autotile Speed', merge=True)
 
     def random_seed_changed(self, val):
         map_utils.set_random_seed(val)
         self.current.seed = val  # keep prefab attr in sync with the global
         print("--- Seed Changed to %d ---" % val)
         self.current.reset_all()
+        self.commit('Change RNG Seed', merge=True)
 
     def indoor_palette_changed(self, idx: int):
-        palette = PALETTES.indoor_palettes()[idx]
-        self.current.current_indoor_palette = palette.nid
-        for terrain, renderer in RENDERERS.items():
-            if not terrain.outdoor:
-                renderer.set_palette(palette.get(terrain))
-        self.current.reset_all()
-        self.indoor_terrain_painter_menu.reset()
+        self.current.current_indoor_palette = PALETTES.indoor_palettes()[idx].nid
+        self.show_palettes()
+        self.commit('Change Indoor Palette')
 
     def outdoor_palette_changed(self, idx: int):
-        palette = PALETTES.outdoor_palettes()[idx]
-        self.current.current_outdoor_palette = palette.nid
+        self.current.current_outdoor_palette = PALETTES.outdoor_palettes()[idx].nid
+        self.show_palettes()
+        self.commit('Change Outdoor Palette')
+
+    def show_palettes(self):
+        """Selects the map's palettes and draws its terrain with them. A map with
+        no palettes yet takes the ones on show"""
+        if not self.current.current_indoor_palette:
+            self.current.current_indoor_palette = self.drawn_palettes[0] or PALETTES.indoor_palettes()[0].nid
+        if not self.current.current_outdoor_palette:
+            self.current.current_outdoor_palette = self.drawn_palettes[1] or PALETTES.outdoor_palettes()[0].nid
+        for selector, palettes, nid in (
+                (self.indoor_palette_selector, PALETTES.indoor_palettes(), self.current.current_indoor_palette),
+                (self.outdoor_palette_selector, PALETTES.outdoor_palettes(), self.current.current_outdoor_palette)):
+            selector.edit.blockSignals(True)
+            selector.edit.setCurrentIndex(palettes.index(nid))
+            selector.edit.blockSignals(False)
+
+        drawn = (self.current.current_indoor_palette, self.current.current_outdoor_palette)
+        if drawn == self.drawn_palettes:
+            return
+        self.drawn_palettes = drawn
+        indoor, outdoor = PALETTES.get(drawn[0]), PALETTES.get(drawn[1])
         for terrain, renderer in RENDERERS.items():
-            if terrain.outdoor:
-                renderer.set_palette(palette.get(terrain))
+            renderer.set_palette((outdoor if terrain.outdoor else indoor).get(terrain))
         self.current.reset_all()
+        self.indoor_terrain_painter_menu.reset()
         self.outdoor_terrain_painter_menu.reset()
 
     def autogenerate_indoor_map(self):
@@ -519,6 +635,8 @@ class MapEditor(QMainWindow):
         self.view.update_view()
 
     def maybe_save(self):
+        if not self.history.is_modified():
+            return True
         ret = QMessageBox.warning(self, self.title, "The current map may have been modified.\n"
                                   "Do you want to save your changes?",
                                   QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
@@ -555,6 +673,7 @@ class MapEditor(QMainWindow):
         self.saved_data = self.current.save()
         with open(self.current_map_save_location, 'w') as save_file:
             json.dump(self.saved_data, save_file, indent=4)
+        self.history.mark_saved()
         self.set_title()
         return True
 
@@ -565,13 +684,13 @@ class MapEditor(QMainWindow):
         if not self.maybe_save():
             return False
         new_tilemap_prefab = MapPrefab('sample')
+        # Keeps the seed on show, which the painters read from the map and from map_utils
+        new_tilemap_prefab.seed = map_utils.get_random_seed()
         result = ResizeDialog.get_new_size(new_tilemap_prefab)
         if not result:
             return False
         self.current_map_save_location = None
-        self.current = new_tilemap_prefab
-        self.current.reset_all()
-        self.view.set_current(self.current)
+        self.set_current(new_tilemap_prefab)
         self.set_title()
         return result
 
@@ -595,22 +714,7 @@ class MapEditor(QMainWindow):
         if os.path.exists(self.current_map_save_location):
             with open(self.current_map_save_location) as load_file:
                 s_dict = json.load(load_file)
-                self.current = MapPrefab.restore(s_dict)
-
-        if self.current.current_indoor_palette:
-            idx = PALETTES.indoor_palettes().index(self.current.current_indoor_palette)
-            self.indoor_palette_selector.edit.setCurrentIndex(idx)
-            self.indoor_palette_changed(idx)
-        else:
-            self.indoor_palette_changed(0)  # Apply it for the current palette
-        if self.current.current_outdoor_palette:
-            idx = PALETTES.outdoor_palettes().index(self.current.current_outdoor_palette)
-            self.outdoor_palette_selector.edit.setCurrentIndex(idx)
-            self.outdoor_palette_changed(idx)
-        else:
-            self.outdoor_palette_changed(0)  # Apply it for the current palette
-
-        self.set_current(self.current)
+            self.set_current(MapPrefab.restore(s_dict))
 
     def closeEvent(self, event):
         if self.maybe_save():

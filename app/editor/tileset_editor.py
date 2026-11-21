@@ -7,10 +7,11 @@ from app.editor.edit_history import HISTORY, EditSession, UndoFailed
 from app.editor.settings import MainSettingsController
 from app.editor.terrain_painter_menu import TerrainPainterMenu
 from app.editor.tilemap_editor import PaintTool
+from app.editor.undo_keys import set_undo_shortcuts
 from app.extensions.tiled_view import DraggableTileImageView
 from app.data.resources.tiles import TileSet
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QColor, QIcon, QKeySequence, QPainter, QPen, QPixmap
+from PyQt5.QtGui import QColor, QIcon, QPainter, QPen, QPixmap
 from PyQt5.QtWidgets import (QAction, QActionGroup, QDesktopWidget, QDialog,
                              QDialogButtonBox, QFrame, QHBoxLayout, QSplitter, QToolBar,
                              QVBoxLayout)
@@ -189,8 +190,9 @@ class TileSetEditor(QDialog):
         self.show_gridlines_action.setCheckable(True)
         self.show_gridlines_action.setChecked(True)
 
-        self.undo_action = QAction("Undo", self, shortcut=QKeySequence.Undo, triggered=self.undo)
-        self.redo_action = QAction("Redo", self, shortcut=QKeySequence.Redo, triggered=self.redo)
+        self.undo_action = QAction("Undo", self, triggered=self.undo)
+        self.redo_action = QAction("Redo", self, triggered=self.redo)
+        set_undo_shortcuts(self.undo_action, self.redo_action)
 
     def void_right_selection(self):
         pass

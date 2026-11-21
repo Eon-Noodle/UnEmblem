@@ -25,8 +25,8 @@ from app.data.database.database import DB
 
 from app.editor import log_viewer, error_viewer, reference_dialogs
 from app.editor.custom_widgets import ObjBox
-from app.editor.data_editor import EditHistoryDialog, UndoFeedback, handles_own_undo, held_in_text_field, \
-    report_undo_failure
+from app.editor.data_editor import EditHistoryDialog, UndoFeedback, report_undo_failure
+from app.editor.undo_keys import handles_own_undo, held_in_text_field, set_undo_shortcuts
 from app.editor.edit_history import HISTORY, UndoFailed
 from app.editor.editor_windows import EditorWindows
 
@@ -319,8 +319,9 @@ class MainEditor(QMainWindow):
             _("&Quit"), self, shortcut="Ctrl+Q", triggered=self.close)
 
         # One history for every window: these undo the last change anywhere
-        self.undo_act = QAction(_("Undo"), self, shortcut=QKeySequence.Undo, triggered=self.undo)
-        self.redo_act = QAction(_("Redo"), self, shortcut=QKeySequence.Redo, triggered=self.redo)
+        self.undo_act = QAction(_("Undo"), self, triggered=self.undo)
+        self.redo_act = QAction(_("Redo"), self, triggered=self.redo)
+        set_undo_shortcuts(self.undo_act, self.redo_act)
 
         self.dump_csv = QAction(
             "Dump CSV data", self, triggered=lambda: self.project_save_load_handler.dump_csv(DB))

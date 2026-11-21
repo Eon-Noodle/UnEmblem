@@ -26,8 +26,9 @@ class AutogenerateIndoorMap(AutogenerateMapDialog):
         dungeon_tilemap = terrain_generation.generate_terrain(theme, self.random_seed_box.edit.value())
         if dungeon_tilemap:
             # Update the current with the dungeon tilemap values
-            self.tilemap.set_new_terrain_grid(
+            self.window.current.set_new_terrain_grid(
                 (dungeon_tilemap.width, dungeon_tilemap.height), dungeon_tilemap.terrain_grid)
+            self.window.commit('Autogenerate Map')
         else:
             QMessageBox.information(self, "Map Generation Failed", "Unable to generate a map. Check your connectivity rules!")
 
