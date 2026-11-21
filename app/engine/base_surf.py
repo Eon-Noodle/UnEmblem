@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import random
-from typing import Optional
+import zlib
+from typing import List, Optional
 
 from app.engine.sprites import SPRITES
 from app.engine import engine
@@ -16,13 +16,33 @@ HARDCODED_BG_SURFS = [
 SLICE_9_WIDTH = 8
 SLICE_9_HEIGHT = 8
 
+class _TilePicker:
+    """
+    Chooses among a slice 9 sprite's variants by hashing where the tile goes, so a
+    surface built twice, or built again at a new size, puts the same tile at the same place.
+
+    The seed comes from crc32 rather than hash() because Python salts string hashes per
+    process. A tuple of ints hashes the same in every process, and CPython's tuple hash
+    mixes its bits well enough that `% len` spreads positions, always multiples of 8,
+    evenly over the variants.
+    """
+    def __init__(self, options: List[engine.Surface], base: str, kind: str):
+        self.options = options
+        self.seed = zlib.crc32(f'{base}:{kind}'.encode())
+
+    def pick(self, a: int, b: int = 0) -> engine.Surface:
+        if len(self.options) == 1:
+            return self.options[0]
+        return self.options[hash((self.seed, a, b)) % len(self.options)]
+
 def create_base_surf(width: int, height: int, base: Optional[str] = 'menu_bg_base') -> engine.Surface:
     """
     Given the width and height of a desired surface along with a base surface (usually 24x24),
     uses slice 9 pattern to create a surface of the desired size.
 
-    If the base surface is larger than 24x24, each of it's additional slice 9 sprites are randomized
-    during the drawing of the desired surface
+    If the base surface is larger than 24x24, each tile of the desired surface is one of the base's
+    matching slice 9 sprites, picked by the tile's position, so the same base and position always
+    give the same tile
     """
 
     sprite = SPRITES.get(base, 'menu_bg_base')
@@ -62,26 +82,38 @@ def create_base_surf(width: int, height: int, base: Optional[str] = 'menu_bg_bas
         for y in range(SLICE_9_HEIGHT, base_height - SLICE_9_HEIGHT, SLICE_9_HEIGHT):
             center.append(engine.subsurface(sprite, (x, y, SLICE_9_WIDTH, SLICE_9_HEIGHT)))
 
-    # Now draw on the desired sprite
+    center_picker = _TilePicker(center, base, 'center')
+    top_picker = _TilePicker(top, base, 'top')
+    bot_picker = _TilePicker(bot, base, 'bot')
+    left_picker = _TilePicker(left, base, 'left')
+    right_picker = _TilePicker(right, base, 'right')
+
+    # Gather every tile and where it goes, then draw them in one blits call,
+    # which is faster than a blit per tile
+    tiles = []
+
+    # Center
     for x in range(SLICE_9_WIDTH, desired_width - SLICE_9_WIDTH, SLICE_9_WIDTH):
         for y in range(SLICE_9_HEIGHT, desired_height - SLICE_9_HEIGHT, SLICE_9_HEIGHT):
-            surf.blit(random.choice(center), (x, y))
+            tiles.append((center_picker.pick(x, y), (x, y)))
 
-    # Edges
+    # Edges, each picked by its position along its own side only, so a bottom or
+    # right edge keeps its tiles when the surface grows and moves it
     for x in range(SLICE_9_WIDTH, desired_width - SLICE_9_WIDTH, SLICE_9_WIDTH):
-        surf.blit(random.choice(top), (x, 0))
-        surf.blit(random.choice(bot), (x, desired_height - SLICE_9_HEIGHT))
+        tiles.append((top_picker.pick(x), (x, 0)))
+        tiles.append((bot_picker.pick(x), (x, desired_height - SLICE_9_HEIGHT)))
 
     for y in range(SLICE_9_HEIGHT, desired_height - SLICE_9_HEIGHT, SLICE_9_HEIGHT):
-        surf.blit(random.choice(left), (0, y))
-        surf.blit(random.choice(right), (desired_width - SLICE_9_WIDTH, y))
+        tiles.append((left_picker.pick(y), (0, y)))
+        tiles.append((right_picker.pick(y), (desired_width - SLICE_9_WIDTH, y)))
 
     # Corners
-    surf.blit(topleft, (0, 0))
-    surf.blit(topright, (desired_width - SLICE_9_WIDTH, 0))
-    surf.blit(botleft, (0, desired_height - SLICE_9_HEIGHT))
-    surf.blit(botright, (desired_width - SLICE_9_WIDTH, desired_height - SLICE_9_HEIGHT))
+    tiles.append((topleft, (0, 0)))
+    tiles.append((topright, (desired_width - SLICE_9_WIDTH, 0)))
+    tiles.append((botleft, (0, desired_height - SLICE_9_HEIGHT)))
+    tiles.append((botright, (desired_width - SLICE_9_WIDTH, desired_height - SLICE_9_HEIGHT)))
 
+    surf.blits(tiles, doreturn=False)
     return surf
 
 def create_highlight_surf(width) -> engine.Surface:
