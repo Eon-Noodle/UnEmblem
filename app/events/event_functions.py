@@ -476,6 +476,7 @@ def unpause(self: Event, nid=None, flags=None):
         pass
     else:
         self.state = 'dialog'
+    self.draw_hint = False
 
 def transition(self: Event, direction=None, speed=None, color3=None, panorama=None, flags=None):
     flags = flags or set()
