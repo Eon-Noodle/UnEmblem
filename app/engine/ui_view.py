@@ -320,9 +320,15 @@ class UIView():
 
     def create_unit_info(self, unit):
         font = FONT['info-grey']
-        dimensions = (112, 40)
-        width, height = dimensions
-        surf = SPRITES.get('unit_info_bg').copy()
+        sprite_name = 'unit_info_bg'
+        if unit.team.startswith('player'):
+            sprite_name += '_player'
+        elif unit.klass == 'God':
+            sprite_name += '_God'
+            font = FONT['info-white']
+        surf = SPRITES.get(sprite_name).copy()
+
+        width, height = surf.get_size()
         top, left = 4, 6
         if not unit.portrait_nid and unit.faction:
             icons.draw_faction(surf, DB.factions.get(unit.faction), (left + 1, top + 4))
@@ -334,20 +340,19 @@ class UIView():
         if not unit.name:
             short_name = DB.classes.get(unit.klass).name
             name = short_name + ' ' + str(unit.level)
-        pos = (left + width//2 + 6 - font.width(name)//2, top + 4)
-        font.blit(name, surf, pos)
+        font.blit(name, surf, (left + 40, top + 20))
 
         # Health text
-        surf.blit(SPRITES.get('unit_info_hp'), (left + 34, top + height - 20))
-        surf.blit(SPRITES.get('unit_info_slash'), (left + 66, top + height - 19))
+        surf.blit(SPRITES.get('unit_info_hp'), (left + 1, top + 37))
+        surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 38))
         current_hp = unit.get_hp()
         max_hp = unit.get_max_hp()
-        font.blit_right(str(current_hp), surf, (left + 66, top + 16))
-        font.blit_right(str(max_hp), surf, (left + 90, top + 16))
+        font.blit_right(str(current_hp) if current_hp < 100 else '??', surf, (left + 33, top + 33))
+        font.blit_right(str(max_hp) if max_hp < 100 else '??', surf, (left + 57, top + 33))
 
         # Health BG
         bg_surf = SPRITES.get('health_bar2_bg')
-        surf.blit(bg_surf, (left + 36, top + height - 10))
+        surf.blit(bg_surf, (left + 57, top + 39))
 
         # Health Bar
         hp_ratio = utils.clamp(current_hp / float(max_hp), 0, 1)
@@ -355,14 +360,39 @@ class UIView():
             hp_surf = SPRITES.get('health_bar2')
             idx = int(hp_ratio * hp_surf.get_width())
             hp_surf = engine.subsurface(hp_surf, (0, 0, idx, 2))
-            surf.blit(hp_surf, (left + 37, top + height - 9))
+            surf.blit(hp_surf, (left + 58, top + 40))
+
+        if unit.team.startswith('player'):
+            # Health text
+            surf.blit(SPRITES.get('unit_info_cp'), (left + 1, top + 45))
+            surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 46))
+            current_cp = unit.get_mana()
+            max_cp = unit.get_stat('CP')
+            font.blit_right(str(current_cp) if current_cp < 100 else '??', surf, (left + 33, top + 41))
+            font.blit_right(str(max_cp) if max_cp < 100 else '??', surf, (left + 57, top + 41))
+
+            # Composure BG
+            bg_surf = SPRITES.get('health_bar2_bg')
+            surf.blit(bg_surf, (left + 57, top + 47))
+
+            # Composure Bar
+            cp_ratio = utils.clamp(current_cp / float(max_cp), 0, 1)
+            if cp_ratio > 0:
+                cp_surf = SPRITES.get('health_bar2')
+                idx = int(cp_ratio * cp_surf.get_width())
+                cp_surf = engine.subsurface(cp_surf, (0, 0, idx, 2))
+                surf.blit(cp_surf, (left + 58, top + 48))
 
         # Weapon Icon
-        weapon = unit.get_weapon()
-        icon = icons.get_icon(weapon)
-        if icon:
-            pos = (left + width - 20, top + height//2 - 8)
-            surf.blit(icon, pos)
+        for idx, item in enumerate(unit.nonaccessories[:5]):
+            pos = (left + idx * 16 + 33, top + 4)
+            if item is unit.get_weapon():
+                surf.blit(SPRITES.get('info_equipment_highlight'), utils.tuple_add(pos, (0, 10)))
+            elif hasattr(unit, 'get_offhand') and item is unit.get_offhand():
+                surf.blit(SPRITES.get('info_equipment_highlight_green'), utils.tuple_add(pos, (0, 10)))
+            surf.blit(icons.get_icon(item), pos)
+            if item.droppable:
+                surf.blit(SPRITES.get('info_droppable'), utils.tuple_add(pos, (0, 1)))
         return surf
 
     def create_tile_info(self, coord):
