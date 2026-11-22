@@ -395,10 +395,13 @@ class UIView():
             render_text(bg_surf, ['small'], [str(tile_avoid)], [None], (bg_surf.get_width() - 4, 25), HAlignment.RIGHT)
 
         name = terrain.name
-        width = text_width('text', name)
-        height = FONT['text'].height
+        font = 'text'
+        if text_width(font, name) >= bg_surf.get_width():
+            font = 'narrow'
+        width = text_width(font, name)
+        height = FONT[font].height
         pos = (bg_surf.get_width()//2 - width//2, 22 - height)
-        render_text(bg_surf, ['text'], [name], [None], pos)
+        render_text(bg_surf, [font], [name], [None], pos)
         return bg_surf
 
     def create_obj_info(self):
@@ -668,8 +671,8 @@ class UIView():
             e_hit = '--'
             e_crit = '--'
 
-        stat = [attacker.get_hp()]
-        e_stat = [defender.get_hp()]
+        stat = [attacker.get_hp() if attacker.get_hp() < 100 else '??']
+        e_stat = [defender.get_hp() if defender.get_hp() < 100 else '??']
 
         if grandmaster:
             stat.append(int(mt * float(utils.clamp(hit, 0, 100)) / 100))

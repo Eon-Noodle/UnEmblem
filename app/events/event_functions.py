@@ -3712,7 +3712,7 @@ def soundroom(self: Event, panorama = "default_background", flags=None):
         self.game.state.change('transition_to')
 
 def location_card(self: Event, string, flags=None):
-    new_location_card = dialog.LocationCard(string)
+    new_location_card = dialog.LocationCard(string, "menu_bg_parchment")
     self.other_boxes.append((None, new_location_card))
 
     self.wait_time = engine.get_time() + new_location_card.exist_time
