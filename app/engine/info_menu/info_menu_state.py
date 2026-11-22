@@ -489,7 +489,8 @@ class InfoMenuState(State):
         if not self.current_portrait:
             portrait = RESOURCES.portraits.get(self.unit.portrait_nid)
             if portrait:
-                self.current_portrait = InfoMenuPortrait(portrait, DB.constants.value('info_menu_blink'))
+                self.current_portrait = InfoMenuPortrait(portrait, DB.constants.value('info_menu_blink'),
+                                                        'Wink' in self.unit.tags, 'Blip' in self.unit.tags)
             else:
                 im, offset = icons.get_portrait(self.unit)
         # We do have a portrait, so update...
