@@ -52,8 +52,8 @@ def test_play(name: str = 'testing_proj'):
 def inform_error():
     print("=== === === === === ===")
     print("A bug has been encountered.")
-    print("Please copy this error log and send it to rainlash!")
-    print('Or send the file "saves/debug.log.1" to rainlash!')
+    print("Please copy this error log and send it to Eon Noodle!")
+    print('Or send the file "saves/debug.log.1" to Eon Noodle!')
     print("Thank you!")
     print("=== === === === === ===")
 
@@ -77,7 +77,8 @@ if __name__ == '__main__':
         source_generator.generate_all()
 
     try:
-        find_and_run_project()
+        main('unemblem')
+        # find_and_run_project()
         # main('lion_throne')
         # test_play('sacred_stones')
     except Exception as e:

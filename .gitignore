@@ -18,6 +18,7 @@ autosave*
 .project_staging/
 
 screenshots/
+yt_dlp_output/
 
 # Builds
 build/
