@@ -53,6 +53,7 @@ from app.utilities import static_random
 from app.data.resources.resources import RESOURCES
 from app.engine.source_type import SourceType
 from app.engine.persistent_records import RECORDS
+from app.engine import quest
 
 import logging
 
@@ -157,6 +158,8 @@ class GameState():
         self.target_system: TargetSystem = None
         self.path_system: PathSystem = None
 
+        self.quest_manager: quest.QuestManager = None
+
         # initialize game cache
         ltcache.init()
 
@@ -239,6 +242,9 @@ class GameState():
         from app.engine.dialog_log import DialogLog
         self.dialog_log = DialogLog()
         self.already_triggered_events = []
+
+        self.quest_manager = quest.QuestManager(random_seed)
+
         self.sweep()
         self.generic()
 
@@ -433,6 +439,7 @@ class GameState():
                   'bounds': self.board.bounds if self.board else None,
                   'fog_state': self.board.previously_visited_tiles.copy() if self.board else None,
                   'roam_info': copy.copy(self.roam_info),
+                  'quest_manager': self.quest_manager.save()
                   }
         meta_dict = {'playtime': self.playtime,
                      'realtime': time.time(),
@@ -592,6 +599,8 @@ class GameState():
             self.cursor.autocursor(True)
 
         self.events = event_manager.EventManager.restore(s_dict.get('events'))
+
+        self.quest_manager = quest.QuestManager.restore(s_dict.get('quest_manager'))
 
     def clean_up(self, full: bool = True):
         '''
