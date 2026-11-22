@@ -9,7 +9,7 @@ undo reaches are drawn again.
 
 The map maker commits after each edit: a brush or eraser stroke once the mouse
 is released, a fill, a cliff marker, a resize, a generated map, and each change
-of a box or palette. A commit records whatever changed since the last one.
+of a box, palette or palette field. A commit records whatever changed since the last one.
 """
 from __future__ import annotations
 
@@ -31,6 +31,7 @@ FIELD_NAMES = {
     'seed': 'RNG seed',
     'indoor_palette': 'indoor palette',
     'outdoor_palette': 'outdoor palette',
+    'palette_fields': 'palette fields',
 }
 
 def history_form(tilemap: MapPrefab) -> dict:

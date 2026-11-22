@@ -3,14 +3,16 @@ import unittest
 from unittest.mock import patch
 
 from app.tests import qt_headless  # noqa: F401  Before the QApplication
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QPointF, Qt
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
+from app.constants import TILEWIDTH, TILEHEIGHT
 import app.map_maker.utilities as map_utils
 from app.map_maker.map_history import history_form
 from app.map_maker.map_prefab import MapPrefab
 from app.map_maker.palette_collection import PALETTES
+from app.map_maker.palette_fields import PaletteSource
 from app.map_maker.terrain import Terrain
 
 app = QApplication.instance() or QApplication(sys.argv)
@@ -102,6 +104,69 @@ class MapMakerUndoTests(unittest.TestCase):
         self.assertEqual(self.editor.outdoor_palette_selector.edit.currentIndex(), palettes.index(before))
         self.assertEqual(self.editor.drawn_palettes[1], before)
         self.assertFalse(self.editor.undo_action.isEnabled())
+
+    def test_palette_fields_turn_on_and_undo(self):
+        fields_shown = lambda: self.editor.palette_fields_dock.isVisibleTo(self.editor)  # noqa: E731
+        self.assertFalse(fields_shown())
+        self.editor.palette_fields_action.trigger()
+        self.assertTrue(self.editor.current.palette_fields.enabled)
+        self.assertTrue(fields_shown())
+        self.assertEqual(self.editor.undo_action.text(), 'Undo turn On Palette Fields')
+        self.editor.undo()
+        self.assertFalse(self.editor.current.palette_fields.enabled)
+        self.assertFalse(fields_shown())
+        self.assertFalse(self.editor.palette_fields_action.isChecked())
+        self.editor.redo()
+        self.assertTrue(fields_shown())
+        self.assertTrue(self.editor.palette_fields_action.isChecked())
+
+    def sources(self):
+        # Undo restores the map's palette fields as a new object
+        return self.editor.current.palette_fields.outdoor
+
+    def test_palette_sources_undo(self):
+        self.stroke(PaintTool.Brush, [(1, 1), (13, 8)], Terrain.GRASS)
+        self.editor.palette_fields_action.trigger()
+        sources_widget = self.editor.palette_fields_widget.outdoor_sources
+        sources_widget.add_button.click()
+        # A source of the map's one palette, in the middle of the map, which it no longer uses
+        self.assertEqual(self.sources(), [PaletteSource(self.editor.current.current_outdoor_palette, (7, 5))])
+        # The one palette's selector still shows the terrain icons in each palette
+        self.assertTrue(self.editor.outdoor_palette_selector.isEnabled())
+        self.assertTrue(self.editor.drawn_with_fields(True))
+        self.assertFalse(self.editor.drawn_with_fields(False))
+        self.assertNotEqual(self.editor.outdoor_palette_selector.toolTip(), '')
+        self.assertEqual(self.editor.indoor_palette_selector.toolTip(), '')
+        added = history_form(self.editor.current)
+
+        row = sources_widget.rows[0]
+        row.x_box.setValue(3)
+        row.x_box.setValue(4)
+        self.assertEqual(self.sources()[0].origin, (4, 5))
+        # Picked on the map, though off it
+        row.pick_button.click()
+        self.assertEqual(self.editor.current_tool, PaintTool.PaletteOrigin)
+        QTest.mouseClick(self.view.viewport(), Qt.LeftButton,
+                         pos=self.view.mapFromScene(QPointF(-1.5 * TILEWIDTH, 2.5 * TILEHEIGHT)))
+        self.assertEqual(self.sources()[0].origin, (-2, 2))
+        self.assertEqual((row.x_box.value(), row.y_box.value()), (-2, 2))
+        self.assertEqual(self.editor.current_tool, PaintTool.Brush)
+        self.assertEqual(self.editor.current.terrain_grid_to_update, set())
+
+        self.editor.undo()
+        self.assertEqual(self.sources()[0].origin, (4, 5))
+        self.editor.undo()  # Both values the box took, as one step
+        self.assertEqual(history_form(self.editor.current), added)
+        self.assertEqual(sources_widget.rows[0].x_box.value(), 7)
+        self.editor.undo()
+        self.assertEqual(self.editor.current.palette_fields.outdoor, [])
+        self.assertEqual(sources_widget.rows, [])
+        self.assertEqual(self.editor.outdoor_palette_selector.toolTip(), '')
+        self.editor.redo()
+        self.assertEqual(len(sources_widget.rows), 1)
+        sources_widget.rows[0].remove_button.click()
+        self.assertEqual(self.editor.current.palette_fields.outdoor, [])
+        self.assertEqual(self.editor.undo_action.text(), 'Undo remove Palette Source')
 
     def test_cliff_markers_undo(self):
         self.editor.cliff_marker_widget.add_new_marker((2, 2))

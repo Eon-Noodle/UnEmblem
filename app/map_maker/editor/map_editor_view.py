@@ -19,6 +19,7 @@ class PaintTool(IntEnum):
     Fill = 2
     Erase = 3
     CliffMarker = 4
+    PaletteOrigin = 5  # Places a palette field source's origin
 
 class MapEditorView(QGraphicsView):
     min_scale = 1
@@ -145,6 +146,10 @@ class MapEditorView(QGraphicsView):
             painter.setPen(QPen(QColor(128, 0, 128, 255), 3))
             mouse_pos = self.current_mouse_position
             painter.drawPoint(mouse_pos[0] * TILEWIDTH, mouse_pos[1] * TILEHEIGHT)
+        elif self.window.current_tool == PaintTool.PaletteOrigin:
+            painter.setPen(QPen(QColor(128, 0, 128, 255), 2))
+            mouse_pos = self.current_mouse_position
+            painter.drawRect(mouse_pos[0] * TILEWIDTH, mouse_pos[1] * TILEHEIGHT, TILEWIDTH, TILEHEIGHT)
         elif self.right_selecting:
             # Currently holding down right click and selecting area
             self.draw_selection(painter)
@@ -285,6 +290,9 @@ class MapEditorView(QGraphicsView):
             # Add new cliff marker on location
             elif self.window.current_tool == PaintTool.CliffMarker:
                 self.window.cliff_marker_widget.add_new_marker(tile_pos)
+            # Place a palette field's origin, which may lie off the map
+            elif self.window.current_tool == PaintTool.PaletteOrigin:
+                self.window.place_palette_origin(tile_pos)
 
         # Select the current terrain under cursor
         elif event.button() == Qt.RightButton and self.tilemap.check_bounds(tile_pos):

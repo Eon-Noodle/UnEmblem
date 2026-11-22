@@ -6,23 +6,23 @@ from PyQt5.QtGui import QPixmap, QPainter
 from app.map_maker.painter_utils import Painter
 from app.map_maker.painters import FloorPainter, RuinedFloorPainter, GrassFloorPainter
 from app.map_maker.palette_collection import Palette
-from app.map_maker.qt_renderers.qt_palette import get_qt_palette
-from app.map_maker.qt_renderers.renderer_utils import find_limit16
+from app.map_maker.qt_renderers.qt_palette import QtPalette
 from app.map_maker.qt_renderers import SimpleRenderer
 
 class SimpleShadingRenderer(SimpleRenderer):
-    def get_sprite_coord(self, tilemap, position: Pos):
+    def get_sprite_coord(self, tilemap, position: Pos, palette: QtPalette):
+        self.use_palette(palette)
         coord = self.painter.get_coord(tilemap, position)
         shading_coord = self.painter.get_shading_coord(tilemap, position)
         return coord, shading_coord
 
-    def draw_sprite(self, coord, autotile_num: int) -> QPixmap:
+    def draw_sprite(self, coord, autotile_num: int, palette: QtPalette) -> QPixmap:
         coord, shading_coord = coord
-        base_pix = self.palette.get_pixmap16(self.painter, coord, autotile_num)
+        base_pix = palette.get_pixmap16(self.painter, coord, autotile_num)
 
         shading_pix = None
         if shading_coord is not None:
-            shading_pix = self.palette.get_shading_pixmap16(self.painter, shading_coord)
+            shading_pix = palette.get_shading_pixmap16(self.painter, shading_coord)
 
         if shading_pix:
             qpainter = QPainter(base_pix)
@@ -35,9 +35,8 @@ class PoolShadingRenderer(SimpleShadingRenderer):
     Only difference is that limit is set to 2
     To handle both open and non-open pool
     """
-    def set_palette(self, palette: Palette):
-        self.palette = get_qt_palette(palette)
-        limit: Dict[int, int] = {i: find_limit16(self.palette.get_full_pixmap(), i) for i in range(2)}
+    def use_palette(self, palette: QtPalette):
+        limit: Dict[int, int] = {i: palette.limit16(i) for i in range(2)}
         self.painter.set_limit(limit)
 
 class FloorShadingRenderer(SimpleRenderer):
@@ -52,45 +51,50 @@ class FloorShadingRenderer(SimpleRenderer):
             'ruins': RuinedFloorPainter(),
             'grass': GrassFloorPainter(),
         }
+        self.set_palette(palette)
 
-    def set_palette(self, palette: Palette):
-        self.palette = get_qt_palette(palette)
-        zero_limit = find_limit16(self.palette.get_full_pixmap(), 0)
-        self.painters['default'].set_limit({0: zero_limit})
-        full_limit = {k: find_limit16(self.palette.get_full_pixmap(), k) for k in range(16)}
+    def use_palette(self, palette: QtPalette):
+        self.painters['default'].set_limit({0: palette.limit16(0)})
+        full_limit = {k: palette.limit16(k) for k in range(16)}
         self.painters['ruins'].set_limit(full_limit)
         self.painters['grass'].set_limit(full_limit)
 
-    @property
-    def painter(self) -> Painter:
-        palette_collection = self.palette.parent
-        floor_type = palette_collection.metadata.get(self.metadata_arg, 'default')
+    def painter_for(self, palette: QtPalette) -> Painter:
+        """The painter of the kind of floor palette's collection has"""
+        floor_type = palette.parent.metadata.get(self.metadata_arg, 'default')
         return self.painters.get(floor_type, self.painters['default'])
 
-    def get_sprite_coord(self, tilemap, position: Pos):
-        coord = self.painter.get_coord(tilemap, position)
-        shading_coord = self.painter.get_shading_coord(tilemap, position)
+    @property
+    def painter(self) -> Painter:
+        return self.painter_for(self.palette)
+
+    def get_sprite_coord(self, tilemap, position: Pos, palette: QtPalette):
+        self.use_palette(palette)
+        painter = self.painter_for(palette)
+        coord = painter.get_coord(tilemap, position)
+        shading_coord = painter.get_shading_coord(tilemap, position)
 
         extra_coord = None
-        pillar_coord = self.painter.get_pillar_coord(tilemap, position)
+        pillar_coord = painter.get_pillar_coord(tilemap, position)
         if pillar_coord:
             extra_coord = pillar_coord
-        elif self.painter.is_column_bottom(tilemap, position):
+        elif painter.is_column_bottom(tilemap, position):
             extra_coord = (7, 0)
         return coord, shading_coord, extra_coord
 
-    def draw_sprite(self, coord, autotile_num: int) -> QPixmap:
+    def draw_sprite(self, coord, autotile_num: int, palette: QtPalette) -> QPixmap:
         coord, shading_coord, extra_coord = coord
+        painter = self.painter_for(palette)
 
-        base_pix = self.palette.get_pixmap16(self.painter, coord, autotile_num)
+        base_pix = palette.get_pixmap16(painter, coord, autotile_num)
 
         shading_pix = None
         if shading_coord is not None:
-            shading_pix = self.palette.get_shading_pixmap16(self.painter, shading_coord)
+            shading_pix = palette.get_shading_pixmap16(painter, shading_coord)
 
         extra_pix = None
         if extra_coord:
-            extra_pix = self.palette.get_shading_pixmap16(self.painter, extra_coord)
+            extra_pix = palette.get_shading_pixmap16(painter, extra_coord)
 
         qpainter = QPainter(base_pix)
         if shading_pix:

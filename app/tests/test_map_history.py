@@ -6,6 +6,7 @@ import pygame
 from app.constants import TILEWIDTH, TILEHEIGHT
 import app.map_maker.utilities as map_utils
 from app.map_maker.map_history import MAX_STEPS, MapHistory, history_form
+from app.map_maker.palette_collection import PALETTES
 from app.map_maker.terrain import Terrain
 import app.map_maker.pygame_renderers.draw_tilemap as pygame_draw_tilemap
 from app.tests.test_map_prefab import build_mixed_tilemap, update_at_frame
@@ -126,7 +127,7 @@ class MapHistoryTests(unittest.TestCase):
         map_utils.set_random_seed(77)
         self.tilemap.seed = 77
         self.history.commit('Change RNG Seed')
-        self.tilemap.current_outdoor_palette = 'Somewhere'
+        self.tilemap.current_outdoor_palette = PALETTES.outdoor_palettes()[1].nid
         self.history.commit('Change Outdoor Palette')
         after = history_form(self.tilemap)
 

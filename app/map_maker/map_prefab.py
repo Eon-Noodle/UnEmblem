@@ -6,7 +6,8 @@ from app.utilities import utils
 from app.utilities.data import Prefab
 import app.map_maker.utilities as map_utils
 from app.map_maker.terrain import Terrain
-from app.map_maker.palette_collection import PaletteCollection
+from app.map_maker.palette_collection import PALETTES
+from app.map_maker.palette_fields import Blend, PaletteFields
 from app.map_maker.painter_database import PAINTERS
 from app.map_maker.painters.sea_painter import SeaPainter
 from app.map_maker.painters.pool_painter import PoolPainter
@@ -34,14 +35,18 @@ class MapPrefab(Prefab):
         # Positions whose tile_grid entry was set or removed since a view last drew them
         self.tile_grid_changed: Set[Pos] = set()
         self.autotile_set: Set[Pos] = set()  # Positions
-        # Key: Position in autotile_set, Value: its renderer's sprite coord,
-        # so new autotile frames are drawn without recomputing it
-        self.autotile_coords: Dict[Pos, Any] = {}
+        # Key: Position in autotile_set, Value: its renderer's sprite coord and
+        # the palette it is drawn with, so new autotile frames are drawn without
+        # recomputing either
+        self.autotile_coords: Dict[Pos, Tuple[Any, Any]] = {}
 
         self.cliff_markers: List[Pos] = [(7, 5)]  # Markers for how to point cliffs
 
-        self.current_indoor_palette: PaletteCollection = None
-        self.current_outdoor_palette: PaletteCollection = None
+        # The nids of the palette collections indoor and outdoor terrain are drawn with
+        self.current_indoor_palette: NID = None
+        self.current_outdoor_palette: NID = None
+        # Several palettes at once, blending into each other across the map
+        self.palette_fields = PaletteFields()
 
         # Per-map RNG seed. Kept in sync with the module-level RANDOM_SEED in
         # map_maker.utilities (which other painters still read); the mountain
@@ -51,6 +56,15 @@ class MapPrefab(Prefab):
     def reset_all(self):
         for position in self.terrain_grid:
             self.terrain_grid_to_update.add(position)
+
+    def palette_blend(self, pos: Pos, outdoor: bool) -> Blend:
+        """The palettes outdoor or indoor terrain at pos is drawn with"""
+        blend = self.palette_fields.blend_at(pos, outdoor)
+        if blend:
+            return blend
+        if outdoor:
+            return Blend.pure(self.current_outdoor_palette or PALETTES.outdoor_palettes()[0].nid)
+        return Blend.pure(self.current_indoor_palette or PALETTES.indoor_palettes()[0].nid)
 
     def set(self, pos: Pos, old_terrain: Terrain, new_terrain: Terrain):
         old_terrain_painter = PAINTERS.get(old_terrain)
@@ -258,6 +272,9 @@ class MapPrefab(Prefab):
         # reset_all() below recomputes every autotile coord
         self.autotile_coords.clear()
 
+        # As are palette fields' origins, though they may lie off the map
+        self.palette_fields.shift(x_offset, y_offset)
+
         # Cliff markers are map positions as well
         self.cliff_markers = [(int(utils.clamp(pos[0] + x_offset, 0, width - 1)),
                                int(utils.clamp(pos[1] + y_offset, 0, height - 1)))
@@ -287,20 +304,23 @@ class MapPrefab(Prefab):
         s_dict['seed'] = map_utils.get_random_seed()
         s_dict['indoor_palette'] = self.current_indoor_palette
         s_dict['outdoor_palette'] = self.current_outdoor_palette
+        s_dict['palette_fields'] = self.palette_fields.save()
         return s_dict
 
     def restore_in_place(self, s_dict):
         """Changes this map into the one s_dict is the saved form of, as undo
         does. Only the sprites the change can reach are drawn again, unless the
-        map changes size, seed or cliff markers, which every sprite may follow"""
+        map changes size, seed, cliff markers or palettes, which every sprite may follow"""
         size = tuple(s_dict['size'])
         terrain_grid = {tuple(int(_) for _ in str_coord.split(',')): Terrain[terrain]
                         for str_coord, terrain in s_dict['terrain_grid'].items()}
         cliff_markers = [tuple(_) for _ in s_dict['cliff_markers']]
         self.nid = s_dict['nid']
         self.autotile_fps = s_dict['autotile_fps']
-        self.current_indoor_palette = s_dict['indoor_palette']
-        self.current_outdoor_palette = s_dict['outdoor_palette']
+        palettes = (s_dict['indoor_palette'], s_dict['outdoor_palette'], PaletteFields.restore(s_dict['palette_fields']))
+        if palettes != (self.current_indoor_palette, self.current_outdoor_palette, self.palette_fields):
+            self.current_indoor_palette, self.current_outdoor_palette, self.palette_fields = palettes
+            self.reset_all()
 
         if size != (self.width, self.height):
             self.set_new_terrain_grid(size, terrain_grid)
@@ -340,6 +360,8 @@ class MapPrefab(Prefab):
         map_utils.set_random_seed(self.seed)
         self.current_indoor_palette = s_dict.get('indoor_palette')
         self.current_outdoor_palette = s_dict.get('outdoor_palette')
+        if 'palette_fields' in s_dict:
+            self.palette_fields = PaletteFields.restore(s_dict['palette_fields'])
         return self
 
     # @classmethod

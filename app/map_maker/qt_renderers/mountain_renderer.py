@@ -1,7 +1,8 @@
 from app.map_maker.painter_utils import Painter
 from app.map_maker.palette_collection import Palette
-from app.map_maker.qt_renderers.qt_palette import get_qt_palette
+from app.map_maker.qt_renderers.qt_palette import get_qt_palette, palette_at
 from app.map_maker.qt_renderers import SimpleRenderer
+from app.map_maker.terrain import Terrain
 
 class MountainRenderer(SimpleRenderer):
     def __init__(self, painter: Painter, palette: Palette):
@@ -26,7 +27,7 @@ class MountainRenderer(SimpleRenderer):
             self.painter._generic_fill(tilemap, thread.group)
         # Update the image since the user may not have requested a change -- this does it manually
         for pos in self.painter.organization.keys():
-            sprite = self.determine_sprite(tilemap, pos, 0)
+            sprite = self.determine_sprite(tilemap, pos, 0, palette_at(tilemap, Terrain.MOUNTAIN, pos))
             tilemap.tile_grid[pos] = sprite
             tilemap.tile_grid_changed.add(pos)
         if thread in self.painter.current_threads:
@@ -35,6 +36,6 @@ class MountainRenderer(SimpleRenderer):
     def mountain_processing(self, thread, tilemap):
         print("Processing... %s" % id(thread))
         for pos, coord in thread.organization.items():
-            sprite = self.palette.get_pixmap16(self.painter, coord, 0)
+            sprite = palette_at(tilemap, Terrain.MOUNTAIN, pos).get_pixmap16(self.painter, coord, 0)
             tilemap.tile_grid[pos] = sprite
             tilemap.tile_grid_changed.add(pos)

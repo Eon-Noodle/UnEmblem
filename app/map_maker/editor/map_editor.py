@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Tuple
 
 import os
 import json
@@ -25,6 +25,7 @@ from .terrain_painter_menu import TerrainPainterMenu
 from .map_editor_view import PaintTool, MapEditorView
 from .draw_tilemap import simple_draw_tilemap
 from .palette_model import PaletteModel
+from .palette_fields_widget import PaletteFieldsWidget
 from .nid_dialog import NidDialog
 from .autogenerate_indoor_map import AutogenerateIndoorMap
 from .autogenerate_outdoor_map import AutogenerateOutdoorMap
@@ -33,6 +34,7 @@ from app.map_maker.map_prefab import MapPrefab
 from app.map_maker.map_history import MapHistory, MapStep
 import app.map_maker.utilities as map_utils
 from app.map_maker.palette_collection import PALETTES
+from app.map_maker.qt_renderers.qt_palette import palette_at
 from app.map_maker.qt_renderers.renderer_database import RENDERERS
 from app.map_maker.terrain import Terrain
 
@@ -201,6 +203,17 @@ class MapEditor(QMainWindow):
         self.terrain_dock.setFeatures(QDockWidget.NoDockWidgetFeatures)
         self.addDockWidget(Qt.RightDockWidgetArea, self.terrain_dock)
 
+        # Shown only while the map has its palette fields on
+        self.palette_fields_widget = PaletteFieldsWidget(self)
+        self.palette_fields_dock = QDockWidget("Palette Fields", self)
+        self.palette_fields_dock.setAllowedAreas(Qt.RightDockWidgetArea)
+        self.palette_fields_dock.setWidget(self.palette_fields_widget)
+        self.palette_fields_dock.setFeatures(QDockWidget.NoDockWidgetFeatures)
+        self.addDockWidget(Qt.RightDockWidgetArea, self.palette_fields_dock)
+        # Which source's origin a click on the map places, as (outdoor, index)
+        self.picked_source: Optional[Tuple[bool, int]] = None
+        self.show_palette_fields()
+
         self.position_bar = QLabel("", self)
         self.position_bar.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self.position_bar.setMinimumWidth(100)
@@ -264,6 +277,10 @@ class MapEditor(QMainWindow):
         self.remove_cliff_marker_action = QAction(QIcon(f"{icon_folder}/minus.png"), "Remove Cliff Marker", self, triggered=self.remove_cliff_marker)
         self.remove_cliff_marker_action.setEnabled(False)
 
+        self.palette_fields_action = QAction("Palette Fields", self, triggered=self.toggle_palette_fields)
+        self.palette_fields_action.setCheckable(True)
+        self.palette_fields_action.setToolTip("Draws the map with several palettes at once, blending into each other")
+
         self.undo_action = QAction("Undo", self, triggered=self.undo)
         self.redo_action = QAction("Redo", self, triggered=self.redo)
         set_undo_shortcuts(self.undo_action, self.redo_action)
@@ -315,6 +332,7 @@ class MapEditor(QMainWindow):
         edit_menu.addAction(self.erase_action)
         edit_menu.addAction(self.add_cliff_marker_action)
         edit_menu.addAction(self.remove_cliff_marker_action)
+        edit_menu.addAction(self.palette_fields_action)
         edit_menu.addSeparator()
         edit_menu.addAction(self.clear_all_action)
         edit_menu.addAction(self.show_gridlines_action)
@@ -399,6 +417,21 @@ class MapEditor(QMainWindow):
         self.current_tool = PaintTool.CliffMarker
         self.view.update_view()
 
+    def pick_palette_origin(self, outdoor: bool, index: int):
+        """Has the next click on the map place the origin of a source"""
+        self.brush_action.setChecked(False)
+        self.paint_action.setChecked(False)
+        self.erase_action.setChecked(False)
+        self.cliff_marker_widget.reset()
+        self.picked_source = (outdoor, index)
+        self.current_tool = PaintTool.PaletteOrigin
+        self.view.update_view()
+
+    def place_palette_origin(self, pos):
+        outdoor, index = self.picked_source
+        self.palette_fields_widget.set_origin(outdoor, index, pos)
+        self.check_brush()
+
     def remove_cliff_marker(self):
         if len(self.current.cliff_markers) > 1:
             idx = self.cliff_marker_widget.main_box.edit.currentIndex()
@@ -428,6 +461,7 @@ class MapEditor(QMainWindow):
             box.edit.setValue(value)
             box.edit.blockSignals(False)
         self.show_palettes()
+        self.show_palette_fields()
         self.cliff_marker_widget.show_markers()
         self.view.update_view()
 
@@ -504,29 +538,42 @@ class MapEditor(QMainWindow):
         self.current.reset_all()
         self.commit('Change RNG Seed', merge=True)
 
+    def drawn_with_fields(self, outdoor: bool) -> bool:
+        """Whether outdoor or indoor terrain is drawn with palette fields, not its one palette"""
+        fields = self.current.palette_fields
+        return fields.enabled and bool(fields.outdoor if outdoor else fields.indoor)
+
     def indoor_palette_changed(self, idx: int):
         self.current.current_indoor_palette = PALETTES.indoor_palettes()[idx].nid
+        if not self.drawn_with_fields(False):
+            self.current.reset_all()
         self.show_palettes()
         self.commit('Change Indoor Palette')
 
     def outdoor_palette_changed(self, idx: int):
         self.current.current_outdoor_palette = PALETTES.outdoor_palettes()[idx].nid
+        if not self.drawn_with_fields(True):
+            self.current.reset_all()
         self.show_palettes()
         self.commit('Change Outdoor Palette')
 
     def show_palettes(self):
-        """Selects the map's palettes and draws its terrain with them. A map with
-        no palettes yet takes the ones on show"""
+        """Selects the map's palettes and shows its terrain's icons in them. A map
+        with no palettes yet takes the ones on show. A kind of terrain drawn with
+        palette fields draws nothing with its one palette, which then only shows
+        the icons in it"""
         if not self.current.current_indoor_palette:
             self.current.current_indoor_palette = self.drawn_palettes[0] or PALETTES.indoor_palettes()[0].nid
         if not self.current.current_outdoor_palette:
             self.current.current_outdoor_palette = self.drawn_palettes[1] or PALETTES.outdoor_palettes()[0].nid
-        for selector, palettes, nid in (
-                (self.indoor_palette_selector, PALETTES.indoor_palettes(), self.current.current_indoor_palette),
-                (self.outdoor_palette_selector, PALETTES.outdoor_palettes(), self.current.current_outdoor_palette)):
+        for selector, palettes, nid, outdoor in (
+                (self.indoor_palette_selector, PALETTES.indoor_palettes(), self.current.current_indoor_palette, False),
+                (self.outdoor_palette_selector, PALETTES.outdoor_palettes(), self.current.current_outdoor_palette, True)):
             selector.edit.blockSignals(True)
             selector.edit.setCurrentIndex(palettes.index(nid))
             selector.edit.blockSignals(False)
+            selector.setToolTip("The map is drawn with palette fields: this palette only shows the terrain icons in it"
+                                if self.drawn_with_fields(outdoor) else "")
 
         drawn = (self.current.current_indoor_palette, self.current.current_outdoor_palette)
         if drawn == self.drawn_palettes:
@@ -535,9 +582,26 @@ class MapEditor(QMainWindow):
         indoor, outdoor = PALETTES.get(drawn[0]), PALETTES.get(drawn[1])
         for terrain, renderer in RENDERERS.items():
             renderer.set_palette((outdoor if terrain.outdoor else indoor).get(terrain))
-        self.current.reset_all()
         self.indoor_terrain_painter_menu.reset()
         self.outdoor_terrain_painter_menu.reset()
+
+    def show_palette_fields(self):
+        """Shows the map's palette fields, if it has them on"""
+        enabled = self.current.palette_fields.enabled
+        self.palette_fields_action.setChecked(enabled)
+        self.palette_fields_dock.setVisible(enabled)
+        self.palette_fields_widget.show_fields()
+        # The source picked may be gone
+        if self.current_tool == PaintTool.PaletteOrigin:
+            self.check_brush()
+
+    def toggle_palette_fields(self, checked: bool):
+        self.current.palette_fields.enabled = checked
+        self.current.reset_all()
+        self.show_palettes()
+        self.show_palette_fields()
+        self.view.update_view()
+        self.commit('Turn On Palette Fields' if checked else 'Turn Off Palette Fields')
 
     def autogenerate_indoor_map(self):
         AutogenerateIndoorMap.customize(self)
@@ -613,9 +677,10 @@ class MapEditor(QMainWindow):
                     str_coord = "%d,%d" % (pos[0], pos[1])
                     s_dict['autotiles'][str_coord] = idx
                     renderer = RENDERERS.get(terrain)
-                    coord = renderer.get_sprite_coord(self.current, pos)
+                    palette = palette_at(self.current, terrain, pos)
+                    coord = renderer.get_sprite_coord(self.current, pos, palette)
                     for pidx in range(AUTOTILE_FRAMES):
-                        sprite = renderer.draw_sprite(coord, pidx)
+                        sprite = renderer.draw_sprite(coord, pidx, palette)
                         qpainter.drawPixmap(idx * TILEWIDTH, pidx * TILEHEIGHT, sprite)
                 qpainter.end()
                 autotile_image.save(autotile_path)

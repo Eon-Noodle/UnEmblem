@@ -9,6 +9,7 @@ from app.map_maker.map_prefab import MapPrefab
 from app.map_maker.terrain import Terrain
 
 from app.map_maker.qt_renderers.renderer_database import RENDERERS
+from app.map_maker.qt_renderers.qt_palette import palette_at
 
 def get_tilemap_pixmap(tilemap) -> QPixmap:
     return QPixmap.fromImage(draw_tilemap(tilemap))
@@ -41,10 +42,11 @@ def update_tile_grid(tilemap: MapPrefab, autotile_fps=29):
         if terrain not in processed_terrains:
             renderer.painter.single_process(tilemap)
             processed_terrains.add(terrain)
-        coord = renderer.get_sprite_coord(tilemap, pos)
+        palette = palette_at(tilemap, terrain, pos)
+        coord = renderer.get_sprite_coord(tilemap, pos, palette)
         if pos in tilemap.autotile_set:
-            tilemap.autotile_coords[pos] = coord
-        tilemap.tile_grid[pos] = renderer.draw_sprite(coord, autotile_num)
+            tilemap.autotile_coords[pos] = coord, palette
+        tilemap.tile_grid[pos] = renderer.draw_sprite(coord, autotile_num, palette)
         tilemap.tile_grid_changed.add(pos)
 
     # Autotiles
@@ -56,9 +58,9 @@ def update_tile_grid(tilemap: MapPrefab, autotile_fps=29):
                 terrain = tilemap.get_terrain(pos)
                 if not terrain:
                     continue
-                # Only the frame changed, so reuse the coord from the last update
-                coord = tilemap.autotile_coords[pos]
-                tilemap.tile_grid[pos] = RENDERERS.get(terrain).draw_sprite(coord, autotile_num)
+                # Only the frame changed, so reuse the coord and palette from the last update
+                coord, palette = tilemap.autotile_coords[pos]
+                tilemap.tile_grid[pos] = RENDERERS.get(terrain).draw_sprite(coord, autotile_num, palette)
                 tilemap.tile_grid_changed.add(pos)
         last_autotile_num = autotile_num
 
