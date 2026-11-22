@@ -62,5 +62,30 @@
     {
         "nid": "wexp_icons",
         "subicon_dict": {}
+    },
+    {
+        "nid": "Button",
+        "subicon_dict": {
+            "key_MOVE": [
+                0,
+                0
+            ],
+            "key_SELECT": [
+                0,
+                1
+            ],
+            "key_BACK": [
+                0,
+                2
+            ],
+            "key_AUX": [
+                0,
+                3
+            ],
+            "key_INFO": [
+                0,
+                4
+            ]
+        }
     }
 ]

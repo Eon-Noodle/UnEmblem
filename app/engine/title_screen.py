@@ -126,6 +126,29 @@ class TitleStartState(State):
         FONT['text'].blit(text_funcs.translate('_attribution'), surf, (4, WINHEIGHT - 16))
         return surf
 
+def create_hint_surf():
+    sprite = SPRITES.get('buttons')
+    sprites_rect = {
+        'SELECT':   (0,  66, 14, 13),
+        'BACK':     (0,  82, 14, 13),
+        'AUX':      (1, 133, 16,  9),
+        'INFO':     (1, 149, 16,  9),
+        'START':    (0, 165, 33,  9),
+        'MOVE':     (0, 192, 16, 16),
+        'SPEED':    (0, 208, 16, 16)
+    }
+    hints = ['Move', 'Select', 'Back']
+    font_name = 'text'
+    dimension = (text_funcs.get_max_width(font_name, hints) + 20,
+                 len(hints) * 16)
+    surf = engine.create_surface(dimension, transparent=True)
+
+    for idx, hint in enumerate(hints):
+        button = engine.subsurface(sprite, sprites_rect.get(hint.upper()))
+        engine.blit_center(surf, button, (8, 8 + idx*16))
+        FONT[font_name].blit(hint, surf, (18, idx*16))
+    return surf
+
 class TitleMainState(State):
     name = 'title_main'
     in_level = False
@@ -133,6 +156,7 @@ class TitleMainState(State):
 
     menu = None
     bg = None
+    hint_surf = None
 
     def start(self):
         save.check_save_slots()
@@ -165,6 +189,10 @@ class TitleMainState(State):
         return 'repeat'
 
     def begin(self):
+        if not cf.SETTINGS['display_hints']:
+            self.hint_surf = None
+        elif self.hint_surf is None:
+            self.hint_surf = create_hint_surf()
         self.fluid.reset_on_change_state()
 
     def take_input(self, event):
@@ -276,6 +304,8 @@ class TitleMainState(State):
             self.particles.draw(surf)
         if self.menu:
             self.menu.draw(surf, center=(self.position_x, WINHEIGHT//2), show_cursor=(self.state == 'normal'))
+        if self.hint_surf:
+            surf.blit(self.hint_surf, (5, WINHEIGHT - self.hint_surf.get_height() - 3))
 
         bb = image_mods.make_translucent(self.background, self.transition/100.)
         surf.blit(bb, (0, 0))
@@ -465,6 +495,7 @@ class TitleLoadState(State):
 
     menu = None
     bg = None
+    hint_surf = None
 
     def get_slots(self):
         return save.SAVE_SLOTS
@@ -485,6 +516,10 @@ class TitleLoadState(State):
         self.menu.move_to(most_recent)
 
     def begin(self):
+        if not cf.SETTINGS['display_hints']:
+            self.hint_surf = None
+        elif self.hint_surf is None:
+            self.hint_surf = create_hint_surf()
         self.fluid.reset_on_change_state()
 
     def take_input(self, event):
@@ -561,6 +596,8 @@ class TitleLoadState(State):
             self.particles.draw(surf)
         if self.menu:
             self.menu.draw(surf, center=(self.position_x, WINHEIGHT//2))
+        if self.hint_surf:
+            surf.blit(self.hint_surf, (5, WINHEIGHT - self.hint_surf.get_height() - 3))
         return surf
 
 class TitleRestartState(TitleLoadState):

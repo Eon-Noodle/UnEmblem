@@ -8,7 +8,7 @@ import app.engine.config as cf
 from app.constants import TILEX, TILEY, WINHEIGHT, WINWIDTH
 from app.data.database.database import DB
 from app.data.database.difficulty_modes import RNGOption
-from app.engine import (base_surf, combat_calcs, engine, evaluate,
+from app.engine import (banner, base_surf, combat_calcs, engine, evaluate,
                         icons, image_mods, item_funcs, item_system,
                         skill_system, text_funcs)
 from app.engine.fonts import FONT
@@ -115,6 +115,7 @@ class UIView():
         self.attack_info_disp = None
         self.spell_info_disp = None
         self.initiative_info_disp = None
+        self.roam_info_pennant: banner.Pennant = None
 
         self.initiative_info_offset = 0
 
@@ -290,6 +291,28 @@ class UIView():
             else:
                 surf.blit(self.initiative_info_disp, (0, 0))
 
+        if cf.SETTINGS.get('display_hints'):
+            if game.state.current() in self.legal_states:
+                hint_info_disp = self.create_hint_info()
+                right = self.get_cursor_right()
+                if self.tile_slide.state == 'out':
+                    right = not right
+
+                xpos = 5
+                if cf.SETTINGS.get('show_terrain'):
+                    xpos += self.tile_info_disp.get_width()
+                if not right:
+                    xpos = WINWIDTH - hint_info_disp.get_width() - xpos
+                ypos = WINHEIGHT - hint_info_disp.get_height() - 3
+                surf.blit(hint_info_disp, (xpos, ypos))
+
+            elif game.state.current() == 'free_roam':
+                if not self.roam_info_pennant:
+                    self.roam_info_pennant = self.create_roam_hint_info()
+                if roam_unit := game.state.current_state().roam_unit:
+                    cursor_pos = roam_unit.sprite.get_roam_position()[1]
+                    self.roam_info_pennant.draw(surf, cursor_pos >= TILEY // 2 + game.camera.get_y())
+
         return surf
 
     def create_initiative_info(self):
@@ -426,6 +449,61 @@ class UIView():
             render_text(surf, ['text'], [line], [None], pos)
 
         return surf
+
+    def create_hint_info(self):
+        sprite = SPRITES.get('buttons')
+        sprites_rect = {
+            'SELECT':   (0,  66, 14, 13),
+            'BACK':     (0,  82, 14, 13),
+            'AUX':      (1, 133, 16,  9),
+            'INFO':     (1, 149, 16,  9),
+            'START':    (0, 165, 33,  9),
+            'MOVE':     (0, 192, 16, 16),
+            'SPEED':    (0, 208, 16, 16)
+        }
+        hints = [{
+            'SELECT':   'Open Menu',
+            'INFO':     'Show Danger'
+        }, {
+            'SELECT':   'Select',
+            'INFO':     'Unit Info'
+        }, {
+            'INFO':     'Unit Info'
+        }, {
+            'SELECT':   'Show Range',
+            'INFO':     'Unit Info'
+        }]
+
+        hover = game.cursor.get_hover()
+        if hover is None:
+            hint_idx = 0
+        elif hover.team == 'player':
+            if skill_system.can_select(hover):
+                hint_idx = 1
+            else:
+                hint_idx = 2
+        else:
+            hint_idx = 3
+
+        font_name = 'narrow'
+        dimension = (text_funcs.get_max_width(font_name, [hint for hint_dict in hints for hint in hint_dict.values()]) + 20,
+                     len(hints[hint_idx]) * 16)
+        surf = engine.create_surface(dimension, transparent=True)
+
+        for idx, (k, v) in enumerate(hints[hint_idx].items()):
+            button = engine.subsurface(sprite, sprites_rect.get(k))
+            engine.blit_center(surf, button, (8, 8 + idx*16))
+            FONT[font_name].blit(v, surf, (18, idx*16))
+        return surf
+
+    def create_roam_hint_info(self):
+        hints = {
+            'SELECT':   'Interact',
+            'BACK':     '[HOLD] Sprint',
+            'AUX':      'Open Menu',
+            'INFO':     'Unit Info'
+        }
+        return banner.Pennant('        '.join('<icon>key_%s</> %s' % (k, v) for k, v in hints.items()))
 
     def prepare_attack_info(self):
         self.attack_info_disp = None

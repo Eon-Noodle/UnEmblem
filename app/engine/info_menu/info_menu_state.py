@@ -9,7 +9,7 @@ from app.constants import WINHEIGHT, WINWIDTH
 from app.data.database.database import DB
 from app.data.resources.portraits import INFO_PORTRAIT_WIDTH, INFO_PORTRAIT_HEIGHT
 from app.data.resources.resources import RESOURCES
-from app.engine import (background, combat_calcs, engine, equations, gui,
+from app.engine import (background, banner, combat_calcs, engine, equations, gui,
                         help_menu, icons, image_mods, item_funcs, item_system,
                         skill_system, text_funcs, unit_funcs)
 from app.engine.fluid_scroll import FluidScroll
@@ -30,6 +30,7 @@ from app.utilities import utils
 from app.utilities.enums import HAlignment
 from app.engine.fonts import FONT
 from app.engine.info_menu.multi_desc import PageType, build_dialog_list
+import app.engine.config as cf
 
 if TYPE_CHECKING:
     from app.engine.objects.item import ItemObject
@@ -103,6 +104,9 @@ class InfoMenuState(State):
 
         self.logo = None
         self.switch_logo(self.state)
+
+        self.hint_pennant: Optional[banner.Pennant] = None
+        self.info_multiple_pages: Optional[bool] = None
 
         self.info_graph = InfoGraph()
         self.info_flag = False
@@ -185,30 +189,42 @@ class InfoMenuState(State):
                 get_sound_thread().play_sfx('Info Out')
                 self.info_graph.set_transition_out()
                 self.info_flag = False
+                self.hint_pennant = None
+                self.info_multiple_pages = None
                 return
-            
+
             if event == 'AUX':
                 self.info_graph.switch_info()
                 get_sound_thread().play_sfx('Select 6')
 
+            info_graph_moved = False
             if 'RIGHT' in directions:
                 if self.info_graph.move_right():
                     get_sound_thread().play_sfx('Select 6')
+                    info_graph_moved = True
             elif 'LEFT' in directions:
                 if self.info_graph.move_left():
                     get_sound_thread().play_sfx('Select 6')
+                    info_graph_moved = True
             elif 'UP' in directions:
                 if self.info_graph.move_up():
                     get_sound_thread().play_sfx('Select 6')
+                    info_graph_moved = True
             elif 'DOWN' in directions:
                 if self.info_graph.move_down():
                     get_sound_thread().play_sfx('Select 6')
+                    info_graph_moved = True
+            if info_graph_moved and self.info_graph.is_multiple_pages() != self.info_multiple_pages:
+                self.info_multiple_pages = self.info_graph.is_multiple_pages()
+                self.hint_pennant = None
 
         elif not self.transition:  # Only takes input when not transitioning
             if event == 'INFO':
                 get_sound_thread().play_sfx('Info In')
                 self.info_graph.set_transition_in()
                 self.info_flag = True
+                self.hint_pennant = None
+                self.info_multiple_pages = self.info_graph.is_multiple_pages()
                 return
             elif event == 'AUX':
                 if self.state == 'personal_data' and self.unit.team == 'player' and DB.constants.value('growth_info'):
@@ -298,6 +314,7 @@ class InfoMenuState(State):
         if self.rescuer:
             new_index = self.scroll_units.index(self.rescuer)
             self.rescuer = None
+            self.hint_pennant = None
         elif len(self.scroll_units) > 1:
             index = self.scroll_units.index(self.unit)
             new_index = (index - 1) % len(self.scroll_units)
@@ -317,6 +334,7 @@ class InfoMenuState(State):
             self.state = 'personal_data'
             self.switch_logo('personal_data')
         self.transition = 'DOWN'
+        self.hint_pennant = None
 
     def handle_mouse(self):
         mouse_position = get_input_manager().get_mouse_position()
@@ -352,6 +370,8 @@ class InfoMenuState(State):
                     self.transition_counter = 0
             # Transition out
             else:
+                if bool(self.unit.traveler is None) != bool(self.next_unit.traveler is None):
+                    self.hint_pennant = None
                 if self.transition_counter == 1:
                     self.transparency = .15
                 elif self.transition_counter == 2:
@@ -403,6 +423,9 @@ class InfoMenuState(State):
                     self.transition_counter = 0
             else:
                 out_offsets = (-32, -56, -80, -96, -112)
+                if (self.next_state == 'personal_data' or self.state == 'personal_data') and \
+                        self.unit.team == 'player' and DB.constants.value('growth_info'):
+                    self.hint_pennant = None
                 counter = self.transition_counter - 1
                 if 0 <= counter < len(out_offsets):
                     self.scroll_offset_x = out_offsets[counter] if self.transition == 'RIGHT' else -out_offsets[counter]
@@ -443,6 +466,11 @@ class InfoMenuState(State):
 
         if not self.transition:
             self.mouse_indicator.draw(surf)
+
+        if cf.SETTINGS['display_hints']:
+            if not self.hint_pennant:
+                self.hint_pennant = self.create_hints()
+            self.hint_pennant.draw(surf)
 
         return surf
 
@@ -1120,3 +1148,30 @@ class InfoMenuState(State):
 
     def draw_notes_surf(self, surf):
         surf.blit(self.notes_surf, (96, 0))
+
+    def create_hints(self) -> banner.Pennant:
+        hints = {}
+        if self.state == 'personal_data' and self.growth_flag:
+            state = 'growths'
+        else:
+            state = self.state
+        if self.info_flag:
+            if len(self.info_graph.registry[state]) > 1:
+                hints['MOVE'] = 'Move'
+            if self.info_graph.is_multiple_pages():
+                hints['AUX'] = 'Switch Info'
+            hints['INFO'] = 'Return'
+        else:
+            hints['MOVE'] = 'Switch Page'
+            if len(self.info_graph.registry[state]):
+                hints['INFO'] = 'Help'
+            if self.state == 'personal_data' and self.unit.team == 'player' and DB.constants.value('growth_info'):
+                hints['AUX'] = 'View Stat Growths'
+            if self.unit.traveler:
+                hints['SELECT'] = 'Check Traveler'
+            if self.rescuer:
+                hints['BACK'] = 'Check Traveler'
+            else:
+                hints['BACK'] = 'Return'
+
+        return banner.Pennant('        '.join('<icon>key_%s</> %s' % (k, v) for k, v in hints.items()))
