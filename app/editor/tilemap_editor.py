@@ -193,6 +193,9 @@ class MapEditorView(DraggableTileImageView):
     def show_map(self):
         self.clear_scene()
         self.scene.addPixmap(self.working_image)
+        # A scene left to size itself only ever grows, so a map resized smaller
+        # would sit in a corner of the space the larger map took
+        self.scene.setSceneRect(0, 0, self.working_image.width(), self.working_image.height())
 
     def draw_normal_cursor(self, painter):
         tileset, coords = self.window.get_tileset_coords()
