@@ -373,7 +373,6 @@ class CreditDisplay():
             y_offset = utils.clamp(prefab.get_info_coord()[1] + (INFO_PORTRAIT_HEIGHT - height) // 2,
                                     0, prefab.face_size[1] - height)
             im = engine.subsurface(im, (x_offset, y_offset, width, height)).convert_alpha()
-            im = image_mods.make_translucent(im, 0.5)
             # Blit from bottom right
             surf.blit(im, utils.tuple_sub(utils.tuple_add(self.topleft, (width, height)), im.get_size()))
 
