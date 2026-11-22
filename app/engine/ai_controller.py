@@ -65,6 +65,7 @@ class AIController():
         self.goal_position = None
         self.goal_item = None
         self.goal_target = None
+        self.goal_offhand = None
 
     def set_next_behaviour(self):
         behaviours = DB.ai.get(self.unit.get_ai()).behaviours
@@ -137,6 +138,11 @@ class AIController():
             if self.goal_item in item_funcs.get_all_items(self.unit):
                 if self.unit.can_equip(self.goal_item) and not self.unit.has_equipped(self.goal_item):
                     action.do(action.EquipItem(self.unit, self.goal_item))
+            if self.goal_offhand and \
+                    self.goal_offhand in item_funcs.get_all_items(self.unit) and \
+                    self.unit.can_offhand(self.goal_offhand) and \
+                    self.unit.get_offhand() is not self.goal_offhand:
+                action.do(action.OffhandItem(self.unit, self.goal_offhand))
             # Highlights
             if item_system.is_weapon(self.unit, self.goal_item):
                 game.highlight.remove_highlights()
@@ -164,7 +170,7 @@ class AIController():
 
             # Combat
             # Checks to make sure the unit wasn't interrupted during movement
-            interaction.start_combat(self.unit, self.goal_target, self.goal_item, ai_combat=True, skip=self.do_skip)
+            interaction.start_combat(self.unit, self.goal_target, self.goal_item, self.goal_offhand, ai_combat=True, skip=self.do_skip)
             return True
         # Interacting with regions
         elif self.goal_position and self.behaviour and self.behaviour.action == 'Interact':
@@ -284,7 +290,7 @@ class AIController():
                     self.state = 'Done'
 
             elif self.state == 'Primary':
-                done, self.goal_target, self.goal_position, self.goal_item = self.inner_ai.run()
+                done, self.goal_target, self.goal_position, self.goal_item, self.goal_offhand = self.inner_ai.run()
                 if done:
                     if self.goal_target:
                         if self.unit.ai_group and game.get_ai_group(self.unit.ai_group):
@@ -410,6 +416,8 @@ class PrimaryAI():
         self.item_index = 0
         self.move_index = 0
         self.target_index = 0
+        self.offhand_index = 0
+        self.valid_targets_cache = dict()
 
         self.valid_moves = list(valid_moves)
         logging.debug(f"Valid Moves: {self.valid_moves}")
@@ -417,6 +425,7 @@ class PrimaryAI():
         self.best_target = None
         self.best_position = None
         self.best_item = None
+        self.best_offhand = None
 
         self.item_setup()
 
@@ -429,26 +438,58 @@ class PrimaryAI():
             # equip it again on its way back
             if self.unit.can_equip(item) and not self.unit.has_equipped(item):
                 action.do(action.EquipItem(self.unit, item))
-            self.get_all_valid_targets()
-            self.possible_moves = self.get_possible_moves()
-            logging.info(self.possible_moves)
+            self.offhand_setup()
+
+    def offhand_setup(self):
+        if self.offhand_index >= len(self.items):
+            return
+        if self.offhand_index == self.item_index:
+            logging.info("Testing Empty Offhand")
+            if offhand := self.unit.get_offhand():
+                action.do(action.UnOffhandItem(self.unit, offhand))
+        else:
+            offhand = self.items[self.offhand_index]
+            logging.info("Testing Offhand %s" % offhand)
+            if self.unit.can_offhand(offhand) and offhand != self.unit.get_offhand():
+                action.do(action.OffhandItem(self.unit, offhand))
+        self.get_all_valid_targets()
+        self.possible_moves = self.get_possible_moves()
+        logging.info(self.possible_moves)
 
     def get_all_valid_targets(self):
         item = self.items[self.item_index]
         logging.info("Determining targets for item: %s", item)
-        self.valid_targets = list(game.target_system.get_ai_targets(self.unit, self.valid_moves, [item]))
-        # Only if we already have some legal targets (ie, ourself)
-        if self.valid_targets and 0 in item_funcs.get_range(self.unit, item):
-            self.valid_targets += self.valid_moves  # Hack to target self in all valid positions
-            self.valid_targets = list(set(self.valid_targets))  # Only uniques
+
+        if item not in self.valid_targets_cache:
+            valid_targets = game.target_system.get_ai_targets(self.unit, self.valid_moves, [item])
+            # Only if we already have some legal targets (ie, ourself)
+            if valid_targets and 0 in item_funcs.get_range(self.unit, item):
+                valid_targets.update(self.valid_moves)  # Hack to target self in all valid positions
+            self.valid_targets_cache[item] = valid_targets
+        self.valid_targets = self.valid_targets_cache[item]
+
+        if self.offhand_index != self.item_index:
+            offhand = self.items[self.offhand_index]
+            if offhand not in self.valid_targets_cache:
+                valid_targets = game.target_system.get_ai_targets(self.unit, self.valid_moves, [offhand])
+                # Only if we already have some legal targets (ie, ourself)
+                if valid_targets and 0 in item_funcs.get_range(self.unit, offhand):
+                    valid_targets.update(self.valid_moves)  # Hack to target self in all valid positions
+                self.valid_targets_cache[offhand] = valid_targets
+            self.valid_targets = self.valid_targets & self.valid_targets_cache[offhand]
+
+        self.valid_targets = list(self.valid_targets)
         logging.info("Valid Targets: %s", self.valid_targets)
 
     def get_possible_moves(self) -> List[Pos]:
         """Given an item and a target, find all positions in valid_moves that I can strike the target at."""
-        if self.target_index < len(self.valid_targets) and self.item_index < len(self.items):
+        if self.target_index < len(self.valid_targets) and \
+                self.item_index < len(self.items) and \
+                self.offhand_index < len(self.items):
             item = self.items[self.item_index]
             target = self.valid_targets[self.target_index]
-            moves: List[Pos] = game.target_system.get_possible_attack_positions(self.unit, target, self.valid_moves, item)
+            offhand = self.items[self.offhand_index] if self.offhand_index != self.item_index else None
+            moves: List[Pos] = game.target_system.get_possible_attack_positions(self.unit, target, self.valid_moves, item, offhand)
             return moves
         else:
             return []
@@ -462,12 +503,17 @@ class PrimaryAI():
             self.quick_move(self.orig_pos)
             if self.orig_item and self.unit.can_equip(self.orig_item) and not self.unit.has_equipped(self.orig_item):
                 action.do(action.EquipItem(self.unit, self.orig_item))
-            return (True, self.best_target, self.best_position, self.best_item)
+            return (True, self.best_target, self.best_position, self.best_item, self.best_offhand)
+
+        elif self.offhand_index >= len(self.items):
+            self.offhand_index = 0
+            self.item_index += 1
+            self.item_setup()
 
         elif self.target_index >= len(self.valid_targets):
             self.target_index = 0
-            self.item_index += 1
-            self.item_setup()
+            self.offhand_index += 1
+            self.offhand_setup()
 
         elif self.move_index >= len(self.possible_moves):
             self.move_index = 0
@@ -477,6 +523,7 @@ class PrimaryAI():
         else:
             target = self.valid_targets[self.target_index]
             item = self.items[self.item_index]
+            offhand = self.items[self.offhand_index] if self.offhand_index != self.item_index else None
             # If too many legal targets, just try for the best move first
             # Otherwise it spends way too long trying every possible position to strike from
             if len(self.valid_targets) > 10:
@@ -492,8 +539,10 @@ class PrimaryAI():
 
             # Check line of sight
             line_of_sight_flag = True
-            if DB.constants.value('line_of_sight') and not item_system.ignore_line_of_sight(self.unit, item):
-                item_range = item_funcs.get_range(self.unit, item)
+            if DB.constants.value('line_of_sight') and \
+                    not item_system.ignore_line_of_sight(self.unit, item) and \
+                    not (offhand and item_system.ignore_line_of_sight(self.unit, offhand)):
+                item_range = item_funcs.get_range(self.unit, item, offhand)
                 if item_range:
                     max_item_range = max(item_range)
                     valid_targets = line_of_sight.line_of_sight([move], [target], max_item_range)
@@ -503,21 +552,22 @@ class PrimaryAI():
                     line_of_sight_flag = False
 
             if line_of_sight_flag:
-                self.determine_utility(move, target, item)
+                self.determine_utility(move, target, item, offhand)
             self.move_index += 1
             # If too many legal targets, do not bother with every possible move
             if len(self.valid_targets) > 10:
                 self.move_index = len(self.possible_moves)
 
         # Not done yet
-        return (False, self.best_target, self.best_position, self.best_item)
+        return (False, self.best_target, self.best_position, self.best_item, self.best_offhand)
 
-    def determine_utility(self, move, target_pos, item):
+    def determine_utility(self, move, target_pos, item, offhand):
         tp = 0
         assert self.unit.position == move
-        if game.target_system.check_target_from_position(self.unit, item, target_pos):
-            main_target_pos, splash = game.target_system.get_target_from_position(self.unit, item, target_pos)
-            tp = self.compute_priority(main_target_pos, splash, move, item)
+        main_target_pos, splash = game.target_system.get_target_from_position(self.unit, item, target_pos)
+        if item_system.target_restrict(self.unit, item, target_pos, splash) and \
+                (not offhand or item_system.target_restrict(self.unit, offhand, target_pos, splash)):
+            tp = self.compute_priority(main_target_pos, splash, move, item, offhand)
 
         target = game.board.get_unit(target_pos)
         # Don't target self if I've already moved and I'm not targeting my new position
@@ -526,24 +576,31 @@ class PrimaryAI():
 
         # Don't bother using Primary AI if we're not able to attack
         # Will just fall through to Secondary AI
-        if item_system.no_attack_after_move(self.unit, item) or skill_system.no_attack_after_move(self.unit):
+        if item_system.no_attack_after_move(self.unit, item) or \
+                skill_system.no_attack_after_move(self.unit) or \
+                (offhand and item_system.no_attack_after_move(self.unit, offhand)):
             if move != self.orig_pos:
                 return
 
-        logging.info("Choice %.5f - Weapon: %s, Position: %s, Target: %s, Target Position: %s", tp, item, move, target.nid if target else '--', target_pos)
+        logging.info("Choice %.5f - Weapon: %s, Offhand: %s, Position: %s, Target: %s, Target Position: %s",
+                        tp, item, offhand, move, target.nid if target else '--', target_pos)
         if tp > self.max_tp:
             self.best_target = target_pos
             self.best_position = move
             self.best_item = item
+            self.best_offhand = offhand
             self.max_tp = tp
 
-    def compute_priority(self, main_target_pos, splash, move, item) -> float:
+    def compute_priority(self, main_target_pos, splash, move, item, offhand) -> float:
         tp = 0
         main_target = game.board.get_unit(main_target_pos)
         # Only count main target if it's one of the legal targets
         if main_target and main_target_pos in self.behaviour_targets:
-            ai_priority = item_system.ai_priority(self.unit, item, main_target, move)
+            ai_priority = item_system.ai_priority(self.unit, item, main_target, move) or 0
             ai_priority_multiplier = skill_system.ai_priority_multiplier(main_target)
+            if offhand:
+                ai_priority += item_system.ai_priority(self.unit, offhand, main_target, move) or 0
+                ai_priority /= 2
 
             # If no ai priority hook defined
             if ai_priority is None:
@@ -553,8 +610,9 @@ class PrimaryAI():
                 tp += total_priority
 
             if item_system.damage(self.unit, item) is not None and \
-                    skill_system.check_enemy(self.unit, main_target):
-                ai_priority = self.default_priority(main_target, item, move)
+                    skill_system.check_enemy(self.unit, main_target) and \
+                    (not offhand or item_system.damage(self.unit, offhand) is not None):
+                ai_priority = self.default_priority(main_target, item, move, offhand)
                 tp += ai_priority * ai_priority_multiplier
 
         for splash_pos in splash:
@@ -571,8 +629,9 @@ class PrimaryAI():
                 tp += total_priority
 
             if item_system.damage(self.unit, item):
-                accuracy = utils.clamp(combat_calcs.compute_hit(self.unit, target, item, target.get_weapon(), "attack", (0, 0))/100., 0, 1)
-                raw_damage = combat_calcs.compute_damage(self.unit, target, item, target.get_weapon(), "attack", (0, 0))
+                counter_weapon = combat_calcs.resolve_counter_weapon(self.unit, item, target)
+                accuracy = utils.clamp(combat_calcs.compute_hit(self.unit, target, item, counter_weapon, "attack", (0, 0))/100., 0, 1)
+                raw_damage = combat_calcs.compute_damage(self.unit, target, item, counter_weapon, "attack", (0, 0))
                 lethality = utils.clamp(raw_damage / float(target.get_hp()), 0, 1)
                 ai_priority = 3 if lethality * accuracy >= 1 else lethality * accuracy
                 if skill_system.check_enemy(self.unit, target):
@@ -581,33 +640,48 @@ class PrimaryAI():
                     tp -= ai_priority * ai_priority_multiplier
         return tp
 
-    def default_priority(self, main_target, item, move):
+    def default_priority(self, main_target, item, move, offhand):
         # Default method
         terms = []
         offense_term = 0
         defense_term = 1
+        counter_weapon = combat_calcs.resolve_counter_weapon(self.unit, item, main_target)
 
-        raw_damage = combat_calcs.compute_damage(self.unit, main_target, item, main_target.get_weapon(), "attack", (0, 0))
-        crit_damage = combat_calcs.compute_damage(self.unit, main_target, item, main_target.get_weapon(), "attack", (0, 0), crit=True)
+        raw_damage = combat_calcs.compute_damage(self.unit, main_target, item, counter_weapon, "attack", (0, 0))
+        crit_damage = combat_calcs.compute_damage(self.unit, main_target, item, counter_weapon, "attack", (0, 0), crit=True)
 
         # Damage I do compared to target's current hp
         lethality = utils.clamp(raw_damage / float(main_target.get_hp()), 0, 1)
         crit_lethality = utils.clamp(crit_damage / float(main_target.get_hp()), 0, 1)
         # Accuracy
-        hit_comp = combat_calcs.compute_hit(self.unit, main_target, item, main_target.get_weapon(), "attack", (0, 0))
+        hit_comp = combat_calcs.compute_hit(self.unit, main_target, item, counter_weapon, "attack", (0, 0))
         if hit_comp:
             accuracy = utils.clamp(hit_comp/100., 0, 1)
         else:
             accuracy = 0
-        crit_comp = combat_calcs.compute_crit(self.unit, main_target, item, main_target.get_weapon(), "attack", (0, 0))
+        crit_comp = combat_calcs.compute_crit(self.unit, main_target, item, counter_weapon, "attack", (0, 0))
         if crit_comp:
             crit_accuracy = utils.clamp(crit_comp/100., 0, 1)
         else:
             crit_accuracy = 0
 
+        # Offhand
+        if offhand:
+            offhand_raw_damage = combat_calcs.compute_offhand_damage(self.unit, main_target, offhand, counter_weapon, "attack", (0, 0))
+            offhand_crit_damage = combat_calcs.compute_offhand_damage(self.unit, main_target, offhand, counter_weapon, "attack", (0, 0), crit=True)
+            offhand_lethality = utils.clamp(offhand_raw_damage / float(main_target.get_hp()), 0, 1)
+            offhand_crit_lethality = utils.clamp(offhand_crit_damage / float(main_target.get_hp()), 0, 1)
+            offhand_accuracy = (combat_calcs.compute_hit(self.unit, main_target, offhand, counter_weapon, "attack", (0, 0), clamp_hit=True) / 100.) or 0
+            offhand_crit_accuracy = (combat_calcs.compute_crit(self.unit, main_target, item, counter_weapon, "attack", (0, 0)) / 100.) or 0
+        else:
+            offhand_lethality = 0
+            offhand_crit_lethality = 0
+            offhand_accuracy = 0
+            offhand_crit_accuracy = 0
+
         # Determine if I would get countered
         # Even if I wouldn't get countered, check anyway how much damage I would take
-        target_weapon = main_target.get_weapon()
+        target_weapon = counter_weapon
         target_damage = combat_calcs.compute_damage(main_target, self.unit, target_weapon, item, "defense", (0, 0))
         if not target_damage:
             target_damage = 0
@@ -621,16 +695,19 @@ class PrimaryAI():
             target_damage *= 0.3
             target_accuracy *= 0.3
 
-        num_attacks = combat_calcs.compute_attack_phases(self.unit, main_target, item, target_weapon, "attack", (0, 0))
+        num_attacks = combat_calcs.compute_attack_phases(self.unit, main_target, item, target_weapon, "attack", (0, 0),
+                            offhand_item=offhand, def_offhand_item=main_target.get_offhand())
         num_attacks *= combat_calcs.compute_multiattacks(self.unit, main_target, item, "attack", (0, 0))
-        first_strike = lethality * accuracy if lethality >= 1 else 0
+        avg_dmg = lethality * accuracy + offhand_lethality * offhand_accuracy
+        first_strike = utils.clamp(avg_dmg, 0, 1)
 
         if num_attacks > 1 and target_damage >= 1:
             # Calculate chance I actually get to strike more than once
             num_attacks -= (target_accuracy * (1 - first_strike))
 
-        offense_term += 3 if lethality * accuracy >= 1 else lethality * accuracy * num_attacks
-        crit_term = (crit_lethality - lethality) * crit_accuracy * accuracy * num_attacks
+        offense_term += 3 if avg_dmg >= 1 else avg_dmg * num_attacks
+        crit_term = ((crit_lethality - lethality) * crit_accuracy * accuracy + \
+                     (offhand_crit_lethality - offhand_lethality) * offhand_crit_accuracy * offhand_accuracy) * num_attacks
         offense_term += crit_term
         defense_term -= target_damage * target_accuracy * (1 - first_strike)
         if offense_term <= 0:

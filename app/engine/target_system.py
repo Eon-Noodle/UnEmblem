@@ -1,6 +1,7 @@
 from __future__ import annotations
-from typing import FrozenSet, TYPE_CHECKING, List, Literal, Optional, Set, Tuple
+from typing import FrozenSet, TYPE_CHECKING, List, Literal, Optional, Set, Tuple, Self, Dict
 from functools import lru_cache
+from dataclasses import dataclass
 
 from app.data.database.database import DB
 from app.engine import (combat_calcs, item_funcs, item_system,
@@ -314,7 +315,7 @@ class TargetSystem():
         return self._get_all_attackable_positions(unit, valid_moves, self._get_all_spells(unit, show_abilities=True), force)
 
     def get_possible_attack_positions(self, unit: UnitObject, target: Pos, moves: Set[Pos],
-                                      item: ItemObject) -> List[Pos]:
+                                      item: ItemObject, offhand: ItemObject = None) -> List[Pos]:
         """
         Given a unit, a target, an item, and the set of the unit's possible moves,
         determines where the unit is able to move so that the unit can strike the
@@ -325,12 +326,15 @@ class TargetSystem():
             target (Pos): the position of the target.
             moves (Set[Pos]): the set of tiles the unit can reach this turn.
             item (ItemObject): What item the unit is using to attack with.
+            offhand (ItemObject): Secondary weapon.
 
         Returns:
             the subset of moves that the unit can attack the target from with the item.
         """
-        item_range = item_funcs.get_range(unit, item)
-        restriction = item_system.range_restrict(unit, item)
+        item_range = item_funcs.get_range(unit, item, offhand)
+        restriction = item_system.range_restrict(unit, item) or set()
+        if offhand:
+            restriction = restriction & (item_system.range_restrict(unit, offhand) or set())
         valid_moves: Set[Pos] = set()
         for move in moves:
             possible_strike_locations = \
@@ -339,7 +343,9 @@ class TargetSystem():
                 valid_moves.add(move)
 
         # Filter away possible attacks that aren't in line of sight
-        if DB.constants.value('line_of_sight') and not item_system.ignore_line_of_sight(unit, item):
+        if DB.constants.value('line_of_sight') and \
+                not item_system.ignore_line_of_sight(unit, item) and \
+                not item_system.ignore_line_of_sight(unit, offhand):
             valid_moves = line_of_sight.line_of_sight({target}, valid_moves, max(item_range, default=0))
         return list(valid_moves)
 
@@ -551,3 +557,108 @@ class TargetSystem():
         max_score = max(scores)
         max_index = scores.index(max_score)
         return allies[max_index]
+
+    # === OFFHAND ===
+    @dataclass
+    class MainHandItemData:
+        valid_pos_dict:     Dict[Pos, bool]
+        allow_dup:          bool
+        allow_less:         bool
+        num_target:         int
+        required_targets:   int
+        subitem_data_lst:   list[Self]
+
+    def process_main_hand_item(self, unit: UnitObject, main_item: ItemObject) -> MainHandItemTarget:
+        required_targets = 0
+        subitem_data_lst = []
+        if main_item.sequence_item:
+            for subitem in main_item.subitems:
+                subitem_data = self.process_main_hand_item(unit, subitem)
+                subitem_data_lst.append(subitem_data)
+                required_targets += subitem_data.min_main_target
+
+        # Handle regular item targeting
+        valid_pos_dict = {}
+        main_targets = item_system.valid_targets(unit, main_item) & self.get_attackable_positions(unit, main_item)
+        for position in main_targets:
+            main_target_pos, splash_positions = self.get_target_from_position(unit, main_item, position)
+            if item_system.target_restrict(unit, main_item, position, splash_positions):
+                valid_pos_dict[position] = bool(main_target_pos or splash_positions)
+
+        allow_dup = item_system.allow_same_target(unit, main_item)
+        allow_less = item_system.allow_less_than_max_targets(unit, main_item)
+        num_target = item_system.num_targets(unit, main_item)
+
+        return self.MainHandItemData(valid_pos_dict, allow_dup, allow_less, num_target, required_targets, subitem_data_lst)
+
+    def get_valid_shared_targets(self, unit: UnitObject, main_item: Optional[ItemObject] = None,
+                                    offhand_item: Optional[ItemObject] = None,
+                                    mhid: Optional[MainHandItemData] = None) -> Set[Pos]:
+        if not offhand_item:
+            return self.get_valid_targets(unit, main_item)
+
+        if not unit.can_dual_wield(main_item, offhand_item):
+            return set()
+
+        main_items = main_item.subitems if main_item.sequence_item else [main_item]
+        offhand_items = offhand_item.subitems if offhand_item.sequence_item else [offhand_item]
+        if len(offhand_items) != len(main_items):
+            return set()
+
+        if not mhid:
+            mhid = self.process_main_hand_item(unit, main_item)
+        allow_dup = item_system.allow_same_target(unit, offhand_item) and mhid.allow_dup
+        offhand_allow_less = item_system.allow_less_than_max_targets(unit, offhand_item)
+        offhand_num_target = item_system.num_targets(unit, offhand_item)
+
+        if len(main_items) > 1:
+            all_targets = set()
+            num_offhand_targets = 0
+
+            for idx in range(len(main_items)):
+                valid_targets = self.get_valid_shared_targets(unit, main_items[idx], offhand_items[idx],
+                                                                mhid.subitem_data_lst[idx])
+                if not valid_targets:
+                    return set()
+                all_targets |= valid_targets
+
+            if not allow_dup:
+                offhand_required_targets = sum(1 if item_system.allow_less_than_max_targets(unit, subitem) \
+                                                    else item_system.num_targets(unit, subitem) \
+                                                    for subitem in offhand_items)
+                if len(all_targets) < mhid.required_targets or len(all_targets) < offhand_required_targets:
+                    return set()
+
+        # Handle regular item targeting
+        all_targets = mhid.valid_pos_dict.keys() & item_system.valid_targets(unit, offhand_item) & self.get_attackable_positions(unit, offhand_item)
+        valid_targets = set()
+        for position in all_targets:
+            main_target_pos, offhand_splash_positions = self.get_target_from_position(unit, offhand_item, position)
+            if (mhid.valid_pos_dict.get(position) or main_target_pos or offhand_splash_positions) and \
+                    item_system.target_restrict(unit, offhand_item, position, offhand_splash_positions):
+                valid_targets.add(position)
+
+        if not allow_dup and ((not mhid.allow_less    and ((mhid.num_target > offhand_num_target) or (len(valid_targets) < mhid.num_target))) or \
+                              (not offhand_allow_less and ((mhid.num_target < offhand_num_target) or (len(valid_targets) < offhand_num_target)))):
+            return set()
+        return valid_targets
+
+    def find_all_valid_offhand_items(self, unit: UnitObject, main_item: ItemObject) -> List[ItemObject]:
+        offhand_options = []
+        main_hand_item_data = self.process_main_hand_item(unit, main_item)
+
+        for item in self.get_weapons(unit):
+            if self.get_valid_shared_targets(unit, main_item, item, main_hand_item_data):
+                offhand_options.append(item)
+            elif item.multi_item:
+                for subitem in item_funcs.get_all_items_from_multi_item(unit, item):
+                    if self.get_valid_shared_targets(unit, main_item, subitem, main_hand_item_data):
+                        offhand_options.append(item)
+                        break
+        return offhand_options
+
+    def find_all_valid_offhand_subitems(self, unit: UnitObject, main_item: ItemObject, item: ItemObject) -> List[ItemObject]:
+        main_hand_item_data = self.process_main_hand_item(unit, main_item)
+        return [subitem for subitem in item.subitems \
+                    if item_funcs.is_weapon_recursive(unit, subitem) and \
+                        self.get_valid_shared_targets(unit, main_item, subitem, main_hand_item_data)]

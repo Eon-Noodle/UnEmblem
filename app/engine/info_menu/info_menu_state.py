@@ -855,22 +855,36 @@ class InfoMenuState(State):
 
         weapon = self.unit.get_weapon()
         accessory = self.unit.get_accessory()
+        offhand = self.unit.get_offhand()
 
         # Blit items
         for idx, item in enumerate(self.unit.nonaccessories):
             equipped_subitem: Optional[ItemObject] = None
-            if item.multi_item and any(subitem is weapon for subitem in item.subitems):
-                surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
-                for subitem in item.subitems:
-                    if subitem is weapon:
-                        equipped_subitem = subitem
-                        item_option = create_item_option(idx, subitem)
-                        break
-                else:  # Shouldn't happen
-                    item_option = create_item_option(idx, item)
+            if item.multi_item:
+                if any(subitem is weapon for subitem in item.subitems):
+                    surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
+                    for subitem in item.subitems:
+                        if subitem is weapon:
+                            equipped_subitem = subitem
+                            item_option = create_item_option(idx, subitem)
+                            break
+                    else:  # Shouldn't happen
+                        item_option = create_item_option(idx, item)
+
+                elif any(subitem is offhand for subitem in item.subitems):
+                    surf.blit(SPRITES.get('equipment_highlight_green'), (8, idx * 16 + 24 + 8))
+                    for subitem in item.subitems:
+                        if subitem is offhand:
+                            equipped_subitem = subitem
+                            item_option = create_item_option(idx, subitem)
+                            break
+                    else:  # Shouldn't happen
+                        item_option = create_item_option(idx, item)
             else:
                 if item is weapon:
                     surf.blit(SPRITES.get('equipment_highlight'), (8, idx * 16 + 24 + 8))
+                elif item is offhand:
+                    surf.blit(SPRITES.get('equipment_highlight_green'), (8, idx * 16 + 24 + 8))
                 item_option = create_item_option(idx, item)
             item_option.draw(surf, 8, idx * 16 + 24)
             help_dlg = build_dialog_list(equipped_subitem if equipped_subitem else item, PageType.ITEM, unit=self.unit)

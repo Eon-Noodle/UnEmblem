@@ -7,7 +7,7 @@ from app.utilities import utils
 from app.data.database.database import DB
 from app.data.database import weapons
 from app.engine import equations, item_system, item_funcs, skill_system, line_of_sight
-from app.engine.combat.utils import resolve_weapon
+from app.engine.combat.utils import resolve_weapon, resolve_offhand
 
 def get_weapon_rank_bonus(unit, item):
     weapon_type = item_system.weapon_type(unit, item)
@@ -343,7 +343,7 @@ def defense(atk_unit, def_unit, item, item_to_avoid=None):
     res += skill_system.modify_resist(def_unit, item)
     return res
 
-def attack_speed(unit, item=None):
+def attack_speed(unit, item=None, offhand_item=None):
     if not item:
         item = unit.get_weapon()
     if not item:
@@ -369,12 +369,26 @@ def attack_speed(unit, item=None):
     attack_speed += item_system.modify_attack_speed(unit, item)
     attack_speed += skill_system.modify_attack_speed(unit, item)
 
+    weight = 0
+    if item.weight:
+        weight += item.weight.value
+
+    offhand_item = offhand_item or unit.get_offhand()
+    if offhand_item:
+        attack_speed += item_system.modify_attack_speed(unit, offhand_item)
+        attack_speed += skill_system.modify_attack_speed(unit, offhand_item)
+        if offhand_item.weight:
+            weight += offhand_item.weight.value
+
+    # very hardcoded, remember to fix this after Jaidyn's Weight MR is done
+    attack_speed -= max(0, weight - equations.parser.constitution(unit))
+
     if not DB.constants.value('allow_negative_as') and attack_speed < 0:
         attack_speed = 0
 
     return attack_speed
 
-def defense_speed(unit, item, item_to_avoid=None):
+def defense_speed(unit, item, item_to_avoid=None, offhand_item=None):
     equation = resolve_defensive_formula(
         unit, item, None, item_to_avoid,
         item_system.defense_speed_formula, skill_system.defense_speed_formula,
@@ -392,9 +406,22 @@ def defense_speed(unit, item, item_to_avoid=None):
         speed += float(bonus.defense_speed)
     speed = int(speed)
 
+    weight = 0
     if item:
         speed += item_system.modify_defense_speed(unit, item)
+        if item.weight:
+            weight += item.weight.value
     speed += skill_system.modify_defense_speed(unit, item)
+
+    offhand_item = offhand_item or unit.get_offhand()
+    if offhand_item:
+        speed += item_system.modify_defense_speed(unit, offhand_item)
+        speed += skill_system.modify_defense_speed(unit, offhand_item)
+        if offhand_item.weight:
+            weight += offhand_item.weight.value
+
+    # very hardcoded, will need fix later
+    speed -= max(0, weight - equations.parser.constitution(unit))
 
     if not DB.constants.value('allow_negative_as') and speed < 0:
         speed = 0
@@ -410,7 +437,7 @@ def compute_hit(unit, target, item, def_item, mode, attack_info, *, clamp_hit=Tr
         return 10000
 
     # Handles things like effective accuracy
-    hit += item_system.dynamic_accuracy(unit, item, target, resolve_weapon(target), mode, attack_info, hit)
+    hit += item_system.dynamic_accuracy(unit, item, target, def_item, mode, attack_info, hit)
 
     # Weapon Triangle
     triangle_bonus = 0
@@ -433,8 +460,8 @@ def compute_hit(unit, target, item, def_item, mode, attack_info, *, clamp_hit=Tr
 
     hit -= avoid(target, def_item, item)
 
-    hit += skill_system.dynamic_accuracy(unit, item, target, resolve_weapon(target), mode, attack_info, hit)
-    hit -= skill_system.dynamic_avoid(target, resolve_weapon(target), unit, item, mode, attack_info, hit)
+    hit += skill_system.dynamic_accuracy(unit, item, target, def_item, mode, attack_info, hit)
+    hit -= skill_system.dynamic_avoid(target, def_item, unit, item, mode, attack_info, hit)
 
     if clamp_hit:
         return utils.clamp(hit, 0, 100)
@@ -450,7 +477,7 @@ def compute_crit(unit, target, item, def_item, mode, attack_info):
         return None
 
     # Handles things like effective accuracy
-    crit += item_system.dynamic_crit_accuracy(unit, item, target, resolve_weapon(target), mode, attack_info, crit)
+    crit += item_system.dynamic_crit_accuracy(unit, item, target, def_item, mode, attack_info, crit)
 
     # Weapon Triangle
     triangle_bonus = 0
@@ -473,10 +500,10 @@ def compute_crit(unit, target, item, def_item, mode, attack_info):
 
     crit -= crit_avoid(target, def_item, item)
 
-    crit += skill_system.dynamic_crit_accuracy(unit, item, target, resolve_weapon(target), mode, attack_info, crit)
-    crit -= skill_system.dynamic_crit_avoid(target, resolve_weapon(target), unit, item, mode, attack_info, crit)
+    crit += skill_system.dynamic_crit_accuracy(unit, item, target, def_item, mode, attack_info, crit)
+    crit -= skill_system.dynamic_crit_avoid(target, def_item, unit, item, mode, attack_info, crit)
 
-    crit *= skill_system.crit_multiplier(unit, item, target, resolve_weapon(target), mode, attack_info, crit)
+    crit *= skill_system.crit_multiplier(unit, item, target, def_item, mode, attack_info, crit)
     crit = int(crit)
 
     return utils.clamp(crit, 0, 100)
@@ -515,9 +542,9 @@ def compute_damage_before_resist(unit, target, item, def_item, mode, attack_info
     if assist:
         might //= 2
 
-    might *= skill_system.damage_multiplier(unit, item, target, resolve_weapon(target), mode, attack_info, might)
-    might *= skill_system.resist_multiplier(target, resolve_weapon(target), unit, item, mode, attack_info, might)
-    
+    might *= skill_system.damage_multiplier(unit, item, target, def_item, mode, attack_info, might)
+    might *= skill_system.resist_multiplier(target, def_item, unit, item, mode, attack_info, might)
+
     return might
     
 def compute_resist(unit, target, item, def_item, mode, attack_info, crit=False, assist=False):
@@ -552,17 +579,17 @@ def compute_resist(unit, target, item, def_item, mode, attack_info, crit=False, 
     might = int(might)
 
     resist = defense(unit, target, def_item, item)
-    resist += skill_system.dynamic_resist(target, resolve_weapon(target), unit, item, mode, attack_info, might)
+    resist += skill_system.dynamic_resist(target, def_item, unit, item, mode, attack_info, might)
 
     if assist:
         resist //= 2
 
-    resist *= skill_system.damage_multiplier(unit, item, target, resolve_weapon(target), mode, attack_info, might)
-    resist *= skill_system.resist_multiplier(target, resolve_weapon(target), unit, item, mode, attack_info, might)
-    
+    resist *= skill_system.damage_multiplier(unit, item, target, def_item, mode, attack_info, might)
+    resist *= skill_system.resist_multiplier(target, def_item, unit, item, mode, attack_info, might)
+
     return resist
 
-def compute_damage(unit, target, item, def_item, mode, attack_info, crit=False, assist=False):
+def compute_damage(unit, target, item, def_item, mode, attack_info, crit=False, assist=False, is_offhand=False):
     if not item:
         return None
 
@@ -596,9 +623,9 @@ def compute_damage(unit, target, item, def_item, mode, attack_info, crit=False, 
     total_might = might
 
     might -= defense(unit, target, def_item, item)
-    might -= skill_system.dynamic_resist(target, resolve_weapon(target), unit, item, mode, attack_info, might)
+    might -= skill_system.dynamic_resist(target, def_item, unit, item, mode, attack_info, might)
 
-    if assist:
+    if assist or is_offhand:
         might //= 2
 
     # So that crit can correctly multiply when the damage dealt would be less than min_damage
@@ -623,19 +650,22 @@ def compute_damage(unit, target, item, def_item, mode, attack_info, crit=False, 
         if thracia_crit:
             might += total_might * thracia_crit
 
-    might *= skill_system.damage_multiplier(unit, item, target, resolve_weapon(target), mode, attack_info, might)
-    might *= skill_system.resist_multiplier(target, resolve_weapon(target), unit, item, mode, attack_info, might)
+    might *= skill_system.damage_multiplier(unit, item, target, def_item, mode, attack_info, might)
+    might *= skill_system.resist_multiplier(target, def_item, unit, item, mode, attack_info, might)
 
     return int(max(int(DB.constants.get('min_damage').value), might))
 
 def compute_assist_damage(unit, target, item, def_item, mode, attack_info, crit=False):
     return compute_damage(unit, target, item, def_item, mode, attack_info, crit, assist=True)
 
-def _compute_speed_before_defense(unit, target, item, def_item, mode, attack_info) -> int:
-    speed = attack_speed(unit, item)
+def compute_offhand_damage(unit, target, item, def_item, mode, attack_info, crit=False):
+    return compute_damage(unit, target, item, def_item, mode, attack_info, crit, is_offhand=True)
+
+def _compute_speed_before_defense(unit, target, item, def_item, mode, attack_info, offhand_item=None) -> int:
+    speed = attack_speed(unit, item, offhand_item=offhand_item)
 
     # Handles things like effective damage
-    speed += item_system.dynamic_attack_speed(unit, item, target, resolve_weapon(target), mode, attack_info, speed)
+    speed += item_system.dynamic_attack_speed(unit, item, target, def_item, mode, attack_info, speed)
 
     # Weapon Triangle
     triangle_bonus = 0
@@ -661,20 +691,20 @@ def compute_attack_speed(unit, target, item, def_item, mode, attack_info) -> int
     speed = _compute_speed_before_defense(unit, target, item, def_item, mode, attack_info)
     # A dynamic attack speed's base_value is the speed difference between the two units
     speed_difference = speed - defense_speed(target, def_item, item)
-    speed += skill_system.dynamic_attack_speed(unit, item, target, resolve_weapon(target), mode, attack_info, speed_difference)
+    speed += skill_system.dynamic_attack_speed(unit, item, target, def_item, mode, attack_info, speed_difference)
     return speed
 
-def compute_true_speed(unit, target, item, def_item, mode, attack_info) -> int:
+def compute_true_speed(unit, target, item, def_item, mode, attack_info, offhand_item=None, def_offhand_item=None) -> int:
     """How much faster the unit is than the target. This is what gets compared to the speed needed to double"""
-    speed = _compute_speed_before_defense(unit, target, item, def_item, mode, attack_info)
+    speed = _compute_speed_before_defense(unit, target, item, def_item, mode, attack_info, offhand_item=offhand_item)
 
-    speed -= defense_speed(target, def_item, item)
+    speed -= defense_speed(target, def_item, item, offhand_item=def_offhand_item)
 
-    speed += skill_system.dynamic_attack_speed(unit, item, target, resolve_weapon(target), mode, attack_info, speed)
-    speed -= skill_system.dynamic_defense_speed(target, resolve_weapon(target), unit, item, mode, attack_info, speed)
+    speed += skill_system.dynamic_attack_speed(unit, item, target, def_item, mode, attack_info, speed)
+    speed -= skill_system.dynamic_defense_speed(target, def_item, unit, item, mode, attack_info, speed)
     return speed
 
-def outspeed(unit, target, item, def_item, mode, attack_info) -> int:
+def outspeed(unit, target, item, def_item, mode, attack_info, offhand_item=None, def_offhand_item=None) -> int:
     if not item:
         return 0
     if not item_system.can_double(unit, item):
@@ -684,29 +714,42 @@ def outspeed(unit, target, item, def_item, mode, attack_info) -> int:
     if mode == 'defense' and not (DB.constants.value('def_double') or skill_system.def_double(unit)):
         return 0
 
-    speed = compute_true_speed(unit, target, item, def_item, mode, attack_info)
+    speed = compute_true_speed(unit, target, item, def_item, mode, attack_info,
+                                offhand_item=offhand_item, def_offhand_item=def_offhand_item)
 
     return 1 if speed >= equations.parser.speed_to_double(unit) else 0
 
-def compute_attack_phases(unit, target, item, def_item, mode, attack_info) -> int:
+def compute_attack_phases(unit, target, item, def_item, mode, attack_info, offhand_item=None, def_offhand_item=None) -> int:
     num_attacks = 1
     if not item:
         return 0
 
-    num_attacks += item_system.dynamic_attacks(unit, item, target, resolve_weapon(target), mode, attack_info, num_attacks)
-    num_attacks += skill_system.dynamic_attacks(unit, item, target, resolve_weapon(target), mode, attack_info, num_attacks)
+    num_attacks += item_system.dynamic_attacks(unit, item, target, def_item, mode, attack_info, num_attacks)
+    num_attacks += skill_system.dynamic_attacks(unit, item, target, def_item, mode, attack_info, num_attacks)
     # Only bother calculating whether we outspeed when there is a target
     if target:
-        num_attacks += outspeed(unit, target, item, def_item, mode, attack_info)
+        num_attacks += outspeed(unit, target, item, def_item, mode, attack_info,
+                                offhand_item=offhand_item, def_offhand_item=def_offhand_item)
 
     return num_attacks
 
 def compute_multiattacks(unit, target, item, mode, attack_info):
     if not item:
-        return None
+        return 0
 
     num_attacks = 1
-    num_attacks += item_system.dynamic_multiattacks(unit, item, target, resolve_weapon(target), mode, attack_info, num_attacks)
-    num_attacks += skill_system.dynamic_multiattacks(unit, item, target, resolve_weapon(target), mode, attack_info, num_attacks)
+    counter_weapon = resolve_counter_weapon(unit, item, target)
+    num_attacks += item_system.dynamic_multiattacks(unit, item, target, counter_weapon, mode, attack_info, num_attacks)
+    num_attacks += skill_system.dynamic_multiattacks(unit, item, target, counter_weapon, mode, attack_info, num_attacks)
 
     return num_attacks
+
+def resolve_counter_weapon(attacker, aweapon, defender):
+    if defender is attacker or not attacker or not defender:
+        return None
+    main_weapon = resolve_weapon(defender)
+    if can_counterattack(attacker, aweapon, defender, main_weapon):
+        return main_weapon
+    offhand_weapon = resolve_offhand(defender)
+    if can_counterattack(attacker, aweapon, defender, offhand_weapon):
+        return offhand_weapon
