@@ -33,6 +33,14 @@ class AttackerPartnerPhase(PlaybackBrush):
 
 
 @dataclass
+class AttackerOffhandPhase(PlaybackBrush):
+    """
+    Added to playback when the attacker offhand phase would begin
+    """
+    nid: ClassVar[str] = 'attacker_offhand_phase'
+
+
+@dataclass
 class DefenderPhase(PlaybackBrush):
     """
     Added to playback when the main defender's phase would begin

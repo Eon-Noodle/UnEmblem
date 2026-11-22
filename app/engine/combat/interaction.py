@@ -13,7 +13,7 @@ from app.engine import config as cf
 from app.engine.objects.unit import UnitObject
 from app.engine.objects.item import ItemObject
 
-def has_animation(attacker: UnitObject, item: ItemObject, main_target: tuple, force_animation=False, force_no_animation=False) -> bool:
+def has_animation(attacker: UnitObject, item: ItemObject, offhand: ItemObject, main_target: tuple, force_animation=False, force_no_animation=False) -> bool:
     defender: UnitObject = game.board.get_unit(main_target)
     if not defender:
         return False
@@ -33,11 +33,12 @@ def has_animation(attacker: UnitObject, item: ItemObject, main_target: tuple, fo
         attacker_anim = battle_animation.get_battle_anim(attacker, item, distance)
         def_item = defender.get_weapon()
         defender_anim = battle_animation.get_battle_anim(defender, def_item, distance)
-        return bool(attacker_anim and defender_anim)
+        offhand_anim = battle_animation.get_battle_anim(attacker, offhand, distance) if offhand else True
+        return bool(attacker_anim and defender_anim and offhand_anim)
 
     return False
 
-def engage(attacker: UnitObject, positions: list, main_item: ItemObject, skip: bool = False, script: list = None,
+def engage(attacker: UnitObject, positions: list, main_item: ItemObject, offhand: ItemObject = None, skip: bool = False, script: list = None,
            total_rounds: int = 1, force_animation: bool = False, force_no_animation: bool = False, arena_combat: bool = False):
     """
     Builds the correct combat controller for this interaction
@@ -54,6 +55,14 @@ def engage(attacker: UnitObject, positions: list, main_item: ItemObject, skip: b
     else:
         items = [main_item]
 
+    offhand_splashes = []
+    if offhand:
+        if offhand.sequence_item:
+            offhands = offhand.subitems
+        else:
+            offhands = [offhand]
+        multitarget_offhands = offhands[:]
+
     multitarget_items = items[:]
     for idx, position in enumerate(positions):
         item = items[idx]
@@ -65,17 +74,27 @@ def engage(attacker: UnitObject, positions: list, main_item: ItemObject, skip: b
                 main_targets.append(main_target)
                 splashes.append(splash)
 
+                if offhand:
+                    _, offhand_splash = item_system.splash(attacker, offhands[idx], pos)
+                    offhand_splashes.append(splash)
+
             # To separate out each instance of the multi-target item so that
             # each positional target pretends to be it's own item-target pair for the next combat.
             # Earlier multi-target items are already expanded, so this item sits where its first target does
             first_target_idx = len(target_positions) - len(position)
             multitarget_items[first_target_idx:first_target_idx] = [item] * (len(position) - 1)
+            if offhand:
+                multitarget_offhands[first_target_idx:first_target_idx] = [offhands[idx]] * (len(position) - 1)
 
         elif position:
             main_target, splash = item_system.splash(attacker, item, position)
             target_positions.append(position)
             main_targets.append(main_target)
             splashes.append(splash)
+
+            if offhand:
+                _, offhand_splash = item_system.splash(attacker, offhand, position)
+                offhand_splashes.append(splash)
 
         else:  # Using an item in the base/prep
             target_positions.append(None)
@@ -84,30 +103,31 @@ def engage(attacker: UnitObject, positions: list, main_item: ItemObject, skip: b
 
     # To account for any multitarget items that have been duplicated in the preceding for loop
     items = multitarget_items
+    offhand_items = multitarget_offhands if offhand else []
 
     if target_positions[0] is None:
         # If we are targeting None, (which means we're in base using an item)
         combat = BaseCombat(attacker, main_item, attacker, script, total_rounds)
     elif skip:
         # If we are skipping
-        combat = SimpleCombat(attacker, main_item, items, target_positions, main_targets, splashes, script, total_rounds)
+        combat = SimpleCombat(attacker, main_item, offhand, items, offhand_items, target_positions, main_targets, splashes, offhand_splashes, script, total_rounds)
         game.highlight.remove_highlights()
     # If more than one target position or more than one item being used, cannot use animation combat
     elif len(positions) > 1 or len(items) > 1:
-        combat = MapCombat(attacker, main_item, items, target_positions, main_targets, splashes, script, total_rounds)
+        combat = MapCombat(attacker, main_item, offhand, items, offhand_items, target_positions, main_targets, splashes, offhand_splashes, script, total_rounds)
     # If affecting more than one target, cannot use animation combat
-    elif not main_targets[0] or splashes[0]:
-        combat = MapCombat(attacker, main_item, items, target_positions, main_targets, splashes, script, total_rounds)
-    elif has_animation(attacker, item, main_target, force_animation, force_no_animation):
+    elif not main_targets[0] or splashes[0] or (offhand_splashes and offhand_splashes[0]):
+        combat = MapCombat(attacker, main_item, offhand, items, offhand_items, target_positions, main_targets, splashes, offhand_splashes, script, total_rounds)
+    elif has_animation(attacker, main_item, offhand, main_target, force_animation, force_no_animation):
         defender = game.board.get_unit(main_target)
         def_item = defender.get_weapon()
-        combat = AnimationCombat(attacker, item, defender, def_item, script, total_rounds, arena_combat)
+        combat = AnimationCombat(attacker, main_item, offhand, defender, def_item, script, total_rounds, arena_combat)
     else:
-        combat = MapCombat(attacker, main_item, items, target_positions, main_targets, splashes, script, total_rounds)
+        combat = MapCombat(attacker, main_item, offhand, items, offhand_items, target_positions, main_targets, splashes, offhand_splashes, script, total_rounds)
     return combat
 
-def start_combat(unit: UnitObject, target: tuple, item: ItemObject, skip: bool = False,
-                 ai_combat: bool = False, event_combat: bool = False, script: list = None,
+def start_combat(unit: UnitObject, target: tuple, item: ItemObject, offhand: ItemObject = None,
+                 skip: bool = False, ai_combat: bool = False, event_combat: bool = False, script: list = None,
                  total_rounds: int = 1, arena: bool = False, force_animation: bool = False, 
                  force_no_animation: bool = False):
     """
@@ -116,14 +136,18 @@ def start_combat(unit: UnitObject, target: tuple, item: ItemObject, skip: bool =
     # Set up the target positions
     if item.sequence_item:
         targets = []
-        for subitem in item.subitems:
-            num_targets = item_system.num_targets(unit, subitem)
+        for idx in range(len(item.subitems)):
+            num_targets = item_system.num_targets(unit, item.subitems[idx])
+            if offhand:
+                num_targets = min(num_targets, item_system.num_targets(unit, offhand.subitems[idx]))
             if num_targets > 1:
                 targets.append([target] * num_targets)
             else:
                 targets.append(target)
     else:
         num_targets = item_system.num_targets(unit, item)
+        if offhand:
+            num_targets = min(num_targets, item_system.num_targets(unit, offhand))
         if num_targets > 1:
             targets = [[target] * num_targets]
         else:
@@ -134,7 +158,7 @@ def start_combat(unit: UnitObject, target: tuple, item: ItemObject, skip: bool =
     # starts
     game.state.change('combat')
     combat = engage(
-        unit, targets, item, skip=skip, script=script, total_rounds=total_rounds,
+        unit, targets, item, offhand=offhand, skip=skip, script=script, total_rounds=total_rounds,
         arena_combat=arena, force_animation=force_animation, force_no_animation=force_no_animation)
     combat.ai_combat = ai_combat  # Must mark this so we can come back!
     combat.event_combat = event_combat  # Must mark this so we can come back!

@@ -1526,6 +1526,10 @@ class ItemChildState(MapState):
         if not game.memory['is_subitem_child_menu']:
             if item in self.cur_unit.items and self.cur_unit.can_equip(item):
                 options.append("Equip")
+            if item is self.cur_unit.get_offhand():
+                options.append("Un-Offhand")
+            elif item in self.cur_unit.items and self.cur_unit.can_offhand(item):
+                options.append("Offhand")
             if item.multi_item and \
                     item in self.cur_unit.items:
                 options.append("Expand")
@@ -1547,6 +1551,10 @@ class ItemChildState(MapState):
         else:
             if self.cur_unit.can_equip(item):
                 options.append("Equip")
+            if item is self.cur_unit.get_offhand():
+                options.append("Un-Offhand")
+            elif self.cur_unit.can_offhand(item):
+                options.append("Offhand")
             if item.multi_item:
                 options.append("Expand")
             if item_funcs.can_use(self.cur_unit, item) and not self.cur_unit.has_attacked:
@@ -1606,6 +1614,54 @@ class ItemChildState(MapState):
                         parent_item = parent_item.parent_item
                     if parent_item in self.cur_unit.items:
                         action.do(action.BringToTopItem(self.cur_unit, parent_item))
+                    game.state.back()
+                    game.state.back()
+                    game.state.back()
+
+            elif selection == 'Offhand':
+                action.do(action.OffhandItem(self.cur_unit, item))
+
+                equipped = False
+                equipped_weapon = self.cur_unit.get_weapon()
+                if equipped_weapon:
+                    if equipped_weapon in self.cur_unit.items:
+                        action.do(action.BringToTopItem(self.cur_unit, equipped_weapon))
+                        equipped = True
+                    else:
+                        while equipped_weapon.parent_item:
+                            equipped_weapon = equipped_weapon.parent_item
+                        if equipped_weapon in self.cur_unit.items:
+                            action.do(action.BringToTopItem(self.cur_unit, equipped_weapon))
+                            equipped = True
+
+                if not game.memory['is_subitem_child_menu']:
+                    if item in self.cur_unit.items:
+                        if equipped:
+                            action.do(action.BringToSecondTopItem(self.cur_unit, item))
+                        else:
+                            action.do(action.BringToTopItem(self.cur_unit, item))
+                        self.parent_menu.current_index = self.cur_unit.items.index(item)  # Reset selection
+                    game.state.back()
+                else:
+                    # find ultimate parent item
+                    parent_item = item.parent_item
+                    while parent_item.parent_item:
+                        parent_item = parent_item.parent_item
+                    if parent_item in self.cur_unit.items:
+                        if equipped:
+                            action.do(action.BringToSecondTopItem(self.cur_unit, parent_item))
+                        else:
+                            action.do(action.BringToTopItem(self.cur_unit, parent_item))
+                    game.state.back()
+                    game.state.back()
+                    game.state.back()
+
+            elif selection == 'Un-Offhand':
+                action.do(action.UnOffhandItem(self.cur_unit, item))
+
+                if not game.memory['is_subitem_child_menu']:
+                    game.state.back()
+                else:
                     game.state.back()
                     game.state.back()
                     game.state.back()
@@ -1810,6 +1866,7 @@ class WeaponChoiceState(MapState):
         self.cur_unit = game.cursor.cur_unit
         self.cur_unit.sprite.change_state('chosen')
         self.current_equipped = self.cur_unit.equipped_weapon
+        self.current_offhand = self.cur_unit.get_offhand()
         # Sort it by the current unit's inventory so that if the order of the inventory changes, it changes here too
         options = sorted(self.options, key=lambda item: self.cur_unit.items.index(item) if item in self.cur_unit.items else 99)
         self.menu = menus.Choice(self.cur_unit, options)
@@ -1854,6 +1911,8 @@ class WeaponChoiceState(MapState):
             # In case we are hovering over a not "true" equipped item
             if self.cur_unit.can_equip(self.current_equipped):
                 action.do(action.EquipItem(self.cur_unit, self.current_equipped))
+            if self.cur_unit.can_equip(self.current_offhand):
+                action.do(action.OffhandItem(self.cur_unit, self.current_offhand))
             game.state.back()
 
         elif event == 'SELECT':
@@ -1874,6 +1933,7 @@ class WeaponChoiceState(MapState):
                 # game.memory['equip_action'] = equip_action
                 action.do(equip_action)
                 self.current_equipped = self.cur_unit.equipped_weapon
+                self.current_offhand = self.cur_unit.get_offhand()
 
             # If the item is in our inventory, bring it to the top
             if selection in self.cur_unit.items:
@@ -1887,7 +1947,12 @@ class WeaponChoiceState(MapState):
                     action.do(action.BringToTopItem(self.cur_unit, parent_item))
 
             game.memory['item'] = selection
-            game.state.change('combat_targeting')
+
+            if offhand_options := game.target_system.find_all_valid_offhand_items(self.cur_unit, selection):
+                game.memory['valid_weapons'] = offhand_options + ['<green>No Offhand</>']
+                game.state.change('offhand_choice')
+            else:
+                game.state.change('combat_targeting')
 
         elif event == 'AUX':
             if self.menu.next_help_page():
@@ -1912,6 +1977,96 @@ class WeaponChoiceState(MapState):
 
     def end(self):
         game.highlight.remove_highlights()
+
+class OffhandChoiceState(WeaponChoiceState):
+    name = 'offhand_choice'
+
+    def get_options(self, unit) -> list:
+        if game.memory.get('valid_weapons'):
+            options = game.memory['valid_weapons']
+            game.memory['valid_weapons'] = None
+        else:
+            main_item = game.memory.get('item')
+            options = game.target_system.find_all_valid_offhand_items(unit, main_item)
+        return options
+
+    def begin(self):
+        super().begin()
+        self.item_desc_panel = ui_view.ItemDescriptionPanel(self.cur_unit, self.menu.get_current(), offhand=True)
+
+    def _test_equip(self):
+        current = self.menu.get_current()
+        if isinstance(current, ItemObject) and self.cur_unit.can_offhand(current):
+            action.do(action.OffhandItem(self.cur_unit, current))
+
+    def _item_desc_update(self):
+        current = self.menu.get_current()
+        game.highlight.remove_highlights()
+        if isinstance(current, ItemObject):
+            self.item_desc_panel.set_item(current)
+            self.disp_attacks(self.cur_unit, current)
+        else:
+            self.item_desc_panel.set_item(None)
+
+    def take_input(self, event):
+        first_push = self.fluid.update()
+        directions = self.fluid.get_directions()
+
+        did_move = self.menu.handle_mouse()
+        if did_move:
+            self._test_equip()
+            self._item_desc_update()
+
+        if 'DOWN' in directions:
+            if self.menu.move_down(first_push):
+                get_sound_thread().play_sfx('Select 6')
+            self._test_equip()
+            self._item_desc_update()
+
+        elif 'UP' in directions:
+            if self.menu.move_up(first_push):
+                get_sound_thread().play_sfx('Select 6')
+            self._test_equip()
+            self._item_desc_update()
+
+        if event == 'BACK':
+            get_sound_thread().play_sfx('Select 4')
+            # In case we are hovering over a not "true" equipped item
+            if self.cur_unit.can_offhand(self.current_offhand):
+                action.do(action.OffhandItem(self.cur_unit, self.current_offhand))
+            game.state.back()
+
+        elif event == 'SELECT':
+            selection = self.menu.get_current()
+            if isinstance(selection, ItemObject):
+                if selection.multi_item:
+                    main_item = game.memory.get('item') or self.current_equipped
+                    game.memory['valid_weapons'] = \
+                        game.target_system.find_all_valid_offhand_subitems(self.cur_unit, main_item, selection)
+                    get_sound_thread().play_sfx('Select 1')
+                    game.state.change('offhand_choice')
+                    return
+
+                if not item_system.available(self.cur_unit, selection):
+                    get_sound_thread().play_sfx('Error')
+                    return
+                get_sound_thread().play_sfx('Select 1')
+                # equip if we can
+                if self.cur_unit.can_offhand(selection):
+                    equip_action = action.OffhandItem(self.cur_unit, selection)
+                    # game.memory['equip_action'] = equip_action
+                    action.do(equip_action)
+                    self.current_offhand = self.cur_unit.get_offhand()
+
+                game.memory['offhand_item'] = selection
+            game.state.change('combat_targeting')
+
+        elif event == 'INFO':
+            if self.menu.info_flag:
+                get_sound_thread().play_sfx('Info Out')
+            else:
+                get_sound_thread().play_sfx('Info In')
+            self.menu.toggle_info()
 
 class SpellChoiceState(WeaponChoiceState):
     name = 'spell_choice'
@@ -2312,24 +2467,33 @@ class CombatTargetingState(MapState):
     def start(self):
         self.cur_unit = game.cursor.cur_unit
         self.item = game.memory['item']
+        self.offhand = game.memory.get('offhand_item')
+        game.memory['offhand_item'] = None
 
         # Support for sequence items
         self.sequence_item_index = game.memory.get('sequence_item_index', 0)
         if self.item.sequence_item:
             self.parent_item = self.item
+            self.parent_offhand = self.offhand
             # Replaces item with the item we'll be working with here
             self.item = self.parent_item.subitems[self.sequence_item_index]
+            if self.offhand and self.offhand.sequence_item and self.sequence_item_index < len(self.offhand.subitems):
+                self.offhand = self.parent_offhand.subitems[self.sequence_item_index]
         else: # For no sequence item, we won't be using this
             self.parent_item = None
+            self.parent_offhand = None
 
         self.num_targets = item_system.num_targets(self.cur_unit, self.item)
+        if self.offhand:
+            self.num_targets = min(self.num_targets, item_system.num_targets(self.cur_unit, self.offhand))
         self.current_target_idx = 0
         self.prev_targets = game.memory.get('prev_targets', [])
 
-        positions = game.target_system.get_valid_targets(self.cur_unit, self.item)
+        positions = game.target_system.get_valid_shared_targets(self.cur_unit, self.item, self.offhand)
         # Remove previous targets if not allow_same_target
         if self.parent_item:
-            allow_same_target = item_system.allow_same_target(self.cur_unit, self.parent_item)
+            allow_same_target = item_system.allow_same_target(self.cur_unit, self.parent_item) and \
+                (not self.offhand or item_system.allow_same_target(self.cur_unit, self.parent_offhand))
             if not allow_same_target:
                 for pos in self.prev_targets:
                     positions.discard(pos)
@@ -2373,7 +2537,9 @@ class CombatTargetingState(MapState):
             text = item_system.targeting_pennant(self.cur_unit, self.parent_item)
         if text:
             return banner.Pennant(text)
-        if item_system.num_targets(self.cur_unit, self.item) > 1 and item_system.allow_less_than_max_targets(self.cur_unit, self.item):
+        if item_system.num_targets(self.cur_unit, self.item) > 1 \
+                and item_system.allow_less_than_max_targets(self.cur_unit, self.item) \
+                and (not self.offhand or item_system.allow_less_than_max_targets(self.cur_unit, self.offhand)):
             return banner.Pennant('Press START to confirm targets.')
         return None
 
@@ -2418,10 +2584,13 @@ class CombatTargetingState(MapState):
     def _engage_combat(self):
         if self.parent_item:  # For sequence item
             main_item = self.parent_item
+            main_offhand = self.parent_offhand
             targets = []
             target_counter = 0
-            for item in self.parent_item.subitems:
-                num_targets = item_system.num_targets(self.cur_unit, item)
+            for idx in range(len(main_item.subitems)):
+                num_targets = item_system.num_targets(self.cur_unit, main_item.subitems[idx])
+                if main_offhand:
+                    num_targets = min(num_targets, item_system.num_targets(self.cur_unit, main_offhand.subitems[idx]))
                 t = self.prev_targets[target_counter:target_counter + num_targets]
                 if num_targets > 1:
                     targets.append(t)
@@ -2430,6 +2599,7 @@ class CombatTargetingState(MapState):
                 target_counter += num_targets
         else:  # Guaranteed to be len(1) since it's not a sequence item
             main_item = self.item
+            main_offhand = self.offhand
             if len(self.prev_targets) > 1:
                 targets = [self.prev_targets]
             else:
@@ -2442,14 +2612,15 @@ class CombatTargetingState(MapState):
             defender = game.board.get_unit(targets[0])
             if defender:
                 defender.strike_partner = self.defender_assist
-        combat = interaction.engage(self.cur_unit, targets, main_item)
+        combat = interaction.engage(self.cur_unit, targets, main_item, main_offhand)
         game.combat_instance.append(combat)
         game.state.change('combat')
         game.memory['valid_weapons'] = None
         game.memory['valid_spells'] = None
 
     def _get_next_target(self):
-        allow_same_target = item_system.allow_same_target(self.cur_unit, self.item)
+        allow_same_target = item_system.allow_same_target(self.cur_unit, self.item) and \
+            (not self.offhand or item_system.allow_same_target(self.cur_unit, self.offhand))
         if self.current_target_idx < self.num_targets and \
                 (allow_same_target or self.selection.count() > 1):
             if not allow_same_target:
@@ -2562,7 +2733,8 @@ class CombatTargetingState(MapState):
 
         elif event == 'START':
             # Allows you to early leave the targeting state if you don't want to target num_targets
-            if item_system.allow_less_than_max_targets(self.cur_unit, self.item) and self.current_target_idx >= 1:
+            if self.current_target_idx >= 1 and item_system.allow_less_than_max_targets(self.cur_unit, self.item) and \
+                            (not self.offhand or item_system.allow_less_than_max_targets(self.cur_unit, self.offhand)):
                 get_sound_thread().play_sfx('Select 1')
                 self._proceed_to_next_item()
 
@@ -2600,7 +2772,8 @@ class CombatTargetingState(MapState):
                 game.ui_view.draw_trade_preview(target_unit, surf, ignore)
             elif item_system.is_weapon(self.cur_unit, self.item) and not cf.SETTINGS['forecast'] == 'Off':
                 self.find_strike_partners(game.cursor.position, atk=False)
-                game.ui_view.draw_attack_info(surf, self.cur_unit, self.item, target_unit, self.attacker_assist, self.defender_assist)
+                game.ui_view.draw_attack_info(surf, self.cur_unit, self.item, target_unit,
+                                                self.attacker_assist, self.defender_assist, self.offhand)
             elif not cf.SETTINGS['forecast'] == 'Off':
                 game.ui_view.draw_spell_info(surf, self.cur_unit, self.item, target_unit)
 

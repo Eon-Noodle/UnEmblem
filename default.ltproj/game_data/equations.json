@@ -126,5 +126,9 @@
     {
         "nid": "STATUS_STAFF_AVOID",
         "expression": "RES*5"
+    },
+    {
+        "nid": "WEIGHT_TO_DUAL_WIELD",
+        "expression": "CON + STR"
     }
 ]

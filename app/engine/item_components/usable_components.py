@@ -122,6 +122,8 @@ class ChapterUses(ItemComponent):
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
             action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
+            action.do(action.UnequipItem(unit, item))
 
     def cleanup_combat(self, playback, unit, item, target, item2, mode):
         if self._did_something and 'c_uses' in item.data:
@@ -198,6 +200,8 @@ class NoBreakOutOfUses(ItemComponent):
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
             action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
+            action.do(action.UnequipItem(unit, item))
 
 class HPCost(ItemComponent):
     nid = 'hp_cost'
@@ -226,6 +230,8 @@ class HPCost(ItemComponent):
         if unit.equipped_weapon is item:
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
+            action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
             action.do(action.UnequipItem(unit, item))
 
     def on_hit(self, actions, playback, unit, item, target, item2, target_pos, mode, attack_info):
@@ -284,6 +290,8 @@ class EvalHPCost(ItemComponent):
         if unit.equipped_weapon is item:
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
+            action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
             action.do(action.UnequipItem(unit, item))
 
     def on_hit(self, actions, playback, unit, item, target, item2, target_pos, mode, attack_info):
@@ -367,6 +375,8 @@ class ManaCost(ItemComponent):
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
             action.do(action.UnequipItem(unit, item))
+        elif unit.offhand is item:
+            action.do(action.UnequipItem(unit, item))
 
     def on_hit(self, actions, playback, unit, item, target, item2, target_pos, mode, attack_info):
         if self._opts(item).one_mana_cost_per_combat():
@@ -425,6 +435,8 @@ class EvalManaCost(ItemComponent):
         if unit.equipped_weapon is item:
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
+            action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
             action.do(action.UnequipItem(unit, item))
 
     def on_hit(self, actions, playback, unit, item, target, item2, target_pos, mode, attack_info):
@@ -554,6 +566,8 @@ class Cooldown(ItemComponent):
         if unit.equipped_weapon is item:
             action.do(action.UnequipItem(unit, item))
         elif unit.equipped_accessory is item:
+            action.do(action.UnequipItem(unit, item))
+        elif unit.offhand_weapon is item:
             action.do(action.UnequipItem(unit, item))
 
     def on_upkeep(self, actions, playback, unit, item):

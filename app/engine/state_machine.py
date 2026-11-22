@@ -93,6 +93,7 @@ class StateMachine():
              'trade': trade.TradeState,
              'combat_trade': trade.CombatTradeState,
              'weapon_choice': general_states.WeaponChoiceState,
+             'offhand_choice': general_states.OffhandChoiceState,
              'spell_choice': general_states.SpellChoiceState,
              'ability_multi_item_choice': general_states.AbilityMultiItemChoiceState,
              'ability_submenu_choice': general_states.AbilitySubmenuChoiceState,

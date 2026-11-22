@@ -448,25 +448,33 @@ def inventory_full(unit: UnitObject, item: ItemObject) -> bool:
     else:
         return len(unit.nonaccessories) >= get_num_items(unit)
 
-def get_range(unit: UnitObject, item: ItemObject) -> Set[int]:
+def get_range(unit: UnitObject, item: ItemObject, offhand: ItemObject = None) -> Set[int]:
     """
-    Retrieves the range of an item for a unit.
+    Retrieves the range of both main item and offhand for a unit.
 
     Args:
         unit (UnitObject): The unit attempting to use the item.
-        item (ItemObject): The item whose range to retrieve.
+        item (ItemObject): The first item whose range to retrieve.
+        offhand (ItemObject): The second item whose range to retrieve.
 
     Returns:
         Set[int]: A set containing the valid ranges of the item.
     """
     min_range = item_system.minimum_range(unit, item)
     max_range = item_system.maximum_range(unit, item)
-
-    max_range = max(0, max_range)
-    min_range = max(0, min_range)
-    max_range += skill_system.modify_maximum_range(unit, item)
-    min_range += skill_system.modify_minimum_range(unit, item)
+    mod_max_range = skill_system.modify_maximum_range(unit, item)
+    mod_min_range = skill_system.modify_minimum_range(unit, item)
     limit_max = skill_system.limit_maximum_range(unit, item)
+
+    if offhand:
+        min_range = max(min_range, item_system.minimum_range(unit, offhand))
+        max_range = min(max_range, item_system.maximum_range(unit, offhand))
+        mod_max_range = min(mod_max_range, skill_system.modify_maximum_range(unit, offhand))
+        mod_min_range = max(mod_min_range, skill_system.modify_minimum_range(unit, offhand))
+        limit_max = min(limit_max, skill_system.limit_maximum_range(unit, offhand))
+
+    max_range = max(0, max_range) + mod_max_range
+    min_range = max(0, min_range) + mod_min_range
     max_range = utils.clamp(max_range, 0, limit_max)
 
     return set(range(min_range, max_range + 1))
