@@ -85,7 +85,9 @@ class SettingsMenuState(State):
         # top_menu, menu, reset_button, reset_confirm, get_input
         self.state = 'top_menu'
 
-        config_options = [(c[0], c[1]) for c in config]
+        ignores = ['animation']
+
+        config_options = [(c[0], c[1]) for c in config if c[0] not in ignores]
         self.config_menu = settings_menu.Config(None, config_options, 'menu_bg_base', config_icons)
         self.config_menu.takes_input = False
 
@@ -365,8 +367,7 @@ class SettingsMenuState(State):
             if self.state == 'top_menu':
                 text = 'config_desc'
             else:
-                idx = self.config_menu.get_current_index()
-                text = config[idx][0] + '_desc'
+                text = self.config_menu.get_current() + '_desc'
         elif self.tab == 'keyboard':
             text = 'keymap_desc'
         else:
