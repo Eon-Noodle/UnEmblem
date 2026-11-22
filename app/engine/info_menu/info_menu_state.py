@@ -5,13 +5,13 @@ import functools
 import logging
 from typing import List, Optional, Tuple, TYPE_CHECKING
 
-from app.constants import WINHEIGHT, WINWIDTH
+from app.constants import WINHEIGHT, WINWIDTH, COLORKEY
 from app.data.database.database import DB
 from app.data.resources.portraits import INFO_PORTRAIT_WIDTH, INFO_PORTRAIT_HEIGHT
 from app.data.resources.resources import RESOURCES
 from app.engine import (background, combat_calcs, engine, equations, gui,
                         help_menu, icons, image_mods, item_funcs, item_system,
-                        skill_system, text_funcs, unit_funcs)
+                        skill_system, text_funcs, unit_funcs, unit_sprite)
 from app.engine.fluid_scroll import FluidScroll
 from app.engine.game_menus.icon_options import BasicItemOption
 from app.engine.game_menus.uses_display_config import ItemOptionModes
@@ -463,7 +463,7 @@ class InfoMenuState(State):
         if not self.transparency:
             active_sprite = self.unit.sprite.create_image('active')
             x_pos = 81 - active_sprite.get_width()//2
-            y_pos = WINHEIGHT - 61
+            y_pos = WINHEIGHT - active_sprite.get_height() - 61
             surf.blit(active_sprite, (x_pos, y_pos + self.scroll_offset_y))
 
     def growth_colors(self, value):
