@@ -1675,7 +1675,7 @@ def start_game():
         game = GameState()
     else:
         game.clear()  # Need to use old game if called twice in a row
-    game.load_states(['title_start'])
+    game.load_states(['keymap_guide'])
     return game
 
 def start_level(level_nid):
