@@ -21,7 +21,7 @@ class ChapterTitleState(State):
         self.state = 'begin'
         self.wait_time = engine.get_time()
 
-        self.bg = background.TransitionBackground(SPRITES.get('chapter_title_bg'), fade=False)
+        self.bg = background.create_background('default_background')
         self.ribbon = SPRITES.get('chapter_title_ribbon')
 
         self.sigil_fade = 0
@@ -60,7 +60,7 @@ class ChapterTitleState(State):
 
         if self.state == 'begin':
             if current_time - self.wait_time > 50 * 16:
-                self.state = 'sigil'
+                self.state = 'banner_grow_x'
                 self.wait_time = current_time
 
         elif self.state == 'sigil':
@@ -90,7 +90,9 @@ class ChapterTitleState(State):
 
         elif self.state == 'wait':
             if current_time - self.wait_time > 5000:
-                self.state = 'sigil_out'
+                self.state = 'ribbon_close'
+                if self.music_flag:
+                    get_sound_thread().fade_to_stop()
 
         elif self.state == 'sigil_out':
             self.sigil_fade -= .02
@@ -115,6 +117,7 @@ class ChapterTitleState(State):
         self.bg.update()
         self.bg.draw(surf)
 
+        '''
         # # Draw sigil
         sigil_outline = image_mods.make_translucent(self.sigil1, 1 - self.sigil_fade)
         sigil_middle = image_mods.make_translucent(self.sigil2, 1 - self.sigil_fade)
@@ -122,6 +125,7 @@ class ChapterTitleState(State):
         center_y = WINHEIGHT//2 - sigil_outline.get_height()//2
         surf.blit(sigil_outline, (center_x + 1, center_y + 1))
         surf.blit(sigil_middle, (center_x, center_y))
+        '''
 
         # # Draw ribbon
         if self.state in ('ribbon_fade_in', 'wait', 'ribbon_close', 'sigil_out', 'end'):
