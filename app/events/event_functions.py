@@ -766,6 +766,10 @@ def set_fog_of_war(self: Event, fog_of_war_type: str, radius: int, ai_radius: Op
         fowt = FogOfWarType.THRACIA
     elif fowt == 'hybrid':
         fowt = FogOfWarType.HYBRID
+    elif fowt == 'fancy':
+        fowt = FogOfWarType.FANCY
+    elif fowt == 'fancy_thracia':
+        fowt = FogOfWarType.FANCY_THRACIA
     else:
         fowt = FogOfWarType.GBA_DEPRECATED
     action.do(action.SetLevelVar('_fog_of_war_type', fowt))

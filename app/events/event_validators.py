@@ -731,7 +731,7 @@ class Chapter(Validator):
         return valids
 
 class FogOfWarType(OptionValidator):
-    valid = ['gba', 'thracia', 'hybrid']
+    valid = ['gba', 'thracia', 'hybrid', 'fancy', 'fancy_thracia']
 
 class FogOfWarColor(OptionValidator):
     valid = ['black', 'white']
