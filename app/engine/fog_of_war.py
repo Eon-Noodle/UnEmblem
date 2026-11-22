@@ -8,7 +8,9 @@ class FogOfWarType(IntEnum):
     GBA = 1
     THRACIA = 2
     HYBRID = 3
-    
+    FANCY = 4
+    FANCY_THRACIA = 5
+
 class FogOfWarColor(IntEnum):
     BLACK = 0
     WHITE = 1
