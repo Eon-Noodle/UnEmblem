@@ -113,6 +113,12 @@ class PortraitPrefab(WithResources, Prefab):
                 self.blink_size[0] // 2,
                 self.blink_size[1])
 
+    def get_wink_frame(self, idx: int, left_wink: bool = True) -> Rect:
+        return (self.full_size[0] - (self.blink_size[0] if left_wink else self.blink_size[0]//2),
+                self.full_size[1] - self.mouth_size[1]*2 - self.blink_size[1]*(idx+1),
+                self.blink_size[0] // 2,
+                self.blink_size[1])
+
     def get_wink_coord(self, left_wink: bool = True) -> Tuple[int, int]:
         return (self.blinking_offset[0] + (0 if left_wink else self.blink_size[0]//2),
                 self.blinking_offset[1])
