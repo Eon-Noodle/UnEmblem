@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 
 from app.data.database.database import DB
-from app.engine import line_of_sight
+from app.engine import line_of_sight, skill_system
 from app.engine.pathfinding.node import Node
 from app.engine.game_state import game
 from app.engine.fog_of_war import FogOfWarType, FogOfWarColor
@@ -153,7 +153,7 @@ class GameBoard(object):
 
     def can_move_through(self, team: NID, pos: Pos) -> bool:
         unit_team = self.get_team(pos)
-        if not unit_team or team in DB.teams.get_allies(unit_team):
+        if not unit_team or team in DB.teams.get_allies(unit_team) or skill_system.enemy_pass_through(self.get_unit(pos)):
             return True
         if team == 'player' or DB.constants.value('ai_fog_of_war'):
             if not self.in_vision(pos, team):
@@ -162,7 +162,7 @@ class GameBoard(object):
 
     def can_move_through_ally_block(self, team: NID, pos: Pos) -> bool:
         unit_team = self.get_team(pos)
-        if not unit_team:
+        if not unit_team or skill_system.enemy_pass_through(self.get_unit(pos)):
             return True
         if team == 'player' or DB.constants.value('ai_fog_of_war'):
             if not self.in_vision(pos, team):
