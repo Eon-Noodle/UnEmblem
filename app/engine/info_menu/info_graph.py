@@ -8,7 +8,7 @@ from app.constants import TILEHEIGHT, WINHEIGHT
 from app.engine import engine, help_menu, menus
 from app.engine.info_menu.multi_desc import draw_page_number
 
-info_states = ('personal_data', 'equipment', 'support_skills', 'notes')
+info_states = ('personal_data', 'equipment', 'skills', 'supports', 'notes')
 
 @dataclass
 class BoundingBox():
