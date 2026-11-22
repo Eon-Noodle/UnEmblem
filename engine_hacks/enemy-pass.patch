@@ -1,0 +1,56 @@
+diff --git a/app/engine/component_system/compile_skill_system.py b/app/engine/component_system/compile_skill_system.py
+index 2f89ae6b7..e05212716 100644
+--- a/app/engine/component_system/compile_skill_system.py
++++ b/app/engine/component_system/compile_skill_system.py
+@@ -9,6 +9,7 @@ SKILL_HOOKS: Dict[str, HookInfo] = {
+     'can_counter':                          HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_TRUE),
+     # false priority (set to False if result is False in any component, False if not defined)
+     'pass_through':                         HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
++    'enemy_pass_through':                   HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
+     'vantage':                              HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
+     'desperation':                          HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
+     'ignore_terrain':                       HookInfo(['unit'], ResolvePolicy.ALL_DEFAULT_FALSE),
+diff --git a/app/engine/game_board.py b/app/engine/game_board.py
+index 4b28edaec..c8d2aa170 100644
+--- a/app/engine/game_board.py
++++ b/app/engine/game_board.py
+@@ -3,7 +3,7 @@ from __future__ import annotations
+ from typing import Dict, List, Optional, Set, Tuple, TYPE_CHECKING
+ 
+ from app.data.database.database import DB
+-from app.engine import line_of_sight
++from app.engine import line_of_sight, skill_system
+ from app.engine.pathfinding.node import Node
+ from app.engine.game_state import game
+ from app.engine.fog_of_war import FogOfWarType, FogOfWarColor
+@@ -153,7 +153,7 @@ class GameBoard(object):
+ 
+     def can_move_through(self, team: NID, pos: Pos) -> bool:
+         unit_team = self.get_team(pos)
+-        if not unit_team or team in DB.teams.get_allies(unit_team):
++        if not unit_team or team in DB.teams.get_allies(unit_team) or skill_system.enemy_pass_through(self.get_unit(pos)):
+             return True
+         if team == 'player' or DB.constants.value('ai_fog_of_war'):
+             if not self.in_vision(pos, team):
+@@ -162,7 +162,7 @@ class GameBoard(object):
+ 
+     def can_move_through_ally_block(self, team: NID, pos: Pos) -> bool:
+         unit_team = self.get_team(pos)
+-        if not unit_team:
++        if not unit_team or skill_system.enemy_pass_through(self.get_unit(pos)):
+             return True
+         if team == 'player' or DB.constants.value('ai_fog_of_war'):
+             if not self.in_vision(pos, team):
+diff --git a/app/engine/movement/movement_funcs.py b/app/engine/movement/movement_funcs.py
+index 0e6fe3554..c7271e5d6 100644
+--- a/app/engine/movement/movement_funcs.py
++++ b/app/engine/movement/movement_funcs.py
+@@ -92,6 +92,8 @@ def check_position(unit: UnitObject, new_position: Tuple[int, int],
+         other_team = game.board.get_team(new_position)
+         if not other_team or unit.team in DB.teams.get_allies(other_team):
+             return True # Allies, this is fine
++        elif skill_system.enemy_pass_through(game.board.get_unit(new_position)):
++            return True # Enemy pass-through, also fine
+         else:  # Enemies
+             return False
+ 

@@ -1,0 +1,121 @@
+diff --git a/app/editor/map_sprite_editor/map_sprite_model.py b/app/editor/map_sprite_editor/map_sprite_model.py
+index e4373b10b..448c46b39 100644
+--- a/app/editor/map_sprite_editor/map_sprite_model.py
++++ b/app/editor/map_sprite_editor/map_sprite_model.py
+@@ -125,7 +125,7 @@ def create_new(window):
+             standing_pix = QPixmap(fn)
+             nid = str_utils.get_next_name(nid, [d.nid for d in RESOURCES.map_sprites])
+             stand_full_path = fn
+-            if standing_pix.width() == 192 and standing_pix.height() == 144:
++            if standing_pix.width() == 192 and standing_pix.height() >= 144:
+                 lion_throne_mode = True
+             elif 16 <= standing_pix.width() <= 64 and 48 <= standing_pix.height() <= 144 and standing_pix.height() % 3 == 0:  # Try for GBA mode
+                 lion_throne_mode = False
+@@ -148,7 +148,7 @@ def create_new(window):
+             moving_pix = QPixmap(fn)
+             move_full_path = fn
+             if lion_throne_mode:
+-                if moving_pix.width() == 192 and moving_pix.height() == 160:
++                if moving_pix.width() == 192 and moving_pix.height() >= 160:
+                     pass
+                 else:
+                     QMessageBox.critical(window, "Error", "Moving Map Sprite is not correct size for Legacy import (192x160 px)")
+diff --git a/app/engine/info_menu/info_menu_state.py b/app/engine/info_menu/info_menu_state.py
+index d02055670..714fac72d 100644
+--- a/app/engine/info_menu/info_menu_state.py
++++ b/app/engine/info_menu/info_menu_state.py
+@@ -5,13 +5,13 @@ import functools
+ import logging
+ from typing import List, Optional, Tuple, TYPE_CHECKING
+ 
+-from app.constants import WINHEIGHT, WINWIDTH
++from app.constants import WINHEIGHT, WINWIDTH, COLORKEY
+ from app.data.database.database import DB
+ from app.data.resources.portraits import INFO_PORTRAIT_WIDTH, INFO_PORTRAIT_HEIGHT
+ from app.data.resources.resources import RESOURCES
+ from app.engine import (background, combat_calcs, engine, equations, gui,
+                         help_menu, icons, image_mods, item_funcs, item_system,
+-                        skill_system, text_funcs, unit_funcs)
++                        skill_system, text_funcs, unit_funcs, unit_sprite)
+ from app.engine.fluid_scroll import FluidScroll
+ from app.engine.game_menus.icon_options import BasicItemOption
+ from app.engine.game_menus.uses_display_config import ItemOptionModes
+@@ -463,7 +463,7 @@ class InfoMenuState(State):
+         if not self.transparency:
+             active_sprite = self.unit.sprite.create_image('active')
+             x_pos = 81 - active_sprite.get_width()//2
+-            y_pos = WINHEIGHT - 61
++            y_pos = WINHEIGHT - active_sprite.get_height() - 61
+             surf.blit(active_sprite, (x_pos, y_pos + self.scroll_offset_y))
+ 
+     def growth_colors(self, value):
+diff --git a/app/engine/unit_sprite.py b/app/engine/unit_sprite.py
+index f7fbca71e..45eaa6407 100644
+--- a/app/engine/unit_sprite.py
++++ b/app/engine/unit_sprite.py
+@@ -92,33 +92,39 @@ class MapSprite():
+         stand, move = self.convert_to_team_colors(map_sprite)
+         engine.set_colorkey(stand, COLORKEY, rleaccel=True)
+         engine.set_colorkey(move, COLORKEY, rleaccel=True)
+-        passive_frames = [engine.subsurface(stand, (num*64, 0, 64, 48)) for num in range(3)]
++
++        height = stand.get_height() // 3
++        passive_frames = [engine.subsurface(stand, (num*64, 0, 64, height)) for num in range(3)]
+         self.passive = SingleMapSprite.create_looping_sprite(passive_frames, ANIMATION_COUNTERS.passive_sprite_counter)
+         if DB.constants.value('autogenerate_grey_map_sprites'):
+-            gray_frames = [engine.subsurface(stand, (num*64, 0, 64, 48)) for num in range(3)]
++            gray_frames = [engine.subsurface(stand, (num*64, 0, 64, height)) for num in range(3)]
+             self.gray = SingleMapSprite.create_looping_sprite(self.create_gray(gray_frames), ANIMATION_COUNTERS.passive_sprite_counter)
+         else:
+-            gray_frames = [engine.subsurface(stand, (num*64, 48, 64, 48)) for num in range(3)]
++            gray_frames = [engine.subsurface(stand, (num*64, height, 64, height)) for num in range(3)]
+             self.gray = SingleMapSprite.create_looping_sprite(gray_frames, ANIMATION_COUNTERS.passive_sprite_counter)
+ 
+-        down_frames = [engine.subsurface(move, (num*48, 0, 48, 40)) for num in range(4)]
+-        self.down = SingleMapSprite.create_looping_sprite(down_frames, ANIMATION_COUNTERS.move_sprite_counter)
+-        self.down_stand = SingleMapSprite.create_anim_sprite([self.down.get_stationary_frame()], [22])
+-        left_frames = [engine.subsurface(move, (num*48, 40, 48, 40)) for num in range(4)]
+-        self.left = SingleMapSprite.create_looping_sprite(left_frames, ANIMATION_COUNTERS.move_sprite_counter)
+-        self.left_stand = SingleMapSprite.create_anim_sprite([self.left.get_stationary_frame()], [22])
+-        right_frames = [engine.subsurface(move, (num*48, 80, 48, 40)) for num in range(4)]
+-        self.right = SingleMapSprite.create_looping_sprite(right_frames, ANIMATION_COUNTERS.move_sprite_counter)
+-        self.right_stand = SingleMapSprite.create_anim_sprite([self.right.get_stationary_frame()], [22])
+-        up_frames = [engine.subsurface(move, (num*48, 120, 48, 40)) for num in range(4)]
+-        self.up = SingleMapSprite.create_looping_sprite(up_frames, ANIMATION_COUNTERS.move_sprite_counter)
+-        self.up_stand = SingleMapSprite.create_anim_sprite([self.up.get_stationary_frame()], [22])
+-
+-        active_frames = [engine.subsurface(stand, (num*64, 96, 64, 48)) for num in range(3)]
++        active_frames = [engine.subsurface(stand, (num*64, height*2, 64, height)) for num in range(3)]
+         self.active = SingleMapSprite.create_looping_sprite(active_frames, ANIMATION_COUNTERS.active_sprite_counter)
+         self.start_cast = SingleMapSprite.create_anim_sprite(active_frames, [22, 4, 22])
+         self.end_cast = SingleMapSprite.create_anim_sprite([frame for frame in reversed(active_frames)], [22, 4, 22])
+ 
++        def _create_moving_sprites(row):
++            width = move.get_width() // 4
++            height = move.get_height() // 4
++            frames = []
++            for col in range(4):
++                frame = engine.create_surface((width, height+8), transparent=True)
++                frame.blit(engine.subsurface(move, (width*col, height*row, width, height)), (0, 0))
++                frames.append(frame)
++            loops = SingleMapSprite.create_looping_sprite(frames, ANIMATION_COUNTERS.move_sprite_counter)
++            stand = SingleMapSprite.create_anim_sprite([loops.get_stationary_frame()], [22])
++            return loops, stand
++
++        self.down, self.down_stand = _create_moving_sprites(0)
++        self.left, self.left_stand = _create_moving_sprites(1)
++        self.right, self.right_stand = _create_moving_sprites(2)
++        self.up, self.up_stand = _create_moving_sprites(3)
++
+     def _get_team_palette(self):
+         palette_nid = self.palette_override
+         palette = RESOURCES.combat_palettes.get(palette_nid)
+@@ -809,7 +815,7 @@ class UnitSprite():
+ 
+         # Each image has (self.image.get_width() - 32)//2 pixels on the
+         # left and right of it, to handle any off tile spriting
+-        topleft = left - max(0, (image.get_width() - 16)//2), top - 24
++        topleft = left - max(0, (image.get_width() - 16)//2), top - image.get_height() + 24
+ 
+         if DB.constants.value('pairup') and self.unit.traveler:
+             partner = game.get_unit(self.unit.traveler)

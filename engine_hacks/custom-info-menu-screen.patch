@@ -1,0 +1,1103 @@
+diff --git a/app/engine/info_menu/info_graph.py b/app/engine/info_menu/info_graph.py
+index 46577ffbf..37f6e8174 100644
+--- a/app/engine/info_menu/info_graph.py
++++ b/app/engine/info_menu/info_graph.py
+@@ -8,7 +8,7 @@ from app.constants import TILEHEIGHT, WINHEIGHT
+ from app.engine import engine, help_menu, menus
+ from app.engine.info_menu.multi_desc import draw_page_number
+ 
+-info_states = ('personal_data', 'equipment', 'support_skills', 'notes')
++info_states = ('personal_data', 'equipment', 'skills', 'supports', 'notes')
+ 
+ @dataclass
+ class BoundingBox():
+diff --git a/app/engine/info_menu/info_menu_state.py b/app/engine/info_menu/info_menu_state.py
+index d02055670..421298b62 100644
+--- a/app/engine/info_menu/info_menu_state.py
++++ b/app/engine/info_menu/info_menu_state.py
+@@ -49,20 +49,20 @@ class InfoMenuState(State):
+         starting up the info menu again will break which stats are actually available
+         """
+         left_stats = [stat.nid for stat in DB.stats if stat.position == 'left']
+-        if len(left_stats) >= 7:
++        if len(left_stats) >= 8:
+             _extra_stat_row = True
+             # If we have 7 or more left stats, use 7 rows
+-            right_stats = left_stats[7:]
++            right_stats = left_stats[8:]
+         else:  # Otherwise, just use the 6 rows
+             _extra_stat_row = False
+-            right_stats = left_stats[6:]
++            right_stats = left_stats[7:]
+         right_stats += [stat.nid for stat in DB.stats if stat.position == 'right']
+         # Make sure we only display up to 6 or 7 on each
+         if _extra_stat_row:
+-            left_stats = left_stats[:7]
+-            right_stats = right_stats[:7]
++            left_stats = left_stats[:8]
++            right_stats = right_stats[:6]
+         else:
+-            left_stats = left_stats[:6]
++            left_stats = left_stats[:7]
+             right_stats = right_stats[:6]
+         self._extra_stat_row = _extra_stat_row
+         self.left_stats = left_stats
+@@ -93,7 +93,8 @@ class InfoMenuState(State):
+         game.memory['scroll_units'] = None
+ 
+         self.state = game.memory.get('info_menu_state', info_states[0])
+-        if self.state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes):
++        if (self.state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes)) or \
++           (self.state == 'supports' and not game.game_vars.get('_supports')):
+             self.state = 'personal_data'
+         self.growth_flag = False
+ 
+@@ -147,16 +148,7 @@ class InfoMenuState(State):
+         self.right_arrow = gui.ScrollArrow('right', (217, 3), 0.5)
+ 
+     def switch_logo(self, name):
+-        if name == 'personal_data':
+-            image = SPRITES.get('info_title_personal_data')
+-        elif name == 'equipment':
+-            image = SPRITES.get('info_title_items')
+-        elif name == 'support_skills':
+-            image = SPRITES.get('info_title_weapon')
+-        elif name == 'notes':
+-            image = SPRITES.get('info_title_notes')
+-        else:
+-            return
++        image = SPRITES.get('info_title_%s' % name)
+         if self.logo:
+             self.logo.switch_image(image)
+         else:
+@@ -251,7 +243,8 @@ class InfoMenuState(State):
+             index = info_states.index(self.state)
+             new_index = (index - 1) % len(info_states)
+             self.next_state = info_states[new_index]
+-            if self.next_state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes):
++            while (self.next_state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes)) or \
++                  (self.next_state == 'supports' and not game.game_vars.get('_supports')):
+                 new_index = (new_index - 1) % len(info_states)
+                 self.next_state = info_states[new_index]
+             self.info_graph.last_bb = None
+@@ -265,7 +258,8 @@ class InfoMenuState(State):
+             index = info_states.index(self.state)
+             new_index = (index + 1) % len(info_states)
+             self.next_state = info_states[new_index]
+-            if self.next_state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes):
++            while (self.next_state == 'notes' and not (DB.constants.value('unit_notes') and self.unit.notes)) or \
++                  (self.next_state == 'supports' and not game.game_vars.get('_supports')):
+                 new_index = (new_index + 1) % len(info_states)
+                 self.next_state = info_states[new_index]
+             self.info_graph.last_bb = None
+@@ -284,7 +278,8 @@ class InfoMenuState(State):
+         else:
+             return
+         self.next_unit = self.scroll_units[new_index]
+-        if self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes):
++        if (self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes)) or \
++           (self.state == 'supports' and not game.game_vars.get('_supports')):
+             self.state = 'personal_data'
+             self.switch_logo('personal_data')
+         self.transition = 'UP'
+@@ -300,7 +295,8 @@ class InfoMenuState(State):
+         else:
+             return
+         self.next_unit = self.scroll_units[new_index]
+-        if self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes):
++        if (self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes)) or \
++           (self.state == 'supports' and not game.game_vars.get('_supports')):
+             self.state = 'personal_data'
+             self.switch_logo('personal_data')
+         self.transition = 'DOWN'
+@@ -309,7 +305,8 @@ class InfoMenuState(State):
+         get_sound_thread().play_sfx('Status_Character')
+         self.rescuer = self.unit
+         self.next_unit = game.get_unit(self.unit.traveler)
+-        if self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes):
++        if (self.state == 'notes' and not (DB.constants.value('unit_notes') and self.next_unit.notes)) or \
++           (self.state == 'supports' and not game.game_vars.get('_supports')):
+             self.state = 'personal_data'
+             self.switch_logo('personal_data')
+         self.transition = 'DOWN'
+@@ -428,11 +425,11 @@ class InfoMenuState(State):
+         if self.state == 'personal_data' and self.growth_flag:
+             if not self.hp_growth_surf:
+                 self.hp_growth_surf = self.create_hp_section(growths=True)
+-            portrait_surf.blit(self.hp_growth_surf, (8, 136))
++            portrait_surf.blit(self.hp_growth_surf, (40, 112))
+         else:
+             if not self.hp_surf:
+                 self.hp_surf = self.create_hp_section()
+-            portrait_surf.blit(self.hp_surf, (8, 136))
++            portrait_surf.blit(self.hp_surf, (40, 112))
+ 
+         # If no portrait for this unit, either create one or default to class card using icons.get_portrait
+         if not self.current_portrait:
+@@ -468,58 +465,64 @@ class InfoMenuState(State):
+ 
+     def growth_colors(self, value):
+         color = 'yellow'
+-        if value <= 20:
++        if value <= 0:
+             color = 'red-orange'
+-        elif value > 20 and value <= 30:
++        elif value < 20:
+             color = 'light-red'
+-        elif value > 30 and value <= 40:
++        elif value < 30:
+             color = 'pink-orange'
+-        elif value > 40 and value <= 50:
++        elif value < 40:
+             color = 'light-orange'
+-        elif value > 50 and value <= 60:
++        elif value < 50:
+             color = 'corn-yellow'
+-        elif value > 60 and value <= 70:
++        elif value < 60:
+             color = 'light-green'
+-        elif value > 70 and value <= 80:
++        elif value < 70:
+             color = 'olive-green'
+-        elif value > 80 and value <= 90:
++        elif value < 80:
+             color = 'soft-green'
+-        else:  # > 90
++        else:  # >= 80
+             color = 'yellow-green'
+         return color
+ 
+     def create_portrait_section(self):
+         surf = engine.create_surface((96, WINHEIGHT), transparent=True)
+-        # The HP row's slash belongs to the HP section, since growths leave it out
+-        info_unit = SPRITES.get('info_unit')
+-        surf.blit(engine.subsurface(info_unit, (0, 0, 40, 14)), (8, 122))  # Lv and E
+-        surf.blit(engine.subsurface(info_unit, (0, 14, 24, 14)), (8, 136))  # HP
++
++        # Blit affinity
++        affinity = DB.affinities.get(self.unit.affinity)
++        if affinity and affinity.nid != 'None':
++            icons.draw_item(surf, affinity, (4, 81))
++            affinity_desc = text_funcs.translate_and_text_evaluate(affinity.desc, self=affinity, unit=self.unit)
++            self.info_graph.register((2, 80, 16, 16), affinity_desc, 'all')
++
++        # Blit the white status platform
++        surf.blit(SPRITES.get('status_platform'), (66, 83))
+ 
+         render_text(surf, ['text'], [self.unit.name], ['white'], (48, 80), HAlignment.CENTER)
+         unit_desc = text_funcs.translate_and_text_evaluate(self.unit.desc, self=self.unit, unit=self.unit)
+         self.info_graph.register((24, 80, 52, 24), unit_desc, 'all')
++
++        top, left = 96, 4
+         class_obj = DB.classes.get(self.unit.klass)
+-        render_text(surf, ['text'], [class_obj.name], ['white'], (8, 104))
++        render_text(surf, ['text'], [class_obj.name], ['white'], (left, top))
+         class_desc = text_funcs.translate_and_text_evaluate(class_obj.desc, self=class_obj, unit=self.unit)
+-        self.info_graph.register((8, 104, 72, 16), class_desc, 'all')
+-        render_text(surf, ['text'], [str(self.unit.level)], ['blue'], (39, 120), HAlignment.RIGHT)
++        self.info_graph.register((left, top, 72, 16), class_desc, 'all')
++
++        surf.blit(SPRITES.get('info_unit'), (left - 2, top + 18))
++        render_text(surf, ['text'], [str(self.unit.level)], ['blue'], (left + 29, top + 16), HAlignment.RIGHT)
+         desc = text_funcs.translate_and_text_evaluate('Level_desc', unit=self.unit)
+-        self.info_graph.register((8, 120, 30, 16), desc, 'all')
+-        render_text(surf, ['text'], [str(self.unit.exp)], ['blue'], (63, 120), HAlignment.RIGHT)
++        self.info_graph.register((left, top + 16, 30, 16), desc, 'all')
++        render_text(surf, ['text'], [str(self.unit.exp)], ['blue'], (left + 29, top + 32), HAlignment.RIGHT)
+         desc = text_funcs.translate_and_text_evaluate('Exp_desc', unit=self.unit)
+-        self.info_graph.register((38, 120, 30, 16), desc, 'all')
+-        
++        self.info_graph.register((left, top + 32, 30, 16), desc, 'all')
+         desc = text_funcs.translate_and_text_evaluate('HP_desc', unit=self.unit)
+-        self.info_graph.register((8, 136, 72, 16), desc, 'all')
++        self.info_graph.register((left + 30, top + 16, 72, 16), desc, 'all')
++
++        if self.unit.team.startswith('player'):
++            surf.blit(SPRITES.get('info_unit_cp'), (left + 32, top + 34))
++            desc = text_funcs.translate_and_text_evaluate('CP_desc', unit=self.unit)
++            self.info_graph.register((left + 30, top + 32, 72, 16), desc, 'all')
+ 
+-        # Blit the white status platform
+-        surf.blit(SPRITES.get('status_platform'), (66, 131))
+-        # Blit affinity
+-        affinity = DB.affinities.get(self.unit.affinity)
+-        if affinity:
+-            icons.draw_item(surf, affinity, (78, 81))
+-            affinity_desc = text_funcs.translate_and_text_evaluate(affinity.desc, self=affinity, unit=self.unit)
+-            self.info_graph.register((76, 80, 16, 16), affinity_desc, 'all')
+         return surf
+ 
+     def create_hp_section(self, growths=False):
+@@ -527,15 +530,17 @@ class InfoMenuState(State):
+         The values on the HP row beneath the portrait: the unit's HP growth
+         when growths are shown, otherwise its current and max HP
+         """
+-        surf = engine.create_surface((64, 16), transparent=True)
++        surf = engine.create_surface((64, 32), transparent=True)
+         if growths:
+             # Leaves room for three digits
+             icons.draw_growth(surf, 'HP', self.unit, (39, 0), percent=True)
++            if self.unit.team == 'player':
++                icons.draw_growth(surf, 'CP', self.unit, (39, 16), percent=True)
+             return surf
+ 
+-        surf.blit(engine.subsurface(SPRITES.get('info_unit'), (24, 14, 16, 14)), (24, 0))  # Slash
+-        current_hp = str(self.unit.get_hp())
+-        max_hp = str(self.unit.get_max_hp())
++        surf.blit(SPRITES.get('info_hp_slash'), (34, 2))  # Slash
++        current_hp = str(self.unit.get_hp()) if self.unit.get_hp() < 100 else '??'
++        max_hp = str(self.unit.get_max_hp()) if self.unit.get_max_hp() < 100 else '??'
+         # 14 pixels is width of space available to draw current_hp or max_hp
+         if text_width('text', current_hp) > 14 or text_width('text', max_hp) > 14:
+             hp_font = 'narrow'
+@@ -543,6 +548,13 @@ class InfoMenuState(State):
+             hp_font = 'text'
+         render_text(surf, [hp_font], [current_hp], ['blue'], (31, 0), HAlignment.RIGHT)
+         render_text(surf, [hp_font], [max_hp], ['blue'], (55, 0), HAlignment.RIGHT)
++
++        if self.unit.team.startswith('player'):
++            surf.blit(SPRITES.get('info_hp_slash'), (34, 18))
++            current_cp = str(self.unit.get_mana()) if self.unit.get_mana() < 100 else '??'
++            max_cp = str(self.unit.get_stat('CP')) if self.unit.get_stat('CP') < 100 else '??'
++            render_text(surf, ['text'], [current_cp], ['blue'], (31, 16), HAlignment.RIGHT)
++            render_text(surf, ['text'], [max_cp], ['blue'], (55, 16), HAlignment.RIGHT)
+         return surf
+ 
+     def draw_top_arrows(self, surf):
+@@ -559,11 +571,17 @@ class InfoMenuState(State):
+             self.logo.update()
+             self.logo.draw(top_surf)
+         # Blit page numbers
+-        if DB.constants.value('unit_notes') and self.unit.notes:
+-            num_states = len(info_states)
+-        else:
+-            num_states = len(info_states) - 1
+-        page = str(info_states.index(self.state) + 1) + '/' + str(num_states)
++        curr_state = info_states.index(self.state)
++        num_states = len(info_states)
++        if not (DB.constants.value('unit_notes') and self.unit.notes):
++            num_states -= 1
++            if curr_state > info_states.index('notes'):
++                curr_state -= 1
++        if not game.game_vars.get('_supports'):
++            num_states -= 1
++            if curr_state > info_states.index('supports'):
++                curr_state -= 1
++        page = str(curr_state + 1) + '/' + str(num_states)
+         typeface = 'number_small4' if 'number_small4' in FONT else 'small'
+         render_text(top_surf, [typeface], [page], [], (236, 13), HAlignment.RIGHT)
+ 
+@@ -574,15 +592,13 @@ class InfoMenuState(State):
+             if self.growth_flag:
+                 if not self.growths_surf:
+                     self.growths_surf = self.create_personal_data_surf(growths=True)
++                self.draw_stat_surf(self.growths_surf, growths=True)
+                 self.draw_growths_surf(main_surf)
+             else:
+                 if not self.personal_data_surf:
+                     self.personal_data_surf = self.create_personal_data_surf()
+                 self.draw_stat_surf(self.personal_data_surf)
+                 self.draw_personal_data_surf(main_surf)
+-            if not self.class_skill_surf:
+-                self.class_skill_surf = self.create_class_skill_surf()
+-            self.draw_class_skill_surf(main_surf)
+             if DB.constants.value('fatigue') and self.unit.team == 'player' and \
+                     game.game_vars.get('_fatigue'):
+                 if not self.fatigue_surf:
+@@ -594,37 +610,45 @@ class InfoMenuState(State):
+                 self.equipment_surf = self.create_equipment_surf()
+             self.draw_equipment_surf(main_surf)
+ 
+-        elif self.state == 'support_skills':
+-            main_surf.blit(SPRITES.get('status_logo'), (100, WINHEIGHT - 42))
+-            if not self.skill_surf:
+-                self.skill_surf = self.create_skill_surf()
+-            self.draw_skill_surf(main_surf)
++        elif self.state == 'skills':
+             if not self.wexp_surf:
+                 self.wexp_surf = self.create_wexp_surf()
+             self.draw_wexp_surf(main_surf)
+-            if not self.support_surf:
+-                self.support_surf = self.create_support_surf()
+-            self.draw_support_surf(main_surf)
++            if not self.class_skill_surf:
++                self.class_skill_surf = self.create_class_skill_surf()
++            self.draw_class_skill_surf(main_surf)
++
++            main_surf.blit(SPRITES.get('status_logo'), (104, WINHEIGHT - 42))
++            if not self.skill_surf:
++                self.skill_surf = self.create_skill_surf()
++            self.draw_skill_surf(main_surf)
+ 
+         elif self.state == 'notes':
+             if not self.notes_surf:
+                 self.notes_surf = self.create_notes_surf()
+             self.draw_notes_surf(main_surf)
+ 
++        elif self.state == 'supports':
++            if not self.support_surf:
++                self.support_surf = self.create_support_surf()
++            self.draw_support_surf(main_surf)
++
+         # Now put it in the right place
+         offset_x = max(96, 96 - self.scroll_offset_x)
+         main_surf = engine.subsurface(main_surf, (offset_x, 0, main_surf.get_width() - offset_x, WINHEIGHT))
+         surf.blit(main_surf, (max(96, 96 + self.scroll_offset_x), self.scroll_offset_y))
+         if self.transparency:
+             top_surf = image_mods.make_translucent(top_surf, self.transparency)
+-        surf.blit(top_surf, (0, self.scroll_offset_y)) 
+-
+-    def draw_stat_surf(self, surf):
+-        for idx, stat_nid in enumerate(self.left_stats):
+-            icons.draw_stat(surf, stat_nid, self.unit, (47, 16 * idx + 24))
++        surf.blit(top_surf, (0, self.scroll_offset_y))
+ 
++    def draw_stat_surf(self, surf, growths=False):
+         for idx, stat_nid in enumerate(self.right_stats):
+-            icons.draw_stat(surf, stat_nid, self.unit, (111, 16 * idx + 24))
++            if not (stat_nid == 'MOV' and growths):
++                icons.draw_stat(surf, stat_nid, self.unit, (111, 16 * idx + 24))
++
++        if not growths:
++            for idx, stat_nid in enumerate(self.left_stats):
++                icons.draw_stat(surf, stat_nid, self.unit, (47, 16 * idx + 24))
+ 
+     def create_personal_data_surf(self, growths=False):
+         if growths:
+@@ -639,7 +663,8 @@ class InfoMenuState(State):
+             curr_stat = DB.stats.get(stat_nid)
+             # Value
+             if growths:
+-                icons.draw_growth(surf, stat_nid, self.unit, (47, 16 * idx + 24))
++                if idx < 7:
++                    icons.draw_growth(surf, stat_nid, self.unit, (47, 16 * idx + 24), percent=True)
+             else:
+                 highest_stat = curr_stat.maximum
+                 max_stat = self.unit.get_stat_cap(stat_nid)
+@@ -656,7 +681,13 @@ class InfoMenuState(State):
+             color = 'yellow'
+             if DB.stats.get(stat_nid).growth_colors and self.unit.team == 'player':
+                 color = self.growth_colors(unit_funcs.growth_rate(self.unit, stat_nid))
+-            render_text(surf, ['text'], [name], [color], (8, 16 * idx + 24))
++
++            stat_font = 'text'
++            if FONT[stat_font].width(name) > 20:
++                stat_font = 'narrow'
++            if not growths or idx < 7:
++                render_text(surf, [stat_font], [name], [color], (8, 16 * idx + 24))
++
+             if growths:
+                 contribution = unit_funcs.growth_contribution(self.unit, stat_nid)
+             else:
+@@ -678,15 +709,23 @@ class InfoMenuState(State):
+             if DB.stats.get(stat_nid).growth_colors and self.unit.team == 'player':
+                 color = self.growth_colors(unit_funcs.growth_rate(self.unit, stat_nid))
+             render_text(surf, ['text'], [name], [color], (72, 16 * idx + 24))
+-            if growths:
+-                icons.draw_growth(surf, stat_nid, self.unit, (111, 16 * idx + 24))
+-                contribution = unit_funcs.growth_contribution(self.unit, stat_nid)
+-            else:
+-                base_value = self.unit.stats.get(stat_nid, 0)
+-                subtle_stat_bonus = self.unit.subtle_stat_bonus(stat_nid)
+-                base_value += subtle_stat_bonus
+-                contribution = self.unit.stat_contribution(stat_nid)
+-                contribution['Base Value'] = base_value
++
++            if stat_nid == 'MOV' and growths:
++                from app.engine.movement import movement_funcs
++                mtype = movement_funcs.get_movement_group(self.unit)
++                im = icons.get_icon_by_nid('Movement', 0, DB.mcost.unit_types.index(mtype))
++                surf.blit(im, (96, 16 * idx + 24))
++
++                desc = text_funcs.translate('%s_movement_desc' % mtype.replace(' ', '_'))
++                self.info_graph.register((96 + 72, 16 * idx + 24, 64, 16), help_menu.HelpDialog(desc, name=mtype), state)
++                continue
++
++            base_value = self.unit.stats.get(stat_nid, 0)
++            subtle_stat_bonus = self.unit.subtle_stat_bonus(stat_nid)
++            base_value += subtle_stat_bonus
++            contribution = self.unit.stat_contribution(stat_nid)
++            contribution['Base Value'] = base_value
++
+             desc_text = text_funcs.translate_and_text_evaluate(curr_stat.desc, self=curr_stat, unit=self.unit)
+             help_box = functools.partial(help_menu.StatDialog, desc_text or ('%s_desc' % stat_nid), contribution)
+             self.info_graph.register((96 + 72, 16 * idx + 24, 64, 16), help_box, state)
+@@ -703,10 +742,8 @@ class InfoMenuState(State):
+                 other_stats.insert(0, 'GAUGE')
+                 other_stats.insert(0, 'TRV')
+         else:
+-            other_stats.insert(0, 'AID')
+             other_stats.insert(0, 'TRV')
+-        if self.unit.get_max_mana() > 0:
+-            other_stats.insert(0, 'MANA')
++            other_stats.insert(0, 'AID')
+         if DB.constants.value('lead'):
+             other_stats.append('LEAD')
+ 
+@@ -728,22 +765,6 @@ class InfoMenuState(State):
+             elif stat == 'AID':
+                 aid = equations.parser.rescue_aid(self.unit)
+                 render_text(surf, ['text'], [str(aid)], ['blue'], (111, 16 * true_idx + 24), HAlignment.RIGHT)
+-
+-                # Mount Symbols
+-                for tag in self.unit.tags:
+-                    if ('aid_icon_%s' % tag) in SPRITES:
+-                        aid_surf = SPRITES.get('aid_icon_%s' % tag)
+-                        break
+-                else:
+-                    if 'Dragon' in self.unit.tags:
+-                        aid_surf = engine.subsurface(SPRITES.get('aid_icons'), (0, 48, 16, 16))
+-                    elif 'Flying' in self.unit.tags:
+-                        aid_surf = engine.subsurface(SPRITES.get('aid_icons'), (0, 32, 16, 16))
+-                    elif 'Mounted' in self.unit.tags:
+-                        aid_surf = engine.subsurface(SPRITES.get('aid_icons'), (0, 16, 16, 16))
+-                    else:
+-                        aid_surf = engine.subsurface(SPRITES.get('aid_icons'), (0, 0, 16, 16))
+-                surf.blit(aid_surf, (112, 16 * true_idx + 24))
+                 render_text(surf, ['text'], [text_funcs.translate('Aid')], ['yellow'], (72, 16 * true_idx + 24))
+                 desc = text_funcs.translate_and_text_evaluate('Aid_desc', unit=self.unit)
+                 self.info_graph.register((96 + 72, 16 * true_idx + 24, 64, 16), desc, state)
+@@ -751,7 +772,7 @@ class InfoMenuState(State):
+             elif stat == 'RAT':
+                 rat = str(equations.parser.rating(self.unit))
+                 render_text(surf, ['text'], [rat], ['blue'], (111, 16 * true_idx + 24), HAlignment.RIGHT)
+-                render_text(surf, ['text'], [text_funcs.translate('Rat')], ['yellow'], (72, 16 * true_idx + 24))
++                render_text(surf, ['narrow'], [text_funcs.translate('Rate')], ['yellow'], (72, 16 * true_idx + 24))
+                 desc = text_funcs.translate_and_text_evaluate('Rating_desc', unit=self.unit)
+                 self.info_graph.register((96 + 72, 16 * true_idx + 24, 64, 16), desc, state)
+ 
+@@ -805,42 +826,36 @@ class InfoMenuState(State):
+             if wexp > 0 and weapon in unit_funcs.usable_wtypes(self.unit) \
+                 and weapon in DB.weapons.get_visible_weapon_types():
+                 wexp_to_draw.append((weapon, wexp))
+-        width = (WINWIDTH - 102) // 2
+-        height = 16 * 2 + 4
+ 
++        # height = (len(wexp_to_draw) + 1) // 2 * 16 + 4
++        height = len(wexp_to_draw) * 16 + 4
+         surf = engine.create_surface((WINWIDTH - 96, height), transparent=True)
+         if not wexp_to_draw:
+             return surf
+-        counter = 0
+-        for y in range(0, 32, 16):
+-            for x in range(0, 2):
+-                weapon, value = wexp_to_draw[counter]
+-                weapon_rank = DB.weapon_ranks.get_rank_from_wexp(value)
+-                next_weapon_rank = DB.weapon_ranks.get_next_rank_from_wexp(value)
+-                if not weapon_rank:
+-                    perc = 0
+-                elif not next_weapon_rank:
+-                    perc = 1
+-                else:
+-                    perc = (value - weapon_rank.requirement) / (next_weapon_rank.requirement - weapon_rank.requirement)
+-                offset = 8 + x * width
+ 
+-                icons.draw_weapon(surf, weapon, (offset, 4 + y))
++        idx = 0
++        width = (WINWIDTH - 111) // 2
++        for weapon, value in wexp_to_draw:
++            weapon_rank = DB.weapon_ranks.get_rank_from_wexp(value)
++            next_weapon_rank = DB.weapon_ranks.get_next_rank_from_wexp(value)
++            if not weapon_rank:
++                perc = 0
++            elif not next_weapon_rank:
++                perc = 1
++            else:
++                perc = (value - weapon_rank.requirement) / (next_weapon_rank.requirement - weapon_rank.requirement)
+ 
+-                # Build groove
+-                build_groove(surf, (offset + 18, 10 + y), width - 24, perc)
+-                # Add text
+-                pos = (offset + 7 + width//2, 4 + y)
+-                if FONT.get('rank'):
+-                    render_text(surf, ['rank'], [weapon_rank.nid], ['blue'], pos, HAlignment.CENTER)
+-                else:
+-                    render_text(surf, ['text'], [weapon_rank.nid], ['blue'], pos, HAlignment.CENTER)
+-                self.info_graph.register((96 + pos[0] - width//2 - 8, 24 + pos[1], width, 16), "%s mastery level: %d" % (DB.weapons.get(weapon).name, value), 'support_skills', first=(counter==0))
+-                counter += 1
+-                if counter >= len(wexp_to_draw):
+-                    break
+-            if counter >= len(wexp_to_draw):
+-                break
++            # x_pos, y_pos = (8 + idx % 2 * width, 4 + idx // 2 * 16)
++            x_pos, y_pos = (8, 4 + idx * 16)
++
++            icons.draw_weapon(surf, weapon, (x_pos, y_pos))
++
++            # Build groove
++            build_groove(surf, (x_pos + 18, y_pos + 6), 36, perc)
++            # Add text
++            render_text(surf, ['rank'], [weapon_rank.nid], ['blue'], (x_pos + 32, y_pos))
++            self.info_graph.register((96 + x_pos, 24 + y_pos, 16, 16), "%s mastery level: %d" % (DB.weapons.get(weapon).name, value), 'skills', first=(idx==0))
++            idx += 1
+ 
+         return surf
+ 
+@@ -849,7 +864,14 @@ class InfoMenuState(State):
+ 
+     def create_equipment_surf(self):
+         def create_item_option(idx, item):
+-            return BasicItemOption.from_item(idx, item, width=120, mode=ItemOptionModes.FULL_USES, text_color=item_system.text_color(None, item))
++            item_mode = ItemOptionModes.NO_USES
++            if  item.data.get('uses') is not None or \
++                item.data.get('c_uses') is not None or \
++                item.parent_item and (item.parent_item.data.get('uses') is not None or \
++                                    item.parent_item.data.get('c_uses') is not None) or \
++                item.data.get('cooldown') is not None:
++                    item_mode = ItemOptionModes.FULL_USES
++            return BasicItemOption.from_item(idx, item, width=120, mode=item_mode, text_color=item_system.text_color(None, item))
+ 
+         surf = engine.create_surface((WINWIDTH - 96, WINHEIGHT), transparent=True)
+ 
+@@ -899,6 +921,7 @@ class InfoMenuState(State):
+             help_dlg = build_dialog_list(equipped_subitem if equipped_subitem else item, PageType.ITEM, unit=self.unit)
+             self.info_graph.register((96 + 8, y_pos, 120, 16), help_dlg, 'equipment', first=first)
+ 
++        '''
+         # Battle stats
+         battle_surf = SPRITES.get('battle_info')
+         top, left = 104, 12
+@@ -948,6 +971,33 @@ class InfoMenuState(State):
+         else:
+             render_text(surf, ['text'], [attack_speed], ['blue'], (127, top + 16), HAlignment.RIGHT)
+         render_text(surf, ['text'], [avo], ['blue'], (127, top + 32), HAlignment.RIGHT)
++        '''
++
++        top, left = 110, 12
++        battle_surf = SPRITES.get('battle_info')
++        surf.blit(battle_surf, (left - 4, top - 2))
++        battle_info = {
++            'Atk':  combat_calcs.damage,
++            'AS':   combat_calcs.attack_speed,
++            'Hit':  combat_calcs.accuracy,
++            'Avo':  combat_calcs.avoid
++        }
++        if DB.constants.value('crit'):
++            battle_info.update({
++                    'Crit': combat_calcs.crit_accuracy,
++                    'CD':   combat_calcs.crit_avoid
++                })
++        for idx, (k, v) in enumerate(battle_info.items()):
++            x_pos, y_pos = (left + idx // 2 * 40, top + idx % 2 * 16)
++            render_text(surf, ['text'], [text_funcs.translate(k)], ['yellow'], (x_pos, y_pos))
++            stat_desc = text_funcs.translate_and_text_evaluate('%s_desc' % k, unit=self.unit)
++            self.info_graph.register((96 + x_pos, y_pos, 40, 16), stat_desc, 'equipment')
++            stat_value = v(self.unit, weapon)
++            if stat_value is None:
++                stat_value = '--'
++            else:
++                stat_value = str(stat_value)
++            render_text(surf, ['text'], [stat_value], ['blue'], (36 + x_pos, y_pos), HAlignment.RIGHT)
+ 
+         return surf
+ 
+@@ -955,7 +1005,7 @@ class InfoMenuState(State):
+         surf.blit(self.equipment_surf, (96, 0))
+ 
+     def create_skill_surf(self):
+-        surf = engine.create_surface((WINWIDTH - 96, 24), transparent=True)
++        surf = engine.create_surface((WINWIDTH - 96, 32), transparent=True)
+         skills = [skill for skill in self.unit.skills if not (skill.class_skill or skill_system.hidden(skill, self.unit))]
+         # stacked skills appear multiple times, but should be drawn only once
+         skill_counter = {}
+@@ -967,21 +1017,24 @@ class InfoMenuState(State):
+             else:
+                 skill_counter[skill.nid] += 1
+         for idx, skill in enumerate(unique_skills[:6]):
+-            left_pos = idx * 24
+-            icons.draw_skill(surf, skill, (left_pos + 8, 4), compact=False, grey=skill_system.is_grey(skill, self.unit))
++            # x_pos, y_pos = (idx % 3 * 24, idx // 3 * 16)
++            x_pos, y_pos = (idx * 24, 0)
++            icons.draw_skill(surf, skill, (x_pos, y_pos), compact=False, grey=skill_system.is_grey(skill, self.unit))
+             if skill_counter[skill.nid] > 1:
+                 text = str(skill_counter[skill.nid])
+-                render_text(surf, ['small'], [text], ['white'], (left_pos + 20 - 4 * len(text), 6))
++                render_text(surf, ['small'], [text], ['white'], (x_pos + 16 - 4 * len(text), y_pos + 2))
+             help_dlg = build_dialog_list(skill, PageType.SKILL, unit=self.unit)
+-            self.info_graph.register((96 + left_pos + 8, WINHEIGHT - 28, 16, 16), help_dlg, 'support_skills')
++            self.info_graph.register((96 + 8 + x_pos, WINHEIGHT - 32 + y_pos, 16, 16), help_dlg, 'skills')
+ 
+         return surf
+ 
+     def draw_skill_surf(self, surf):
+-        surf.blit(self.skill_surf, (96, WINHEIGHT - 32))
++        surf.blit(self.skill_surf, (96 + 8, WINHEIGHT - 32))
+ 
+     def create_class_skill_surf(self):
+-        surf = engine.create_surface((WINWIDTH - 96, 24), transparent=True)
++        # top = self.wexp_surf.get_height()
++        top = 0
++        surf = engine.create_surface((WINWIDTH - 96 - 72, WINHEIGHT), transparent=True)
+         class_skills = [skill for skill in self.unit.skills if skill.class_skill and not skill_system.hidden(skill, self.unit)]
+ 
+         # stacked skills appear multiple times, but should be drawn only once
+@@ -994,61 +1047,147 @@ class InfoMenuState(State):
+             else:
+                 skill_counter[skill.nid] += 1
+         for idx, skill in enumerate(unique_skills[:6]):
+-            left_pos = idx * 24
+-            icons.draw_skill(surf, skill, (left_pos + 8, 8), compact=False, grey=skill_system.is_grey(skill, self.unit))
++            y_pos = 16 * idx + 4 + top
++            icons.draw_skill(surf, skill, (0, y_pos), compact=False, grey=skill_system.is_grey(skill, self.unit))
++
++            text = text_funcs.translate(skill.name)
++            font = 'text'
++            if text_width(font, text) > WINWIDTH - 96 - 72 - 24:
++                font = 'narrow'
++            render_text(surf, [font], [text], ['white'], (24, y_pos))
++
+             if skill_counter[skill.nid] > 1:
+                 text = str(skill_counter[skill.nid])
+-                render_text(surf, ['small'], [text], ['white'], (left_pos + 20 - 4 * len(text), 6))
++                render_text(surf, ['small'], [text], ['white'], (20 - 4 * len(text), y_pos + 6))
+             help_dlg = build_dialog_list(skill, PageType.SKILL, unit=self.unit)
+-            if self._extra_stat_row:
+-                self.info_graph.register((96 + left_pos + 8, WINHEIGHT - 22, 16, 16), help_dlg, 'personal_data')
+-                self.info_graph.register((96 + left_pos + 8, WINHEIGHT - 22, 16, 16), help_dlg, 'growths')
+-            else:
+-                self.info_graph.register((96 + left_pos + 8, WINHEIGHT - 32, 16, 16), help_dlg, 'personal_data')
+-                self.info_graph.register((96 + left_pos + 8, WINHEIGHT - 32, 16, 16), help_dlg, 'growths')
++            self.info_graph.register((96 + 72, y_pos + 24, 16, 16), help_dlg, 'skills')
+ 
+         return surf
+ 
+     def draw_class_skill_surf(self, surf):
+-        if self._extra_stat_row:
+-            surf.blit(self.class_skill_surf, (96, WINHEIGHT - 26))
+-        else:
+-            surf.blit(self.class_skill_surf, (96, WINHEIGHT - 36))
++        surf.blit(self.class_skill_surf, (96 + 72, 24))
+ 
+     def create_support_surf(self):
+-        surf = engine.create_surface((WINWIDTH - 96, WINHEIGHT), transparent=True)
+-        width = (WINWIDTH - 102) // 2
+-
+-        if game.game_vars.get('_supports'):
+-            pairs = game.supports.get_pairs(self.unit.nid)
+-            pairs = [pair for pair in pairs if pair.unlocked_ranks]
+-        else:
+-            pairs = []
+-
+-        pairs = pairs[:6] # max six supports displayed
+-
+-        top = self.wexp_surf.get_height() + 24
+-        for idx, pair in enumerate(pairs):
+-            x, y = (idx) % 2, idx // 2
+-            other_unit = None
+-            if pair.unit1 == self.unit.nid:
+-                other_unit = game.get_unit(pair.unit2)
+-            elif pair.unit2 == self.unit.nid:
+-                other_unit = game.get_unit(pair.unit1)
+-            if not other_unit:
++        def get_portrait(unit: UnitObject) -> engine.Surface:
++            portrait = RESOURCES.portraits.get(unit.portrait_nid)
++            if not portrait:
++                return engine.empty_surf()
++
++            if not portrait.image:
++                portrait.image = engine.image_load(portrait.full_path)
++            im = engine.subsurface(portrait.image, (*utils.tuple_add(
++                        portrait.get_face_frame()[0:2],
++                        portrait.get_blink_coord(),
++                        (16, 8),
++                        (-portrait.blink_size[0] // 2, -portrait.blink_size[1] // 2)
++                    ), 32, 16)).convert()
++            engine.set_colorkey(im, COLORKEY, rleaccel=True)
++            return im.copy()
++
++        surf = engine.create_surface((WINWIDTH - 96, WINHEIGHT - 24), transparent=True)
++        y_pos = 4
++
++        self.support_partners = []
++        self.support_glow = {}
++        for prefab in DB.support_pairs:
++            if prefab.unit1 == self.unit.nid:
++                other_unit_nid = prefab.unit2
++            elif prefab.unit2 == self.unit.nid:
++                other_unit_nid = prefab.unit1
++            else:
+                 continue
+-            affinity = DB.affinities.get(other_unit.affinity)
+-            if affinity:
+-                icons.draw_item(surf, affinity, (x * width + 8, y * 16 + top))
+-                affinity_desc = text_funcs.translate_and_text_evaluate(affinity.desc, unit=self.unit)
+-                self.info_graph.register((96 + x * width + 8, y * 16 + top, WINWIDTH - 120, 16), affinity_desc, 'support_skills')
+-            render_text(surf, ['narrow'], [other_unit.name], [], (x * width + 22, y * 16 + top))
+-            highest_rank = pair.unlocked_ranks[-1]
+-            render_text(surf, ['text'], [highest_rank], ['yellow'], (x * width + surf.get_width()/2 - 2, y * 16 + top), HAlignment.RIGHT)
++
++            if game.get_unit(other_unit_nid):
++                other_unit = game.get_unit(other_unit_nid)
++
++                # Name
++                render_text(surf, ['text'], other_unit.name, None, (29, y_pos))
++
++                # Affinity
++                affinity = DB.affinities.get(other_unit.affinity)
++                if affinity:
++                    icons.draw_item(surf, affinity, (93, y_pos - 1))
++
++                # Portrait
++                portrait = get_portrait(other_unit)
++                if other_unit.dead:
++                    portrait = image_mods.make_gray_colorkey(portrait)
++                surf.blit(portrait, (109, y_pos - 1))
++
++                # Support Rank
++                prefab = DB.support_pairs.get_pairs(self.unit.nid, other_unit_nid)[0]
++                if prefab.nid not in game.supports.support_pairs:
++                    game.supports.create_pair(prefab.nid)
++                pair = game.supports.support_pairs[prefab.nid]
++
++                if not pair.unlocked_ranks:
++                    render_text(surf, ['rank'], ['-'], ['grey'], (77, y_pos))
++
++                elif other_unit.dead:
++                    highest_rank = pair.unlocked_ranks[-1]
++                    render_text(surf, ['rank'], [highest_rank], ['grey'], (77, y_pos))
++
++                else:
++                    highest_rank = pair.unlocked_ranks[-1]
++                    if len(pair.unlocked_ranks) < len(prefab.requirements):
++                        render_text(surf, ['rank'], [highest_rank], ['blue'], (77, y_pos))
++                    else:
++                        self.support_glow[other_unit_nid] = highest_rank
++
++                    support_rank_bonus = game.supports.get_bonus(self.unit, other_unit, highest_rank)
++                    text = '{br}'.join("+%d %s" % (bonus, text_funcs.translate(stat)) for stat, bonus in vars(support_rank_bonus).items() if bonus)
++                    self.info_graph.register((100, y_pos + 24, 64, 16), help_menu.HelpDialog(text, name='Support with %s' % other_unit_nid), 'supports')
++
++            else:  # Not loaded into game yet
++                other_unit_prefab = DB.units.get(other_unit_nid)
++
++                # Name
++                render_text(surf, ['text'], ['???'], None, (29, y_pos))
++
++                '''
++                # Affinity
++                affinity = DB.affinities.get(other_unit_prefab.affinity)
++                if affinity:
++                    icons.draw_item(surf, affinity, (93, y_pos - 1))
++
++                # Portrait
++                portrait = get_portrait(other_unit_prefab)
++                portrait = image_mods.make_black_colorkey(portrait, 1)
++                surf.blit(portrait, (109, y_pos - 1))
++
++                # Support Rank
++                render_text(surf, ['rank'], ['-'], ['grey'], (77, y_pos))
++                '''
++
++            self.support_partners.append(other_unit_nid)
++            y_pos += 16
++            if y_pos + 16 > surf.get_height():
++                break
++
+         return surf
+ 
+     def draw_support_surf(self, surf):
+-        surf.blit(self.support_surf, (96, 0))
++        surf.blit(self.support_surf, (96, 24))
++
++        for idx, other_unit_nid in enumerate(self.support_partners):
++            if game.get_unit(other_unit_nid):
++                other_unit = game.get_unit(other_unit_nid)
++                if other_unit.dead:
++                    map_sprite = other_unit.sprite.create_image('gray')
++                else:
++                    map_sprite = other_unit.sprite.create_image('passive')
++                image = map_sprite
++
++            else:  # Not loaded into game yet
++                other_unit_prefab = DB.units.get(other_unit_nid)
++                map_sprite = unit_sprite.load_map_sprite(other_unit_prefab)
++                image = map_sprite.passive.get_frame()
++                image = image_mods.make_black_colorkey(image, 1)
++
++            surf.blit(image, (80, idx * 16 + 4))
++            rank = self.support_glow.get(other_unit_nid, None)
++            if rank:
++                icons.draw_glow(surf, FONT['rank-green'], rank, (96 + 77, idx * 16 + 28))
+ 
+     def create_fatigue_surf(self):
+         surf = engine.create_surface((WINWIDTH - 96, WINHEIGHT), transparent=True)
+@@ -1076,19 +1215,20 @@ class InfoMenuState(State):
+         my_notes = self.unit.notes
+ 
+         if my_notes:
+-            total_height = 24
+-            help_offset = 0
++            y_offset = 24
+             for idx, note in enumerate(my_notes):
+                 category = note[0]
+                 entries = note[1].split(',')
+-                render_text(menu_surf, ['text'], [category], ['blue'], (10, total_height))
++                category_length = text_width('text', category)
++                x_offset = 64 if category_length <= 64 else (category_length + 8)
++
++                render_text(menu_surf, ['text'], [category], ['blue'], (10, y_offset))
++                self.info_graph.register((96, y_offset, 64, 16), '%s_desc' % category, 'notes', first=(idx == 0))
++
+                 for entry in entries:
+-                    category_length = text_width('text', category)
+-                    left_pos = 64 if category_length <= 64 else (category_length + 8)
+-                    render_text(menu_surf, ['text'], [text_parser._evaluate_all(entry)], [], (left_pos, total_height))
+-                    total_height += 16
+-                self.info_graph.register((96, 16 * help_offset + 24, 64, 16), '%s_desc' % category, 'notes', first=(idx == 0))
+-                help_offset += len(entries)
++                    for line in text_funcs.line_wrap('text', text_parser._evaluate_all(entry), WINWIDTH - 96 - x_offset):
++                        render_text(menu_surf, ['text'], [line], [], (x_offset, y_offset))
++                        y_offset += 16
+ 
+         return menu_surf
+ 
+diff --git a/sprites/info_menu/info_hp_slash.png b/sprites/info_menu/info_hp_slash.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b01a60ea968b7d556b81d86136311400b090df2f
+GIT binary patch
+literal 199
+zcmeAS@N?(olHy`uVBq!ia0vp^96-#&!3HGb=lz)rq!^2X+?^QKos)S9<glbW`Z_W&
+zZ0zU$lgJ9>a~60+7Bet#^MWwrTlNDwKtZ-7Z+91l{~)+v@AAn&5%v;KUsv`=oU%-!
+z)_WP%T!2F6o-U3d8o|j6cs~?8_`#o=#5CbaKfmn%#I6|!79C+KxvSu?hx0~BGee=;
+lgG;<jOLj7za$(}(VVEi@8+}=KLpaa~22WQ%mvv4FO#lr$II92v
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/info_menu/info_title_equipment.png b/sprites/info_menu/info_title_equipment.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..930d70ee96e82ade587c9813f02379a095294826
+GIT binary patch
+literal 2200
+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
+Rdp7<MfTg*$S-Gh@@+aRiAx8iJ
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/info_menu/info_title_skills.png b/sprites/info_menu/info_title_skills.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..cafbfbc66f81dbedb35f56891280265a89aac5e9
+GIT binary patch
+literal 4694
+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
+Gh5i@2hYUsl
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/info_menu/info_title_supports.png b/sprites/info_menu/info_title_supports.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..e2e440b25b7e1ad899b3233f8883a1931c25b947
+GIT binary patch
+literal 2845
+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
+DRo8<b
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/info_menu/info_unit.png b/sprites/info_menu/info_unit.png
+index 48633ef380399de05ac97962cfa96b5f5f8359fe..be8f6068c89952448a85d61d91bb301ef289f60b 100644
+GIT binary patch
+delta 437
+zcmV;m0ZRUq1iu4QiBL{Q4GJ0x0000DNk~Le0000o0000S2nGNE03(^~_W%F@0drDE
+zLIAGL9O(c600d`2O+f$vv5yP<VFdsH010qNS#tmY3l0DP3l0H5zTrWUAr*fIbV*G`
+z2jU4G0u?*G0VYHM00A#aL_t(oN9~tA4#F@Dg+nKf#mLB!7&!tXN9fqGM`G*-eQBR$
+zxlXB23USp>ic-5j@pI}L4x#6KI=(QIrtOk``gl!F<a%-~plu1x#glb?9bE&L%V1l6
+z`f!|6jE+OD1+-1-rVWpKI~ad>NcX(OAyr#``s8)F(CekvrjIt}Dn4NY>_XPYs)sp>
+z6~Yfr3J8s(FLtn42yQ}AVb1-<`Ub>+fiD(fNeV&GxZqP}{t4n^LQNseJm%3ADP=b-
+zDh5q(EbU*R<B-5_#VHdVGpjRCn0a}A&E3%J%-NvCH)Cg~R2CJx2h3UjBc#-xVNoGa
+z*}ZXGayL(5c6N&M^lBx4qIePkCPGjzy8U}#B7`;Ken)^e5x^7z+`n3Yy~UH5%{0Uq
+fWGeH1Y9)j>V-@{9<*#D000000NkvXXu0mjfl{K!u
+
+literal 532
+zcmV+v0_**WP)<h;3K|Lk000e1NJLTq001Ze000~a1^@s66BYf|00006VoOIv0RI60
+z0RN!9r;`8x010qNS#tmY3ljhU3ljkVnw%H_000McNliru;t3rB6+68FCPV-L0ij7m
+zK~z}7?N=?%!!QhWs)8P&uyF7@LSbQG;f_+cV-yw!7Un30g@a)ks61t<^V2BHM`o!~
+zV@I;%*v~Hv0AT1F4Th{zF_#{7xF?6$eoTLC=o>A>^kLxqSW|k`aXw`UlJalI0Yl$t
+z^?Ydcd}#ADlpb}iQ-`E&M>0s$kLja^LV|%U+YDm|u<wg=?<y7JeA25_tS%MYvdx#S
+z9m}UG5#YWrFn0H-y+RyyjwMv=iem*E<8lV^R6<PII@ni(_+N$U;N9wl1+TdBVUrCd
+zsoA5Th0;;}Ya1wCpqaCSaXoebe>dUv&qAZdwx`sdD_e+#A^$)5$$tvj1ip3YB0j+k
+z=aYB+hJ#fCfYjd(vhqy}1ZC6C`2p5^=r2JE+VG2I*xATJi0|2e?c#*SywAr6LwpbI
+zCgt)G){iTuSj#v0Ud;Q%ocA?VcfKIeb~MSg?8aR2sf$wyWeUt-mX~cl)vAkYCe>ic
+zAztO|;8?i9Y=*LTdXwT?)VH?Z#BDo*REqpCNPCYRyzi}@H0tbAhWMVn$Ay1X>AU~}
+W(UN+EX>0BP0000<MNUMnLSTY^F!SsH
+
+diff --git a/sprites/info_menu/info_unit_cp.png b/sprites/info_menu/info_unit_cp.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2bf867187204aa266c57acb9c7ef9306b0322e67
+GIT binary patch
+literal 314
+zcmeAS@N?(olHy`uVBq!ia0vp^0zk~e!3HF=pW8M9DaPU;cPEB*=VV?2IV|apzK#qG
+z8~eHcB(eheoCO|{#S9GGd?3u|u<s#Il7TJB+ueoXKL{?^yL>WGguTSm*OmPdr!14G
+z^<G9b7ogB8PZ!4!3;(GTHwqp$;9%Hz&h?nr%uC8U&v0lOH+fB$I=OWB4S$~|3(Mz!
+z=CUv~3Y0wB5v#BNBxD+&?8~=;f9A8qoT?0|m2h)(Z@Ot)sr9L5%J;?xsrz1cRh`aH
+zPf7Z$A3SYuP1}~!T;55xKU|F&=Ww<iW^w-z8yhXW@cLfHy_um8e>d-sY%~?yIa`Zk
+z%M;F{=WqKz)#vEh+*kJg`hwn9{m(k;zcYUL+P!Aevx&#<uAI6a=xPQ}S3j3^P6<r_
+D`C)he
+
+literal 0
+HcmV?d00001
+

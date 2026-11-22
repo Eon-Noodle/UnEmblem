@@ -1,0 +1,225 @@
+diff --git a/app/engine/ui_view.py b/app/engine/ui_view.py
+index 4681ee807..1c1659eb0 100644
+--- a/app/engine/ui_view.py
++++ b/app/engine/ui_view.py
+@@ -320,9 +320,15 @@ class UIView():
+ 
+     def create_unit_info(self, unit):
+         font = FONT['info-grey']
+-        dimensions = (112, 40)
+-        width, height = dimensions
+-        surf = SPRITES.get('unit_info_bg').copy()
++        sprite_name = 'unit_info_bg'
++        if unit.team.startswith('player'):
++            sprite_name += '_player'
++        elif unit.klass == 'God':
++            sprite_name += '_God'
++            font = FONT['info-white']
++        surf = SPRITES.get(sprite_name).copy()
++
++        width, height = surf.get_size()
+         top, left = 4, 6
+         if not unit.portrait_nid and unit.faction:
+             icons.draw_faction(surf, DB.factions.get(unit.faction), (left + 1, top + 4))
+@@ -334,20 +340,19 @@ class UIView():
+         if not unit.name:
+             short_name = DB.classes.get(unit.klass).name
+             name = short_name + ' ' + str(unit.level)
+-        pos = (left + width//2 + 6 - font.width(name)//2, top + 4)
+-        font.blit(name, surf, pos)
++        font.blit(name, surf, (left + 40, top + 20))
+ 
+         # Health text
+-        surf.blit(SPRITES.get('unit_info_hp'), (left + 34, top + height - 20))
+-        surf.blit(SPRITES.get('unit_info_slash'), (left + 66, top + height - 19))
++        surf.blit(SPRITES.get('unit_info_hp'), (left + 1, top + 37))
++        surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 38))
+         current_hp = unit.get_hp()
+         max_hp = unit.get_max_hp()
+-        font.blit_right(str(current_hp), surf, (left + 66, top + 16))
+-        font.blit_right(str(max_hp), surf, (left + 90, top + 16))
++        font.blit_right(str(current_hp) if current_hp < 100 else '??', surf, (left + 33, top + 33))
++        font.blit_right(str(max_hp) if max_hp < 100 else '??', surf, (left + 57, top + 33))
+ 
+         # Health BG
+         bg_surf = SPRITES.get('health_bar2_bg')
+-        surf.blit(bg_surf, (left + 36, top + height - 10))
++        surf.blit(bg_surf, (left + 57, top + 39))
+ 
+         # Health Bar
+         hp_ratio = utils.clamp(current_hp / float(max_hp), 0, 1)
+@@ -355,14 +360,39 @@ class UIView():
+             hp_surf = SPRITES.get('health_bar2')
+             idx = int(hp_ratio * hp_surf.get_width())
+             hp_surf = engine.subsurface(hp_surf, (0, 0, idx, 2))
+-            surf.blit(hp_surf, (left + 37, top + height - 9))
++            surf.blit(hp_surf, (left + 58, top + 40))
++
++        if unit.team.startswith('player'):
++            # Health text
++            surf.blit(SPRITES.get('unit_info_cp'), (left + 1, top + 45))
++            surf.blit(SPRITES.get('unit_info_slash'), (left + 34, top + 46))
++            current_cp = unit.get_mana()
++            max_cp = unit.get_stat('CP')
++            font.blit_right(str(current_cp) if current_cp < 100 else '??', surf, (left + 33, top + 41))
++            font.blit_right(str(max_cp) if max_cp < 100 else '??', surf, (left + 57, top + 41))
++
++            # Composure BG
++            bg_surf = SPRITES.get('health_bar2_bg')
++            surf.blit(bg_surf, (left + 57, top + 47))
++
++            # Composure Bar
++            cp_ratio = utils.clamp(current_cp / float(max_cp), 0, 1)
++            if cp_ratio > 0:
++                cp_surf = SPRITES.get('health_bar2')
++                idx = int(cp_ratio * cp_surf.get_width())
++                cp_surf = engine.subsurface(cp_surf, (0, 0, idx, 2))
++                surf.blit(cp_surf, (left + 58, top + 48))
+ 
+         # Weapon Icon
+-        weapon = unit.get_weapon()
+-        icon = icons.get_icon(weapon)
+-        if icon:
+-            pos = (left + width - 20, top + height//2 - 8)
+-            surf.blit(icon, pos)
++        for idx, item in enumerate(unit.nonaccessories[:5]):
++            pos = (left + idx * 16 + 33, top + 4)
++            if item is unit.get_weapon():
++                surf.blit(SPRITES.get('info_equipment_highlight'), utils.tuple_add(pos, (0, 10)))
++            elif hasattr(unit, 'get_offhand') and item is unit.get_offhand():
++                surf.blit(SPRITES.get('info_equipment_highlight_green'), utils.tuple_add(pos, (0, 10)))
++            surf.blit(icons.get_icon(item), pos)
++            if item.droppable:
++                surf.blit(SPRITES.get('info_droppable'), utils.tuple_add(pos, (0, 1)))
+         return surf
+ 
+     def create_tile_info(self, coord):
+diff --git a/sprites/menus/info_droppable.png b/sprites/menus/info_droppable.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c63c45f7b2b24a410caa7860c218142a8e0fd18d
+GIT binary patch
+literal 177
+zcmeAS@N?(olHy`uVBq!ia0vp^tRT$61|)m))t&+=#^NA%Cx&(BWL^R}Ea{HEjtmSN
+z`?>!lf>d%ActjR6F!1dMVMYtqU=^UCo2QFoh(vhumJJ(zoKHA#py2UwUN(UXI~Fo7
+zlXMUgwCDQQEP8;Y?$3{p^@sa~3pmv#9N}x@=Fx5tV3TlUiIEnVV^P>7$RK)0{!50*
+R6&|3844$rjF6*2UngC4JGKByD
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/menus/info_equipment_highlight.png b/sprites/menus/info_equipment_highlight.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..dee47f7e24ba3d702211f0c0eb2d5d68c9187fc6
+GIT binary patch
+literal 181
+zcmeAS@N?(olHy`uVBq!ia0vp^0zk~p!3-qL{@E4)DaPU;cPEB*=VV?2IV|apzK#qG
+z8~eHcB(eheoB=)|t`-&z9uX6Oym@nu%m-4;B|(0{|Nk>wKgA1F%fMOS5n0T@z%2~I
+zj105pNB{-ZJY5_^B*K#ul9C*l9OQ(Vm4z6J0)IFNDzVI1prgSc)unXk2n&PgZ-&hC
+Tx-TaJbuf6k`njxgN@xNAEr2W<
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/menus/info_equipment_highlight_green.png b/sprites/menus/info_equipment_highlight_green.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..39f484c4005e9084947dc4702ce33f8a96a39579
+GIT binary patch
+literal 184
+zcmeAS@N?(olHy`uVBq!ia0vp^0zk~p!3HE570x<=sNx`ZCx&(BWL^R}Ea{HEjtmSN
+z`?>!lvI6;>1s;*b3=G^tAk28_ZrvZCps%NkV~9p@a!LbJBTM7|0JXpehnx5l_9ieb
+ziEMUeKB6LZ=SLxP4u`VktVD(s4&f=jW()2xL?ldLK9I<eY8;UgF+qe|J#7xdtJDMr
+ZhF~3u9>&hMEI@-9JYD@<);T3K0RW^?F{uCm
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/menus/unit_info_bg.png b/sprites/menus/unit_info_bg.png
+index 73f2694ca8493f9f86b81a69a637eb30359d9015..59803064fbff745c949579939892e0623c4ca0d6 100644
+GIT binary patch
+delta 970
+zcmV;*12z1c2Z#t$iBL{Q4GJ0x0000DNk~Le0001d0000w2nGNE0CFEa&j0`b0drDE
+zLIAGL9O(c600d`2O+f$vv5yP<VFdsH010qNS#tmY4#NNd4#NS*Z>VIEAr+BJJAVUD
+zNkl<ZcwX(CF=$gk7{{*-LWd3&ad2|2n?qM2ZXG(r$$}jMb#M%*pt!gQf(jV}Dr8Wo
+zlNl;>Yd{Bw>}GSUB84Y*2!x=1m%Dhm_wL?3lf1mU_y56h_wrt{{PO?4OAE(r)UKR6
+z7E2HaD`JlE;{J`}kB5h>^JREly?;*Q+RhHU`|Le`kB<5ow&%d&NE9x`NGX%+)@OES
+zYg0Tmrq%1S{--|s+B;#VCui*P&nJ^Fi4Ii^d5_kRo<FN%=8#wtAyY`RdacXWxo~M+
+ztj0psL9eORf@Y9EJmG4oP2+7Z;<K7;$$I~xSY_b%P%OZ_>GWBwdakMoc7Ng4)&`&T
+zwCl2|T&pw4pJrn>R!LW6xz%~y?TFPs*4C@6^>~k$dP;hu+2IM7vgtka3^6$Cvi9>=
+ztbXtIWR~|-DwT>@0apf5m#uA7`An#5mG;y2Uq=U1Dd)oV&68`1zqr?CKi<^E)qjGL
+zzA&oWH?KCD@6L-$PHdMhWq-?FZGsZKU#;<yZAz~Tp(K1X8i`eLc=>2Qmhh=vI^o*S
+zNidc0S!9F!i3yj;&6y1n4cUH?C|vHWNjh!PKsXqCxVlS6iv7f?hs)hMZOBlv!viI~
+zWElTjcKZFp<PS1Pxt}<dbcrnIkR29A;UG*PJTQJ$hLe#5gqI8m4}X+sFc7P0AUpul
+z%D4)Idrp#MQ@RNVFBuSCG9cVTY(3jn&It(j43lIz(tz+li6Z<gD-9;u1cZCQEInHX
+z!VAu<JzEFD1H)F%2?#G45MDsC_H0VE9BDv!!N}UPT_meOc%Vcq`HKMIB?H0>z&v|4
+zCEJv40>YO})}Eb&lz(g!ErD>)$ht|>f$)+6;Y(oNJv$2!o-<i{wryi(lWi*f5MDAM
+zJU~q8CLlZq^6c3**#v|yn5;cJiL{<=`-12gh0}3b817?UxJa7?B)num_?)4%7pZ6K
+z7?1p@Z898j?K#!$-S}CnVvZ4gJBkT69q5{LxGU~2|9<O1-D_Pq67D~g@b1w8p9zwW
+z9v(P!NIprYLFcC%6HX)@unzJ=O{WgsQ!zb9sV0xM&jJO2B&luH)MDjxF82}Og5xU7
+s^jy;G){+kVf~4xDo}f}b-mNqC2c<QDL_b;NssI2007*qoM6N<$f~_9HDF6Tf
+
+delta 876
+zcmV-y1C#uS2%85;iBL{Q4GJ0x0000DNk~Le0001b0000m2nGNE0N$Ez?f?J)24YJ`
+zL;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_k!3!A0{=-wK~#9!?VQ1D(@-48
+zf7x2-VJ+fC{13Dzp<bowZO}5hTUl|Jf$Z2F3VPX15O!FPIv5m1=&fb6Y`3J~#WAnd
+z2_8ihl(KrrC^`={Axqv%UR~_^UcO%#ZSz7G^6BsUeZPb}q5ze%NrNCIl;92Q)>n;w
+zugm?+Q@&V#qOF~FA?!PY_Jd{w+6Iy@mZ&pmJD(rCcuSl2?_S#X`N@0w_~w*89e<`D
+zUw%@*_mun3`n@i72IIeQyT)#P)d1{k0Br-ctFGVcQaPJ+s?ZDBtDCo%h|buy-x-Vx
+zHe^wEfTEK&?TLT=?#x%oww6wxOn(Hw$Dk0gIv>b?=aLKViWN~cmtj`77jnK>y7UUo
+zPK{c{5T1<fn+LvaskBae+iO(KWt_@(L*6$JD3#WUh{zh5L`1Y+f8@N{V{R>K8psIB
+z8k&^4p_4V7oLl#Mx0=tIe(Nr0lZJN&ENbPq9=@cnuhy@2^sw&8r7u^g)@T)c8O@rI
+zxhs}``Rf{)w4tw1zF6W`tB7Q;=wBBXb8#Fa?c90adc5faonW;<B1)xo$KL-HGBi6a
+zgiX4_U<2}eX=qvEpzWD*HJ72i?KPaeIn_uzcmAfjU}8h=_qxnkx5^nOBV^HPW>&O4
+z``*x3V9ly$G^|@aF)x^G?X(Nuza8Qhr37|=En?eT&}f<D&t&2D3X-(F8d?AySIB|Z
+z4auF!03DM|hIPl#wgEcseKaITCWloqKr4{R(?EuGtC-b<J{lPf$)Cx*N(N{J`s6UU
+zux<tWWPpZX-704?Kug>wi@?Qg%9snFV=`fbbt{s|VY708mbg!j<faB5XBAUa4<KBB
+zwNFMyL$K~BwWw)<Ry*rV76x6pmjXRWr7u^+K{w4K-!|T|3alj-Fn)dG%%v@Opv!j%
+zkK{;P(dJRhsq9*#RX|27s>u>mErV#XN>L(cN7gb%(Epda8d+mudF-uhXb#n=RSb7*
+z@*>pUPh=bgJLj;&Ao2ENZO7#=MSd6?EQ@xpH}(g#Z1W_usRUgB0000<MNUMnLSTY;
+Cxu3fL
+
+diff --git a/sprites/menus/unit_info_bg_player.png b/sprites/menus/unit_info_bg_player.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2d8945d30ae8013e14b578a4297cec0f8df54d57
+GIT binary patch
+literal 1109
+zcmV-b1giUqP)<h;3K|Lk000e1NJLTq004Xd002S=1^@s6m2R?Q00001b5ch_0Itp)
+z=>Px#1ZP1_K>z@;j|==^1poj532;bRa{vGi!T<mc!T}X1N`L?W00v@9M??Vs0RI60
+zpuMM)00007bV*G`2jK)97dHl;j+~SL0013nR9JLFZ*6U5Zgc<u0000(a%Ew3Wn>_C
+zX>@2HM@dakWG-a~000A=Nkl<ZcwX(DF=!M)6ow}`gcK<vVqs+)JBzf!*`-JkD+8to
+z#KJP5f?{JM2r8sJP~i%NSb0T+bU84EMS8EZj3R**Qyd(J`sQZNx!IYy+3aSsGy8uq
+z%v^Sp=DYvBmjrH^i`8ov_QerI!i?Bcyn1+R|MTuH>wF#DR9{cy#>xu2|KcP69v$^(
+zxb6dIhf%l`Bc+UAx4y7@ON-*J5v{`>>mBsix5FcLe00LD{(3fklju;zkk{x8>E$yk
+zb`FUp5i*6etFLw0I+w1@i_=J`y69_awV)l84^OySYNzr3FyXtJY{`7@u{dSm&p;eN
+z(R6w&RXu0b1p9DjX@T#0+I87fuGJls&-T_@s*=vga;x*U+YzV#%*{7h>*+c#^_29j
+z?G8`4luh45_YnP)E^EJh!!{n=9q;m*N~6&bC*Vsz>9V<nCf^D5tkQno{^w|CBIR7T
+zK0NuB_{-~U_Ve9_cy&rp($9?M^6l$e+aE59mz>m;E@jJJZG#fL*<9r%+m>D*VoCUL
+zI25Pq@cPMSD&Z4TI^o;TNidc0JhDOgq=ZZ4aOQ$ULv~mgh0DpBq|=ZF;=$U()hQh*
+z4im2)E~j-G$WXH510}s?SpQpg{NvO34>Cx3n0S?Ri7e-k9T!&NAWk4WGJZD(<7EQE
+zYX*czO49F((<Bfc0n^I33WNuaNwO{71ccWN2(K9s9w4rs?JDO4ga?LAvRu=E@JLA#
+z{90BUY_bUm4}d&9TL;1`PTroa1L2Y3D(3`**9-`+AX$4hrCP3OKzPN-+OvHmt3Y_9
+zB+UFqfbg0D;T53Bo=wTNrJI28b0%xgHX$XuL`xt%FtQG5IuKqnAp9ICx@Ttr!b>J=
+z&vp%FF4?xy58*Wf!Xw0%ZUVwfpv<1_l1)JP8I!eVo0!(KU2hN_t8n@_EiC_46h6}O
+zfP~i!2rn2)dzE^&j#W5)vLKfKlDGufWZNiOHi3i}NYw^36A&)YhcMSFiqlHV1BBNM
+z2+skfy~+cc39E3ujK#ieggl^`K*CQ+2m_i42rr2urRBl;(VMG_43C-$oaXXc`k5zU
+zPmz4zO9{6<SjF^^6<k06>#au{{=$*)@S%iv_jdSBkbLy;$f1YTk#t)095ZXe3Dbkl
+zKzXR?)S+uCw)-g6<k9uBKm{O4YFo9nSb3k%bp*KL_{y@~XZpIcq=T>^sd}j=sFaVU
+bb;kYzNz~aNvx?rW00000NkvXXu0mjf7*PZf
+
+literal 0
+HcmV?d00001
+
+diff --git a/sprites/menus/unit_info_cp.png b/sprites/menus/unit_info_cp.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..03e9e6cc7529ce1ee209560bf14c6896a1af932a
+GIT binary patch
+literal 263
+zcmeAS@N?(olHy`uVBq!ia0vp^0zk~c!3HEhl+{lMQjEnx?oJHr&dIz4a#+$GeH|GX
+zHuiJ>Nn{1`ISV`@iy0XB4uCLY*0oMfpdee4x4R3&e-K=-cll(X2z!aAuPggQ78yYS
+zz0%@eJAp#wo-U3d8o{mod-)m+I9gWE_LRSM@!-XSSIcuAb;z(TUD6w0^iuXqyWh*^
+zlHP>#8_ZWPEVT~SELUE7+nLw)=0O2**AI(x?xoLmI8hlGzW2QHEbe~~!sFi_Um7ac
+z{Qt77W!h)Qt3SLSC7wtX*qqR+p}?Q8_F`41+{q8Kh0~t8Fae#w;OXk;vd$@?2>_LX
+BU-|$5
+
+literal 0
+HcmV?d00001
+

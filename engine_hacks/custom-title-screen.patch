@@ -1,0 +1,432 @@
+diff --git a/app/engine/game_menus/menu_options.py b/app/engine/game_menus/menu_options.py
+index c370eff14..ae928904d 100644
+--- a/app/engine/game_menus/menu_options.py
++++ b/app/engine/game_menus/menu_options.py
+@@ -169,6 +169,9 @@ class SingleCharacterOption(BasicOption):
+         return 8
+ 
+ class TitleOption():
++    hover = False
++    last_time = 0
++
+     def __init__(self, idx, text, option_bg_name):
+         self.idx = idx
+         self.text = text
+@@ -199,6 +202,7 @@ class TitleOption():
+         text_size = font.size(text)
+         position = (x - text_size[0]//2, y - text_size[1]//2)
+ 
++        '''
+         # Handle outline
+         t = math.sin(math.radians((engine.get_time()//10) % 180))
+         color_transition = image_mods.blend_colors((192, 248, 248), (56, 48, 40), t)
+@@ -210,17 +214,39 @@ class TitleOption():
+         outline_surf = image_mods.change_color(outline_surf, color_transition)
+ 
+         surf.blit(outline_surf, (position[0] - 1, position[1] - 1))
++        '''
+         render_text(surf, [self.font], [text], [self.color], position)
+ 
+     def draw(self, surf, x, y):
+-        left = x - self.width()//2
+-        surf.blit(SPRITES.get(self.option_bg_name), (left, y))
+-
+-        self.draw_text(surf, left + self.width()//2, y + self.height()//2 + 1)
++        self._draw(surf, x, y, False)
+ 
+     def draw_highlight(self, surf, x, y):
++        self._draw(surf, x, y, True)
++
++    def _draw(self, surf, x, y, highlight:bool = False):
+         left = x - self.width()//2
+-        surf.blit(SPRITES.get(self.option_bg_name + '_highlight'), (left, y))
++
++        base_surf = SPRITES.get(self.option_bg_name)
++        highlight_surf = SPRITES.get(self.option_bg_name + '_highlight')
++
++        if highlight:
++            main_surf = highlight_surf
++            sub_surf = base_surf
++        else:
++            main_surf = base_surf
++            sub_surf = highlight_surf
++
++        surf.blit(main_surf, (left, y))
++
++        if self.hover != highlight:
++            self.hover = highlight
++            self.last_time = engine.get_time()
++
++        diff = (engine.get_time() - self.last_time) / 200
++        if diff < 1:
++            index_pixel = int(diff * self.width())
++            length = self.width() - index_pixel
++            surf.blit(engine.subsurface(sub_surf, (index_pixel, 0, length, self.height())), (left + index_pixel, y))
+ 
+         self.draw_text(surf, left + self.width()//2, y + self.height()//2 + 1)
+ 
+diff --git a/app/engine/game_state.py b/app/engine/game_state.py
+index 9f439e6c5..23e255585 100644
+--- a/app/engine/game_state.py
++++ b/app/engine/game_state.py
+@@ -1675,7 +1675,7 @@ def start_game():
+         game = GameState()
+     else:
+         game.clear()  # Need to use old game if called twice in a row
+-    game.load_states(['title_start'])
++    game.load_states(['keymap_guide'])
+     return game
+ 
+ def start_level(level_nid):
+diff --git a/app/engine/particles.py b/app/engine/particles.py
+index 1331d4b37..b283bdaa8 100644
+--- a/app/engine/particles.py
++++ b/app/engine/particles.py
+@@ -414,6 +414,40 @@ class PurpleMote(Particle):
+         sprite = image_mods.make_translucent_blend(self.sprite, alpha)
+         engine.blit(surf, sprite, (self.x - offset_x, self.y - offset_y), None, engine.BLEND_RGB_ADD)
+ 
++class PaintDrop(Particle):
++    full_sprite = SPRITES.get('particle_paint_drop')
++    fade_rate = 0.01
++    y_speed = 4
++    size = (64, 64)
++
++    def reset(self, pos):
++        super().reset((pos[0] + self.size[0]//2, pos[1] - 96))
++        r_idx = random.randint(0, self.full_sprite.get_width() // self.size[0] + 1)
++        self.sprite = engine.subsurface(self.full_sprite, (r_idx * self.size[0], 0, *self.size))
++        self.target = pos
++        self.transparency = 0.0
++        self.state = 'drop'
++        return self
++
++    def update(self):
++        if self.state == 'drop':
++            self.y += self.y_speed
++            if self.y >= self.target[1]:
++                self.x -= self.size[0]//2
++                self.state = 'splat'
++
++        elif self.state == 'splat':
++            self.transparency += self.fade_rate
++            if self.transparency >= 1.0:
++                self.remove_me_flag = True
++
++    def draw(self, surf, offset_x=0, offset_y=0):
++        if self.state == 'drop':
++            sprite = engine.transform_scale(self.sprite, (2, 6))
++        elif self.state == 'splat':
++            sprite = image_mods.make_translucent(self.sprite, self.transparency)
++        surf.blit(sprite, (self.x - offset_x, self.y - offset_y))
++
+ class EventTileParticle(Particle):
+     sprite = SPRITES.get('particle_light_mote')
+     x_speed = 0.16
+diff --git a/app/engine/state_machine.py b/app/engine/state_machine.py
+index 629c31f5e..45c0cbbee 100644
+--- a/app/engine/state_machine.py
++++ b/app/engine/state_machine.py
+@@ -170,7 +170,8 @@ class StateMachine():
+              'dialog_log': dialog_log.DialogLogState,
+              'party_transfer': party_transfer.PartyTransferState,
+              'party_transfer_confirm': party_transfer.PartyTransferConfirmState,
+-             'credit': credit_state.CreditState
++             'credit': credit_state.CreditState,
++             'keymap_guide': title_screen.KeymapGuideState
+              }
+ 
+         if starting_states:
+diff --git a/app/engine/title_screen.py b/app/engine/title_screen.py
+index 021204875..cc3c2de2b 100644
+--- a/app/engine/title_screen.py
++++ b/app/engine/title_screen.py
+@@ -30,6 +30,135 @@ from app.utilities import utils
+ 
+ import logging
+ 
++class Logo():
++    def __init__(self, texture: engine.Surface, center=(WINWIDTH//2, WINHEIGHT//2 - 20), speed=400, buffer_time=400):
++        self.texture = texture
++        self.speed = speed
++        self.center = center
++        self.init_time = engine.get_time() + buffer_time
++        self.draw_image = self.texture
++        self.state = 'intro'
++
++    def update(self):
++        self.draw_image = engine.create_surface((WINWIDTH, WINHEIGHT), transparent=True)
++        diff = max(engine.get_time() - self.init_time, 0)
++
++        if self.state == 'intro':
++            if diff > self.speed:
++                self.state = 'pulsating'
++                get_sound_thread().play_sfx('Thunder')
++                engine.blit_center(self.draw_image, self.texture, self.center)
++                return
++
++            x, y = self.center
++            width, height = self.texture.get_size()
++            upper = engine.subsurface(self.texture, (0, 0, width, height//2))
++            lower = engine.subsurface(self.texture, (0, height//2, width, height//2))
++            distance = max(1.0 - (diff / self.speed) ** 2, 0) * WINHEIGHT
++
++            self.draw_image.blit(upper, (x - width//2, y - distance - height//2))
++            self.draw_image.blit(lower, (x - width//2, y + distance))
++
++        elif self.state == 'pulsating':
++            if diff > self.speed + 400:
++                import math
++                scale = 1500
++                n = 13
++                t = diff / scale
++
++                mag = abs(sum([n/2**(k-1) * math.sin(n*k*(t+k)) for k in range(1, 4)])) / 80 + 1.0
++                im = engine.transform_scale(self.texture, utils.tmult(self.texture.get_size(), mag))
++            else:
++                im = self.texture
++
++            engine.blit_center(self.draw_image, im, self.center)
++
++    def draw(self, surf):
++        surf.blit(self.draw_image, (0,0))
++
++class KeymapGuideState(State):
++    name = "keymap_guide"
++    in_level = False
++    show_map = False
++
++    def _draw_keymap(self, surf):
++        from app.engine.game_menus.menu_components.generic_menu.simple_menu_wrapper import SimpleMenuUI
++
++        keymap = []
++        movement_keys = {}
++        correction_dict = {
++            'SPEED': 'SPEED UP',
++            'RETURN': 'ENTER'
++        }
++        sprite = SPRITES.get('buttons')
++        sprites_rect = {
++            'SELECT':   (0,  66, 14, 13),
++            'BACK':     (0,  82, 14, 13),
++            'AUX':      (1, 133, 16,  9),
++            'INFO':     (1, 149, 16,  9),
++            'START':    (0, 165, 33,  9),
++            'MOVE':     (0, 192, 16, 16),
++            'SPEED':    (0, 208, 16, 16)
++        }
++        for k, v in cf.SETTINGS.items():
++            tokens = k.split('_')
++            if tokens[0] != 'key':
++                continue
++
++            key = tokens[1]
++            button = engine.get_key_name(v).upper()
++            if key in ('UP', 'LEFT', 'DOWN', 'RIGHT'):
++                movement_keys[key] = button
++            else:
++                if rect := sprites_rect.get(key):
++                    engine.blit_center(surf, engine.subsurface(sprite, rect), (20, 34 + len(keymap)*8))
++                keymap += ['        <yellow>%s</>' % correction_dict.get(key, key).lower().capitalize(),
++                           'Press <blue>%s</>' % correction_dict.get(button, button)]
++
++        engine.blit_center(surf, engine.subsurface(sprite, sprites_rect.get('MOVE')), (20, 34 + len(keymap)*8))
++        keymap += ['        <yellow>Move</>',
++                   'Press <blue>%s</>' % ''.join(movement_keys[k] for k in ('UP', 'LEFT', 'DOWN', 'RIGHT'))]
++
++        table = SimpleMenuUI(keymap, title='CONTROL GUIDE', rows=7, cols=2, row_width=120, bg='')
++        table.draw(surf)
++
++    def _draw_tip(self, surf):
++        import random
++        from app.engine.graphics.text.text_renderer import render_text
++
++        count = RECORDS.get('loading_count')
++        if count is None:
++            count = 0
++            RECORDS.create('loading_count', count)
++        else:
++            count += 1
++            RECORDS.update('loading_count', count)
++
++        key = 'startup_msg_%d' % count
++        if key in DB.translations:
++            tip = text_funcs.translate(key)
++        else:
++            options = [v.text for k, v in DB.translations.items() if k.startswith('tip_msg')]
++            tip = 'Tip: %s' % random.choice(options) if options else ''
++
++        render_text(surf, ['text'], [tip], ['white'], (10, 140))
++
++    def start(self):
++        self.surf = engine.create_surface((WINWIDTH, WINHEIGHT), transparent=True)
++        self._draw_keymap(self.surf)
++        self._draw_tip(self.surf)
++
++    def take_input(self, event):
++        if event:
++            get_sound_thread().play_sfx('Select 1')
++            game.memory['next_state'] = 'title_start'
++            game.memory['transition_speed'] = 4
++            game.state.change('transition_to')
++
++    def draw(self, surf):
++        surf.blit(self.surf, (0,0))
++        return surf
++
+ class TitleStartState(State):
+     name = "title_start"
+     in_level = False
+@@ -50,17 +179,14 @@ class TitleStartState(State):
+             self.press_start = None
+ 
+         if logo:
+-            num_frames = 1
+-            speed = 64
+-            height = utils.clamp(WINHEIGHT//2 - 40, logo.get_height()//2, WINHEIGHT//2)
+-            self.logo = gui.Logo(logo, (WINWIDTH//2, height), num_frames, speed)
++            self.logo = Logo(logo)
+         else:
+             self.logo = None
+ 
+         self.particles = None
+         if DB.constants.value('title_particles'):
+-            bounds = (-WINHEIGHT, WINWIDTH, WINHEIGHT, WINHEIGHT + 16)
+-            self.particles = particles.MapParticleSystem('title', particles.Smoke, .075, bounds, (TILEX, TILEY))
++            bounds = (0, WINWIDTH - 64, 0, WINHEIGHT - 64)
++            self.particles = particles.MapParticleSystem('title', particles.PaintDrop, .001, bounds, (64, 64))
+             self.particles.prefill()
+         game.memory['title_particles'] = self.particles
+         game.memory['transition_speed'] = 0.5
+@@ -925,8 +1051,8 @@ class TitleSaveState(State):
+ 
+         self.particles = None
+         if DB.constants.value('title_particles'):
+-            bounds = (-WINHEIGHT, WINWIDTH, WINHEIGHT, WINHEIGHT + 16)
+-            self.particles = particles.MapParticleSystem('title', particles.Smoke, .075, bounds, (TILEX, TILEY))
++            bounds = (0, WINWIDTH - 64, 0, WINHEIGHT - 64)
++            self.particles = particles.MapParticleSystem('title', particles.PaintDrop, .001, bounds, (64, 64))
+             self.particles.prefill()
+         game.memory['title_particles'] = self.particles
+ 
+diff --git a/sprites/particles/particle_paint_drop.png b/sprites/particles/particle_paint_drop.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..dd50c52140a9b4a8eaee419dc8c51e5a7947e476
+GIT binary patch
+literal 5784
+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
+WXlF-jd^BkQ0000<MNUMnLSTZ?vqirE
+
+literal 0
+HcmV?d00001
+

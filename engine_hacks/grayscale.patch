@@ -1,0 +1,25 @@
+diff --git a/app/engine/driver.py b/app/engine/driver.py
+index a7ff8804c..ec8630773 100644
+--- a/app/engine/driver.py
++++ b/app/engine/driver.py
+@@ -276,6 +276,9 @@ class MainLoop():
+         get_sound_thread().update(raw_events)
+         updated = time.perf_counter_ns()
+ 
++        if game.game_vars.get("grayscale"):
++            engine.apply_grayscale(self.surf)
++
+         engine.push_display(self.surf, engine.get_screensize(), engine.DISPLAYSURF)
+ 
+         save_screenshot(raw_events, self.surf)
+diff --git a/app/engine/engine.py b/app/engine/engine.py
+index 519a141f7..85597cc20 100644
+--- a/app/engine/engine.py
++++ b/app/engine/engine.py
+@@ -479,3 +479,6 @@ def write_system_msg(surf, msg: str):
+         y += SYSTEM_FONT_SIZE
+         x = 0
+     return surf
++
++def apply_grayscale(surf):
++    pygame.transform.grayscale(surf, surf)

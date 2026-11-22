@@ -1,0 +1,49 @@
+diff --git a/app/engine/config.py b/app/engine/config.py
+index e0490ab25..6539026b7 100644
+--- a/app/engine/config.py
++++ b/app/engine/config.py
+@@ -13,7 +13,7 @@ def base_config() -> OrderedDict:
+                         ('screen_size', 2),
+                         ('fullscreen', 0),
+                         ('sound_buffer_size', 2),
+-                        ('animation', 'Always'),
++                        ('animation', 'Never'),
+                         ('display_fps', 0),
+                         ('battle_bg', 0),
+                         ('unit_speed', 133),  # ms a tile: 8 frames, as on the GBA
+@@ -32,8 +32,8 @@ def base_config() -> OrderedDict:
+                         ('autoend_turn', 1),
+                         ('confirm_end', 1),
+                         ('hp_map_team', 'All'),
+-                        ('hp_map_cull', 'All'),
+-                        ('display_hints', 0),
++                        ('hp_map_cull', 'Wounded'),
++                        ('display_hints', 1),
+                         ('rumble', 1),
+                         ('key_SELECT', 'K_x'),
+                         ('key_BACK', 'K_z'),
+diff --git a/app/engine/settings.py b/app/engine/settings.py
+index 58189c780..690c75af5 100644
+--- a/app/engine/settings.py
++++ b/app/engine/settings.py
+@@ -85,7 +85,9 @@ class SettingsMenuState(State):
+         # top_menu, menu, reset_button, reset_confirm, get_input
+         self.state = 'top_menu'
+ 
+-        config_options = [(c[0], c[1]) for c in config]
++        ignores = ['animation']
++
++        config_options = [(c[0], c[1]) for c in config if c[0] not in ignores]
+         self.config_menu = settings_menu.Config(None, config_options, 'menu_bg_base', config_icons)
+         self.config_menu.takes_input = False
+ 
+@@ -365,8 +367,7 @@ class SettingsMenuState(State):
+             if self.state == 'top_menu':
+                 text = 'config_desc'
+             else:
+-                idx = self.config_menu.get_current_index()
+-                text = config[idx][0] + '_desc'
++                text = self.config_menu.get_current() + '_desc'
+         elif self.tab == 'keyboard':
+             text = 'keymap_desc'
+         else:

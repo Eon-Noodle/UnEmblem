@@ -1,0 +1,37 @@
+diff --git a/app/engine/general_states.py b/app/engine/general_states.py
+index 575868866..935740c65 100644
+--- a/app/engine/general_states.py
++++ b/app/engine/general_states.py
+@@ -47,6 +47,7 @@ def get_multi_item_choices(unit: UnitObject, parent_item: ItemObject, weapons: b
+ class LoadingState(State):
+     name = 'start_level_asset_loading'
+     transparent = False
++    sprites = []
+ 
+     # For A E S T H E T I C S
+     duration = 1000  # How long to wait after we load in everything to actually move to the turn_change state
+@@ -88,6 +89,14 @@ class LoadingState(State):
+                 level_songs.add(music_command.parameters.get('Music'))
+             self.loading_threads.append(threads.start(get_sound_thread().load_songs, (level_songs,)))
+ 
++        idx = 0
++        while True:
++            sprite_name = 'loading_screen_sprites_%d' % idx
++            if sprite_name not in SPRITES:
++                break
++            self.sprites.append(SPRITES.get(sprite_name))
++            idx += 1
++
+     def update(self):
+         if self.loading_threads is None:
+             if self.frames_waited == self.frames_before_loading:
+@@ -105,7 +114,8 @@ class LoadingState(State):
+                 game.state.change('turn_change')
+ 
+     def draw(self, surf):
+-        surf.blit(SPRITES.get('bg_black'), (0, 0))
++        if self.sprites:
++            engine.blit_center(surf, self.sprites[engine.get_time() // 10 % len(self.sprites)])
+         return surf
+ 
+     def end(self):

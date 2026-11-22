@@ -1,0 +1,90 @@
+diff --git a/app/engine/credit_state.py b/app/engine/credit_state.py
+index 74f417cdb..908d45943 100644
+--- a/app/engine/credit_state.py
++++ b/app/engine/credit_state.py
+@@ -333,7 +333,6 @@ class CreditDisplay():
+             y_offset = utils.clamp(prefab.get_info_coord()[1] + (INFO_PORTRAIT_HEIGHT - height) // 2,
+                                     0, prefab.face_size[1] - height)
+             im = engine.subsurface(im, (x_offset, y_offset, width, height)).convert_alpha()
+-            im = image_mods.make_translucent(im, 0.5)
+             # Blit from bottom right
+             surf.blit(im, utils.tuple_sub(utils.tuple_add(self.topleft, (width, height)), im.get_size()))
+ 
+diff --git a/app/engine/general_states.py b/app/engine/general_states.py
+index 575868866..52c789cfb 100644
+--- a/app/engine/general_states.py
++++ b/app/engine/general_states.py
+@@ -1157,13 +1157,8 @@ class MenuState(MapState):
+                 get_sound_thread().play_sfx('Info Out')
+                 self.menu.info_flag = False
+             else:
+-                selection = self.menu.get_current()
+-                # Show info menu for the basic stuff
+-                if selection in ('Attack', 'Spells', 'Item', 'Wait'):
+-                    _handle_info()
+-                else:  # Show description for everything else.
+-                    get_sound_thread().play_sfx('Info In')
+-                    self.menu.info_flag = True
++                get_sound_thread().play_sfx('Info In')
++                self.menu.info_flag = True
+ 
+         elif event == 'SELECT':
+             get_sound_thread().play_sfx('Select 1')
+diff --git a/app/engine/level_up.py b/app/engine/level_up.py
+index 98c1b292c..c9c1c12bf 100644
+--- a/app/engine/level_up.py
++++ b/app/engine/level_up.py
+@@ -794,7 +794,7 @@ class ExpBar():
+         return surf
+ 
+ class ManaBar(ExpBar):
+-    background = engine.subsurface(SPRITES.get('manabar'), (0, 0, 136, 24))
++    background = engine.subsurface(SPRITES.get('manabar'), (0, 0, 144, 24))
+     begin = engine.subsurface(SPRITES.get('manabar'), (0, 24, 3, 7))
+     middle = engine.subsurface(SPRITES.get('manabar'), (3, 24, 1, 7))
+     end = engine.subsurface(SPRITES.get('manabar'), (4, 24, 2, 7))
+diff --git a/app/engine/ui_view.py b/app/engine/ui_view.py
+index 4681ee807..17380d6cd 100644
+--- a/app/engine/ui_view.py
++++ b/app/engine/ui_view.py
+@@ -395,10 +395,13 @@ class UIView():
+             render_text(bg_surf, ['small'], [str(tile_avoid)], [None], (bg_surf.get_width() - 4, 25), HAlignment.RIGHT)
+ 
+         name = terrain.name
+-        width = text_width('text', name)
+-        height = FONT['text'].height
++        font = 'text'
++        if text_width(font, name) >= bg_surf.get_width():
++            font = 'narrow'
++        width = text_width(font, name)
++        height = FONT[font].height
+         pos = (bg_surf.get_width()//2 - width//2, 22 - height)
+-        render_text(bg_surf, ['text'], [name], [None], pos)
++        render_text(bg_surf, [font], [name], [None], pos)
+         return bg_surf
+ 
+     def create_obj_info(self):
+@@ -668,8 +671,8 @@ class UIView():
+             e_hit = '--'
+             e_crit = '--'
+ 
+-        stat = [attacker.get_hp()]
+-        e_stat = [defender.get_hp()]
++        stat = [attacker.get_hp() if attacker.get_hp() < 100 else '??']
++        e_stat = [defender.get_hp() if defender.get_hp() < 100 else '??']
+ 
+         if grandmaster:
+             stat.append(int(mt * float(utils.clamp(hit, 0, 100)) / 100))
+diff --git a/app/events/event_functions.py b/app/events/event_functions.py
+index 5fdbec41f..443b92f19 100644
+--- a/app/events/event_functions.py
++++ b/app/events/event_functions.py
+@@ -3712,7 +3712,7 @@ def soundroom(self: Event, panorama = "default_background", flags=None):
+         self.game.state.change('transition_to')
+ 
+ def location_card(self: Event, string, flags=None):
+-    new_location_card = dialog.LocationCard(string)
++    new_location_card = dialog.LocationCard(string, "menu_bg_parchment")
+     self.other_boxes.append((None, new_location_card))
+ 
+     self.wait_time = engine.get_time() + new_location_card.exist_time
