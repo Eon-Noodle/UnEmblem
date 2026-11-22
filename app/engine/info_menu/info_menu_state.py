@@ -119,6 +119,10 @@ class InfoMenuState(State):
         self.transition_counter = 0
         self.transparency = 0
 
+        self.book_rect = (23, 14, 144, WINHEIGHT)
+        self.book_bg = engine.subsurface(SPRITES.get('book_flip_0'), self.book_rect)
+        self.book_flip_sprite = None
+
         game.state.change('transition_in')
         return 'repeat'
 
@@ -247,7 +251,7 @@ class InfoMenuState(State):
 
     def move_left(self):
         if len(info_states) > 1:
-            get_sound_thread().play_sfx('Status_Page_Change')
+            get_sound_thread().play_sfx('Status_Character')
             index = info_states.index(self.state)
             new_index = (index - 1) % len(info_states)
             self.next_state = info_states[new_index]
@@ -261,7 +265,7 @@ class InfoMenuState(State):
 
     def move_right(self):
         if len(info_states) > 1:
-            get_sound_thread().play_sfx('Status_Page_Change')
+            get_sound_thread().play_sfx('Status_Character')
             index = info_states.index(self.state)
             new_index = (index + 1) % len(info_states)
             self.next_state = info_states[new_index]
@@ -369,6 +373,21 @@ class InfoMenuState(State):
         # Left and Right
         elif self.next_state is not None:
             self.transition_counter += 1
+            if self.transition_counter % 4 == 0:
+                counter = self.transition_counter // 4
+                if book_flip_sprite := SPRITES.get('book_flip_%d' % counter, None):
+                    if self.transition == 'RIGHT':
+                        book_flip_sprite = engine.flip_horiz(book_flip_sprite)
+                    self.book_flip_sprite = engine.subsurface(book_flip_sprite, self.book_rect)
+                else:
+                    self.book_flip_sprite = None
+                    self.state = self.next_state
+                    self.next_state = None
+                    self.info_graph.set_current_state(self.state)
+                    self.transition = None
+                    self.transition_counter = 0
+
+            '''
             # As on the GBA (sPageSlideOffsetLut), the page slides out 4, 7, 10, 12 and 14 tiles,
             # and the next one in from 13, 9, 7, 5, 3, 2 and 1 tiles away, a step a frame
             in_offsets = (104, 72, 56, 40, 24, 16, 8)
@@ -393,6 +412,7 @@ class InfoMenuState(State):
                     self.info_graph.set_current_state(self.state)
                     self.transition_counter = 1
                     self.scroll_offset_x = in_offsets[0] if self.transition == 'RIGHT' else -in_offsets[0]
+            '''
 
     def draw(self, surf):
         if self.bg:
@@ -400,6 +420,8 @@ class InfoMenuState(State):
         else:
             # info menu shouldn't be transparent
             surf.blit(SPRITES.get('bg_black'), (0, 0))
+
+        surf.blit(self.book_bg, (96, 0))
 
         # Image flashy thing at the top of the InfoMenu
         num_frames = 8
@@ -410,7 +432,11 @@ class InfoMenuState(State):
         surf.blit(im, (98, 0), None, engine.BLEND_RGB_ADD)
 
         self.draw_portrait(surf)
-        self.draw_slide(surf)
+
+        if self.book_flip_sprite:
+            surf.blit(self.book_flip_sprite, (96, 0))
+        else:
+            self.draw_slide(surf)
 
         if self.info_graph.current_bb or self.info_graph.last_bb:  # The last one, as it shrinks away
             self.info_graph.draw(surf)
