@@ -1,10 +1,14 @@
 import logging
+import os
+import shutil
+import tempfile
 import unittest
 
 import app.engine.item_component_access as ICA
 import app.engine.skill_component_access as SCA
 from app.data.database.components import ComponentType
 from app.data.database.database import DB
+from app.data.database.teams import Team
 from app.data.resources.resources import RESOURCES
 from app.data.serialization.versions import CURRENT_SERIALIZATION_VERSION
 from app.data.validation.db_validation import DBChecker
@@ -124,6 +128,41 @@ class ReferenceValidationTests(ValidationTestCase):
                 make_break()
                 self.assertTrue(self.errors())
                 self.assertEqual([], self.warnings())
+
+
+class TeamValidationTests(ValidationTestCase):
+    def custom_sprite(self, name: str) -> None:
+        '''Puts a sprite by this name in a custom sprites folder of a copy of the
+        project's resources, without loading it'''
+        folder = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, folder)
+        os.makedirs(os.path.join(folder, 'custom_sprites'))
+        shutil.copy('sprites/turnbanner_other.png', os.path.join(folder, 'custom_sprites', name + '.png'))
+        RESOURCES.main_folder = folder
+
+    def test_a_team_with_no_turn_banner_is_a_warning(self):
+        DB.teams.append(Team('rebels'))
+
+        self.assertEqual([], self.errors())
+        self.assert_one(self.warnings(), 'WARNING', 'rebels', 'turnbanner_rebels')
+
+    def test_a_team_with_a_custom_turn_banner(self):
+        DB.teams.append(Team('rebels'))
+        self.custom_sprite('turnbanner_rebels')
+
+        self.assertEqual([], self.warnings())
+
+    def test_a_team_with_a_custom_turn_banner_only_in_its_combat_color(self):
+        DB.teams.append(Team('rebels', combat_color='blue'))
+        self.custom_sprite('turnbanner_rebels_blue')
+
+        self.assertEqual([], self.warnings())
+
+    def test_a_team_with_a_custom_turn_banner_only_in_another_color_is_a_warning(self):
+        DB.teams.append(Team('rebels', combat_color='blue'))
+        self.custom_sprite('turnbanner_rebels_red')
+
+        self.assert_one(self.warnings(), 'rebels', 'turnbanner_rebels')
 
 
 class UnitValidationTests(ValidationTestCase):

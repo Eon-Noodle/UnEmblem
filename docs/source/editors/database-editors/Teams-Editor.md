@@ -5,7 +5,7 @@ _last updated 2024-11-11_
 
 ## Banner Displays
 
-When adding teams, new banner images will need to be provided for each new team's phase start. These should be in the format `turnbanner_TEAMNAME` and can be placed in the custom_sprites directory of your project.
+When adding teams, new banner images will need to be provided for each new team's phase start. These should be in the format `turnbanner_TEAMNAME` (or `turnbanner_TEAMNAME_COLOR` for a banner in the team's combat color) and can be placed in the custom_sprites directory of your project. A team without one shows the `other` team's banner, and the editor's validation warns of it.
 
 For example, if you create a team named `enemy3`, you should place an image like the below named `turnbanner_enemy3.png` in your custom_sprites directory. Otherwise, a small error square will show up instead.
 

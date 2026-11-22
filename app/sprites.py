@@ -1,6 +1,7 @@
 from app.constants import WINHEIGHT, WINWIDTH
 import os
 from dataclasses import dataclass
+from typing import Dict, Set
 from app.engine import engine
 
 @dataclass
@@ -38,12 +39,23 @@ class SpriteDict(dict):
             return self[fallback].image
         return None
 
-def load_sprites(root):
-    for root, dirs, files in os.walk(root):
+def sprite_files(root: str) -> Dict[str, str]:
+    '''The path of every sprite under root, by sprite name'''
+    found = {}
+    for folder, dirs, files in os.walk(root):
         for name in files:
             if name.endswith('.png'):
-                full_name = os.path.join(root, name)
-                SPRITES[name[:-4]] = BasicSprite(full_name)
+                found[name[:-4]] = os.path.join(folder, name)
+    return found
+
+def sprite_names(custom_sprites_folder: str) -> Set[str]:
+    '''The names of the sprites a project with this custom sprites folder has,
+    as they are on disk now'''
+    return set(sprite_files('sprites/')) | set(sprite_files(custom_sprites_folder))
+
+def load_sprites(root):
+    for name, full_name in sprite_files(root).items():
+        SPRITES[name] = BasicSprite(full_name)
 
 def load_special_sprites():
     black_bg = engine.create_simple_surface((WINWIDTH, WINHEIGHT))

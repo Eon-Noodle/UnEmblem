@@ -142,11 +142,15 @@ class PhaseIn():
 
         # Always prefer a banner matching the team's combat color, whether that color
         # came from the team editor or from a runtime change; combat_color_diverged()
-        # only catches the latter. SPRITES.get falls back on the uncolored banner.
-        sprite_name = 'turnbanner_' + self.name
-        team_obj = game.teams[self.name]
-        colored_name = sprite_name + '_' + team_obj.combat_color
-        self.image = SPRITES.get(colored_name, sprite_name)
+        # only catches the latter. Then the team's uncolored banner, and for a team
+        # with no banner of its own (the validator warns of it), the 'other' team's.
+        color = game.teams[self.name].combat_color
+        for team_nid in (self.name, 'other'):
+            sprite_name = 'turnbanner_' + team_nid
+            for name in (sprite_name + '_' + color, sprite_name):
+                if name in SPRITES:
+                    self.image = SPRITES.get(name)
+                    return
         
     def update(self):
         return engine.get_time() - self.starting_time >= self.t_display

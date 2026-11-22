@@ -1,7 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
+import os
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+from app import sprites
 from app.data.database import references
 from app.data.database.components import Component, ComponentType
 from app.data.database.database import Database
@@ -205,6 +207,18 @@ class DBChecker():
             res.errors += self._val_or_err(unit.alternate_classes, DType.CLASSES, u_err.field("Alternate Classes"))
         return res
 
+    def validate_teams(self) -> ValidationResult:
+        """A team with no turn banner of its own, in its combat color or uncolored,
+        shows the 'other' team's banner at the start of its phase"""
+        res = ValidationResult()
+        names = sprites.sprite_names(os.path.join(self.resources.main_folder, 'custom_sprites'))
+        for team in self.db.teams:
+            banner = 'turnbanner_' + team.nid
+            if banner not in names and banner + '_' + team.combat_color not in names:
+                res.warnings.append(ltdb.Error(DType.TEAMS, team.nid).to_warn().msg(
+                    "No turn banner sprite '%s' in custom_sprites, so its phase starts with the 'other' team's banner" % banner))
+        return res
+
     def validate_equations(self) -> ValidationResult:
         stat_nids = [stat.nid for stat in self.db.stats]
         equation_nids = [equation.nid for equation in self.db.equations if equation.expression]
@@ -312,6 +326,7 @@ class DBChecker():
         all_warnings += self.validate_items_and_skills().warnings
         all_warnings += self.validate_levels().warnings
         all_warnings += self.validate_units().warnings
+        all_warnings += self.validate_teams().warnings
         all_warnings += self.validate_references().warnings
         all_warnings += self.validate_resource_references().warnings
         return all_warnings
